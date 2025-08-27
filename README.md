@@ -26,7 +26,7 @@ Ta aplikacja automatycznie konwertuje szablony aplikacji Portainer z formatu v2 
 1. **Sklonuj lub pobierz pliki:**
    ```bash
    # Opcja 1: Pobierz główny plik
-   wget https://example.com/portainer_converter.py
+   wget https://raw.githubusercontent.com/bauerpawel/Portainer_templates_v3_converter/refs/heads/main/portainer_converter.py
 
    # Opcja 2: Lub skopiuj kod do pliku portainer_converter.py
    ```
