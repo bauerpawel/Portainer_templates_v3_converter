@@ -20,20 +20,29 @@ Ta aplikacja automatycznie konwertuje szablony aplikacji Portainer z formatu v2 
 
 - Python 3.6+
 - Biblioteka `requests`
+- Biblioteka `jsonschema` (dla walidacji JSON Schema)
 
 ## Instalacja
 
 1. **Sklonuj lub pobierz pliki:**
    ```bash
-   # Opcja 1: Pobierz główny plik
+   # Opcja 1: Sklonuj repozytorium
+   git clone https://github.com/bauerpawel/Portainer_templates_v3_converter.git
+   cd Portainer_templates_v3_converter
+
+   # Opcja 2: Pobierz główny plik
    wget https://raw.githubusercontent.com/bauerpawel/Portainer_templates_v3_converter/refs/heads/main/portainer_converter.py
 
-   # Opcja 2: Lub skopiuj kod do pliku portainer_converter.py
+   # Opcja 3: Lub skopiuj kod do pliku portainer_converter.py
    ```
 
 2. **Zainstaluj wymagane biblioteki:**
    ```bash
-   pip install requests
+   # Opcja 1: Z pliku requirements.txt (zalecane)
+   pip install -r requirements.txt
+
+   # Opcja 2: Manualnie
+   pip install requests jsonschema
    ```
 
 ## Użycie
@@ -78,6 +87,9 @@ python portainer_converter.py --help
 🔄 Rozpoczynanie konwersji v2 -> v3...
 ✅ Konwersja zakończona! Przekonwertowano 472 szablonów
 🔍 Walidacja formatu v3...
+🔍 Walidacja z JSON Schema...
+✅ Walidacja JSON Schema zakończona pomyślnie
+🔍 Dodatkowe sprawdzenia biznesowe...
 ✅ Walidacja zakończona pomyślnie
 💾 Zapisywanie do pliku: templates_v3_converted.json
 ✅ Plik zapisany pomyślnie: templates_v3_converted.json (1.2 MB)
@@ -151,8 +163,23 @@ python portainer_converter.py --help
    - Dodanie pustego pola `labels`
    - Usunięcie pól `restart_policy` i `platform`
    - Kopiowanie pozostałych pól
-3. **Walidacja** poprawności formatu v3
+3. **Walidacja** poprawności formatu v3:
+   - Walidacja z oficjalnym JSON Schema (plik `schema_v3.json`)
+   - Sprawdzenie wymaganych pól
+   - Sprawdzenie typów danych
+   - Dodatkowe sprawdzenia biznesowe (stare pola z v2, itp.)
 4. **Zapisanie** do pliku JSON z ładnym formatowaniem
+
+### Walidacja JSON Schema
+
+Aplikacja wykorzystuje oficjalne JSON Schema dla Portainer templates v3 (`schema_v3.json`), które zapewnia:
+
+- **Automatyczną walidację struktury** - sprawdza czy wszystkie wymagane pola są obecne
+- **Walidację typów danych** - weryfikuje czy pola mają poprawne typy (string, integer, array, itp.)
+- **Walidację formatów** - sprawdza poprawność URL-i, wzorców portów, itp.
+- **Szczegółowe komunikaty błędów** - dokładnie wskazuje co jest nieprawidłowe
+
+Jeśli plik `schema_v3.json` nie jest dostępny, walidacja JSON Schema zostanie pominięta, ale podstawowa walidacja nadal będzie wykonana.
 
 ### Obsługiwane pola szablonów
 
@@ -211,7 +238,7 @@ Zgłaszaj błędy i sugestie poprzez Issues. Pull requesty są mile widziane!
 ### TODO / Planowane funkcje:
 - [ ] Obsługa szablonów Kubernetes
 - [ ] Migracja etykiet z pola `restart_policy`
-- [ ] Walidacja z oficjalnym schema JSON
+- [x] Walidacja z oficjalnym schema JSON
 - [ ] Obsługa dodatkowych źródeł szablonów
 - [ ] GUI (graficzny interfejs użytkownika)
 

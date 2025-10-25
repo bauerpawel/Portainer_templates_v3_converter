@@ -26,8 +26,10 @@ import json
 import requests
 import argparse
 import sys
+import os
 from typing import Dict, Any, Optional
 from datetime import datetime
+from jsonschema import validate, ValidationError, Draft7Validator
 
 class PortainerTemplateConverter:
     """Klasa do konwersji szablonów Portainer z v2 na v3"""
@@ -35,6 +37,28 @@ class PortainerTemplateConverter:
     def __init__(self):
         self.default_v2_url = "https://raw.githubusercontent.com/Lissy93/portainer-templates/refs/heads/main/templates.json"
         self.default_output_file = "templates_v3_converted.json"
+        self.schema_file = os.path.join(os.path.dirname(__file__), "schema_v3.json")
+        self.schema = None
+
+    def load_schema(self) -> Dict[str, Any]:
+        """
+        Ładuje JSON Schema dla Portainer v3 templates
+        """
+        if self.schema is not None:
+            return self.schema
+
+        try:
+            with open(self.schema_file, 'r', encoding='utf-8') as f:
+                self.schema = json.load(f)
+            return self.schema
+        except FileNotFoundError:
+            print(f"⚠️  Ostrzeżenie: Plik schema nie został znaleziony: {self.schema_file}")
+            print("   Walidacja JSON Schema zostanie pominięta")
+            return None
+        except json.JSONDecodeError as e:
+            print(f"⚠️  Ostrzeżenie: Błąd parsowania schema: {e}")
+            print("   Walidacja JSON Schema zostanie pominięta")
+            return None
 
     def download_v2_templates(self, url: str) -> Dict[str, Any]:
         """
@@ -136,14 +160,56 @@ class PortainerTemplateConverter:
             print(f"❌ Błąd zapisywania pliku: {e}")
             sys.exit(1)
 
+    def validate_with_json_schema(self, v3_data: Dict[str, Any]) -> bool:
+        """
+        Walidacja z użyciem oficjalnego JSON Schema
+        """
+        print("🔍 Walidacja z JSON Schema...")
+
+        schema = self.load_schema()
+        if schema is None:
+            print("⚠️  Pomijam walidację JSON Schema (brak pliku schema)")
+            return True
+
+        try:
+            # Tworzymy validator
+            validator = Draft7Validator(schema)
+
+            # Zbieramy wszystkie błędy
+            errors = list(validator.iter_errors(v3_data))
+
+            if errors:
+                print(f"❌ Znaleziono {len(errors)} błędów walidacji JSON Schema:")
+                # Pokazujemy do 10 najważniejszych błędów
+                for i, error in enumerate(errors[:10], 1):
+                    # Tworzymy ścieżkę do błędu
+                    path = " -> ".join(str(p) for p in error.path) if error.path else "root"
+                    print(f"   {i}. {path}: {error.message}")
+
+                if len(errors) > 10:
+                    print(f"   ... i {len(errors) - 10} więcej błędów")
+                return False
+
+            print("✅ Walidacja JSON Schema zakończona pomyślnie")
+            return True
+
+        except Exception as e:
+            print(f"❌ Błąd podczas walidacji JSON Schema: {e}")
+            return False
+
     def validate_v3_format(self, v3_data: Dict[str, Any]) -> bool:
         """
-        Podstawowa walidacja formatu v3
+        Kompleksowa walidacja formatu v3
+        Łączy walidację JSON Schema z dodatkowymi sprawdzeniami
         """
         print("🔍 Walidacja formatu v3...")
 
+        # 1. Walidacja z JSON Schema (jeśli dostępna)
+        schema_valid = self.validate_with_json_schema(v3_data)
+
+        # 2. Podstawowa walidacja struktury
         if str(v3_data.get('version')) != '3':
-            print("❌ Nieprawidłowa wersja")
+            print("❌ Nieprawidłowa wersja (oczekiwano '3')")
             return False
 
         templates = v3_data.get('templates', [])
@@ -151,33 +217,40 @@ class PortainerTemplateConverter:
             print("❌ Brak szablonów")
             return False
 
-        # Sprawdzamy wszystkie szablony
+        # 3. Dodatkowe sprawdzenia biznesowe
+        print("🔍 Dodatkowe sprawdzenia biznesowe...")
+        warnings = []
         errors = []
-        for i, template in enumerate(templates):
-            if 'id' not in template:
-                errors.append(f"Brak pola 'id' w szablonie {i+1}")
 
-            if 'labels' not in template:
-                errors.append(f"Brak pola 'labels' w szablonie {i+1}")
-
-            # Wymagane pola
-            required_fields = ['title', 'description', 'type']
-            for field in required_fields:
-                if field not in template:
-                    errors.append(f"Brak wymaganego pola '{field}' w szablonie {i+1}")
-
-            # Sprawdzamy czy nie ma starych pól
+        for i, template in enumerate(templates, 1):
+            # Sprawdzenie starych pól z v2
             old_fields = ['restart_policy', 'platform']
             for field in old_fields:
                 if field in template:
-                    errors.append(f"Szablon {i+1} zawiera stare pole '{field}' z v2")
+                    warnings.append(f"Szablon {i} ('{template.get('title', 'unknown')}'): zawiera stare pole '{field}' z v2")
 
+            # Sprawdzenie czy labels jest listą (jeśli istnieje)
+            if 'labels' in template and not isinstance(template['labels'], list):
+                errors.append(f"Szablon {i} ('{template.get('title', 'unknown')}'): pole 'labels' powinno być listą")
+
+        # Pokazujemy ostrzeżenia
+        if warnings:
+            print(f"⚠️  Znaleziono {len(warnings)} ostrzeżeń:")
+            for warning in warnings[:5]:
+                print(f"   • {warning}")
+            if len(warnings) > 5:
+                print(f"   ... i {len(warnings) - 5} więcej ostrzeżeń")
+
+        # Pokazujemy błędy
         if errors:
-            print("❌ Błędy walidacji:")
-            for error in errors[:10]:  # Pokaż tylko pierwsze 10 błędów
+            print(f"❌ Znaleziono {len(errors)} błędów:")
+            for error in errors[:10]:
                 print(f"   • {error}")
             if len(errors) > 10:
                 print(f"   ... i {len(errors) - 10} więcej błędów")
+            return False
+
+        if not schema_valid:
             return False
 
         print("✅ Walidacja zakończona pomyślnie")
