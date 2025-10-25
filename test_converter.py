@@ -42,7 +42,11 @@ class TestPortainerConverter(unittest.TestCase):
         self.assertIn('id', result)
         self.assertIn('labels', result)
         self.assertEqual(result['id'], 1)
-        self.assertEqual(result['labels'], [])
+
+        # Sprawdzamy czy restart_policy zostało zmigrowane do labels
+        self.assertEqual(len(result['labels']), 1)
+        self.assertEqual(result['labels'][0]['name'], 'com.docker.compose.restart-policy')
+        self.assertEqual(result['labels'][0]['value'], 'unless-stopped')
 
         # Sprawdzamy czy skopiowano właściwe pola
         self.assertEqual(result['title'], 'Test App')
@@ -52,6 +56,22 @@ class TestPortainerConverter(unittest.TestCase):
         # Sprawdzamy czy usunięto stare pola
         self.assertNotIn('restart_policy', result)
         self.assertNotIn('platform', result)
+
+    def test_convert_template_without_restart_policy(self):
+        """Test konwersji szablonu bez restart_policy"""
+        template_without_restart = {
+            "type": 1,
+            "title": "Test App Without Restart",
+            "description": "Test application without restart policy",
+            "image": "nginx:latest",
+            "categories": ["Web"]
+        }
+
+        result = self.converter.convert_template(template_without_restart, 1)
+
+        # Sprawdzamy czy labels jest puste gdy nie ma restart_policy
+        self.assertIn('labels', result)
+        self.assertEqual(result['labels'], [])
 
     def test_convert_v2_to_v3(self):
         """Test pełnej konwersji v2 -> v3"""
@@ -63,6 +83,9 @@ class TestPortainerConverter(unittest.TestCase):
         template = result['templates'][0]
         self.assertEqual(template['id'], 1)
         self.assertIn('labels', template)
+        # Sprawdzamy czy restart_policy zostało zmigrowane
+        self.assertEqual(len(template['labels']), 1)
+        self.assertEqual(template['labels'][0]['name'], 'com.docker.compose.restart-policy')
 
     def test_validate_v3_format(self):
         """Test walidacji formatu v3"""

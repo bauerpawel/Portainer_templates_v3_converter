@@ -93,7 +93,8 @@ class PortainerTemplateConverter:
         Główne zmiany:
         - Dodanie pola 'id' (unikalny identyfikator)
         - Dodanie pola 'labels' (pusta lista domyślnie)
-        - Usunięcie pól 'restart_policy' i 'platform'
+        - Migracja 'restart_policy' do labels jako com.docker.compose.restart-policy
+        - Usunięcie pola 'platform'
         """
         v3_template = {}
 
@@ -102,7 +103,7 @@ class PortainerTemplateConverter:
 
         # Pola do skopiowania bez zmian
         fields_to_copy = [
-            'categories', 'description', 'env', 'image', 'logo', 
+            'categories', 'description', 'env', 'image', 'logo',
             'maintainer', 'name', 'ports', 'title', 'type', 'volumes',
             'note', 'repository', 'hostname', 'command', 'network_mode',
             'privileged', 'interactive', 'administrator_only'
@@ -112,12 +113,18 @@ class PortainerTemplateConverter:
             if field in template:
                 v3_template[field] = template[field]
 
-        # Dodajemy puste pole labels - nowe w v3
-        # Może być używane dla Docker labels
+        # Dodajemy pole labels - nowe w v3
+        # Migrujemy restart_policy z v2 do labels w v3
         v3_template['labels'] = []
 
+        if 'restart_policy' in template and template['restart_policy']:
+            v3_template['labels'].append({
+                'name': 'com.docker.compose.restart-policy',
+                'value': template['restart_policy']
+            })
+
         # Pola usuwane w v3 (nie kopiujemy):
-        # - 'restart_policy': polityka restartowania - w v3 przeniesiona do innego miejsca
+        # - 'restart_policy': polityka restartowania - w v3 migrowana do labels
         # - 'platform': informacja o platformie - nie jest używana w v3
 
         return v3_template
@@ -370,7 +377,8 @@ Przykłady użycia:
 Główne różnice v2 -> v3:
   • Dodano pole 'id' (unikalny identyfikator)
   • Dodano pole 'labels' (etykiety Docker)
-  • Usunięto pola 'restart_policy' i 'platform'
+  • Zmigrowano 'restart_policy' do labels jako 'com.docker.compose.restart-policy'
+  • Usunięto pole 'platform'
   • Zmieniono wersję na '3'
         """
     )
