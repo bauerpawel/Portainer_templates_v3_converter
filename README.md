@@ -45,13 +45,29 @@ Ta aplikacja automatycznie konwertuje szablony aplikacji Portainer z formatu v2 
    pip install requests jsonschema
    ```
 
+## Dostępne źródła szablonów
+
+Aplikacja ma wbudowaną listę popularnych źródeł szablonów Portainer:
+
+| Klucz | Nazwa | Opis |
+|-------|-------|------|
+| `lissy93` | Lissy93 Templates | Duża kolekcja ponad 470 szablonów aplikacji |
+| `portainer-official` | Portainer Official | Oficjalne szablony od zespołu Portainer |
+| `selfhosted` | SelfHosted.show | Szablony dla aplikacji self-hosted |
+| `technorabilia` | Technorabilia | Szablony bazujące na obrazach LinuxServer.io |
+
+### Wyświetlanie dostępnych źródeł
+```bash
+python portainer_converter.py --list-sources
+```
+
 ## Użycie
 
 ### Podstawowa konwersja
 ```bash
 python portainer_converter.py
 ```
-Pobiera szablony z domyślnego źródła i zapisuje jako `templates_v3_converted.json`
+Pobiera szablony z domyślnego źródła (Lissy93) i zapisuje jako `templates_v3_converted.json`
 
 ### Własny URL źródłowy
 ```bash
@@ -63,11 +79,23 @@ python portainer_converter.py --url "https://your-custom-url.com/templates.json"
 python portainer_converter.py --output "my_templates_v3.json"
 ```
 
+### Scalanie wielu źródeł
+```bash
+# Scala dwa znane źródła (po kluczu)
+python portainer_converter.py --sources lissy93 portainer-official
+
+# Scala wszystkie znane źródła
+python portainer_converter.py --all-sources
+
+# Scala znane źródło z własnym URL
+python portainer_converter.py --sources lissy93 "https://example.com/templates.json"
+```
+
 ### Pełna konfiguracja
 ```bash
 python portainer_converter.py \
-  --url "https://raw.githubusercontent.com/example/templates.json" \
-  --output "custom_templates_v3.json"
+  --sources lissy93 selfhosted technorabilia \
+  --output "merged_templates_v3.json"
 ```
 
 ### Pomoc
@@ -157,18 +185,35 @@ python portainer_converter.py --help
 
 ### Proces konwersji
 
-1. **Pobieranie szablonu v2** z podanego URL
-2. **Konwersja każdego szablonu:**
+1. **Pobieranie szablonów v2** z podanego URL (lub wielu źródeł)
+2. **Scalanie źródeł** (jeśli wybrano wiele):
+   - Pobieranie szablonów z wszystkich źródeł
+   - Wykrywanie duplikatów po kombinacji `(name, image)`
+   - Scalanie kategorii z duplikatów
+   - Wybieranie dłuższego opisu
+   - Usuwanie duplikatów
+3. **Konwersja każdego szablonu:**
    - Dodanie unikalnego pola `id`
-   - Dodanie pustego pola `labels`
+   - Dodanie pola `labels` z migracją `restart_policy`
    - Usunięcie pól `restart_policy` i `platform`
    - Kopiowanie pozostałych pól
-3. **Walidacja** poprawności formatu v3:
+4. **Walidacja** poprawności formatu v3:
    - Walidacja z oficjalnym JSON Schema (plik `schema_v3.json`)
    - Sprawdzenie wymaganych pól
    - Sprawdzenie typów danych
    - Dodatkowe sprawdzenia biznesowe (stare pola z v2, itp.)
-4. **Zapisanie** do pliku JSON z ładnym formatowaniem
+5. **Zapisanie** do pliku JSON z ładnym formatowaniem
+
+### Scalanie wielu źródeł
+
+Przy scalaniu szablonów z wielu źródeł:
+
+- **Wykrywanie duplikatów**: Szablony są porównywane po kombinacji pól `name` i `image` (bez rozróżniania wielkości liter)
+- **Scalanie danych**: Gdy znaleziono duplikat:
+  - Kategorie są łączone (unikalne wartości z obu źródeł)
+  - Wybierany jest dłuższy opis
+  - Zachowywane są inne pola z pierwszego wystąpienia
+- **Statystyki**: Po scaleniu wyświetlane są statystyki pokazujące liczbę usuniętych duplikatów
 
 ### Walidacja JSON Schema
 
@@ -239,7 +284,7 @@ Zgłaszaj błędy i sugestie poprzez Issues. Pull requesty są mile widziane!
 - [ ] Obsługa szablonów Kubernetes
 - [x] Migracja etykiet z pola `restart_policy`
 - [x] Walidacja z oficjalnym schema JSON
-- [ ] Obsługa dodatkowych źródeł szablonów
+- [x] Obsługa dodatkowych źródeł szablonów (scalanie wielu źródeł, usuwanie duplikatów)
 - [ ] GUI (graficzny interfejs użytkownika)
 
 ## Licencja
