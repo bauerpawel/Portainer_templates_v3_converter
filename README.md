@@ -237,7 +237,7 @@ Zgłaszaj błędy i sugestie poprzez Issues. Pull requesty są mile widziane!
 
 ### TODO / Planowane funkcje:
 - [ ] Obsługa szablonów Kubernetes
-- [ ] Migracja etykiet z pola `restart_policy`
+- [x] Migracja etykiet z pola `restart_policy`
 - [x] Walidacja z oficjalnym schema JSON
 - [ ] Obsługa dodatkowych źródeł szablonów
 - [ ] GUI (graficzny interfejs użytkownika)
