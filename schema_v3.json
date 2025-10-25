@@ -1,0 +1,226 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "PortainerAppTemplateV3",
+  "description": "JSON Schema for Portainer App Templates version 3",
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "3",
+      "description": "The version of the Portainer App Template (must be '3' for v3 templates)."
+    },
+    "templates": {
+      "type": "array",
+      "description": "Array of application templates",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Unique identifier for the template (required in v3)."
+          },
+          "type": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4,
+            "description": "The type of the application (1 for container, 2 for swarm stack, 3 for compose stack, 4 for edge stack)."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The title of the application."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A brief description of the application."
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "An array of categories the application belongs to."
+          },
+          "logo": {
+            "type": "string",
+            "format": "uri",
+            "description": "A URI to the logo of the application."
+          },
+          "image": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The name of the Docker image used for the application."
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "The name of the Docker label."
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The value of the Docker label."
+                }
+              },
+              "required": ["name"]
+            },
+            "description": "An array of Docker labels for the application (new in v3)."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The container name."
+          },
+          "ports": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(:[0-9]+|[0-9]+(:[0-9]+)?)(/tcp|/udp)?$",
+              "description": "A port mapping in various formats: 'port', ':port', 'hostPort:containerPort', with optional /tcp or /udp suffix."
+            },
+            "description": "An array of port mappings for the application."
+          },
+          "volumes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "bind": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "The host path for the volume binding."
+                },
+                "container": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "The container path for the volume binding."
+                },
+                "readonly": {
+                  "type": "boolean",
+                  "description": "Whether the volume is read-only."
+                }
+              },
+              "required": ["container"]
+            },
+            "description": "An array of volume mappings for the application."
+          },
+          "env": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "The name of the environment variable."
+                },
+                "label": {
+                  "type": "string",
+                  "description": "The label for the environment variable in the UI."
+                },
+                "default": {
+                  "type": "string",
+                  "description": "The default value for the environment variable."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the environment variable."
+                },
+                "preset": {
+                  "type": "boolean",
+                  "description": "Whether the value is preset and should not be changed."
+                },
+                "select": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string",
+                        "description": "Display text for the option."
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Value for the option."
+                      },
+                      "default": {
+                        "type": "boolean",
+                        "description": "Whether this is the default selection."
+                      }
+                    }
+                  },
+                  "description": "Options for a dropdown selection."
+                }
+              },
+              "required": ["name"]
+            },
+            "description": "An array of environment variables for the application."
+          },
+          "note": {
+            "type": "string",
+            "description": "Additional notes or information about the template."
+          },
+          "repository": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "The URL of the repository."
+              },
+              "stackfile": {
+                "type": "string",
+                "description": "The path to the stack file in the repository."
+              }
+            },
+            "required": ["url", "stackfile"],
+            "description": "Repository information for stack-based templates."
+          },
+          "maintainer": {
+            "type": "string",
+            "description": "The maintainer of the template."
+          },
+          "hostname": {
+            "type": "string",
+            "description": "The hostname for the container."
+          },
+          "command": {
+            "type": "string",
+            "description": "The command to run in the container."
+          },
+          "network_mode": {
+            "type": "string",
+            "description": "The network mode for the container (e.g., 'bridge', 'host', 'none')."
+          },
+          "network": {
+            "type": "string",
+            "description": "The name of the network to attach the container to."
+          },
+          "privileged": {
+            "type": "boolean",
+            "description": "Whether the container runs in privileged mode."
+          },
+          "interactive": {
+            "type": "boolean",
+            "description": "Whether the container is interactive."
+          },
+          "administrator_only": {
+            "type": "boolean",
+            "description": "Whether the template is only visible to administrators."
+          }
+        },
+        "required": ["id", "type", "title", "description"],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": ["version", "templates"],
+  "additionalProperties": false
+}
