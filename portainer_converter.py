@@ -19,7 +19,7 @@ Przykłady:
 
 Autor: Python Script dla konwersji szablonów Portainer
 Data: 2025-08-27
-Wersja: 1.0
+Wersja: 1.0.0
 """
 
 import json
