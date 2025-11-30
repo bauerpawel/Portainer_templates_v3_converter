@@ -236,7 +236,12 @@ class PortainerTemplateConverter:
 
         for field in fields_to_copy:
             if field in template:
-                v3_template[field] = template[field]
+                value = template[field]
+                # Fix None values for required string fields
+                if field == 'description' and (value is None or value == ''):
+                    # Use title as fallback for description if available
+                    value = template.get('title', 'No description available')
+                v3_template[field] = value
 
         # Dodajemy pole labels - nowe w v3
         # Migrujemy restart_policy z v2 do labels w v3
