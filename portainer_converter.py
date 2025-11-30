@@ -54,12 +54,12 @@ class PortainerTemplateConverter:
             },
             'selfhosted': {
                 'name': 'SelfHosted.show',
-                'url': 'https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Template/template.json',
+                'url': 'https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Template/portainer-v2.json',
                 'description': 'Szablony dla aplikacji self-hosted'
             },
             'technorabilia': {
                 'name': 'Technorabilia',
-                'url': 'https://raw.githubusercontent.com/technorabilia/portainer-templates/main/lsio/templates/templates-2.0.json',
+                'url': 'https://raw.githubusercontent.com/technorabilia/portainer-templates/main/lsio/templates/templates.json',
                 'description': 'Szablony bazujące na obrazach LinuxServer.io'
             }
         }
