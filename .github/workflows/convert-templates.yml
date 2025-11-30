@@ -45,7 +45,7 @@ jobs:
 
       - name: Run conversion script
         run: |
-          python portainer_converter.py
+          python portainer_converter.py --all-sources
 
       - name: Check if templates file was generated
         run: |
