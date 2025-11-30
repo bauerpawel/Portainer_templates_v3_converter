@@ -2,6 +2,10 @@
 
 🔄 **Aplikacja Python do konwersji szablonów Portainer z formatu v2 na v3**
 
+**🇵🇱 Wersja polska** | [🇬🇧 English version](README.en.md)
+
+---
+
 ## Opis
 
 Ta aplikacja automatycznie konwertuje szablony aplikacji Portainer z formatu v2 na v3, który jest kompatybilny z najnowszymi wersjami Portainer.io.
