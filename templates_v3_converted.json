@@ -678,9 +678,9 @@
     {
       "id": 28,
       "categories": [
-        "Log Management",
         "Monitoring",
-        "Logmanagement"
+        "Logmanagement",
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -1519,8 +1519,8 @@
       "id": 62,
       "categories": [
         "Other",
-        "Authentication",
-        "Tools"
+        "Tools",
+        "Authentication"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -1677,8 +1677,8 @@
     {
       "id": 67,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -1980,9 +1980,9 @@
       "id": 74,
       "categories": [
         "Other",
-        "Photo",
         "Tools",
-        "Photos"
+        "Photos",
+        "Photo"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2046,8 +2046,8 @@
     {
       "id": 75,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Have recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -2075,9 +2075,9 @@
     {
       "id": 76,
       "categories": [
-        "Tools",
+        "Programming",
         "Development",
-        "Programming"
+        "Tools"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -2265,8 +2265,8 @@
       "id": 80,
       "categories": [
         "Dashboard",
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Another application bookmark dashboard, with fun features.",
       "image": "rmountjoy/dashmachine:latest",
@@ -2294,9 +2294,9 @@
     {
       "id": 81,
       "categories": [
+        "Ftp",
         "Tools",
-        "FTP",
-        "Ftp"
+        "FTP"
       ],
       "description": "[Davos](https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
       "env": [
@@ -2341,8 +2341,8 @@
     {
       "id": 82,
       "categories": [
-        "Other",
-        "Music"
+        "Music",
+        "Other"
       ],
       "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
       "image": "registry.gitlab.com/bockiii/deemix-docker",
@@ -2464,10 +2464,10 @@
     {
       "id": 85,
       "categories": [
-        "Network",
-        "Tools",
         "DNS",
-        "Dns"
+        "Network",
+        "Dns",
+        "Tools"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -2509,9 +2509,9 @@
     {
       "id": 86,
       "categories": [
-        "Backup",
-        "Productivity",
         "Tools",
+        "Productivity",
+        "Backup",
         "Cloud"
       ],
       "description": "[Duplicati](https://www.duplicati.com/) is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
@@ -2563,8 +2563,8 @@
       "categories": [
         "Video",
         "Music",
-        "Audiobooks",
         "Photos",
+        "Audiobooks",
         "Media Servers"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
@@ -2752,9 +2752,9 @@
     {
       "id": 92,
       "categories": [
-        "Other",
+        "Remotecontrol",
         "Tools",
-        "Remotecontrol"
+        "Other"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -2783,9 +2783,9 @@
     {
       "id": 93,
       "categories": [
-        "Recipes",
+        "Finance",
         "Tools",
-        "Finance"
+        "Recipes"
       ],
       "description": "[Grocy](https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
       "env": [
@@ -2829,9 +2829,9 @@
     {
       "id": 94,
       "categories": [
-        "Video",
+        "Music",
         "Media Tools",
-        "Music"
+        "Video"
       ],
       "description": "[Htpcmanager](https://github.com/HTPC-Manager/HTPC-Manager) is a front end for many htpc related applications.",
       "env": [
@@ -2919,9 +2919,9 @@
     {
       "id": 96,
       "categories": [
-        "Dashboard",
+        "Web",
         "Tools",
-        "Web"
+        "Dashboard"
       ],
       "description": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
       "env": [
@@ -2963,8 +2963,8 @@
       "id": 97,
       "categories": [
         "Dashboard",
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "image": "b4bz/homer:latest",
@@ -3263,8 +3263,8 @@
     {
       "id": 106,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Create agents that monitor and act on your behalf.",
       "image": "huginn/huginn:latest",
@@ -3380,9 +3380,9 @@
     {
       "id": 109,
       "categories": [
+        "Downloaders",
         "Indexers",
-        "Tools",
-        "Downloaders"
+        "Tools"
       ],
       "description": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
       "env": [
@@ -3428,8 +3428,8 @@
       "categories": [
         "Video",
         "Music",
-        "Audiobooks",
         "Photos",
+        "Audiobooks",
         "Media Servers"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
@@ -3779,8 +3779,8 @@
       "categories": [
         "Management",
         "Photos",
-        "Cloud",
-        "Web"
+        "Web",
+        "Cloud"
       ],
       "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
       "env": [
@@ -3864,9 +3864,9 @@
     {
       "id": 118,
       "categories": [
-        "Video",
         "Downloaders",
-        "Media Management"
+        "Media Management",
+        "Video"
       ],
       "description": "[Medusa](https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
       "env": [
@@ -3993,9 +3993,9 @@
     {
       "id": 121,
       "categories": [
-        "Video",
         "Tools",
-        "Media Tools"
+        "Media Tools",
+        "Video"
       ],
       "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.",
       "env": [
@@ -4064,8 +4064,8 @@
     {
       "id": 123,
       "categories": [
-        "Voice",
         "Other",
+        "Voice",
         "Chat"
       ],
       "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
@@ -4307,9 +4307,9 @@
     {
       "id": 128,
       "categories": [
+        "Downloaders",
         "Indexers",
-        "Tools",
-        "Downloaders"
+        "Tools"
       ],
       "description": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra). It provides easy access to a number of raw and newznab based indexers.",
       "env": [
@@ -4430,8 +4430,8 @@
     {
       "id": 131,
       "categories": [
-        "Other",
-        "Media Tools"
+        "Media Tools",
+        "Other"
       ],
       "description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module (CAM). The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
       "env": [
@@ -4794,14 +4794,14 @@
     {
       "id": 141,
       "categories": [
-        "Mediaserverphotos",
         "Video",
-        "Music",
-        "Mediaservervideo",
         "Photos",
         "Mediaservermusic",
-        "Audiobooks",
-        "Media Servers"
+        "Mediaservervideo",
+        "Media Servers",
+        "Music",
+        "Mediaserverphotos",
+        "Audiobooks"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -4898,10 +4898,10 @@
     {
       "id": 143,
       "categories": [
-        "Tools",
         "Productivity",
         "File Sharing",
-        "Cloud"
+        "Cloud",
+        "Tools"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
       "env": [
@@ -4945,10 +4945,10 @@
     {
       "id": 144,
       "categories": [
-        "Productivity",
-        "Other",
         "Tools",
-        "Email"
+        "Other",
+        "Email",
+        "Productivity"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -5215,8 +5215,8 @@
     {
       "id": 151,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -5245,8 +5245,8 @@
       "id": 152,
       "categories": [
         "Backup",
-        "Tools",
-        "Cloud"
+        "Cloud",
+        "Tools"
       ],
       "description": "[Resilio-sync](https://www.resilio.com/individuals/) (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it supports user mapping to simplify permissions for volumes.",
       "env": [
@@ -5434,9 +5434,9 @@
     {
       "id": 156,
       "categories": [
-        "Video",
         "Downloaders",
-        "Media Management"
+        "Media Management",
+        "Video"
       ],
       "description": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
       "env": [
@@ -5485,8 +5485,8 @@
       "id": 157,
       "categories": [
         "Network",
-        "Monitoring",
-        "Management"
+        "Management",
+        "Monitoring"
       ],
       "description": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
       "env": [
@@ -5600,8 +5600,8 @@
     {
       "id": 160,
       "categories": [
-        "Media Tools",
-        "Tools"
+        "Tools",
+        "Media Tools"
       ],
       "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
       "env": [
@@ -5646,8 +5646,8 @@
     {
       "id": 161,
       "categories": [
-        "Messenger",
         "Chat",
+        "Messenger",
         "IRC"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
@@ -5688,9 +5688,9 @@
     {
       "id": 162,
       "categories": [
-        "Other",
+        "Wiki",
         "Tools",
-        "Wiki"
+        "Other"
       ],
       "description": "A unique, non-linear notebook wiki.",
       "image": "mazzolino/tiddlywiki:latest",
@@ -5806,10 +5806,10 @@
     {
       "id": 165,
       "categories": [
-        "Other",
-        "Vpn",
+        "VPN",
         "Tools",
-        "VPN"
+        "Other",
+        "Vpn"
       ],
       "description": "This container contains OpenVPN and Transmission with a configuration where Transmission is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -5876,8 +5876,8 @@
       "id": 166,
       "categories": [
         "Other",
-        "Video",
-        "Media Tools"
+        "Media Tools",
+        "Video"
       ],
       "description": "[Tvheadend](https://www.tvheadend.org/) works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
       "env": [
@@ -6021,9 +6021,9 @@
     {
       "id": 169,
       "categories": [
-        "Maintenance",
+        "Tools",
         "Other",
-        "Tools"
+        "Maintenance"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -6049,8 +6049,8 @@
     {
       "id": 170,
       "categories": [
-        "Media Tools",
-        "Downloaders"
+        "Downloaders",
+        "Media Tools"
       ],
       "description": "[Webgrabplus](https://www.webgrabplus.com) is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
       "env": [
@@ -6092,8 +6092,8 @@
     {
       "id": 171,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -6121,9 +6121,9 @@
     {
       "id": 172,
       "categories": [
-        "Tools",
         "Content Management",
-        "Wiki"
+        "Wiki",
+        "Tools"
       ],
       "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
       "image": "linuxserver/wikijs:latest",
@@ -6155,8 +6155,8 @@
     {
       "id": 173,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -8822,8 +8822,8 @@
     {
       "id": 318,
       "categories": [
-        "Other",
-        "Downloaders"
+        "Downloaders",
+        "Other"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
@@ -9501,8 +9501,8 @@
     {
       "id": 328,
       "categories": [
-        "File Sharing",
         "Security",
+        "File Sharing",
         "Taskserver"
       ],
       "description": "[Pwndrop](https://github.com/kgretzky/pwndrop) is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
@@ -9628,8 +9628,8 @@
     {
       "id": 332,
       "categories": [
-        "Libraryserver",
-        "Books"
+        "Books",
+        "Libraryserver"
       ],
       "description": "[Calibre](https://calibre-ebook.com/) is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.",
       "env": [
@@ -9691,8 +9691,8 @@
     {
       "id": 333,
       "categories": [
-        "Smarthome",
-        "Home Automation"
+        "Home Automation",
+        "Smarthome"
       ],
       "description": "[Habridge](https://github.com/bwssytems/ha-bridge/) emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1 (gen 2 has issues discovering ha-bridge) or other systems that support Philips Hue. The Bridge handles basic commands such as On, Off and brightness commands of the hue protocol. This bridge can control most devices that have a distinct API.",
       "env": [
@@ -9921,8 +9921,8 @@
     {
       "id": 337,
       "categories": [
-        "Science",
-        "Tools"
+        "Tools",
+        "Science"
       ],
       "description": "[Folding@home](https://foldingathome.org/) is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases. It brings together citizen scientists who volunteer to run simulations of protein dynamics on their personal computers. Insights from this data are helping scientists to better understand biology, and providing new opportunities for developing therapeutics.",
       "env": [
@@ -10164,8 +10164,8 @@
     {
       "id": 341,
       "categories": [
-        "Notesserver",
-        "Content Management"
+        "Content Management",
+        "Notesserver"
       ],
       "description": "[Dokuwiki](https://www.dokuwiki.org/dokuwiki/) is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional wiki.",
       "env": [
@@ -10589,8 +10589,8 @@
     {
       "id": 347,
       "categories": [
-        "Smarthome",
-        "Home Automation"
+        "Home Automation",
+        "Smarthome"
       ],
       "description": "[Home Assistant Core](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
       "env": [
@@ -10700,9 +10700,9 @@
     {
       "id": 349,
       "categories": [
-        "Security",
+        "Administration",
         "Proxyserver",
-        "Administration"
+        "Security"
       ],
       "description": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
       "env": [
@@ -10968,8 +10968,8 @@
     {
       "id": 354,
       "categories": [
-        "Managementutilityserver",
-        "Administration"
+        "Administration",
+        "Managementutilityserver"
       ],
       "description": "[Openssh-server](https://www.openssh.com/) is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.",
       "env": [
@@ -11190,9 +11190,9 @@
     {
       "id": 357,
       "categories": [
+        "Chat",
         "IRC",
-        "Chatserver",
-        "Chat"
+        "Chatserver"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
       "env": [
@@ -11494,8 +11494,8 @@
     {
       "id": 362,
       "categories": [
-        "Network",
-        "Managementutilityserver"
+        "Managementutilityserver",
+        "Network"
       ],
       "description": "[Wireshark](https://www.wireshark.org/) is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998.",
       "env": [
@@ -16579,10 +16579,10 @@
     {
       "id": 467,
       "categories": [
-        "Vpn",
-        "Other",
+        "VPN",
         "Tools",
-        "VPN"
+        "Other",
+        "Vpn"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -22323,6 +22323,55 @@
     {
       "id": 627,
       "categories": [
+        "Games"
+      ],
+      "description": "[Azahar](https://azahar-emu.org/) is an open-source 3DS emulator based on Citra.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/azahar:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/azahar-logo.png",
+      "name": "Azahar",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Azahar",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/azahar/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/azahar/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 628,
+      "categories": [
         "Family"
       ],
       "description": "[Babybuddy](https://github.com/babybuddy/babybuddy) is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.",
@@ -22375,7 +22424,7 @@
       ]
     },
     {
-      "id": 628,
+      "id": 629,
       "categories": [
         "3D Printing"
       ],
@@ -22430,7 +22479,7 @@
       ]
     },
     {
-      "id": 629,
+      "id": 630,
       "categories": [
         "Media Management"
       ],
@@ -22486,7 +22535,7 @@
       ]
     },
     {
-      "id": 630,
+      "id": 631,
       "categories": [
         "Finance"
       ],
@@ -22536,7 +22585,7 @@
       ]
     },
     {
-      "id": 631,
+      "id": 632,
       "categories": [
         "3D Modeling"
       ],
@@ -22585,7 +22634,7 @@
       ]
     },
     {
-      "id": 632,
+      "id": 633,
       "categories": [
         "Science"
       ],
@@ -22640,7 +22689,7 @@
       ]
     },
     {
-      "id": 633,
+      "id": 634,
       "categories": [
         "Content Management"
       ],
@@ -22736,7 +22785,7 @@
       ]
     },
     {
-      "id": 634,
+      "id": 635,
       "categories": [
         "Web Browser"
       ],
@@ -22785,7 +22834,7 @@
       ]
     },
     {
-      "id": 635,
+      "id": 636,
       "categories": [
         "Finance"
       ],
@@ -22834,7 +22883,7 @@
       ]
     },
     {
-      "id": 636,
+      "id": 637,
       "categories": [
         "Documents"
       ],
@@ -22883,7 +22932,7 @@
       ]
     },
     {
-      "id": 637,
+      "id": 638,
       "categories": [
         "Web Tools",
         "Automation"
@@ -22944,7 +22993,7 @@
       ]
     },
     {
-      "id": 638,
+      "id": 639,
       "categories": [
         "Web Browser"
       ],
@@ -22999,7 +23048,7 @@
       ]
     },
     {
-      "id": 639,
+      "id": 640,
       "categories": [
         "Web Browser"
       ],
@@ -23054,7 +23103,7 @@
       ]
     },
     {
-      "id": 640,
+      "id": 641,
       "categories": [
         "Games"
       ],
@@ -23103,7 +23152,7 @@
       ]
     },
     {
-      "id": 641,
+      "id": 642,
       "categories": [
         "3D Printing"
       ],
@@ -23152,7 +23201,7 @@
       ]
     },
     {
-      "id": 642,
+      "id": 643,
       "categories": [
         "Photos"
       ],
@@ -23201,7 +23250,7 @@
       ]
     },
     {
-      "id": 643,
+      "id": 644,
       "categories": [
         "Network",
         "DNS"
@@ -23250,7 +23299,7 @@
       ]
     },
     {
-      "id": 644,
+      "id": 645,
       "categories": [
         "Photos"
       ],
@@ -23299,7 +23348,7 @@
       ]
     },
     {
-      "id": 645,
+      "id": 646,
       "categories": [
         "Storage",
         "Monitoring"
@@ -23364,7 +23413,7 @@
       ]
     },
     {
-      "id": 646,
+      "id": 647,
       "categories": [
         "Games"
       ],
@@ -23413,7 +23462,7 @@
       ]
     },
     {
-      "id": 647,
+      "id": 648,
       "categories": [
         "Games"
       ],
@@ -23462,7 +23511,7 @@
       ]
     },
     {
-      "id": 648,
+      "id": 649,
       "categories": [
         "Media Requesters"
       ],
@@ -23618,7 +23667,56 @@
       ]
     },
     {
-      "id": 649,
+      "id": 650,
+      "categories": [
+        "Games"
+      ],
+      "description": "[DOSBox Staging](https://www.dosbox-staging.org/) is a modern continuation of DOSBox a free and open-source emulator that enables the execution of MS-DOS software, especially video games.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/dosbox-staging:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dosbox-logo.png",
+      "name": "Dosbox-staging",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Dosbox-staging",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/dosbox-staging/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/dosbox-staging/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 651,
       "categories": [
         "Administration",
         "Storage"
@@ -23672,7 +23770,7 @@
       ]
     },
     {
-      "id": 650,
+      "id": 652,
       "categories": [
         "Games"
       ],
@@ -23721,7 +23819,7 @@
       ]
     },
     {
-      "id": 651,
+      "id": 653,
       "categories": [
         "Network",
         "Security"
@@ -23848,7 +23946,7 @@
       ]
     },
     {
-      "id": 652,
+      "id": 654,
       "categories": [
         "Machine Learning"
       ],
@@ -23920,7 +24018,7 @@
       ]
     },
     {
-      "id": 653,
+      "id": 655,
       "categories": [
         "Chat",
         "Social"
@@ -23970,7 +24068,7 @@
       ]
     },
     {
-      "id": 654,
+      "id": 656,
       "categories": [
         "Web Browser"
       ],
@@ -24025,7 +24123,7 @@
       ]
     },
     {
-      "id": 655,
+      "id": 657,
       "categories": [
         "Downloaders"
       ],
@@ -24101,7 +24199,7 @@
       ]
     },
     {
-      "id": 656,
+      "id": 658,
       "categories": [
         "Games"
       ],
@@ -24150,7 +24248,7 @@
       ]
     },
     {
-      "id": 657,
+      "id": 659,
       "categories": [
         "3D Modeling"
       ],
@@ -24199,7 +24297,7 @@
       ]
     },
     {
-      "id": 658,
+      "id": 660,
       "categories": [
         "Image Editor"
       ],
@@ -24248,7 +24346,7 @@
       ]
     },
     {
-      "id": 659,
+      "id": 661,
       "categories": [
         "Programming"
       ],
@@ -24297,7 +24395,7 @@
       ]
     },
     {
-      "id": 660,
+      "id": 662,
       "categories": [
         "Programming"
       ],
@@ -24346,7 +24444,7 @@
       ]
     },
     {
-      "id": 661,
+      "id": 663,
       "categories": [
         "Content Management"
       ],
@@ -24394,7 +24492,7 @@
       ]
     },
     {
-      "id": 662,
+      "id": 664,
       "categories": [
         "Games"
       ],
@@ -24443,7 +24541,56 @@
       ]
     },
     {
-      "id": 663,
+      "id": 665,
+      "categories": [
+        "Media Management"
+      ],
+      "description": "[HandBrake](https://handbrake.fr/) is an open-source tool, built by volunteers, for converting video from nearly any format to a selection of modern, widely supported codecs.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/handbrake:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/handbrake-logo.png",
+      "name": "Handbrake",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Handbrake",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/handbrake/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/handbrake/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 666,
       "categories": [
         "Content Management"
       ],
@@ -24557,7 +24704,7 @@
       ]
     },
     {
-      "id": 664,
+      "id": 667,
       "categories": [
         "Administration"
       ],
@@ -24617,7 +24764,7 @@
       ]
     },
     {
-      "id": 665,
+      "id": 668,
       "categories": [
         "3D Modeling"
       ],
@@ -24666,7 +24813,7 @@
       ]
     },
     {
-      "id": 666,
+      "id": 669,
       "categories": [
         "Content Management"
       ],
@@ -24715,7 +24862,7 @@
       ]
     },
     {
-      "id": 667,
+      "id": 670,
       "categories": [
         "Remote Desktop",
         "Security"
@@ -24765,7 +24912,7 @@
       ]
     },
     {
-      "id": 668,
+      "id": 671,
       "categories": [
         "Remote Desktop",
         "Business"
@@ -24834,7 +24981,7 @@
       ]
     },
     {
-      "id": 669,
+      "id": 672,
       "categories": [
         "Books"
       ],
@@ -24886,7 +25033,7 @@
       ]
     },
     {
-      "id": 670,
+      "id": 673,
       "categories": [
         "Video Editor"
       ],
@@ -24935,7 +25082,7 @@
       ]
     },
     {
-      "id": 671,
+      "id": 674,
       "categories": [
         "Password Manager"
       ],
@@ -24984,7 +25131,7 @@
       ]
     },
     {
-      "id": 672,
+      "id": 675,
       "categories": [
         "3D Modeling"
       ],
@@ -25033,7 +25180,7 @@
       ]
     },
     {
-      "id": 673,
+      "id": 676,
       "categories": [
         "Finance",
         "Business"
@@ -25095,7 +25242,7 @@
       ]
     },
     {
-      "id": 674,
+      "id": 677,
       "categories": [
         "Media Management"
       ],
@@ -25173,7 +25320,7 @@
       ]
     },
     {
-      "id": 675,
+      "id": 678,
       "categories": [
         "Image Editor"
       ],
@@ -25222,7 +25369,7 @@
       ]
     },
     {
-      "id": 676,
+      "id": 679,
       "categories": [
         "Web Browser"
       ],
@@ -25277,7 +25424,7 @@
       ]
     },
     {
-      "id": 677,
+      "id": 680,
       "categories": [
         "Media Management",
         "Music"
@@ -25334,7 +25481,7 @@
       ]
     },
     {
-      "id": 678,
+      "id": 681,
       "categories": [
         "Music"
       ],
@@ -25383,7 +25530,7 @@
       ]
     },
     {
-      "id": 679,
+      "id": 682,
       "categories": [
         "Games"
       ],
@@ -25437,7 +25584,7 @@
       ]
     },
     {
-      "id": 680,
+      "id": 683,
       "categories": [
         "Games"
       ],
@@ -25490,7 +25637,7 @@
       ]
     },
     {
-      "id": 681,
+      "id": 684,
       "categories": [
         "3D Printing"
       ],
@@ -25560,7 +25707,7 @@
       ]
     },
     {
-      "id": 682,
+      "id": 685,
       "categories": [
         "Databases"
       ],
@@ -25638,7 +25785,7 @@
       ]
     },
     {
-      "id": 683,
+      "id": 686,
       "categories": [
         "Social"
       ],
@@ -25916,7 +26063,7 @@
       ]
     },
     {
-      "id": 684,
+      "id": 687,
       "categories": [
         "Media Management"
       ],
@@ -25965,7 +26112,56 @@
       ]
     },
     {
-      "id": 685,
+      "id": 688,
+      "categories": [
+        "Games"
+      ],
+      "description": "[melonDS](https://melonds.kuribo64.net/) aims at providing fast and accurate Nintendo DS emulation.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/melonds:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/melonds-logo.png",
+      "name": "Melonds",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Melonds",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/melonds/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/melonds/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 689,
       "categories": [
         "Docker"
       ],
@@ -26013,7 +26209,7 @@
       ]
     },
     {
-      "id": 686,
+      "id": 690,
       "categories": [
         "Content Management"
       ],
@@ -26116,7 +26312,7 @@
       ]
     },
     {
-      "id": 687,
+      "id": 691,
       "categories": [
         "Web Browser"
       ],
@@ -26171,7 +26367,7 @@
       ]
     },
     {
-      "id": 688,
+      "id": 692,
       "categories": [
         "Web Browser",
         "VPN"
@@ -26227,7 +26423,7 @@
       ]
     },
     {
-      "id": 689,
+      "id": 693,
       "categories": [
         "Books",
         "Media Management"
@@ -26284,7 +26480,7 @@
       ]
     },
     {
-      "id": 690,
+      "id": 694,
       "categories": [
         "Databases"
       ],
@@ -26333,7 +26529,7 @@
       ]
     },
     {
-      "id": 691,
+      "id": 695,
       "categories": [
         "Administration",
         "Business"
@@ -26502,7 +26698,7 @@
       ]
     },
     {
-      "id": 692,
+      "id": 696,
       "categories": [
         "Cloud",
         "Documents"
@@ -26555,7 +26751,7 @@
       ]
     },
     {
-      "id": 693,
+      "id": 697,
       "categories": [
         "Reverse Proxy"
       ],
@@ -26616,7 +26812,7 @@
       ]
     },
     {
-      "id": 694,
+      "id": 698,
       "categories": [
         "IRC"
       ],
@@ -26664,7 +26860,7 @@
       ]
     },
     {
-      "id": 695,
+      "id": 699,
       "categories": [
         "Content Management"
       ],
@@ -26713,7 +26909,7 @@
       ]
     },
     {
-      "id": 696,
+      "id": 700,
       "categories": [
         "Media Requesters"
       ],
@@ -26767,7 +26963,7 @@
       ]
     },
     {
-      "id": 697,
+      "id": 701,
       "categories": [
         "Documents"
       ],
@@ -26816,7 +27012,7 @@
       ]
     },
     {
-      "id": 698,
+      "id": 702,
       "categories": [
         "Video Editor"
       ],
@@ -26865,7 +27061,7 @@
       ]
     },
     {
-      "id": 699,
+      "id": 703,
       "categories": [
         "Programming"
       ],
@@ -26937,7 +27133,7 @@
       ]
     },
     {
-      "id": 700,
+      "id": 704,
       "categories": [
         "Web Browser"
       ],
@@ -26992,7 +27188,7 @@
       ]
     },
     {
-      "id": 701,
+      "id": 705,
       "categories": [
         "3D Printing"
       ],
@@ -27041,7 +27237,7 @@
       ]
     },
     {
-      "id": 702,
+      "id": 706,
       "categories": [
         "Media Requesters"
       ],
@@ -27089,7 +27285,7 @@
       ]
     },
     {
-      "id": 703,
+      "id": 707,
       "categories": [
         "File Sharing"
       ],
@@ -27161,7 +27357,7 @@
       ]
     },
     {
-      "id": 704,
+      "id": 708,
       "categories": [
         "Games"
       ],
@@ -27210,7 +27406,7 @@
       ]
     },
     {
-      "id": 705,
+      "id": 709,
       "categories": [
         "Machine Learning"
       ],
@@ -27300,7 +27496,7 @@
       ]
     },
     {
-      "id": 706,
+      "id": 710,
       "categories": [
         "Content Management",
         "Business"
@@ -27397,7 +27593,7 @@
       ]
     },
     {
-      "id": 707,
+      "id": 711,
       "categories": [
         "Indexers"
       ],
@@ -27445,7 +27641,7 @@
       ]
     },
     {
-      "id": 708,
+      "id": 712,
       "categories": [
         "File Sharing"
       ],
@@ -27505,7 +27701,7 @@
       ]
     },
     {
-      "id": 709,
+      "id": 713,
       "categories": [
         "Downloaders"
       ],
@@ -27558,7 +27754,7 @@
       ]
     },
     {
-      "id": 710,
+      "id": 714,
       "categories": [
         "Storage"
       ],
@@ -27611,7 +27807,7 @@
       ]
     },
     {
-      "id": 711,
+      "id": 715,
       "categories": [
         "Docker"
       ],
@@ -27659,7 +27855,7 @@
       ]
     },
     {
-      "id": 712,
+      "id": 716,
       "categories": [
         "Media Management"
       ],
@@ -27715,7 +27911,7 @@
       ]
     },
     {
-      "id": 713,
+      "id": 717,
       "categories": [
         "Content Management"
       ],
@@ -27763,7 +27959,7 @@
       ]
     },
     {
-      "id": 714,
+      "id": 718,
       "categories": [
         "Image Editor"
       ],
@@ -27812,7 +28008,7 @@
       ]
     },
     {
-      "id": 715,
+      "id": 719,
       "categories": [
         "Remote Desktop"
       ],
@@ -27861,7 +28057,7 @@
       ]
     },
     {
-      "id": 716,
+      "id": 720,
       "categories": [
         "Games"
       ],
@@ -27910,7 +28106,7 @@
       ]
     },
     {
-      "id": 717,
+      "id": 721,
       "categories": [
         "Games"
       ],
@@ -27959,7 +28155,7 @@
       ]
     },
     {
-      "id": 718,
+      "id": 722,
       "categories": [
         "Remote Desktop"
       ],
@@ -28008,7 +28204,7 @@
       ]
     },
     {
-      "id": 719,
+      "id": 723,
       "categories": [
         "Games"
       ],
@@ -28057,7 +28253,7 @@
       ]
     },
     {
-      "id": 720,
+      "id": 724,
       "categories": [
         "Remote Desktop",
         "Business"
@@ -28115,7 +28311,7 @@
       ]
     },
     {
-      "id": 721,
+      "id": 725,
       "categories": [
         "Video Editor"
       ],
@@ -28164,7 +28360,7 @@
       ]
     },
     {
-      "id": 722,
+      "id": 726,
       "categories": [
         "Docker"
       ],
@@ -28212,7 +28408,7 @@
       ]
     },
     {
-      "id": 723,
+      "id": 727,
       "categories": [
         "Media Management"
       ],
@@ -28268,7 +28464,7 @@
       ]
     },
     {
-      "id": 724,
+      "id": 728,
       "categories": [
         "Monitoring"
       ],
@@ -28388,7 +28584,7 @@
       ]
     },
     {
-      "id": 725,
+      "id": 729,
       "categories": [
         "Music"
       ],
@@ -28437,7 +28633,7 @@
       ]
     },
     {
-      "id": 726,
+      "id": 730,
       "categories": [
         "Databases"
       ],
@@ -28486,7 +28682,7 @@
       ]
     },
     {
-      "id": 727,
+      "id": 731,
       "categories": [
         "Games"
       ],
@@ -28572,7 +28768,7 @@
       ]
     },
     {
-      "id": 728,
+      "id": 732,
       "categories": [
         "Reverse Proxy"
       ],
@@ -28700,7 +28896,7 @@
       ]
     },
     {
-      "id": 729,
+      "id": 733,
       "categories": [
         "Media Tools"
       ],
@@ -28736,7 +28932,7 @@
       ]
     },
     {
-      "id": 730,
+      "id": 734,
       "categories": [
         "Backup"
       ],
@@ -28795,7 +28991,7 @@
       ]
     },
     {
-      "id": 731,
+      "id": 735,
       "categories": [
         "Web Browser"
       ],
@@ -28850,7 +29046,7 @@
       ]
     },
     {
-      "id": 732,
+      "id": 736,
       "categories": [
         "Network"
       ],
@@ -28960,7 +29156,7 @@
       ]
     },
     {
-      "id": 733,
+      "id": 737,
       "categories": [
         "Web Browser"
       ],
@@ -29015,7 +29211,7 @@
       ]
     },
     {
-      "id": 734,
+      "id": 738,
       "categories": [
         "Programming"
       ],
@@ -29064,7 +29260,7 @@
       ]
     },
     {
-      "id": 735,
+      "id": 739,
       "categories": [
         "Chat"
       ],
@@ -29113,7 +29309,7 @@
       ]
     },
     {
-      "id": 736,
+      "id": 740,
       "categories": [
         "Remote Desktop"
       ],
@@ -29162,7 +29358,7 @@
       ]
     },
     {
-      "id": 737,
+      "id": 741,
       "categories": [
         "Chat"
       ],
@@ -29211,7 +29407,7 @@
       ]
     },
     {
-      "id": 738,
+      "id": 742,
       "categories": [
         "Documents"
       ],
@@ -29260,7 +29456,7 @@
       ]
     },
     {
-      "id": 739,
+      "id": 743,
       "categories": [
         "File Sharing"
       ],
@@ -29309,7 +29505,7 @@
       ]
     },
     {
-      "id": 740,
+      "id": 744,
       "categories": [
         "Games"
       ],
@@ -29358,7 +29554,7 @@
       ]
     },
     {
-      "id": 741,
+      "id": 745,
       "categories": [
         "Programming"
       ],
@@ -29407,7 +29603,7 @@
       ]
     },
     {
-      "id": 742,
+      "id": 746,
       "categories": [
         "Music"
       ],
@@ -29486,7 +29682,7 @@
       ]
     },
     {
-      "id": 743,
+      "id": 747,
       "categories": [
         "Web Browser"
       ],
@@ -29535,7 +29731,7 @@
       ]
     },
     {
-      "id": 744,
+      "id": 748,
       "categories": [
         "Documents"
       ],
