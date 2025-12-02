@@ -259,6 +259,97 @@ class PortainerTemplateConverter:
 
         return v3_template
 
+    def normalize_name(self, title: str) -> str:
+        """Konwertuje title na znormalizowaną nazwę (małe litery, spacje na myślniki)"""
+        return title.lower().replace(' ', '-').replace('_', '-')
+
+    def calculate_completeness_score(self, template: Dict[str, Any]) -> int:
+        """
+        Oblicza wynik reprezentujący kompletność szablonu.
+        Wyższy wynik = bardziej kompletny szablon.
+        """
+        score = 0
+
+        # Podstawowe pola
+        if template.get('description'):
+            score += 10
+        if template.get('logo'):
+            score += 5
+        if template.get('env'):
+            score += len(template.get('env', []))
+        if template.get('volumes'):
+            score += len(template.get('volumes', []))
+        if template.get('ports'):
+            score += len(template.get('ports', []))
+        if template.get('categories'):
+            score += len(template.get('categories', []))
+
+        # Preferujemy typ 1 (kontenery) nad typem 3 (stosy) - zazwyczaj bardziej szczegółowe
+        template_type = template.get('type', 0)
+        if template_type == 1:
+            score += 20
+        elif template_type == 3:
+            score += 10
+
+        # Informacje o repozytorium
+        if template.get('repository'):
+            score += 5
+
+        return score
+
+    def deduplicate_templates(self, templates: list) -> list:
+        """
+        Usuwa duplikaty szablonów na podstawie pola 'name'.
+        Dla duplikatów zachowuje najbardziej kompletny szablon.
+        """
+        print("🔍 Usuwanie duplikatów...")
+
+        # Pierwszy przebieg: napraw null names
+        for template in templates:
+            if template.get('name') is None and template.get('title'):
+                # Generuj nazwę z tytułu
+                template['name'] = self.normalize_name(template['title'])
+
+        # Drugi przebieg: usuń duplikaty
+        seen_names = {}  # name -> template
+        unique_templates = []
+        duplicates_removed = 0
+
+        for template in templates:
+            name = template.get('name')
+
+            if not name:
+                # Nadal brak nazwy po naprawie - zachowaj ale ostrzeż
+                print(f"   ⚠️  Szablon bez nazwy lub tytułu (id: {template.get('id')})")
+                unique_templates.append(template)
+                continue
+
+            if name in seen_names:
+                # Znaleziono duplikat - porównaj i zachowaj lepszy
+                existing = seen_names[name]
+                existing_score = self.calculate_completeness_score(existing)
+                new_score = self.calculate_completeness_score(template)
+
+                if new_score > existing_score:
+                    # Zastąp lepszym
+                    seen_names[name] = template
+                    # Znajdź i zastąp w unique_templates
+                    for i, t in enumerate(unique_templates):
+                        if t.get('name') == name:
+                            unique_templates[i] = template
+                            break
+
+                duplicates_removed += 1
+            else:
+                # Nowy unikalny szablon
+                seen_names[name] = template
+                unique_templates.append(template)
+
+        print(f"   • Usunięto duplikatów: {duplicates_removed}")
+        print(f"   • Unikalne szablony: {len(unique_templates)}")
+
+        return unique_templates
+
     def convert_v2_to_v3(self, v2_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Główna funkcja konwersji z v2 na v3
@@ -277,6 +368,16 @@ class PortainerTemplateConverter:
             v3_data['templates'].append(converted_template)
 
         print(f"✅ Konwersja zakończona! Przekonwertowano {len(templates)} szablonów")
+
+        # Usuwamy duplikaty
+        original_count = len(v3_data['templates'])
+        v3_data['templates'] = self.deduplicate_templates(v3_data['templates'])
+
+        # Przypisz nowe sekwencyjne ID po deduplikacji
+        print("🔢 Przypisywanie nowych ID...")
+        for idx, template in enumerate(v3_data['templates'], 1):
+            template['id'] = idx
+
         return v3_data
 
     def save_v3_templates(self, v3_data: Dict[str, Any], filename: str) -> str:
