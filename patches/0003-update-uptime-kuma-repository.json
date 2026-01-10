@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "version": "1",
+    "id": "0003-update-uptime-kuma-repository",
+    "title": "Update uptime-kuma repository to use custom stack file",
+    "description": "Changes uptime-kuma template to use custom stack file (Stack/uptimekuma.yml) from bauerpawel/Portainer_templates_v3_converter repository instead of default xneo1 repository. Includes maintainer URL update.",
+    "author": "bauerpawel",
+    "date": "2026-01-10",
+    "priority": 10,
+    "source": "https://github.com/bauerpawel/Portainer_templates_v3_converter",
+    "references": {
+      "template_name": "uptime-kuma",
+      "type": "Stack",
+      "custom_stack_path": "Stack/uptimekuma.yml"
+    }
+  },
+  "operations": [
+    {
+      "operation": "update",
+      "description": "Update uptime-kuma template to use custom repository and stack file",
+      "filter": {
+        "name": "uptime-kuma"
+      },
+      "changes": {
+        "maintainer": "https://github.com/bauerpawel/Portainer_templates_v3_converter/",
+        "repository": {
+          "stackfile": "Stack/uptimekuma.yml",
+          "url": "https://github.com/bauerpawel/Portainer_templates_v3_converter"
+        }
+      }
+    }
+  ]
+}
