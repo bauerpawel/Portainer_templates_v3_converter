@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "version": "1",
+    "id": "0002-update-n8n-repository",
+    "title": "Update N8n repository to use custom stack file",
+    "description": "Changes N8n template to use custom stack file (Stack/n8n.yml) from bauerpawel/Portainer_templates_v3_converter repository instead of default xneo1 repository. Includes maintainer URL update.",
+    "author": "bauerpawel",
+    "date": "2026-01-10",
+    "priority": 10,
+    "source": "https://github.com/bauerpawel/Portainer_templates_v3_converter",
+    "references": {
+      "template_name": "N8n",
+      "template_id": 253,
+      "type": "Stack",
+      "custom_stack_path": "Stack/n8n.yml"
+    }
+  },
+  "operations": [
+    {
+      "operation": "update",
+      "description": "Update N8n template to use custom repository and stack file",
+      "filter": {
+        "id": 253,
+        "name": "n8n"
+      },
+      "changes": {
+        "maintainer": "https://github.com/bauerpawel/Portainer_templates_v3_converter/",
+        "repository": {
+          "stackfile": "Stack/n8n.yml",
+          "url": "https://github.com/bauerpawel/Portainer_templates_v3_converter"
+        }
+      }
+    }
+  ]
+}
