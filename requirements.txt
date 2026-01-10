@@ -1,3 +1,11 @@
-# Wymagane biblioteki dla Portainer Templates Converter
-requests>=2.25.1
-jsonschema>=4.0.0
+# Portainer Templates v3 Converter - Requirements
+# Python 3.8+
+
+# HTTP requests
+requests>=2.31.0
+
+# JSON Schema validation
+jsonschema>=4.20.0
+
+# Optional: Better CLI output
+colorama>=0.4.6  # Color support for Windows terminals

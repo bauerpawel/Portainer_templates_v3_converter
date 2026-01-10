@@ -1,306 +1,377 @@
 #!/usr/bin/env python3
 """
-Patch Loader dla Portainer Templates v3
-Obsługuje ładowanie i aplikowanie patch files do szablonów
+PatchLoader - System ładowania i aplikowania patchy-ów dla szablonów v3
 
-Typy operacji:
-  - update: zmiana istniejącego szablonu
-  - add: dodanie nowego szablonu
-  - remove: usunięcie szablonu
+Obsługuje operacje:
+- UPDATE: zmiana istniejeych szablonów
+- ADD: dodanie nowych szablonów  
+- REMOVE: usunięcie szablonów
+
+Autor: Patch System v1.0
+Data: 2026-01-10
 """
 
 import json
 import os
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List, Tuple, Optional
+from pathlib import Path
 import re
-from datetime import datetime
 
 
 class PatchLoader:
-    """Ładuje i aplikuje patch files do szablonów v3"""
+    """Ładuje i aplikuje patch-y do szablonów Portainer v3"""
 
-    def __init__(self, patches_dir: str = "patches"):
-        self.patches_dir = patches_dir
+    def __init__(self, patches_dir: str = 'patches'):
+        """
+        Inicjalizuje loader patchy-ów
+        
+        Args:
+            patches_dir: katalog z plikami patchy-ów
+        """
+        self.patches_dir = Path(patches_dir)
         self.patches = []
         self.stats = {
-            'patches_loaded': 0,
-            'operations_applied': 0,
-            'updates': 0,
-            'additions': 0,
-            'removals': 0,
-            'errors': 0,
-            'skipped': 0
+            'loaded': 0,
+            'applied': 0,
+            'operations': {
+                'update': 0,
+                'add': 0,
+                'remove': 0
+            },
+            'skipped': 0,
+            'errors': []
         }
 
     def load_patches(self) -> List[Dict[str, Any]]:
         """
-        Ładuje wszystkie patch files z katalogu patches/
-        Patch files są ładowane w kolejności numerycznej (XXXX-*.json)
+        Ładuje wszystkie patch files z katalogu
+        Pliki są ładowane w porządku numerycznym (0001, 0002...)
+        
+        Returns:
+            Lista załadowanych patchy-ów
         """
-        print("📂 Ładowanie patch files...")
-
-        if not os.path.exists(self.patches_dir):
-            print(f"⚠️  Katalog {self.patches_dir} nie istnieje")
+        if not self.patches_dir.exists():
+            print(f"⚠️  Katalog patchy-ów nie istnieje: {self.patches_dir}")
             return []
 
-        patch_files = []
-        patch_paths = []
+        # Zbieramy wszystkie .json files
+        patch_files = sorted([
+            f for f in self.patches_dir.glob('*.json')
+            if f.name != 'TEMPLATE.json' and f.name != 'archived.json'
+        ])
 
-        # Zbieramy patch files
-        for filename in sorted(os.listdir(self.patches_dir)):
-            # Szukamy plików z pattern: XXXX-*.json lub XXXX_*.json
-            if filename.endswith('.json') and self._is_valid_patch_file(filename):
-                filepath = os.path.join(self.patches_dir, filename)
-                try:
-                    with open(filepath, 'r', encoding='utf-8') as f:
-                        patch_data = json.load(f)
-                        self._validate_patch_structure(patch_data, filename)
-                        self.patches.append(patch_data)
-                        patch_files.append(filename)
-                        patch_paths.append(filepath)
-                except json.JSONDecodeError as e:
-                    print(f"❌ Błąd parsowania JSON w {filename}: {e}")
-                except ValueError as e:
-                    print(f"❌ Błąd walidacji patcha {filename}: {e}")
-                except Exception as e:
-                    print(f"❌ Błąd ładowania {filename}: {e}")
+        if not patch_files:
+            print(f"ℹ️  Brak patch files w {self.patches_dir}")
+            return []
 
-        self.stats['patches_loaded'] = len(patch_files)
+        print(f"🔍 Ładowanie patchy-ów z {self.patches_dir}...")
 
-        if patch_files:
-            print(f"✅ Załadowano {len(patch_files)} patch files")
-            for pf in patch_files:
-                patch_id = self._get_patch_id(pf)
-                print(f"   • {pf} (ID: {patch_id})")
-        else:
-            print("⚠️  Nie znaleziono żadnych patch files")
+        self.patches = []
+        for patch_file in patch_files:
+            try:
+                with open(patch_file, 'r', encoding='utf-8') as f:
+                    patch_data = json.load(f)
+
+                # Walidujemy strukturę patch file
+                if not self._validate_patch_structure(patch_data):
+                    self.stats['errors'].append(f"Invalid structure: {patch_file.name}")
+                    continue
+
+                self.patches.append(patch_data)
+                self.stats['loaded'] += 1
+                print(f"   ✅ {patch_file.name}: {patch_data['metadata']['title']}")
+
+            except json.JSONDecodeError as e:
+                error_msg = f"JSON error in {patch_file.name}: {e}"
+                self.stats['errors'].append(error_msg)
+                print(f"   ❌ {error_msg}")
+            except Exception as e:
+                error_msg = f"Error loading {patch_file.name}: {e}"
+                self.stats['errors'].append(error_msg)
+                print(f"   ❌ {error_msg}")
 
         return self.patches
 
-    def apply_patches(self, templates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def _validate_patch_structure(self, patch: Dict[str, Any]) -> bool:
         """
-        Aplikuje wszystkie patch files do szablonów
-        Patche są aplikowane w kolejności załadowania
+        Waliduje strukturę patch file
+        
+        Returns:
+            True jeśli struktura jest poprawna
         """
-        if not self.patches:
-            print("⚠️  Brak patch files do aplikowania")
-            return templates
+        # Sprawdzenie wymaganych pól
+        required_keys = ['metadata', 'operations']
+        for key in required_keys:
+            if key not in patch:
+                return False
 
-        print("\n🔧 Aplikowanie patch files...")
-        print()
+        # Walidacja metadata
+        metadata = patch['metadata']
+        required_meta = ['version', 'id', 'title', 'description']
+        for key in required_meta:
+            if key not in metadata:
+                return False
 
-        for patch in self.patches:
-            patch_id = patch.get('metadata', {}).get('id', 'unknown')
-            patch_title = patch.get('metadata', {}).get('title', 'Unknown')
-            patch_priority = patch.get('metadata', {}).get('priority', 0)
-
-            print(f"📋 [{patch_id}] {patch_title}")
-
-            operations = patch.get('operations', [])
-
-            for op_idx, op in enumerate(operations, 1):
-                operation_type = op.get('operation')
-                description = op.get('description', '')
-
-                try:
-                    if operation_type == 'update':
-                        result = self._apply_update(templates, op)
-                        if result:
-                            self.stats['updates'] += 1
-                            self.stats['operations_applied'] += 1
-                            status = "✅"
-                        else:
-                            self.stats['skipped'] += 1
-                            status = "⏭️ "
-
-                    elif operation_type == 'add':
-                        result = self._apply_add(templates, op)
-                        if result:
-                            self.stats['additions'] += 1
-                            self.stats['operations_applied'] += 1
-                            status = "✅"
-                        else:
-                            self.stats['errors'] += 1
-                            status = "❌"
-
-                    elif operation_type == 'remove':
-                        result = self._apply_remove(templates, op)
-                        if result:
-                            self.stats['removals'] += 1
-                            self.stats['operations_applied'] += 1
-                            status = "✅"
-                        else:
-                            self.stats['skipped'] += 1
-                            status = "⏭️ "
-
-                    else:
-                        print(f"   ❌ Nieznany typ operacji: {operation_type}")
-                        self.stats['errors'] += 1
-                        status = "❌"
-                        result = False
-
-                    # Wyświetl status operacji
-                    op_desc = description if description else f"{operation_type}"
-                    if result:
-                        print(f"   {status} Operacja {op_idx}: {op_desc}")
-
-                except Exception as e:
-                    print(f"   ❌ Błąd w operacji {op_idx}: {e}")
-                    self.stats['errors'] += 1
-
-            print()
-
-        self._print_statistics()
-        return templates
-
-    def _apply_update(self, templates: List[Dict[str, Any]], operation: Dict[str, Any]) -> bool:
-        """Aplikuje operację UPDATE - zmienia istniejący szablon"""
-        filter_criteria = operation.get('filter', {})
-        changes = operation.get('changes', {})
-
-        if not filter_criteria:
-            print(f"   ⚠️  Brak kryteriów filtrowania w UPDATE operacji")
+        # Walidacja operacji
+        operations = patch['operations']
+        if not isinstance(operations, list):
             return False
 
-        found_count = 0
+        for op in operations:
+            if 'operation' not in op:
+                return False
+            op_type = op['operation']
+            if op_type not in ['update', 'add', 'remove']:
+                return False
+
+        return True
+
+    def apply_patches(self, templates: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+        """
+        Aplikuje wszystkie załadowane patchy-y do szablonów
+        
+        Args:
+            templates: lista szablonów v3
+            
+        Returns:
+            Tuple (zmodyfikowane templates, statystyki)
+        """
+        if not self.patches:
+            return templates, self.stats
+
+        print(f"\n🔧 Aplikowanie {len(self.patches)} patch file(ów)...")
+
+        # Resetujemy statystyki operacji
+        self.stats['operations'] = {'update': 0, 'add': 0, 'remove': 0}
+        self.stats['applied'] = 0
+        self.stats['skipped'] = 0
+
+        # Aplikujemy patchy w kolejności
+        for patch in self.patches:
+            templates = self._apply_single_patch(patch, templates)
+
+        return templates, self.stats
+
+    def _apply_single_patch(self, patch: Dict[str, Any], templates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Aplikuje pojedynczy patch do szablonów
+        
+        Args:
+            patch: patch do aplikowania
+            templates: lista szablonów
+            
+        Returns:
+            Zmodyfikowana lista szablonów
+        """
+        metadata = patch['metadata']
+        patch_id = metadata['id']
+        patch_title = metadata['title']
+
+        print(f"\n   📋 Patch: {patch_id} - {patch_title}")
+
+        operations = patch['operations']
+
+        for op_idx, operation in enumerate(operations, 1):
+            op_type = operation['operation']
+            op_desc = operation.get('description', '')
+
+            try:
+                if op_type == 'update':
+                    templates = self._apply_update(operation, templates)
+                elif op_type == 'add':
+                    templates = self._apply_add(operation, templates)
+                elif op_type == 'remove':
+                    templates = self._apply_remove(operation, templates)
+
+                self.stats['operations'][op_type] += 1
+                self.stats['applied'] += 1
+
+            except Exception as e:
+                error_msg = f"Error in {patch_id} operation {op_idx}: {e}"
+                self.stats['errors'].append(error_msg)
+                print(f"      ❌ {error_msg}")
+                self.stats['skipped'] += 1
+
+        return templates
+
+    def _apply_update(self, operation: Dict[str, Any], templates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Aplikuje operację UPDATE - zmiana istniejących szablonów
+        
+        Kryteria filtrowania mogą używać dowolnych pól szablonu
+        """
+        filter_criteria = operation.get('filter', {})
+        changes = operation.get('changes', {})
+        op_desc = operation.get('description', '')
+
+        if not filter_criteria or not changes:
+            raise ValueError("UPDATE requires 'filter' and 'changes'")
+
+        matched = 0
         for template in templates:
             if self._matches_filter(template, filter_criteria):
                 # Aplikujemy zmiany
                 for key, value in changes.items():
-                    template[key] = value
-                found_count += 1
+                    if key in ['env', 'volumes', 'labels', 'categories', 'ports']:
+                        # Dla pól listowych - scal zamiast zamień
+                        if isinstance(value, list):
+                            if key not in template:
+                                template[key] = []
+                            # Scalanie - unikaj duplikatów
+                            self._merge_list_field(template, key, value)
+                        else:
+                            template[key] = value
+                    else:
+                        # Dla zwykłych pól - zamień
+                        template[key] = value
 
-        if found_count > 0:
-            return True
+                matched += 1
+
+        if matched > 0:
+            print(f"      ✅ UPDATE: zaktualizowano {matched} szablon(ów)")
+            if op_desc:
+                print(f"         {op_desc}")
         else:
-            print(f"   ⚠️  Nie znaleziono szablonu spełniającego kryteria: {filter_criteria}")
-            return False
+            print(f"      ⚠️  UPDATE: brak szablonów spełniających kryteria")
 
-    def _apply_add(self, templates: List[Dict[str, Any]], operation: Dict[str, Any]) -> bool:
-        """Aplikuje operację ADD - dodaje nowy szablon"""
-        new_template = operation.get('template', {})
+        return templates
+
+    def _apply_add(self, operation: Dict[str, Any], templates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Aplikuje operację ADD - dodanie nowych szablonów
+        """
+        new_template = operation.get('template')
+        op_desc = operation.get('description', '')
 
         if not new_template:
-            print(f"   ❌ Brak szablonu do dodania")
-            return False
+            raise ValueError("ADD requires 'template' field")
 
-        # Sprawdzamy wymagane pola
+        # Walidujemy wymagane pola
         required_fields = ['id', 'type', 'title', 'name', 'image']
         for field in required_fields:
             if field not in new_template:
-                print(f"   ❌ Szablon brakuje wymagane pole: {field}")
-                return False
+                raise ValueError(f"ADD template missing required field: {field}")
 
-        # Sprawdzamy czy szablon już istnieje
-        new_id = new_template.get('id')
-        new_name = new_template.get('name')
+        # Sprawdzamy czy template o takim ID już istnieje
+        new_id = new_template['id']
+        existing = next((t for t in templates if t.get('id') == new_id), None)
 
-        for template in templates:
-            if template.get('id') == new_id:
-                print(f"   ⚠️  Szablon o ID {new_id} już istnieje (duplikat)")
-                return False
-            if template.get('name') == new_name:
-                print(f"   ⚠️  Szablon o nazwie '{new_name}' już istnieje (duplikat)")
-                return False
+        if existing:
+            print(f"      ⚠️  ADD: szablon o ID {new_id} już istnieje, pomijam")
+            self.stats['skipped'] += 1
+            return templates
 
-        # Dodajemy nowy szablon
+        # Dodajemy nowy template
         templates.append(new_template)
-        return True
+        print(f"      ✅ ADD: dodano nowy szablon '{new_template['title']}'")
+        if op_desc:
+            print(f"         {op_desc}")
 
-    def _apply_remove(self, templates: List[Dict[str, Any]], operation: Dict[str, Any]) -> bool:
-        """Aplikuje operację REMOVE - usuwa szablon"""
+        return templates
+
+    def _apply_remove(self, operation: Dict[str, Any], templates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Aplikuje operację REMOVE - usunięcie szablonów
+        """
         filter_criteria = operation.get('filter', {})
+        reason = operation.get('reason', '')
+        op_desc = operation.get('description', '')
 
         if not filter_criteria:
-            print(f"   ⚠️  Brak kryteriów filtrowania w REMOVE operacji")
-            return False
+            raise ValueError("REMOVE requires 'filter'")
 
-        templates_to_remove = []
-        for i, template in enumerate(templates):
-            if self._matches_filter(template, filter_criteria):
-                templates_to_remove.append(i)
+        initial_count = len(templates)
+        templates = [
+            t for t in templates
+            if not self._matches_filter(t, filter_criteria)
+        ]
+        removed_count = initial_count - len(templates)
 
-        if not templates_to_remove:
-            print(f"   ⚠️  Nie znaleziono szablonu do usunięcia")
-            return False
+        if removed_count > 0:
+            print(f"      ✅ REMOVE: usunięto {removed_count} szablon(ów)")
+            if op_desc:
+                print(f"         {op_desc}")
+            if reason:
+                print(f"         Powód: {reason}")
+        else:
+            print(f"      ⚠️  REMOVE: brak szablonów spełniających kryteria")
 
-        # Usuwamy w odwrotnej kolejności aby nie zmieniały się indeksy
-        for i in reversed(templates_to_remove):
-            templates.pop(i)
-
-        return True
+        return templates
 
     def _matches_filter(self, template: Dict[str, Any], filter_criteria: Dict[str, Any]) -> bool:
-        """Sprawdza czy szablon spełnia kryteria filtrowania"""
-        for key, value in filter_criteria.items():
+        """
+        Sprawdza czy szablon spełnia kryteria filtrowania
+        
+        Obsługuje:
+        - Dokładne dopasowanie (name, id, title)
+        - Wildcardy dla image (zadam/* -> zadam/*)  
+        - Case-insensitive dla string pól
+        """
+        for key, criteria_value in filter_criteria.items():
             if key not in template:
                 return False
 
-            template_value = template.get(key)
+            template_value = template[key]
 
-            # Obsługujemy wildcardy (np. "postgres:*")
-            if isinstance(value, str) and '*' in value:
-                pattern = value.replace('*', '.*')
-                if not re.match(pattern, str(template_value), re.IGNORECASE):
+            # Dla image field - obsługuj wildcardy
+            if key == 'image' and isinstance(criteria_value, str) and '*' in criteria_value:
+                pattern = criteria_value.replace('*', '.*')
+                if not re.match(f"^{pattern}$", str(template_value), re.IGNORECASE):
                     return False
+            # Dla string pól - case-insensitive
+            elif isinstance(criteria_value, str) and isinstance(template_value, str):
+                if criteria_value.lower() != template_value.lower():
+                    return False
+            # Dla pozostałych - dokładne dopasowanie
             else:
-                # Porównanie case-insensitive dla stringów
-                if isinstance(value, str) and isinstance(template_value, str):
-                    if template_value.lower() != value.lower():
-                        return False
-                else:
-                    if template_value != value:
-                        return False
+                if criteria_value != template_value:
+                    return False
 
         return True
 
-    def _validate_patch_structure(self, patch: Dict[str, Any], filename: str) -> None:
-        """Waliduje strukturę patch file'a"""
-        # Sprawdzenie metadata
-        if 'metadata' not in patch:
-            raise ValueError(f"Brak sekcji 'metadata'")
+    def _merge_list_field(self, template: Dict[str, Any], field: str, values: List[Any]) -> None:
+        """
+        Scala wartości listy, unikając duplikatów
+        
+        Args:
+            template: szablon do modyfikacji
+            field: pole które zawiera listę
+            values: wartości do dodania
+        """
+        if field not in template:
+            template[field] = []
 
-        metadata = patch['metadata']
-        if 'id' not in metadata:
-            raise ValueError(f"Brak 'id' w metadata")
-        if 'version' not in metadata:
-            raise ValueError(f"Brak 'version' w metadata")
+        current = template[field]
+        if not isinstance(current, list):
+            current = [current]
+            template[field] = current
 
-        # Sprawdzenie operations
-        if 'operations' not in patch:
-            raise ValueError(f"Brak sekcji 'operations'")
+        for value in values:
+            if value not in current:
+                current.append(value)
 
-        operations = patch['operations']
-        if not isinstance(operations, list):
-            raise ValueError(f"'operations' powinna być listą")
+    def get_statistics(self) -> Dict[str, Any]:
+        """
+        Zwraca statystyki aplikowania patchy-ów
+        """
+        return self.stats.copy()
 
-        for i, op in enumerate(operations):
-            if 'operation' not in op:
-                raise ValueError(f"Operacja {i} brakuje pola 'operation'")
-
-            op_type = op['operation']
-            if op_type not in ['update', 'add', 'remove']:
-                raise ValueError(f"Nieznany typ operacji: {op_type}")
-
-    def _is_valid_patch_file(self, filename: str) -> bool:
-        """Sprawdza czy plik to poprawny patch file"""
-        # Pattern: XXXX-* lub XXXX_*
-        pattern = r'^\d{4}[-_].*\.json$'
-        return bool(re.match(pattern, filename))
-
-    def _get_patch_id(self, filename: str) -> str:
-        """Wyciąga ID patcha z nazwy pliku"""
-        # Usuń rozszerzenie
-        name_without_ext = filename[:-5]
-        return name_without_ext
-
-    def _print_statistics(self) -> None:
-        """Wyświetla statystykę aplikowania patchy"""
-        print("✅ Statystyka patchy:")
-        print(f"   • Załadowane patch files: {self.stats['patches_loaded']}")
-        print(f"   • Aplikowane operacje: {self.stats['operations_applied']}")
-        print(f"     - UPDATE: {self.stats['updates']}")
-        print(f"     - ADD: {self.stats['additions']}")
-        print(f"     - REMOVE: {self.stats['removals']}")
+    def print_statistics(self) -> None:
+        """
+        Wyświetla statystyki aplikowania patchy-ów
+        """
+        print("\n📊 Statystyka patchy-ów:")
+        print(f"   • Załadowane patch files: {self.stats['loaded']}")
+        print(f"   • Aplikowane operacje: {self.stats['applied']}")
+        print(f"     - UPDATE: {self.stats['operations']['update']}")
+        print(f"     - ADD: {self.stats['operations']['add']}")
+        print(f"     - REMOVE: {self.stats['operations']['remove']}")
         print(f"   • Pominięte: {self.stats['skipped']}")
-        print(f"   • Błędy: {self.stats['errors']}")
+        print(f"   • Błędy: {len(self.stats['errors'])}")
+
+        if self.stats['errors']:
+            print("\n   ❌ Błędy:")
+            for error in self.stats['errors'][:5]:
+                print(f"      • {error}")
+            if len(self.stats['errors']) > 5:
+                print(f"      ... i {len(self.stats['errors']) - 5} więcej błędów")
