@@ -3,11 +3,13 @@
 Portainer Templates Converter v2 -> v3
 Aplikacja konwertująca szablony Portainer z formatu v2 na v3
 
+Ze wsparciem dla systemu patch-ów v3!
+
 Użycie:
     python portainer_converter.py [--url URL] [--output PLIK]
     python portainer_converter.py --help
 
-Przykłady:
+Przyk łady:
     # Domyślna konwersja
     python portainer_converter.py
 
@@ -19,7 +21,7 @@ Przykłady:
 
 Autor: Python Script dla konwersji szablonów Portainer
 Data: 2025-08-27
-Wersja: 1.0.0
+Wersja: 2.0.0 (ze wsparciem patch-ów)
 """
 
 import json
@@ -27,9 +29,17 @@ import requests
 import argparse
 import sys
 import os
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 from datetime import datetime
 from jsonschema import validate, ValidationError, Draft7Validator
+
+# Importujemy PatchLoader
+try:
+    from patches._patch_loader import PatchLoader
+    PATCH_LOADER_AVAILABLE = True
+except ImportError:
+    PATCH_LOADER_AVAILABLE = False
+    print("⚠️  Ostrzeżenie: Patch loader nie jest dostępny. System patch-ów będzie wyłączony.")
 
 class PortainerTemplateConverter:
     """Klasa do konwersji szablonów Portainer z v2 na v3"""
@@ -39,6 +49,18 @@ class PortainerTemplateConverter:
         self.default_output_file = "templates_v3_converted.json"
         self.schema_file = os.path.join(os.path.dirname(__file__), "schema_v3.json")
         self.schema = None
+        self.patch_loader = None
+        self.patch_stats = None
+
+        # Inicjalizujemy patch loader jeśli dostępny
+        if PATCH_LOADER_AVAILABLE:
+            try:
+                patches_dir = os.path.join(os.path.dirname(__file__), "patches")
+                if os.path.exists(patches_dir):
+                    self.patch_loader = PatchLoader(patches_dir=patches_dir)
+                    print("✅ System patch-ów załadowany pomyślnie")
+            except Exception as e:
+                print(f"⚠️  Nie udało się załadować patch-ów: {e}")
 
         # Lista popularnych źródeł szablonów Portainer v2
         self.known_sources = {
@@ -258,6 +280,54 @@ class PortainerTemplateConverter:
         # - 'platform': informacja o platformie - nie jest używana w v3
 
         return v3_template
+
+    def apply_patches(self, v3_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Aplikuje patch-y do szablonów v3
+        Zwraca zmodyfikowane dane oraz statystykę
+        """
+        if not self.patch_loader:
+            print("⚠️  System patch-ów nie jest dostępny, pomijam")
+            return v3_data
+
+        print("\n🔧 Aplikowanie patch-ów do szablonów...")
+
+        try:
+            # Ładujemy patchy
+            patches = self.patch_loader.load_patches()
+
+            if not patches:
+                print("   ℹ️  Brak patch-ów do aplikowania")
+                self.patch_stats = {
+                    'loaded': 0,
+                    'applied': 0,
+                    'operations': {'update': 0, 'add': 0, 'remove': 0}
+                }
+                return v3_data
+
+            print(f"   📦 Załadowano {len(patches)} patch file(ów)")
+
+            # Aplikujemy patchy
+            modified_data, stats = self.patch_loader.apply_patches(v3_data['templates'])
+            v3_data['templates'] = modified_data
+
+            # Przechowujemy statystyki
+            self.patch_stats = stats
+
+            # Wyświetlamy podsumowanie
+            if stats:
+                print(f"   ✅ Patchy aplikowane:")
+                for op_type, count in stats.get('operations', {}).items():
+                    if count > 0:
+                        print(f"      • {op_type.upper()}: {count}")
+
+            return v3_data
+
+        except Exception as e:
+            print(f"   ❌ Błąd podczas aplikowania patch-ów: {e}")
+            import traceback
+            traceback.print_exc()
+            return v3_data
 
     def normalize_name(self, title: str) -> str:
         """Konwertuje title na znormalizowaną nazwę (małe litery, spacje na myślniki)"""
@@ -506,6 +576,15 @@ class PortainerTemplateConverter:
         print(f"   • Szablony źródłowe (v2): {len(v2_templates)}")
         print(f"   • Szablony docelowe (v3): {len(v3_templates)}")
 
+        # Statystyki patch-ów
+        if self.patch_stats and self.patch_stats.get('loaded', 0) > 0:
+            print(f"   • Patch-y:")
+            print(f"     - Załadowane: {self.patch_stats.get('loaded', 0)}")
+            ops = self.patch_stats.get('operations', {})
+            for op, count in ops.items():
+                if count > 0:
+                    print(f"     - {op.upper()}: {count}")
+
         # Statystyki typów
         type_stats = {}
         for template in v3_templates:
@@ -608,6 +687,9 @@ class PortainerTemplateConverter:
             # 2. Konwersja v2 -> v3
             v3_data = self.convert_v2_to_v3(v2_data)
 
+            # [NOWY KROK] 2.5 Aplikuj patchy
+            v3_data = self.apply_patches(v3_data)
+
             # 3. Walidacja
             if not self.validate_v3_format(v3_data):
                 print("❌ Walidacja nie powiodła się")
@@ -668,7 +750,7 @@ def main():
         description="Konwertuje szablony Portainer z formatu v2 na v3",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-Przykłady użycia:
+Przyk łady użycia:
   %(prog)s
     Konwersja z domyślnego URL do domyślnego pliku
 
@@ -696,11 +778,17 @@ Główne różnice v2 -> v3:
   • Zmigrowano 'restart_policy' do labels jako 'com.docker.compose.restart-policy'
   • Usunięto pole 'platform'
   • Zmieniono wersję na '3'
+  • Aplikowanie patch-ów (nowe w v2.0!)
 
 Scalanie źródeł:
   • Duplikaty są wykrywane po kombinacji (name, image)
   • Kategorie z duplikatów są scalane
   • Wybierany jest dłuższy opis
+
+Patch-y v3:
+  • Automatycznie załadowywane z katalogu patches/
+  • Pozwalają na modyfikacje bez edycji kodu
+  • Obsługują operacje: update, add, remove
         """
     )
 
@@ -739,7 +827,7 @@ Scalanie źródeł:
     parser.add_argument(
         '--version', '-v',
         action='version',
-        version='Portainer Templates Converter 2.0'
+        version='Portainer Templates Converter 2.0 (ze wsparciem patch-ów)'
     )
 
     args = parser.parse_args()

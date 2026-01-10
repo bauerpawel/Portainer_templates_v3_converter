@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "version": "1",
+    "id": "XXXX-unique-identifier",
+    "title": "Human readable title",
+    "description": "Detailed description of what this patch does and why",
+    "author": "github-username",
+    "date": "YYYY-MM-DD",
+    "priority": 10,
+    "source": "https://github.com/Lissy93/portainer-templates/pull/XXX",
+    "references": {
+      "github_pr": "https://github.com/...",
+      "issue": "https://github.com/..."
+    }
+  },
+  "operations": [
+    {
+      "operation": "update",
+      "description": "Description of what this operation does",
+      "filter": {
+        "name": "app-name",
+        "title": "App Title"
+      },
+      "changes": {
+        "image": "new/image:tag",
+        "note": "Updated note"
+      }
+    },
+    {
+      "operation": "add",
+      "description": "Add new custom application",
+      "template": {
+        "id": 5000,
+        "type": 1,
+        "title": "Custom App",
+        "name": "custom-app",
+        "image": "myrepo/custom-app:latest",
+        "description": "Custom application for internal use",
+        "categories": ["Custom", "Tools"],
+        "ports": ["8080:8080"],
+        "env": [
+          {
+            "name": "CONFIG_VAR",
+            "label": "Configuration",
+            "default": "value"
+          }
+        ],
+        "volumes": [
+          {
+            "container": "/data",
+            "bind": "/data/custom"
+          }
+        ],
+        "labels": [],
+        "logo": "https://example.com/logo.png"
+      }
+    },
+    {
+      "operation": "remove",
+      "description": "Remove deprecated application",
+      "filter": {
+        "name": "deprecated-app"
+      },
+      "reason": "Application no longer maintained"
+    }
+  ]
+}
