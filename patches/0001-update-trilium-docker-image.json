@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "version": "1",
+    "id": "0001-update-trilium-docker-image",
+    "title": "Update Trilium Docker image to TriliumNext",
+    "description": "The Trilium project has been handed over to the community (TriliumNext). Update Docker image from zadam/trilium to triliumnext/trilium. See: https://github.com/TriliumNext/Trilium#why-triliumnext",
+    "author": "fyliu",
+    "date": "2026-01-04",
+    "priority": 10,
+    "source": "https://github.com/Lissy93/portainer-templates/pull/92",
+    "references": {
+      "github_pr": "https://github.com/Lissy93/portainer-templates/pull/92",
+      "trilium_next": "https://github.com/TriliumNext/Trilium",
+      "docker_hub": "https://hub.docker.com/r/triliumnext/trilium"
+    }
+  },
+  "operations": [
+    {
+      "operation": "update",
+      "description": "Update Docker image reference for Trilium from zadam/trilium to triliumnext/trilium",
+      "filter": {
+        "name": "trilium"
+      },
+      "changes": {
+        "image": "triliumnext/trilium:latest"
+      }
+    }
+  ]
+}
