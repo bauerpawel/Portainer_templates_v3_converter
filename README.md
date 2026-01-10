@@ -6,6 +6,10 @@
 
 ---
 
+## Użyj gotowego pliku w Portainer → Settings → App Templates, wklej ten adres:
+```bash
+https://raw.githubusercontent.com/bauerpawel/Portainer_templates_v3_converter/main/templates_v3_converted.json
+ ```
 ## Opis
 
 Ta aplikacja automatycznie konwertuje szablony aplikacji Portainer z formatu v2 na v3, który jest kompatybilny z najnowszymi wersjami Portainer.io.
