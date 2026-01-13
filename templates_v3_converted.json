@@ -741,9 +741,9 @@
     {
       "id": 28,
       "categories": [
-        "Log Management",
+        "Monitoring",
         "Logmanagement",
-        "Monitoring"
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -1610,8 +1610,8 @@
     {
       "id": 62,
       "categories": [
-        "Other",
         "Tools",
+        "Other",
         "Authentication"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
@@ -1804,8 +1804,8 @@
     {
       "id": 67,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -2107,9 +2107,9 @@
     {
       "id": 74,
       "categories": [
-        "Other",
         "Tools",
         "Photo",
+        "Other",
         "Photos"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
@@ -2174,8 +2174,8 @@
     {
       "id": 75,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Have recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -2203,9 +2203,9 @@
     {
       "id": 76,
       "categories": [
-        "Programming",
+        "Development",
         "Tools",
-        "Development"
+        "Programming"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -2422,9 +2422,9 @@
     {
       "id": 81,
       "categories": [
-        "FTP",
+        "Ftp",
         "Tools",
-        "Ftp"
+        "FTP"
       ],
       "description": "[Davos](https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
       "env": [
@@ -2469,8 +2469,8 @@
     {
       "id": 82,
       "categories": [
-        "Other",
-        "Music"
+        "Music",
+        "Other"
       ],
       "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
       "image": "registry.gitlab.com/bockiii/deemix-docker",
@@ -2592,10 +2592,10 @@
     {
       "id": 85,
       "categories": [
+        "DNS",
         "Network",
         "Dns",
-        "Tools",
-        "DNS"
+        "Tools"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -2775,8 +2775,8 @@
     {
       "id": 89,
       "categories": [
-        "RSS",
-        "Feedreader"
+        "Feedreader",
+        "RSS"
       ],
       "description": "[Freshrss](https://freshrss.org/) is a free, self-hostable aggregator for rss feeds.",
       "env": [
@@ -2881,8 +2881,8 @@
       "id": 92,
       "categories": [
         "Other",
-        "Tools",
-        "Remotecontrol"
+        "Remotecontrol",
+        "Tools"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -2911,9 +2911,9 @@
     {
       "id": 93,
       "categories": [
-        "Recipes",
+        "Finance",
         "Tools",
-        "Finance"
+        "Recipes"
       ],
       "description": "[Grocy](https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
       "env": [
@@ -2957,9 +2957,9 @@
     {
       "id": 94,
       "categories": [
-        "Music",
+        "Video",
         "Media Tools",
-        "Video"
+        "Music"
       ],
       "description": "[Htpcmanager](https://github.com/HTPC-Manager/HTPC-Manager) is a front end for many htpc related applications.",
       "env": [
@@ -3391,8 +3391,8 @@
     {
       "id": 106,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Create agents that monitor and act on your behalf.",
       "image": "huginn/huginn:latest",
@@ -3509,8 +3509,8 @@
       "id": 109,
       "categories": [
         "Downloaders",
-        "Tools",
-        "Indexers"
+        "Indexers",
+        "Tools"
       ],
       "description": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
       "env": [
@@ -3826,9 +3826,9 @@
     {
       "id": 114,
       "categories": [
+        "Monitoring",
         "Network",
-        "Tools",
-        "Monitoring"
+        "Tools"
       ],
       "description": "[Librespeed](https://github.com/librespeed/speedtest) is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.",
       "image": "linuxserver/librespeed:latest",
@@ -3906,9 +3906,9 @@
       "id": 116,
       "categories": [
         "Web",
+        "Cloud",
         "Management",
-        "Photos",
-        "Cloud"
+        "Photos"
       ],
       "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
       "env": [
@@ -3992,9 +3992,9 @@
     {
       "id": 118,
       "categories": [
-        "Media Management",
+        "Video",
         "Downloaders",
-        "Video"
+        "Media Management"
       ],
       "description": "[Medusa](https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
       "env": [
@@ -4121,9 +4121,9 @@
     {
       "id": 121,
       "categories": [
-        "Tools",
+        "Video",
         "Media Tools",
-        "Video"
+        "Tools"
       ],
       "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.",
       "env": [
@@ -4192,8 +4192,8 @@
     {
       "id": 123,
       "categories": [
-        "Other",
         "Voice",
+        "Other",
         "Chat"
       ],
       "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
@@ -4437,8 +4437,8 @@
       "id": 128,
       "categories": [
         "Downloaders",
-        "Tools",
-        "Indexers"
+        "Indexers",
+        "Tools"
       ],
       "description": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra). It provides easy access to a number of raw and newznab based indexers.",
       "env": [
@@ -4559,8 +4559,8 @@
     {
       "id": 131,
       "categories": [
-        "Other",
-        "Media Tools"
+        "Media Tools",
+        "Other"
       ],
       "description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module (CAM). The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
       "env": [
@@ -4922,9 +4922,9 @@
     {
       "id": 139,
       "categories": [
-        "Adblocking",
         "Other",
-        "Tools"
+        "Tools",
+        "Adblocking"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -5001,14 +5001,14 @@
     {
       "id": 141,
       "categories": [
+        "Media Servers",
         "Audiobooks",
         "Video",
+        "Mediaservervideo",
         "Mediaservermusic",
-        "Photos",
-        "Music",
-        "Media Servers",
         "Mediaserverphotos",
-        "Mediaservervideo"
+        "Photos",
+        "Music"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -5105,9 +5105,9 @@
     {
       "id": 143,
       "categories": [
+        "Cloud",
         "Tools",
         "File Sharing",
-        "Cloud",
         "Productivity"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
@@ -5153,8 +5153,8 @@
       "id": 144,
       "categories": [
         "Email",
-        "Other",
         "Tools",
+        "Other",
         "Productivity"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
@@ -5422,8 +5422,8 @@
     {
       "id": 151,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -5641,9 +5641,9 @@
     {
       "id": 156,
       "categories": [
-        "Media Management",
+        "Video",
         "Downloaders",
-        "Video"
+        "Media Management"
       ],
       "description": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
       "env": [
@@ -5691,9 +5691,9 @@
     {
       "id": 157,
       "categories": [
-        "Network",
+        "Monitoring",
         "Management",
-        "Monitoring"
+        "Network"
       ],
       "description": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
       "env": [
@@ -5807,8 +5807,8 @@
     {
       "id": 160,
       "categories": [
-        "Tools",
-        "Media Tools"
+        "Media Tools",
+        "Tools"
       ],
       "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
       "env": [
@@ -5895,9 +5895,9 @@
     {
       "id": 162,
       "categories": [
-        "Other",
+        "Wiki",
         "Tools",
-        "Wiki"
+        "Other"
       ],
       "description": "A unique, non-linear notebook wiki.",
       "image": "mazzolino/tiddlywiki:latest",
@@ -6097,9 +6097,9 @@
     {
       "id": 166,
       "categories": [
-        "Other",
+        "Video",
         "Media Tools",
-        "Video"
+        "Other"
       ],
       "description": "[Tvheadend](https://www.tvheadend.org/) works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
       "env": [
@@ -6271,8 +6271,8 @@
     {
       "id": 170,
       "categories": [
-        "Downloaders",
-        "Media Tools"
+        "Media Tools",
+        "Downloaders"
       ],
       "description": "[Webgrabplus](https://www.webgrabplus.com) is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
       "env": [
@@ -6314,8 +6314,8 @@
     {
       "id": 171,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -6343,8 +6343,8 @@
     {
       "id": 172,
       "categories": [
-        "Tools",
         "Wiki",
+        "Tools",
         "Content Management"
       ],
       "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
@@ -6377,8 +6377,8 @@
     {
       "id": 173,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -9294,8 +9294,8 @@
     {
       "id": 321,
       "categories": [
-        "Other",
-        "Downloaders"
+        "Downloaders",
+        "Other"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
@@ -10228,8 +10228,8 @@
     {
       "id": 337,
       "categories": [
-        "Tools",
-        "Science"
+        "Science",
+        "Tools"
       ],
       "description": "[Folding@home](https://foldingathome.org/) is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases. It brings together citizen scientists who volunteer to run simulations of protein dynamics on their personal computers. Insights from this data are helping scientists to better understand biology, and providing new opportunities for developing therapeutics.",
       "env": [
@@ -10662,8 +10662,8 @@
     {
       "id": 344,
       "categories": [
-        "Media Tools",
-        "Mediaserver"
+        "Mediaserver",
+        "Media Tools"
       ],
       "description": "# This container needs special attention. Please check https://hub.docker.com/r/linuxserver/ffmpeg for details.",
       "env": [
@@ -10762,8 +10762,8 @@
     {
       "id": 346,
       "categories": [
-        "Taskserver",
-        "Monitoring"
+        "Monitoring",
+        "Taskserver"
       ],
       "description": "[Healthchecks](https://github.com/healthchecks/healthchecks) is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.",
       "env": [
@@ -11007,9 +11007,9 @@
     {
       "id": 349,
       "categories": [
-        "Proxyserver",
         "Security",
-        "Administration"
+        "Administration",
+        "Proxyserver"
       ],
       "description": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
       "env": [
@@ -11109,8 +11109,8 @@
     {
       "id": 351,
       "categories": [
-        "IRC",
-        "Codeserver"
+        "Codeserver",
+        "IRC"
       ],
       "description": "[Limnoria](https://github.com/ProgVal/limnoria) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
       "env": [
@@ -11710,9 +11710,9 @@
     {
       "id": 361,
       "categories": [
+        "Vpnserver",
         "Network",
-        "VPN",
-        "Vpnserver"
+        "VPN"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
       "env": [
@@ -11801,8 +11801,8 @@
     {
       "id": 362,
       "categories": [
-        "Network",
-        "Managementutilityserver"
+        "Managementutilityserver",
+        "Network"
       ],
       "description": "[Wireshark](https://www.wireshark.org/) is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998.",
       "env": [
@@ -11930,8 +11930,8 @@
     {
       "id": 364,
       "categories": [
-        "Databases",
-        "Databaseserver"
+        "Databaseserver",
+        "Databases"
       ],
       "description": "[Phpmyadmin](https://github.com/phpmyadmin/phpmyadmin/) is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
       "env": [
@@ -12057,8 +12057,8 @@
     {
       "id": 366,
       "categories": [
-        "Taskserver",
-        "Monitoring"
+        "Monitoring",
+        "Taskserver"
       ],
       "description": "[syslog-ng](https://www.syslog-ng.com/products/open-source-log-management/) allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools.",
       "env": [
@@ -16769,10 +16769,10 @@
     {
       "id": 465,
       "categories": [
-        "Vpn",
-        "VPN",
+        "Tools",
         "Other",
-        "Tools"
+        "Vpn",
+        "VPN"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
