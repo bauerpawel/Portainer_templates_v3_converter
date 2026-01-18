@@ -741,9 +741,9 @@
     {
       "id": 28,
       "categories": [
-        "Monitoring",
         "Log Management",
-        "Logmanagement"
+        "Logmanagement",
+        "Monitoring"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -1610,9 +1610,9 @@
     {
       "id": 62,
       "categories": [
-        "Tools",
         "Authentication",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -1804,8 +1804,8 @@
     {
       "id": 67,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -2107,10 +2107,10 @@
     {
       "id": 74,
       "categories": [
-        "Tools",
-        "Other",
+        "Photos",
         "Photo",
-        "Photos"
+        "Other",
+        "Tools"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2174,8 +2174,8 @@
     {
       "id": 75,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Have recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -2204,8 +2204,8 @@
       "id": 76,
       "categories": [
         "Tools",
-        "Development",
-        "Programming"
+        "Programming",
+        "Development"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -2392,9 +2392,9 @@
     {
       "id": 80,
       "categories": [
-        "Tools",
         "Other",
-        "Dashboard"
+        "Dashboard",
+        "Tools"
       ],
       "description": "Another application bookmark dashboard, with fun features.",
       "image": "rmountjoy/dashmachine:latest",
@@ -2422,9 +2422,9 @@
     {
       "id": 81,
       "categories": [
-        "Tools",
         "FTP",
-        "Ftp"
+        "Ftp",
+        "Tools"
       ],
       "description": "[Davos](https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
       "env": [
@@ -2469,8 +2469,8 @@
     {
       "id": 82,
       "categories": [
-        "Other",
-        "Music"
+        "Music",
+        "Other"
       ],
       "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
       "image": "registry.gitlab.com/bockiii/deemix-docker",
@@ -2592,10 +2592,10 @@
     {
       "id": 85,
       "categories": [
-        "Tools",
-        "Dns",
         "DNS",
-        "Network"
+        "Dns",
+        "Network",
+        "Tools"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -2880,9 +2880,9 @@
     {
       "id": 92,
       "categories": [
-        "Tools",
         "Remotecontrol",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -2911,9 +2911,9 @@
     {
       "id": 93,
       "categories": [
-        "Tools",
+        "Recipes",
         "Finance",
-        "Recipes"
+        "Tools"
       ],
       "description": "[Grocy](https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
       "env": [
@@ -2957,9 +2957,9 @@
     {
       "id": 94,
       "categories": [
-        "Media Tools",
+        "Video",
         "Music",
-        "Video"
+        "Media Tools"
       ],
       "description": "[Htpcmanager](https://github.com/HTPC-Manager/HTPC-Manager) is a front end for many htpc related applications.",
       "env": [
@@ -3047,9 +3047,9 @@
     {
       "id": 96,
       "categories": [
-        "Tools",
         "Web",
-        "Dashboard"
+        "Dashboard",
+        "Tools"
       ],
       "description": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
       "env": [
@@ -3090,9 +3090,9 @@
     {
       "id": 97,
       "categories": [
-        "Tools",
         "Other",
-        "Dashboard"
+        "Dashboard",
+        "Tools"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "image": "b4bz/homer:latest",
@@ -3391,8 +3391,8 @@
     {
       "id": 106,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Create agents that monitor and act on your behalf.",
       "image": "huginn/huginn:latest",
@@ -3508,9 +3508,9 @@
     {
       "id": 109,
       "categories": [
-        "Tools",
+        "Indexers",
         "Downloaders",
-        "Indexers"
+        "Tools"
       ],
       "description": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
       "env": [
@@ -3826,9 +3826,9 @@
     {
       "id": 114,
       "categories": [
-        "Tools",
+        "Network",
         "Monitoring",
-        "Network"
+        "Tools"
       ],
       "description": "[Librespeed](https://github.com/librespeed/speedtest) is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.",
       "image": "linuxserver/librespeed:latest",
@@ -3905,8 +3905,8 @@
     {
       "id": 116,
       "categories": [
-        "Web",
         "Photos",
+        "Web",
         "Cloud",
         "Management"
       ],
@@ -3992,9 +3992,9 @@
     {
       "id": 118,
       "categories": [
+        "Video",
         "Downloaders",
-        "Media Management",
-        "Video"
+        "Media Management"
       ],
       "description": "[Medusa](https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
       "env": [
@@ -4121,9 +4121,9 @@
     {
       "id": 121,
       "categories": [
-        "Tools",
+        "Video",
         "Media Tools",
-        "Video"
+        "Tools"
       ],
       "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.",
       "env": [
@@ -4192,9 +4192,9 @@
     {
       "id": 123,
       "categories": [
-        "Other",
+        "Voice",
         "Chat",
-        "Voice"
+        "Other"
       ],
       "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
       "env": [
@@ -4436,9 +4436,9 @@
     {
       "id": 128,
       "categories": [
-        "Tools",
+        "Indexers",
         "Downloaders",
-        "Indexers"
+        "Tools"
       ],
       "description": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra). It provides easy access to a number of raw and newznab based indexers.",
       "env": [
@@ -4559,8 +4559,8 @@
     {
       "id": 131,
       "categories": [
-        "Media Tools",
-        "Other"
+        "Other",
+        "Media Tools"
       ],
       "description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module (CAM). The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
       "env": [
@@ -4922,9 +4922,9 @@
     {
       "id": 139,
       "categories": [
-        "Tools",
+        "Adblocking",
         "Other",
-        "Adblocking"
+        "Tools"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -5001,14 +5001,14 @@
     {
       "id": 141,
       "categories": [
-        "Mediaserverphotos",
-        "Music",
-        "Video",
-        "Audiobooks",
         "Media Servers",
-        "Photos",
         "Mediaservervideo",
-        "Mediaservermusic"
+        "Mediaserverphotos",
+        "Photos",
+        "Music",
+        "Mediaservermusic",
+        "Video",
+        "Audiobooks"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -5105,10 +5105,10 @@
     {
       "id": 143,
       "categories": [
-        "Productivity",
         "File Sharing",
-        "Cloud",
-        "Tools"
+        "Tools",
+        "Productivity",
+        "Cloud"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
       "env": [
@@ -5152,10 +5152,10 @@
     {
       "id": 144,
       "categories": [
-        "Productivity",
         "Email",
+        "Other",
         "Tools",
-        "Other"
+        "Productivity"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -5422,8 +5422,8 @@
     {
       "id": 151,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -5641,9 +5641,9 @@
     {
       "id": 156,
       "categories": [
+        "Video",
         "Downloaders",
-        "Media Management",
-        "Video"
+        "Media Management"
       ],
       "description": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
       "env": [
@@ -5691,9 +5691,9 @@
     {
       "id": 157,
       "categories": [
-        "Monitoring",
         "Management",
-        "Network"
+        "Network",
+        "Monitoring"
       ],
       "description": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
       "env": [
@@ -5807,8 +5807,8 @@
     {
       "id": 160,
       "categories": [
-        "Tools",
-        "Media Tools"
+        "Media Tools",
+        "Tools"
       ],
       "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
       "env": [
@@ -5853,9 +5853,9 @@
     {
       "id": 161,
       "categories": [
-        "Chat",
+        "IRC",
         "Messenger",
-        "IRC"
+        "Chat"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -5895,9 +5895,9 @@
     {
       "id": 162,
       "categories": [
-        "Tools",
+        "Wiki",
         "Other",
-        "Wiki"
+        "Tools"
       ],
       "description": "A unique, non-linear notebook wiki.",
       "image": "mazzolino/tiddlywiki:latest",
@@ -6097,9 +6097,9 @@
     {
       "id": 166,
       "categories": [
-        "Media Tools",
+        "Video",
         "Other",
-        "Video"
+        "Media Tools"
       ],
       "description": "[Tvheadend](https://www.tvheadend.org/) works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
       "env": [
@@ -6243,9 +6243,9 @@
     {
       "id": 169,
       "categories": [
-        "Tools",
+        "Maintenance",
         "Other",
-        "Maintenance"
+        "Tools"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -6271,8 +6271,8 @@
     {
       "id": 170,
       "categories": [
-        "Media Tools",
-        "Downloaders"
+        "Downloaders",
+        "Media Tools"
       ],
       "description": "[Webgrabplus](https://www.webgrabplus.com) is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
       "env": [
@@ -6314,8 +6314,8 @@
     {
       "id": 171,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -6343,9 +6343,9 @@
     {
       "id": 172,
       "categories": [
-        "Tools",
+        "Content Management",
         "Wiki",
-        "Content Management"
+        "Tools"
       ],
       "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
       "image": "linuxserver/wikijs:latest",
@@ -6377,8 +6377,8 @@
     {
       "id": 173,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -9339,8 +9339,8 @@
     {
       "id": 322,
       "categories": [
-        "Messenger",
-        "IRC"
+        "IRC",
+        "Messenger"
       ],
       "description": "[Znc](http://wiki.znc.in/ZNC) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
       "env": [
@@ -9806,9 +9806,9 @@
     {
       "id": 328,
       "categories": [
+        "File Sharing",
         "Taskserver",
-        "Security",
-        "File Sharing"
+        "Security"
       ],
       "description": "[Pwndrop](https://github.com/kgretzky/pwndrop) is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
       "env": [
@@ -9935,8 +9935,8 @@
     {
       "id": 332,
       "categories": [
-        "Books",
-        "Libraryserver"
+        "Libraryserver",
+        "Books"
       ],
       "description": "[Calibre](https://calibre-ebook.com/) is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.",
       "env": [
@@ -9998,8 +9998,8 @@
     {
       "id": 333,
       "categories": [
-        "Home Automation",
-        "Smarthome"
+        "Smarthome",
+        "Home Automation"
       ],
       "description": "[Habridge](https://github.com/bwssytems/ha-bridge/) emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1 (gen 2 has issues discovering ha-bridge) or other systems that support Philips Hue. The Bridge handles basic commands such as On, Off and brightness commands of the hue protocol. This bridge can control most devices that have a distinct API.",
       "env": [
@@ -10228,8 +10228,8 @@
     {
       "id": 337,
       "categories": [
-        "Tools",
-        "Science"
+        "Science",
+        "Tools"
       ],
       "description": "[Folding@home](https://foldingathome.org/) is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases. It brings together citizen scientists who volunteer to run simulations of protein dynamics on their personal computers. Insights from this data are helping scientists to better understand biology, and providing new opportunities for developing therapeutics.",
       "env": [
@@ -10279,8 +10279,8 @@
     {
       "id": 338,
       "categories": [
-        "Tools",
-        "Audio Processing"
+        "Audio Processing",
+        "Tools"
       ],
       "description": "[Audacity](https://www.audacityteam.org/) is an easy-to-use, multi-track audio editor and recorder. Developed by a group of volunteers as open source.",
       "env": [
@@ -10471,8 +10471,8 @@
     {
       "id": 341,
       "categories": [
-        "Notesserver",
-        "Content Management"
+        "Content Management",
+        "Notesserver"
       ],
       "description": "[Dokuwiki](https://www.dokuwiki.org/dokuwiki/) is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional wiki.",
       "env": [
@@ -10662,8 +10662,8 @@
     {
       "id": 344,
       "categories": [
-        "Media Tools",
-        "Mediaserver"
+        "Mediaserver",
+        "Media Tools"
       ],
       "description": "# This container needs special attention. Please check https://hub.docker.com/r/linuxserver/ffmpeg for details.",
       "env": [
@@ -10896,8 +10896,8 @@
     {
       "id": 347,
       "categories": [
-        "Home Automation",
-        "Smarthome"
+        "Smarthome",
+        "Home Automation"
       ],
       "description": "[Home Assistant Core](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
       "env": [
@@ -11007,9 +11007,9 @@
     {
       "id": 349,
       "categories": [
+        "Security",
         "Administration",
-        "Proxyserver",
-        "Security"
+        "Proxyserver"
       ],
       "description": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
       "env": [
@@ -11059,8 +11059,8 @@
     {
       "id": 350,
       "categories": [
-        "Familyappserver",
-        "Documents"
+        "Documents",
+        "Familyappserver"
       ],
       "description": "[LibreOffice](https://www.libreoffice.org/) is a free and powerful office suite, and a successor to OpenOffice.org (commonly known as OpenOffice). Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity.",
       "env": [
@@ -11109,8 +11109,8 @@
     {
       "id": 351,
       "categories": [
-        "Codeserver",
-        "IRC"
+        "IRC",
+        "Codeserver"
       ],
       "description": "[Limnoria](https://github.com/ProgVal/limnoria) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
       "env": [
@@ -11497,8 +11497,8 @@
     {
       "id": 357,
       "categories": [
-        "Chat",
         "Chatserver",
+        "Chat",
         "IRC"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
@@ -11710,8 +11710,8 @@
     {
       "id": 361,
       "categories": [
-        "Vpnserver",
         "VPN",
+        "Vpnserver",
         "Network"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
@@ -11851,9 +11851,9 @@
     {
       "id": 363,
       "categories": [
-        "Media Servers",
         "Musicserver",
-        "Music"
+        "Music",
+        "Media Servers"
       ],
       "description": "[Airsonic-advanced](https://github.com/airsonic-advanced/airsonic-advanced) is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
       "env": [
@@ -16245,8 +16245,8 @@
     {
       "id": 457,
       "categories": [
-        "CCTV",
-        "Cctv"
+        "Cctv",
+        "CCTV"
       ],
       "description": "UniFi Video is a powerful and flexible, integrated IP video management surveillance system designed to work with Ubiquiti’s UniFi Video Camera product line. UniFi Video has an intuitive, configurable, and feature‑packed user interface with advanced features such as motion detection, auto‑discovery, user‑level security, storage management, reporting, and mobile device support.",
       "env": [
@@ -16769,10 +16769,10 @@
     {
       "id": 465,
       "categories": [
-        "Tools",
-        "Other",
         "VPN",
-        "Vpn"
+        "Vpn",
+        "Other",
+        "Tools"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
