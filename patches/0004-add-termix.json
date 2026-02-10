@@ -1,0 +1,51 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0004-add-termix",
+        "title": "Add Termix Application",
+        "description": "Adds the Termix application, a web-based SSH terminal and server management platform.",
+        "author": "Antigravity",
+        "date": "2026-02-10",
+        "priority": 10,
+        "source": "https://github.com/Termix-SSH/Termix",
+        "references": {
+            "github": "https://github.com/Termix-SSH/Termix",
+            "docker": "ghcr.io/lukegus/termix:latest"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add Termix application",
+            "template": {
+                "id": 9005,
+                "type": 1,
+                "title": "Termix",
+                "name": "termix",
+                "image": "ghcr.io/lukegus/termix:latest",
+                "description": "Termix is a web-based SSH terminal and server management platform.",
+                "categories": [
+                    "Tools",
+                    "Terminal"
+                ],
+                "ports": [
+                    "8080:8080"
+                ],
+                "env": [],
+                "volumes": [
+                    {
+                        "container": "/app/data",
+                        "bind": "/data/termix"
+                    }
+                ],
+                "labels": [
+                    {
+                        "name": "com.docker.compose.restart-policy",
+                        "value": "unless-stopped"
+                    }
+                ],
+                "logo": "https://raw.githubusercontent.com/Termix-SSH/Termix/main/public/favicon.ico"
+            }
+        }
+    ]
+}
