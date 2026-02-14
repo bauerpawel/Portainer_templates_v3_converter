@@ -741,9 +741,9 @@
     {
       "id": 28,
       "categories": [
-        "Log Management",
+        "Monitoring",
         "Logmanagement",
-        "Monitoring"
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -2107,10 +2107,10 @@
     {
       "id": 74,
       "categories": [
-        "Photos",
         "Other",
-        "Tools",
-        "Photo"
+        "Photo",
+        "Photos",
+        "Tools"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2203,9 +2203,9 @@
     {
       "id": 76,
       "categories": [
-        "Programming",
+        "Development",
         "Tools",
-        "Development"
+        "Programming"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -2393,8 +2393,8 @@
       "id": 80,
       "categories": [
         "Other",
-        "Tools",
-        "Dashboard"
+        "Dashboard",
+        "Tools"
       ],
       "description": "Another application bookmark dashboard, with fun features.",
       "image": "rmountjoy/dashmachine:latest",
@@ -2592,10 +2592,10 @@
     {
       "id": 85,
       "categories": [
-        "Dns",
-        "DNS",
         "Network",
-        "Tools"
+        "DNS",
+        "Tools",
+        "Dns"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -2689,10 +2689,10 @@
     {
       "id": 87,
       "categories": [
-        "Photos",
-        "Audiobooks",
         "Video",
         "Media Servers",
+        "Photos",
+        "Audiobooks",
         "Music"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
@@ -2911,8 +2911,8 @@
     {
       "id": 93,
       "categories": [
-        "Recipes",
         "Finance",
+        "Recipes",
         "Tools"
       ],
       "description": "[Grocy](https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
@@ -2958,8 +2958,8 @@
       "id": 94,
       "categories": [
         "Video",
-        "Media Tools",
-        "Music"
+        "Music",
+        "Media Tools"
       ],
       "description": "[Htpcmanager](https://github.com/HTPC-Manager/HTPC-Manager) is a front end for many htpc related applications.",
       "env": [
@@ -3047,9 +3047,9 @@
     {
       "id": 96,
       "categories": [
+        "Dashboard",
         "Web",
-        "Tools",
-        "Dashboard"
+        "Tools"
       ],
       "description": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
       "env": [
@@ -3091,8 +3091,8 @@
       "id": 97,
       "categories": [
         "Other",
-        "Tools",
-        "Dashboard"
+        "Dashboard",
+        "Tools"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "image": "b4bz/homer:latest",
@@ -3509,8 +3509,8 @@
       "id": 109,
       "categories": [
         "Downloaders",
-        "Indexers",
-        "Tools"
+        "Tools",
+        "Indexers"
       ],
       "description": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
       "env": [
@@ -3554,10 +3554,10 @@
     {
       "id": 110,
       "categories": [
-        "Photos",
-        "Audiobooks",
         "Video",
         "Media Servers",
+        "Photos",
+        "Audiobooks",
         "Music"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
@@ -3826,8 +3826,8 @@
     {
       "id": 114,
       "categories": [
-        "Monitoring",
         "Network",
+        "Monitoring",
         "Tools"
       ],
       "description": "[Librespeed](https://github.com/librespeed/speedtest) is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.",
@@ -3907,8 +3907,8 @@
       "categories": [
         "Web",
         "Photos",
-        "Management",
-        "Cloud"
+        "Cloud",
+        "Management"
       ],
       "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
       "env": [
@@ -3993,8 +3993,8 @@
       "id": 118,
       "categories": [
         "Video",
-        "Downloaders",
-        "Media Management"
+        "Media Management",
+        "Downloaders"
       ],
       "description": "[Medusa](https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
       "env": [
@@ -4122,8 +4122,8 @@
       "id": 121,
       "categories": [
         "Video",
-        "Media Tools",
-        "Tools"
+        "Tools",
+        "Media Tools"
       ],
       "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.",
       "env": [
@@ -4192,9 +4192,9 @@
     {
       "id": 123,
       "categories": [
-        "Chat",
         "Other",
-        "Voice"
+        "Voice",
+        "Chat"
       ],
       "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
       "env": [
@@ -4437,8 +4437,8 @@
       "id": 128,
       "categories": [
         "Downloaders",
-        "Indexers",
-        "Tools"
+        "Tools",
+        "Indexers"
       ],
       "description": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra). It provides easy access to a number of raw and newznab based indexers.",
       "env": [
@@ -5001,13 +5001,13 @@
     {
       "id": 141,
       "categories": [
-        "Mediaserverphotos",
-        "Audiobooks",
-        "Mediaservervideo",
-        "Video",
-        "Media Servers",
         "Photos",
+        "Audiobooks",
         "Mediaservermusic",
+        "Mediaserverphotos",
+        "Video",
+        "Mediaservervideo",
+        "Media Servers",
         "Music"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
@@ -5106,9 +5106,9 @@
       "id": 143,
       "categories": [
         "Cloud",
-        "File Sharing",
         "Productivity",
-        "Tools"
+        "Tools",
+        "File Sharing"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
       "env": [
@@ -5152,8 +5152,8 @@
     {
       "id": 144,
       "categories": [
-        "Email",
         "Other",
+        "Email",
         "Productivity",
         "Tools"
       ],
@@ -5642,8 +5642,8 @@
       "id": 156,
       "categories": [
         "Video",
-        "Downloaders",
-        "Media Management"
+        "Media Management",
+        "Downloaders"
       ],
       "description": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
       "env": [
@@ -5691,8 +5691,8 @@
     {
       "id": 157,
       "categories": [
-        "Monitoring",
         "Network",
+        "Monitoring",
         "Management"
       ],
       "description": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
@@ -5807,8 +5807,8 @@
     {
       "id": 160,
       "categories": [
-        "Media Tools",
-        "Tools"
+        "Tools",
+        "Media Tools"
       ],
       "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
       "env": [
@@ -6243,8 +6243,8 @@
     {
       "id": 169,
       "categories": [
-        "Maintenance",
         "Other",
+        "Maintenance",
         "Tools"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
@@ -9345,8 +9345,8 @@
     {
       "id": 324,
       "categories": [
-        "Downloaders",
-        "Other"
+        "Other",
+        "Downloaders"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
@@ -14665,9 +14665,9 @@
       "id": 432,
       "categories": [
         "Other",
-        "Tools",
+        "Vpn",
         "VPN",
-        "Vpn"
+        "Tools"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
