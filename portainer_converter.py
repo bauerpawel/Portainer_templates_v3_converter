@@ -211,8 +211,10 @@ class PortainerTemplateConverter:
                         existing['categories'] = merged_cats
 
                     # Wybieramy dłuższy opis jeśli dostępny
-                    if len(template.get('description', '')) > len(existing.get('description', '')):
-                        existing['description'] = template['description']
+                    new_desc = template.get('description') or ''
+                    old_desc = existing.get('description') or ''
+                    if len(new_desc) > len(old_desc):
+                        existing['description'] = new_desc
                 else:
                     # Nowy szablon
                     seen_templates[key] = template
