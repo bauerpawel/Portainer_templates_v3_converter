@@ -741,9 +741,9 @@
     {
       "id": 28,
       "categories": [
-        "Log Management",
         "Monitoring",
-        "Logmanagement"
+        "Logmanagement",
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -1610,9 +1610,9 @@
     {
       "id": 62,
       "categories": [
-        "Authentication",
         "Tools",
-        "Other"
+        "Other",
+        "Authentication"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -1804,8 +1804,8 @@
     {
       "id": 67,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -2107,9 +2107,9 @@
     {
       "id": 74,
       "categories": [
-        "Other",
-        "Photos",
         "Tools",
+        "Photos",
+        "Other",
         "Photo"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
@@ -2174,8 +2174,8 @@
     {
       "id": 75,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Have recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -2392,9 +2392,9 @@
     {
       "id": 80,
       "categories": [
-        "Other",
         "Dashboard",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Another application bookmark dashboard, with fun features.",
       "image": "rmountjoy/dashmachine:latest",
@@ -2422,9 +2422,9 @@
     {
       "id": 81,
       "categories": [
-        "FTP",
+        "Ftp",
         "Tools",
-        "Ftp"
+        "FTP"
       ],
       "description": "[Davos](https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
       "env": [
@@ -2592,10 +2592,10 @@
     {
       "id": 85,
       "categories": [
-        "Network",
         "Dns",
         "DNS",
-        "Tools"
+        "Tools",
+        "Network"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -2690,8 +2690,8 @@
       "id": 87,
       "categories": [
         "Photos",
-        "Media Servers",
         "Music",
+        "Media Servers",
         "Audiobooks",
         "Video"
       ],
@@ -2881,8 +2881,8 @@
       "id": 92,
       "categories": [
         "Other",
-        "Remotecontrol",
-        "Tools"
+        "Tools",
+        "Remotecontrol"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -2911,9 +2911,9 @@
     {
       "id": 93,
       "categories": [
-        "Recipes",
         "Finance",
-        "Tools"
+        "Tools",
+        "Recipes"
       ],
       "description": "[Grocy](https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
       "env": [
@@ -2957,8 +2957,8 @@
     {
       "id": 94,
       "categories": [
-        "Music",
         "Media Tools",
+        "Music",
         "Video"
       ],
       "description": "[Htpcmanager](https://github.com/HTPC-Manager/HTPC-Manager) is a front end for many htpc related applications.",
@@ -3047,8 +3047,8 @@
     {
       "id": 96,
       "categories": [
-        "Web",
         "Dashboard",
+        "Web",
         "Tools"
       ],
       "description": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
@@ -3090,9 +3090,9 @@
     {
       "id": 97,
       "categories": [
-        "Other",
         "Dashboard",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "image": "b4bz/homer:latest",
@@ -3391,8 +3391,8 @@
     {
       "id": 106,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Create agents that monitor and act on your behalf.",
       "image": "huginn/huginn:latest",
@@ -3555,8 +3555,8 @@
       "id": 110,
       "categories": [
         "Photos",
-        "Media Servers",
         "Music",
+        "Media Servers",
         "Audiobooks",
         "Video"
       ],
@@ -3906,9 +3906,9 @@
       "id": 116,
       "categories": [
         "Photos",
+        "Management",
         "Web",
-        "Cloud",
-        "Management"
+        "Cloud"
       ],
       "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
       "env": [
@@ -4121,9 +4121,9 @@
     {
       "id": 121,
       "categories": [
+        "Tools",
         "Media Tools",
-        "Video",
-        "Tools"
+        "Video"
       ],
       "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.",
       "env": [
@@ -4192,9 +4192,9 @@
     {
       "id": 123,
       "categories": [
+        "Voice",
         "Other",
-        "Chat",
-        "Voice"
+        "Chat"
       ],
       "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
       "env": [
@@ -4559,8 +4559,8 @@
     {
       "id": 131,
       "categories": [
-        "Other",
-        "Media Tools"
+        "Media Tools",
+        "Other"
       ],
       "description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module (CAM). The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
       "env": [
@@ -4922,9 +4922,9 @@
     {
       "id": 139,
       "categories": [
-        "Other",
+        "Tools",
         "Adblocking",
-        "Tools"
+        "Other"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -5001,13 +5001,13 @@
     {
       "id": 141,
       "categories": [
-        "Mediaservervideo",
         "Photos",
-        "Media Servers",
         "Music",
-        "Audiobooks",
-        "Mediaservermusic",
+        "Media Servers",
         "Mediaserverphotos",
+        "Mediaservermusic",
+        "Audiobooks",
+        "Mediaservervideo",
         "Video"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
@@ -5105,10 +5105,10 @@
     {
       "id": 143,
       "categories": [
+        "Productivity",
         "Tools",
-        "File Sharing",
         "Cloud",
-        "Productivity"
+        "File Sharing"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
       "env": [
@@ -5152,10 +5152,10 @@
     {
       "id": 144,
       "categories": [
-        "Email",
+        "Productivity",
         "Tools",
         "Other",
-        "Productivity"
+        "Email"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -5422,8 +5422,8 @@
     {
       "id": 151,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -5807,8 +5807,8 @@
     {
       "id": 160,
       "categories": [
-        "Media Tools",
-        "Tools"
+        "Tools",
+        "Media Tools"
       ],
       "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
       "env": [
@@ -5895,9 +5895,9 @@
     {
       "id": 162,
       "categories": [
-        "Other",
         "Wiki",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A unique, non-linear notebook wiki.",
       "image": "mazzolino/tiddlywiki:latest",
@@ -6098,8 +6098,8 @@
       "id": 166,
       "categories": [
         "Media Tools",
-        "Other",
-        "Video"
+        "Video",
+        "Other"
       ],
       "description": "[Tvheadend](https://www.tvheadend.org/) works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
       "env": [
@@ -6243,8 +6243,8 @@
     {
       "id": 169,
       "categories": [
-        "Maintenance",
         "Tools",
+        "Maintenance",
         "Other"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
@@ -6271,8 +6271,8 @@
     {
       "id": 170,
       "categories": [
-        "Media Tools",
-        "Downloaders"
+        "Downloaders",
+        "Media Tools"
       ],
       "description": "[Webgrabplus](https://www.webgrabplus.com) is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
       "env": [
@@ -6314,8 +6314,8 @@
     {
       "id": 171,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -6343,8 +6343,8 @@
     {
       "id": 172,
       "categories": [
-        "Content Management",
         "Wiki",
+        "Content Management",
         "Tools"
       ],
       "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
@@ -6377,8 +6377,8 @@
     {
       "id": 173,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -9447,8 +9447,8 @@
     {
       "id": 330,
       "categories": [
-        "Other",
-        "Downloaders"
+        "Downloaders",
+        "Other"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
@@ -14766,10 +14766,10 @@
     {
       "id": 438,
       "categories": [
+        "Vpn",
         "Tools",
-        "VPN",
         "Other",
-        "Vpn"
+        "VPN"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
