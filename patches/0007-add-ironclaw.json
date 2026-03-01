@@ -1,0 +1,74 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0007-add-ironclaw",
+        "title": "Add IronClaw Privacy-Focused AI Assistant",
+        "description": "Adds IronClaw - an OpenClaw-inspired AI assistant framework written in Rust, with a strong focus on privacy and security. Uses WASM sandboxing for isolated job execution. Deployed as a compose stack (multi-container: app + PostgreSQL with pgvector) from the official repository.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/nearai/ironclaw",
+        "references": {
+            "github": "https://github.com/nearai/ironclaw"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add IronClaw privacy-focused AI assistant as a compose stack",
+            "template": {
+                "id": 9008,
+                "type": 3,
+                "title": "IronClaw",
+                "name": "ironclaw",
+                "description": "Privacy-focused AI assistant framework written in Rust, inspired by OpenClaw. Features WASM sandbox isolation for secure per-job execution, an orchestrator/worker container pattern, and PostgreSQL 16 with pgvector for persistent memory. Runs as a non-root user. Requires a multi-stage build — deployed via the official docker-compose configuration.",
+                "categories": [
+                    "AI",
+                    "Security",
+                    "Privacy",
+                    "Self-Hosted"
+                ],
+                "repository": {
+                    "url": "https://github.com/nearai/ironclaw",
+                    "stackfile": "docker-compose.yml"
+                },
+                "env": [
+                    {
+                        "name": "POSTGRES_DB",
+                        "label": "Database Name",
+                        "description": "Name of the PostgreSQL database used by IronClaw.",
+                        "default": "ironclaw"
+                    },
+                    {
+                        "name": "POSTGRES_USER",
+                        "label": "Database User",
+                        "description": "PostgreSQL username for the IronClaw database.",
+                        "default": "ironclaw"
+                    },
+                    {
+                        "name": "POSTGRES_PASSWORD",
+                        "label": "Database Password",
+                        "description": "PostgreSQL password — change from the default for any non-local deployment.",
+                        "default": "ironclaw"
+                    },
+                    {
+                        "name": "RUST_LOG",
+                        "label": "Log Level",
+                        "description": "Rust logging level for the IronClaw service.",
+                        "default": "ironclaw=info"
+                    },
+                    {
+                        "name": "LLM_BACKEND",
+                        "label": "LLM Backend",
+                        "description": "AI provider / LLM backend configuration string.",
+                        "default": ""
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/nearai.png",
+                "note": "IronClaw requires building Docker images locally from the repository — there is no pre-built image on Docker Hub. Run <code>docker compose build</code> before starting. Change <code>POSTGRES_PASSWORD</code> to a strong value before any network-exposed deployment. The main service is available on port <code>3000</code>. Full documentation: <a href='https://github.com/nearai/ironclaw' target='_blank'>github.com/nearai/ironclaw</a>",
+                "maintainer": "NEAR AI"
+            }
+        }
+    ]
+}

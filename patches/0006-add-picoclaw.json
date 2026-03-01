@@ -1,0 +1,55 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0006-add-picoclaw",
+        "title": "Add PicoClaw Ultra-Lightweight AI Assistant",
+        "description": "Adds PicoClaw - an ultra-lightweight AI assistant written in Go, optimized for minimal resource usage (under 10 MB RAM). Pre-built Docker image available from Docker Hub. Ideal for edge devices and resource-constrained environments.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/sipeed/picoclaw",
+        "references": {
+            "github": "https://github.com/sipeed/picoclaw",
+            "docker": "https://hub.docker.com/r/sipeed/picoclaw"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add PicoClaw ultra-lightweight AI assistant container",
+            "template": {
+                "id": 9007,
+                "type": 1,
+                "title": "PicoClaw",
+                "name": "picoclaw",
+                "image": "sipeed/picoclaw:latest",
+                "description": "Ultra-lightweight AI assistant written in Go with a memory footprint under 10 MB and sub-second boot time. Supports multiple messaging platforms (Telegram, Discord, WhatsApp, QQ, DingTalk, LINE, WeCom). Optimized for edge devices and low-power hardware. Operates in two modes: Agent (one-shot queries) and Gateway (persistent chat interface).",
+                "categories": [
+                    "AI",
+                    "Automation",
+                    "Messaging",
+                    "Edge",
+                    "Self-Hosted"
+                ],
+                "volumes": [
+                    {
+                        "container": "/root/.picoclaw",
+                        "bind": "/data/picoclaw"
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "PICOCLAW_GATEWAY_HOST",
+                        "label": "Gateway Bind Address",
+                        "description": "Network interface the gateway listens on. Set to '0.0.0.0' to expose outside the container (required for external access).",
+                        "default": "0.0.0.0"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/sipeed.png",
+                "note": "On first run, PicoClaw auto-generates <code>/root/.picoclaw/config.json</code>. Edit this file to add your AI provider API keys and messaging platform credentials, then restart the container. Project is in early development — not recommended for production use. Full documentation: <a href='https://github.com/sipeed/picoclaw' target='_blank'>github.com/sipeed/picoclaw</a>",
+                "maintainer": "Sipeed"
+            }
+        }
+    ]
+}

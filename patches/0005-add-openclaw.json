@@ -1,0 +1,74 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0005-add-openclaw",
+        "title": "Add OpenClaw AI Assistant",
+        "description": "Adds OpenClaw - a personal AI assistant platform running on own devices, supporting multiple messaging channels (WhatsApp, Telegram, Discord, Slack, etc.). Deployed as a compose stack from the official repository.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/openclaw/openclaw",
+        "references": {
+            "github": "https://github.com/openclaw/openclaw"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add OpenClaw personal AI assistant as a compose stack",
+            "template": {
+                "id": 9006,
+                "type": 3,
+                "title": "OpenClaw",
+                "name": "openclaw",
+                "description": "Personal AI assistant platform running on your own hardware. Connects to multiple messaging channels (WhatsApp, Telegram, Discord, Slack, Mattermost and more) and acts as a self-hosted AI gateway. Built on Node.js 22 with a local-first, privacy-focused architecture.",
+                "categories": [
+                    "AI",
+                    "Automation",
+                    "Messaging",
+                    "Self-Hosted"
+                ],
+                "repository": {
+                    "url": "https://github.com/openclaw/openclaw",
+                    "stackfile": "docker-compose.yml"
+                },
+                "env": [
+                    {
+                        "name": "OPENCLAW_GATEWAY_TOKEN",
+                        "label": "Gateway Token",
+                        "description": "Authentication token for the OpenClaw gateway WebSocket endpoint (required).",
+                        "default": ""
+                    },
+                    {
+                        "name": "OPENCLAW_CONFIG_DIR",
+                        "label": "Config Directory",
+                        "description": "Host path for persistent configuration, sessions and workspace data.",
+                        "default": "/data/openclaw/config"
+                    },
+                    {
+                        "name": "OPENCLAW_WORKSPACE_DIR",
+                        "label": "Workspace Directory",
+                        "description": "Host path for agent files and skills.",
+                        "default": "/data/openclaw/workspace"
+                    },
+                    {
+                        "name": "CLAUDE_AI_SESSION_KEY",
+                        "label": "Claude AI Session Key",
+                        "description": "Session key for Claude AI provider (optional).",
+                        "default": ""
+                    },
+                    {
+                        "name": "OPENCLAW_INSTALL_BROWSER",
+                        "label": "Install Browser",
+                        "description": "Set to 'true' to enable Chromium browser automation support.",
+                        "default": "false"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/openclaw.png",
+                "note": "Before starting, copy <code>.env.example</code> to <code>.env</code> and set at least <code>OPENCLAW_GATEWAY_TOKEN</code>. The gateway binds to <code>127.0.0.1:18789</code> by default — adjust the compose file to expose it on the network if needed. Full documentation: <a href='https://github.com/openclaw/openclaw' target='_blank'>github.com/openclaw/openclaw</a>",
+                "maintainer": "OpenClaw Contributors"
+            }
+        }
+    ]
+}
