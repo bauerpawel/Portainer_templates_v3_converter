@@ -1,0 +1,68 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0014-add-tinyclaw",
+        "title": "Add TinyClaw - Autonomous AI Companion Framework (Bun/TypeScript)",
+        "description": "Adds TinyClaw — an autonomous AI companion framework built natively on Bun/TypeScript with Svelte 5 frontend. Features self-improving memory, smart LLM provider routing, plugin architecture, built-in security enforcement, and a Discord-like web UI. No official Docker image — stack builds from source.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/warengonzaga/tinyclaw",
+        "references": {
+            "github": "https://github.com/warengonzaga/tinyclaw"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add TinyClaw as a compose stack built from source (no official Docker image)",
+            "template": {
+                "id": 9015,
+                "type": 3,
+                "title": "TinyClaw",
+                "name": "tinyclaw",
+                "description": "Autonomous AI companion framework with 'tiny core, plugin everything' architecture. Built natively on Bun (TypeScript/Svelte 5). Features self-improving memory, smart LLM provider routing, built-in security enforcement, and a Discord-like web UI on port 3000. Supports Ollama Cloud (free tier) and any OpenAI-compatible provider. Non-root container (user: tinyclaw, UID 1001). Pre-release / active development.",
+                "categories": [
+                    "AI",
+                    "Automation",
+                    "Self-Hosted"
+                ],
+                "env": [
+                    {
+                        "name": "PORT",
+                        "label": "HTTP Port",
+                        "description": "Port for the TinyClaw web UI and REST API.",
+                        "default": "3000"
+                    },
+                    {
+                        "name": "NODE_ENV",
+                        "label": "Environment",
+                        "description": "Runtime environment mode.",
+                        "default": "production",
+                        "preset": true
+                    },
+                    {
+                        "name": "TINYCLAW_DATA_DIR",
+                        "label": "Data Directory",
+                        "description": "Persistent storage path for SQLite database, plugins, and configuration.",
+                        "default": "/data",
+                        "preset": true
+                    }
+                ],
+                "ports": [
+                    "3000:3000"
+                ],
+                "volumes": [
+                    {
+                        "container": "/data",
+                        "bind": "/data/tinyclaw"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/warengonzaga.png",
+                "note": "TinyClaw nie posiada oficjalnego obrazu Docker. Stack buduje ze źródeł z GitHub podczas pierwszego wdrożenia. Projekt jest w fazie pre-release — API może ulec zmianie.<br><br><b>docker-compose.yml</b><br><pre><code>services:\n  tinyclaw:\n    build:\n      context: https://github.com/warengonzaga/tinyclaw.git\n    container_name: tinyclaw\n    environment:\n      - PORT=${PORT:-3000}\n      - NODE_ENV=production\n      - TINYCLAW_DATA_DIR=/data\n    ports:\n      - \"${PORT:-3000}:3000\"\n    volumes:\n      - tinyclaw_data:/data\n    restart: unless-stopped\n    healthcheck:\n      test: [\"CMD\", \"bun\", \"-e\",\n        \"fetch('http://localhost:'+(process.env.PORT||'3000')+'/api/health').then(r=>r.ok||process.exit(1))\"]\n      interval: 30s\n      timeout: 5s\n      retries: 3\n\nvolumes:\n  tinyclaw_data:</code></pre><br>Po pierwszym uruchomieniu otwórz <code>http://&lt;host&gt;:3000</code> — konfiguracja dostawcy LLM i połączeń odbywa się przez web UI (nie jest wymagany żaden plik konfiguracyjny z góry).<br><br>Licencja: GPL-3.0 | Dokumentacja: <a href='https://github.com/warengonzaga/tinyclaw' target='_blank'>github.com/warengonzaga/tinyclaw</a>",
+                "maintainer": "warengonzaga"
+            }
+        }
+    ]
+}

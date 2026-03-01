@@ -1,0 +1,154 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0008-add-hermes-agent",
+        "title": "Add Hermes Agent - Open-Source AI Agent by Nous Research",
+        "description": "Adds Hermes Agent — open-source, persistent AI agent framework by Nous Research. Supports Telegram, Discord, Slack, WhatsApp and CLI interfaces. Multiple LLM providers via OpenRouter. No official Docker image exists — compose stack builds from source using the provided Dockerfile.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/NousResearch/hermes-agent",
+        "references": {
+            "github": "https://github.com/NousResearch/hermes-agent"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add Hermes Agent as a compose stack (built from source — no official Docker image available)",
+            "template": {
+                "id": 9009,
+                "type": 3,
+                "title": "Hermes Agent",
+                "name": "hermes-agent",
+                "description": "Open-source, persistent AI agent framework by Nous Research. Supports Telegram, Discord, Slack, WhatsApp, and CLI interfaces. Features sandboxed terminal execution (local/Docker/SSH), persistent memory, cron-based automation, and parallel subagent delegation. Connects to any OpenAI-compatible LLM provider.",
+                "categories": [
+                    "AI",
+                    "Automation",
+                    "Self-Hosted"
+                ],
+                "env": [
+                    {
+                        "name": "OPENROUTER_API_KEY",
+                        "label": "OpenRouter API Key",
+                        "description": "API key for OpenRouter — primary LLM provider. Obtain at openrouter.ai. Can also use a direct OpenAI-compatible endpoint.",
+                        "default": ""
+                    },
+                    {
+                        "name": "LLM_MODEL",
+                        "label": "LLM Model",
+                        "description": "Model identifier for inference. Use any model available through your configured provider.",
+                        "default": "nous/hermes-3-405b",
+                        "select": [
+                            {
+                                "text": "Nous Hermes 3 405B (default)",
+                                "value": "nous/hermes-3-405b",
+                                "default": true
+                            },
+                            {
+                                "text": "Claude Opus 4.6",
+                                "value": "anthropic/claude-opus-4-6"
+                            },
+                            {
+                                "text": "Claude Sonnet 4.6",
+                                "value": "anthropic/claude-sonnet-4-6"
+                            },
+                            {
+                                "text": "GPT-4o",
+                                "value": "openai/gpt-4o"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "TERMINAL_ENV",
+                        "label": "Terminal Backend",
+                        "description": "Execution sandbox for agent commands. 'local' runs inside the container, 'docker' spins up a nested Docker sandbox (requires Docker-in-Docker), 'ssh' delegates to a remote server.",
+                        "default": "local",
+                        "select": [
+                            {
+                                "text": "Local (inside container)",
+                                "value": "local",
+                                "default": true
+                            },
+                            {
+                                "text": "Docker (nested sandbox)",
+                                "value": "docker"
+                            },
+                            {
+                                "text": "SSH (remote server)",
+                                "value": "ssh"
+                            },
+                            {
+                                "text": "Modal (serverless cloud)",
+                                "value": "modal"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "TELEGRAM_BOT_TOKEN",
+                        "label": "Telegram Bot Token",
+                        "description": "Bot token for Telegram messaging integration. Leave empty to disable. Create a bot via @BotFather.",
+                        "default": ""
+                    },
+                    {
+                        "name": "DISCORD_BOT_TOKEN",
+                        "label": "Discord Bot Token",
+                        "description": "Bot token for Discord messaging integration. Leave empty to disable.",
+                        "default": ""
+                    },
+                    {
+                        "name": "SLACK_BOT_TOKEN",
+                        "label": "Slack Bot Token",
+                        "description": "Bot token for Slack messaging integration. Leave empty to disable.",
+                        "default": ""
+                    },
+                    {
+                        "name": "SLACK_APP_TOKEN",
+                        "label": "Slack App Token",
+                        "description": "App-level token for Slack Socket Mode (required if using Slack).",
+                        "default": ""
+                    },
+                    {
+                        "name": "GITHUB_TOKEN",
+                        "label": "GitHub Token",
+                        "description": "Personal access token for GitHub — used to access the skills hub and private repositories.",
+                        "default": ""
+                    },
+                    {
+                        "name": "FIRECRAWL_API_KEY",
+                        "label": "Firecrawl API Key",
+                        "description": "Optional API key for Firecrawl web scraping tool.",
+                        "default": ""
+                    },
+                    {
+                        "name": "CONTEXT_COMPRESSION_ENABLED",
+                        "label": "Context Compression",
+                        "description": "Enable automatic conversation context compression for long sessions.",
+                        "default": "true",
+                        "select": [
+                            {
+                                "text": "Enabled",
+                                "value": "true",
+                                "default": true
+                            },
+                            {
+                                "text": "Disabled",
+                                "value": "false"
+                            }
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "container": "/root/.hermes",
+                        "bind": "/data/hermes-agent/config"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/NousResearch.png",
+                "note": "Hermes Agent nie posiada oficjalnego obrazu Docker. Stack buduje aplikację ze źródeł podczas pierwszego uruchomienia (<code>docker compose up --build</code>).<br><br><b>Krok 1 — Utwórz katalog projektu i skopiuj poniższe pliki:</b><br><br><b>Dockerfile</b><br><pre><code>FROM python:3.10-slim\nRUN apt-get update &amp;&amp; \\\n    apt-get install -y --no-install-recommends git &amp;&amp; \\\n    rm -rf /var/lib/apt/lists/*\nWORKDIR /app\nRUN git clone --depth=1 https://github.com/NousResearch/hermes-agent .\nRUN pip install -e '.[all]'\nVOLUME /root/.hermes\nENTRYPOINT [\"python\", \"cli.py\"]</code></pre><br><b>docker-compose.yml</b><br><pre><code>services:\n  hermes-agent:\n    build: .\n    container_name: hermes-agent\n    env_file:\n      - .env\n    volumes:\n      - hermes_config:/root/.hermes\n    stdin_open: true\n    tty: true\n    restart: unless-stopped\n\nvolumes:\n  hermes_config:</code></pre><br><b>Krok 2 — Utwórz plik <code>.env</code></b> z kluczami API (patrz konfiguracja env vars powyżej).<br><br><b>Krok 3 — Zbuduj i uruchom:</b><br><pre><code>docker compose up --build -d</code></pre><br>Pełna dokumentacja: <a href='https://github.com/NousResearch/hermes-agent' target='_blank'>github.com/NousResearch/hermes-agent</a>",
+                "maintainer": "Nous Research"
+            }
+        }
+    ]
+}

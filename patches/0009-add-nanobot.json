@@ -1,0 +1,48 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0009-add-nanobot",
+        "title": "Add nanobot - Ultra-Lightweight AI Assistant by HKUDS",
+        "description": "Adds nanobot — an ultra-lightweight personal AI assistant (~4,000 lines of core code, 99% smaller than comparable systems). Supports multi-channel messaging (Telegram, Discord, WhatsApp, Slack, Matrix, Feishu, Email, QQ, DingTalk), multiple LLM providers, and MCP client integration. Has official docker-compose.yml in repository.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/HKUDS/nanobot",
+        "references": {
+            "github": "https://github.com/HKUDS/nanobot"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add nanobot as a compose stack built from the official GitHub repository",
+            "template": {
+                "id": 9010,
+                "type": 3,
+                "title": "nanobot",
+                "name": "nanobot",
+                "description": "Ultra-lightweight personal AI assistant (~4,000 lines of core code). Supports Telegram, Discord, WhatsApp, Slack, Matrix, Feishu, Email, QQ, DingTalk. Integrates with any OpenAI-compatible LLM API. Includes MCP client support and an HTTP/WebSocket gateway on port 18790. Base image: ghcr.io/astral-sh/uv:python3.12-bookworm-slim.",
+                "categories": [
+                    "AI",
+                    "Automation",
+                    "Self-Hosted",
+                    "Messaging"
+                ],
+                "repository": {
+                    "url": "https://github.com/HKUDS/nanobot",
+                    "stackfile": "docker-compose.yml"
+                },
+                "volumes": [
+                    {
+                        "container": "/root/.nanobot",
+                        "bind": "/data/nanobot/config"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/HKUDS.png",
+                "note": "nanobot buduje obraz Docker ze źródeł podczas pierwszego wdrożenia — Portainer automatycznie wykona <code>docker compose build</code> przed uruchomieniem.<br><br><b>Pierwsze uruchomienie:</b> wykonaj <code>docker exec -it nanobot-gateway nanobot onboard</code>, aby skonfigurować dostawcę LLM i kanały komunikacji. Konfiguracja jest zapisywana w <code>/root/.nanobot/config.json</code> (wolumen trwały).<br><br><b>Uwaga:</b> oryginalny <code>docker-compose.yml</code> montuje <code>~/.nanobot</code> z hosta — w Portainerze zmień ścieżkę bind-mount na stałą ścieżkę, np. <code>/data/nanobot/config:/root/.nanobot</code>.<br><br>Port <code>18790</code> udostępnia HTTP/WebSocket gateway. Dodatkowa usługa <code>nanobot-cli</code> w compose dostępna jest z profilem <code>cli</code>.<br><br>Pełna dokumentacja: <a href='https://github.com/HKUDS/nanobot' target='_blank'>github.com/HKUDS/nanobot</a>",
+                "maintainer": "HKUDS"
+            }
+        }
+    ]
+}

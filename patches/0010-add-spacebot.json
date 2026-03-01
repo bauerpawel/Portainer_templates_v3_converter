@@ -1,0 +1,64 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0010-add-spacebot",
+        "title": "Add Spacebot - Team AI Agent Platform by Spacedrive",
+        "description": "Adds Spacebot — an AI agent platform for teams and communities by Spacedrive, built in Rust with a React frontend. Uses concurrent specialized processes, integrates with Discord, Slack, Telegram, Twitch, and Webchat. No official Docker image — stack builds from source.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/spacedriveapp/spacebot",
+        "references": {
+            "github": "https://github.com/spacedriveapp/spacebot"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add Spacebot as a compose stack built from source (no official image available)",
+            "template": {
+                "id": 9011,
+                "type": 3,
+                "title": "Spacebot",
+                "name": "spacebot",
+                "description": "AI agent platform for teams and communities by Spacedrive. Built in Rust with a React frontend. Uses concurrent specialized agent processes rather than a monolithic LLM thread. Integrates with Discord, Slack, Telegram, Twitch, and Webchat. Includes SQLite and LanceDB vector store for persistent memory and knowledge.",
+                "categories": [
+                    "AI",
+                    "Collaboration",
+                    "Self-Hosted",
+                    "Messaging"
+                ],
+                "env": [
+                    {
+                        "name": "SPACEBOT_DIR",
+                        "label": "Data Directory",
+                        "description": "Persistent storage path inside the container (SQLite, LanceDB vector store, credentials, workspace).",
+                        "default": "/data",
+                        "preset": true
+                    },
+                    {
+                        "name": "SPACEBOT_DEPLOYMENT",
+                        "label": "Deployment Mode",
+                        "description": "Deployment context identifier. Set to 'docker' when running in a container.",
+                        "default": "docker",
+                        "preset": true
+                    }
+                ],
+                "ports": [
+                    "19898:19898",
+                    "18789:18789"
+                ],
+                "volumes": [
+                    {
+                        "container": "/data",
+                        "bind": "/data/spacebot"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/spacedriveapp.png",
+                "note": "Spacebot nie posiada oficjalnego obrazu Docker ani <code>docker-compose.yml</code> w repozytorium. Stack wymaga zbudowania ze źródeł.<br><br><b>Dockerfile</b><br><pre><code>FROM rust:bookworm AS builder\nRUN apt-get update &amp;&amp; apt-get install -y \\\n    protobuf-compiler cmake libssl-dev pkg-config curl unzip\nRUN curl -fsSL https://bun.sh/install | bash\nENV PATH=/root/.bun/bin:$PATH\nWORKDIR /app\nRUN git clone --depth=1 https://github.com/spacedriveapp/spacebot .\nRUN bun install --cwd frontend\nRUN bun run --cwd frontend build\nRUN cargo build --release --bin spacebot\n\nFROM debian:bookworm-slim\nRUN apt-get update &amp;&amp; apt-get install -y \\\n    ca-certificates libsqlite3-0 curl bubblewrap &amp;&amp; \\\n    rm -rf /var/lib/apt/lists/*\nCOPY --from=builder /app/target/release/spacebot /usr/local/bin/\nENV SPACEBOT_DIR=/data\nENV SPACEBOT_DEPLOYMENT=docker\nEXPOSE 19898 18789\nVOLUME /data\nCMD [\"spacebot\", \"start\", \"--foreground\"]</code></pre><br><b>docker-compose.yml</b><br><pre><code>services:\n  spacebot:\n    build: .\n    container_name: spacebot\n    environment:\n      - SPACEBOT_DIR=/data\n      - SPACEBOT_DEPLOYMENT=docker\n    ports:\n      - \"19898:19898\"\n      - \"18789:18789\"\n    volumes:\n      - spacebot_data:/data\n    restart: unless-stopped\n    healthcheck:\n      test: [\"CMD\", \"curl\", \"-f\", \"http://localhost:19898/api/health\"]\n      interval: 30s\n      timeout: 5s\n      retries: 3\n\nvolumes:\n  spacebot_data:</code></pre><br>Konfiguracja (klucze API LLM, tokeny platform Discord/Slack/Telegram) odbywa się przez plik <code>/data/config.toml</code> po pierwszym uruchomieniu.<br>Port <code>19898</code> to API / health endpoint, port <code>18789</code> to serwis WebSocket.<br><br>Licencja: FSL-1.1-ALv2 | Dokumentacja: <a href='https://github.com/spacedriveapp/spacebot' target='_blank'>github.com/spacedriveapp/spacebot</a>",
+                "maintainer": "Spacedrive"
+            }
+        }
+    ]
+}

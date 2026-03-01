@@ -247,7 +247,12 @@ class PatchLoader:
             raise ValueError("ADD requires 'template' field")
 
         # Walidujemy wymagane pola
-        required_fields = ['id', 'type', 'title', 'name', 'image']
+        # Dla stacków (type 2, 3, 4) image nie jest wymagany — używają repository lub compose
+        template_type = new_template.get('type', 1)
+        if template_type == 1:
+            required_fields = ['id', 'type', 'title', 'name', 'image']
+        else:
+            required_fields = ['id', 'type', 'title', 'name']
         for field in required_fields:
             if field not in new_template:
                 raise ValueError(f"ADD template missing required field: {field}")

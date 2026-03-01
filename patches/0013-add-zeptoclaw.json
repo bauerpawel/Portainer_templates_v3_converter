@@ -1,0 +1,75 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0013-add-zeptoclaw",
+        "title": "Add ZeptoClaw - Ultra-Lightweight Rust AI Assistant",
+        "description": "Adds ZeptoClaw — a ~6MB single Rust binary AI assistant with ~50ms startup and ~6MB RAM usage. Features 29 integrated tools, 9 LLM providers, 9 communication channels, 2,900+ tests, multi-tenant architecture, and Prometheus metrics. Official GHCR image available.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://github.com/qhkm/zeptoclaw",
+        "references": {
+            "github": "https://github.com/qhkm/zeptoclaw"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add ZeptoClaw as a single container using the official GHCR image",
+            "template": {
+                "id": 9014,
+                "type": 1,
+                "title": "ZeptoClaw",
+                "name": "zeptoclaw",
+                "image": "ghcr.io/qhkm/zeptoclaw:latest",
+                "description": "Ultra-lightweight Rust AI assistant — ~6MB binary, ~50ms startup, ~6MB RAM. Features 29 integrated tools, 9 LLM providers (OpenAI, Anthropic, Groq, Mistral, etc.), 9 communication channels (Telegram, Slack, Discord, email, webhooks), 2,900+ tests, and multi-tenant architecture. Supports Docker, Landlock, Firejail, and Bubblewrap sandboxing. Prometheus metrics on /metrics. Non-root container.",
+                "categories": [
+                    "AI",
+                    "Automation",
+                    "Self-Hosted",
+                    "Messaging"
+                ],
+                "env": [
+                    {
+                        "name": "RUST_LOG",
+                        "label": "Log Level",
+                        "description": "Rust logging verbosity for the ZeptoClaw service.",
+                        "default": "zeptoclaw=info"
+                    },
+                    {
+                        "name": "ZEPTOCLAW_PROVIDERS_OPENAI_API_KEY",
+                        "label": "OpenAI API Key",
+                        "description": "API key for the OpenAI provider (optional — can also configure via /data/config.json).",
+                        "default": ""
+                    },
+                    {
+                        "name": "ZEPTOCLAW_PROVIDERS_ANTHROPIC_API_KEY",
+                        "label": "Anthropic API Key",
+                        "description": "API key for the Anthropic/Claude provider (optional — can also configure via /data/config.json).",
+                        "default": ""
+                    },
+                    {
+                        "name": "ZEPTOCLAW_PROVIDERS_GROQ_API_KEY",
+                        "label": "Groq API Key",
+                        "description": "API key for the Groq provider (optional — can also configure via /data/config.json).",
+                        "default": ""
+                    }
+                ],
+                "ports": [
+                    "8080:8080",
+                    "9090:9090"
+                ],
+                "volumes": [
+                    {
+                        "container": "/data",
+                        "bind": "/data/zeptoclaw"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/qhkm.png",
+                "note": "ZeptoClaw uruchamia się domyślnie w trybie <b>gateway</b>: port <code>8080</code> obsługuje integracje messaging (Telegram, Slack, Discord, webhooks), port <code>9090</code> to endpoint health check (<code>/healthz</code>) i metryki Prometheus (<code>/metrics</code>).<br><br>Konfiguracja dostawców LLM i kanałów komunikacji w pliku <code>/data/config.json</code> — hot-reload co 30 sekund bez restartu kontenera.<br><br><b>Multi-tenant:</b> uruchom osobny kontener dla każdego użytkownika / tenant z oddzielnym wolumenem <code>/data</code>. Przykład w <a href='https://github.com/qhkm/zeptoclaw/blob/main/docker-compose.multi-tenant.yml' target='_blank'>docker-compose.multi-tenant.yml</a>. Każda instancja zużywa ~6MB RAM i 0.05 CPU w spoczynku.<br><br>Auto-aktualizacja: <code>docker exec zeptoclaw zeptoclaw update</code><br><br>Dokumentacja: <a href='https://github.com/qhkm/zeptoclaw' target='_blank'>github.com/qhkm/zeptoclaw</a>",
+                "maintainer": "qhkm"
+            }
+        }
+    ]
+}

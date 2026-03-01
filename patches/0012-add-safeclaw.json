@@ -1,0 +1,75 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0012-add-safeclaw",
+        "title": "Add SafeClaw - Isolated Claude Code Session Manager",
+        "description": "Adds SafeClaw — runs multiple Claude Code sessions each in its own isolated container with a management dashboard. Includes a web terminal (ttyd), Playwright MCP with Chromium browser automation, and optional Gemini CLI and Slack integration. Built on Ubuntu 24.04 Noble.",
+        "author": "Antigravity",
+        "date": "2026-03-01",
+        "priority": 10,
+        "source": "https://safeclaw.io/",
+        "references": {
+            "github": "https://github.com/ykdojo/safeclaw",
+            "website": "https://safeclaw.io/"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add SafeClaw as a compose stack built from source (no official Docker image)",
+            "template": {
+                "id": 9013,
+                "type": 3,
+                "title": "SafeClaw",
+                "name": "safeclaw",
+                "description": "Runs multiple Claude Code sessions each in its own isolated container with persistent workspaces and a management dashboard. Port 7681 provides a web terminal (ttyd), port 7680 the Node.js session dashboard. Includes Playwright MCP with Chromium, optional Gemini CLI and Slack integration. Non-root container (user: sclaw). Built on Ubuntu 24.04 Noble.",
+                "categories": [
+                    "AI",
+                    "Developer Tools",
+                    "Security",
+                    "Self-Hosted"
+                ],
+                "env": [
+                    {
+                        "name": "CLAUDE_CODE_OAUTH_TOKEN",
+                        "label": "Claude Code OAuth Token",
+                        "description": "Required OAuth token for Claude Code authentication. Run 'claude' interactively on the host to obtain it, or check ~/.claude/credentials.",
+                        "default": ""
+                    },
+                    {
+                        "name": "GH_TOKEN",
+                        "label": "GitHub Token",
+                        "description": "GitHub personal access token for repository access within sessions. Recommended: create a dedicated GitHub account with scoped permissions.",
+                        "default": ""
+                    },
+                    {
+                        "name": "GEMINI_API_KEY",
+                        "label": "Gemini API Key",
+                        "description": "Optional Google Gemini API key for Gemini CLI integration inside sessions.",
+                        "default": ""
+                    },
+                    {
+                        "name": "SLACK_TOKEN",
+                        "label": "Slack Token",
+                        "description": "Optional Slack bot token for Slack notifications from sessions.",
+                        "default": ""
+                    }
+                ],
+                "ports": [
+                    "7680:7680",
+                    "7681:7681"
+                ],
+                "volumes": [
+                    {
+                        "container": "/home/sclaw/.claude/projects",
+                        "bind": "/data/safeclaw/sessions"
+                    }
+                ],
+                "labels": [],
+                "logo": "https://github.com/ykdojo.png",
+                "note": "SafeClaw nie posiada oficjalnego obrazu Docker. Stack buduje ze źródeł z GitHub podczas pierwszego wdrożenia.<br><br><b>docker-compose.yml</b><br><pre><code>services:\n  safeclaw:\n    build:\n      context: https://github.com/ykdojo/safeclaw.git\n    container_name: safeclaw\n    environment:\n      - CLAUDE_CODE_OAUTH_TOKEN=${CLAUDE_CODE_OAUTH_TOKEN}\n      - GH_TOKEN=${GH_TOKEN}\n      - GEMINI_API_KEY=${GEMINI_API_KEY:-}\n      - SLACK_TOKEN=${SLACK_TOKEN:-}\n    ports:\n      - \"7680:7680\"\n      - \"7681:7681\"\n    volumes:\n      - safeclaw_sessions:/home/sclaw/.claude/projects\n    restart: unless-stopped\n\nvolumes:\n  safeclaw_sessions:</code></pre><br>Port <code>7681</code> to terminal webowy ttyd — dostęp przez przeglądarkę do powłoki Bash wewnątrz sesji Claude Code.<br>Port <code>7680</code> to dashboard Node.js do zarządzania sesjami (uruchamianie, zatrzymywanie, przeglądanie historii).<br><br>Wiele sesji: uruchom osobny kontener dla każdej sesji z innym bind-mount wolumenu i inną parą portów (np. <code>7682:7681</code>).<br><br>Projekt: <a href='https://github.com/ykdojo/safeclaw' target='_blank'>github.com/ykdojo/safeclaw</a> | Strona: <a href='https://safeclaw.io/' target='_blank'>safeclaw.io</a>",
+                "maintainer": "ykdojo"
+            }
+        }
+    ]
+}
