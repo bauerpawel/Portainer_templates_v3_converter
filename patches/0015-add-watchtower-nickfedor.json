@@ -1,0 +1,126 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0015-add-watchtower-nickfedor",
+        "title": "Add Watchtower (Nick Fedor Fork)",
+        "description": "Adds the actively maintained Nick Fedor fork of Watchtower, a process for automating Docker container base image updates. The original containrrr/watchtower project was archived in December 2025.",
+        "author": "bauerpawel",
+        "date": "2026-03-18",
+        "priority": 10,
+        "source": "https://github.com/nicholas-fedor/watchtower",
+        "references": {
+            "github": "https://github.com/nicholas-fedor/watchtower",
+            "docs": "https://watchtower.nickfedor.com/v1.14.4/quickstart/",
+            "docker": "https://hub.docker.com/r/nickfedor/watchtower"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add Watchtower (Nick Fedor Fork) - actively maintained fork with automatic Docker container updates",
+            "template": {
+                "id": 9016,
+                "type": 1,
+                "title": "Watchtower (Nick Fedor Fork)",
+                "name": "watchtower-nickfedor",
+                "image": "nickfedor/watchtower:latest",
+                "description": "Actively maintained fork of Watchtower. Automatically updates the running version of your containerized apps by monitoring Docker Hub or your own image registry. Pulls new images, gracefully shuts down existing containers, and restarts them with the same options used during initial deployment. Drop-in replacement for the archived containrrr/watchtower.",
+                "categories": [
+                    "Tools",
+                    "Maintenance",
+                    "Docker"
+                ],
+                "env": [
+                    {
+                        "name": "WATCHTOWER_CLEANUP",
+                        "label": "Cleanup old images",
+                        "description": "Remove old images after updating containers.",
+                        "default": "true",
+                        "select": [
+                            {
+                                "text": "Yes",
+                                "value": "true",
+                                "default": true
+                            },
+                            {
+                                "text": "No",
+                                "value": "false"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "WATCHTOWER_POLL_INTERVAL",
+                        "label": "Poll interval (seconds)",
+                        "description": "Interval in seconds between update checks. Default is 86400 (24 hours).",
+                        "default": "86400"
+                    },
+                    {
+                        "name": "WATCHTOWER_LABEL_ENABLE",
+                        "label": "Label-based filtering",
+                        "description": "Only update containers with the com.centurylinklabs.watchtower.enable=true label.",
+                        "default": "false",
+                        "select": [
+                            {
+                                "text": "Yes",
+                                "value": "true"
+                            },
+                            {
+                                "text": "No",
+                                "value": "false",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "WATCHTOWER_MONITOR_ONLY",
+                        "label": "Monitor only",
+                        "description": "Only monitor for new images, do not automatically update containers.",
+                        "default": "false",
+                        "select": [
+                            {
+                                "text": "Yes",
+                                "value": "true"
+                            },
+                            {
+                                "text": "No",
+                                "value": "false",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "WATCHTOWER_INCLUDE_STOPPED",
+                        "label": "Include stopped containers",
+                        "description": "Also update stopped containers (not only running ones).",
+                        "default": "false",
+                        "select": [
+                            {
+                                "text": "Yes",
+                                "value": "true"
+                            },
+                            {
+                                "text": "No",
+                                "value": "false",
+                                "default": true
+                            }
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "bind": "/var/run/docker.sock",
+                        "container": "/var/run/docker.sock"
+                    }
+                ],
+                "labels": [
+                    {
+                        "name": "com.docker.compose.restart-policy",
+                        "value": "unless-stopped"
+                    }
+                ],
+                "logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/watchtower.png",
+                "note": "<b>Actively maintained fork of Watchtower</b> (the original <code>containrrr/watchtower</code> was archived in December 2025).<br><br><b>Documentation:</b> <a href=\"https://watchtower.nickfedor.com/\" target=\"_blank\">https://watchtower.nickfedor.com/</a><br><b>GitHub:</b> <a href=\"https://github.com/nicholas-fedor/watchtower\" target=\"_blank\">https://github.com/nicholas-fedor/watchtower</a><br><br>By default, Watchtower monitors all running containers and checks for updates every 24 hours. Use environment variables to customize behavior."
+            }
+        }
+    ]
+}
