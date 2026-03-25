@@ -680,8 +680,8 @@
       "id": 22,
       "categories": [
         "Tools",
-        "Authentication",
-        "Other"
+        "Other",
+        "Authentication"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -836,9 +836,9 @@
     {
       "id": 28,
       "categories": [
+        "Video",
         "Media Management",
-        "Music",
-        "Video"
+        "Music"
       ],
       "description": "[Bazarr](https://www.bazarr.media/) is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.",
       "env": [
@@ -1845,10 +1845,10 @@
     {
       "id": 59,
       "categories": [
-        "Programming",
-        "Tools",
         "Development",
-        "Other"
+        "Tools",
+        "Other",
+        "Programming"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -2030,8 +2030,8 @@
     {
       "id": 64,
       "categories": [
-        "Cloud",
-        "Books"
+        "Books",
+        "Cloud"
       ],
       "description": "[Cops](https://github.com/mikespub-org/seblucas-cops) by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server. COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices. Changes in your Calibre library are reflected immediately in your COPS pages. See : [COPS's home](https://github.com/mikespub-org/seblucas-cops) for more details. Don't forget to check the [Wiki](https://github.com/mikespub-org/seblucas-cops/wiki). ## Why? (taken from the author's site) In my opinion Calibre is a marvelous tool but is too big and has too much dependencies to be used for its content server. That's the main reason why I coded this OPDS server. I needed a simple tool to be installed on a small server (Seagate Dockstar in my case). I initially thought of Calibre2OPDS but as it generate static file no search was possible. Later I added an simple HTML catalog that should be usable on my Kobo. So COPS's main advantages are : * No need for many dependencies. * No need for a lot of CPU or RAM. * Not much code. * Search is available. * With Dropbox / owncloud it's very easy to have an up to date OPDS server. * It was fun to code. If you want to use the OPDS feed don't forget to specify /feed at the end of your URL.",
       "env": [
@@ -2516,9 +2516,9 @@
       "id": 79,
       "categories": [
         "Tools",
-        "FTP",
+        "Other",
         "Ftp",
-        "Other"
+        "FTP"
       ],
       "description": "[Davos](https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
       "env": [
@@ -2580,8 +2580,8 @@
     {
       "id": 81,
       "categories": [
-        "Music",
-        "Other"
+        "Other",
+        "Music"
       ],
       "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
       "image": "registry.gitlab.com/bockiii/deemix-docker",
@@ -2668,8 +2668,8 @@
       "categories": [
         "Tools",
         "Vpn",
-        "VPN",
-        "Other"
+        "Other",
+        "VPN"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -3199,10 +3199,10 @@
     {
       "id": 100,
       "categories": [
-        "Network",
+        "DNS",
         "Tools",
         "Dns",
-        "DNS"
+        "Network"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -3292,11 +3292,11 @@
     {
       "id": 102,
       "categories": [
-        "Tools",
-        "Productivity",
-        "Cloud",
         "Backup",
-        "Other"
+        "Tools",
+        "Other",
+        "Productivity",
+        "Cloud"
       ],
       "description": "[Duplicati](https://www.duplicati.com/) is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
       "env": [
@@ -3530,11 +3530,11 @@
     {
       "id": 110,
       "categories": [
-        "Video",
         "Media Servers",
-        "Audiobooks",
         "Music",
-        "Photos"
+        "Video",
+        "Photos",
+        "Audiobooks"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
       "env": [
@@ -4951,10 +4951,10 @@
     {
       "id": 159,
       "categories": [
-        "Tools",
         "Finance",
-        "Recipes",
-        "Other"
+        "Tools",
+        "Other",
+        "Recipes"
       ],
       "description": "[Grocy](https://github.com/grocy/grocy) is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility. Keep track of your purchases, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
       "env": [
@@ -5195,11 +5195,11 @@
     {
       "id": 165,
       "categories": [
-        "Statusstable",
         "Tools",
+        "Statusstable",
+        "Networkweb",
         "Dashboard",
-        "Networkother",
-        "Networkweb"
+        "Networkother"
       ],
       "description": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
       "env": [
@@ -5633,10 +5633,10 @@
     {
       "id": 176,
       "categories": [
-        "Media Tools",
-        "Music",
+        "Video",
         "Other",
-        "Video"
+        "Music",
+        "Media Tools"
       ],
       "description": "[Htpcmanager](https://github.com/HTPC-Manager/HTPC-Manager) is a front end for many htpc related applications.",
       "env": [
@@ -6398,8 +6398,8 @@
       "id": 194,
       "categories": [
         "Indexers",
-        "Tools",
-        "Downloaders"
+        "Downloaders",
+        "Tools"
       ],
       "description": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
       "env": [
@@ -6501,11 +6501,11 @@
     {
       "id": 196,
       "categories": [
-        "Video",
         "Media Servers",
-        "Audiobooks",
         "Music",
-        "Photos"
+        "Video",
+        "Photos",
+        "Audiobooks"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
       "env": [
@@ -7478,9 +7478,9 @@
     {
       "id": 221,
       "categories": [
+        "Downloaders",
         "Media Management",
-        "Music",
-        "Downloaders"
+        "Music"
       ],
       "description": "[Lidarr](https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
       "env": [
@@ -7857,10 +7857,10 @@
     {
       "id": 234,
       "categories": [
-        "Management",
         "Web",
         "Cloud",
-        "Photos"
+        "Photos",
+        "Management"
       ],
       "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
       "env": [
@@ -8020,8 +8020,8 @@
     {
       "id": 239,
       "categories": [
-        "Tools",
         "Databases",
+        "Tools",
         "Other"
       ],
       "description": "[Mariadb](https://mariadb.org/) is one of the most popular database servers. Made by the original developers of MySQL.",
@@ -8366,9 +8366,9 @@
     {
       "id": 250,
       "categories": [
-        "Media Management",
+        "Video",
         "Downloaders",
-        "Video"
+        "Media Management"
       ],
       "description": "[Medusa](https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
       "env": [
@@ -8691,10 +8691,10 @@
     {
       "id": 260,
       "categories": [
+        "Video",
         "Tools",
-        "Media Tools",
         "Other",
-        "Video"
+        "Media Tools"
       ],
       "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.\n\n  The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.\n  ",
       "env": [
@@ -8842,8 +8842,8 @@
       "id": 265,
       "categories": [
         "Media Servers",
-        "Music",
-        "Other"
+        "Other",
+        "Music"
       ],
       "description": "[Mstream](https://mstream.io/) is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.",
       "image": "linuxserver/mstream:latest",
@@ -9535,9 +9535,9 @@
     {
       "id": 283,
       "categories": [
+        "Proxy",
         "Web",
-        "Reverse Proxy",
-        "Proxy"
+        "Reverse Proxy"
       ],
       "description": "Nginx is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache.",
       "env": [
@@ -10175,8 +10175,8 @@
       "id": 299,
       "categories": [
         "Indexers",
-        "Tools",
         "Downloaders",
+        "Tools",
         "Other"
       ],
       "description": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra). It provides easy access to a number of raw and newznab based indexers.",
@@ -10357,11 +10357,11 @@
     {
       "id": 303,
       "categories": [
+        "Mediaappvideo",
         "Tools",
-        "Media Requesters",
-        "Downloaders",
         "Networkother",
-        "Mediaappvideo"
+        "Downloaders",
+        "Media Requesters"
       ],
       "description": "[Ombi](https://ombi.io) allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
       "env": [
@@ -10697,8 +10697,8 @@
     {
       "id": 314,
       "categories": [
-        "Media Tools",
-        "Other"
+        "Other",
+        "Media Tools"
       ],
       "description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module\n  (CAM). OScam is, compared with other softcams (CCcam, mgcamd, etc.), open source. Hence, the name Open Source Conditional Access Module (OScam). OScam is based on the\n  not so well known softcam MpCS. The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
       "env": [
@@ -10994,50 +10994,19 @@
     {
       "id": 317,
       "categories": [
-        "Media Requesters"
+        "Tools"
       ],
-      "description": "[Overseerr](https://overseerr.dev/) is a request management and media discovery tool built to work with your existing Plex ecosystem.",
-      "env": [
-        {
-          "name": "PUID",
-          "label": "PUID",
-          "default": "1000",
-          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
-        },
-        {
-          "name": "PGID",
-          "label": "PGID",
-          "default": "1000",
-          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
-        },
-        {
-          "name": "TZ",
-          "label": "TZ",
-          "default": "Etc/UTC",
-          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
-        }
-      ],
-      "image": "linuxserver/overseerr:latest",
-      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/overseerr.png",
+      "description": "Overseerr is a free and open source software application for managing requests for your media library.",
+      "logo": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/overseerr-icon.png",
+      "maintainer": " https://github.com/xneo1/portainer_templates/",
       "name": "Overseerr",
-      "ports": [
-        "5055:5055/tcp"
-      ],
-      "title": "Overseerr",
-      "type": 1,
-      "volumes": [
-        {
-          "container": "/config",
-          "bind": "/srv/lsio/overseerr/config"
-        }
-      ],
-      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/overseerr/config</p>",
-      "labels": [
-        {
-          "name": "com.docker.compose.restart-policy",
-          "value": "unless-stopped"
-        }
-      ]
+      "title": "Overseerr (stack)",
+      "type": 3,
+      "repository": {
+        "stackfile": "Template/Stack/overseerr.yml",
+        "url": "https://github.com/xneo1/portainer_templates"
+      },
+      "labels": []
     },
     {
       "id": 318,
@@ -11997,14 +11966,14 @@
     {
       "id": 340,
       "categories": [
-        "Mediaservervideo",
-        "Media Servers",
-        "Mediaserverphotos",
-        "Mediaservermusic",
-        "Audiobooks",
-        "Photos",
+        "Video",
         "Music",
-        "Video"
+        "Mediaservervideo",
+        "Mediaserverphotos",
+        "Audiobooks",
+        "Mediaservermusic",
+        "Media Servers",
+        "Photos"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -12405,11 +12374,11 @@
     {
       "id": 353,
       "categories": [
-        "Tools",
-        "Productivity",
-        "Cloud",
         "File Sharing",
-        "Other"
+        "Tools",
+        "Other",
+        "Productivity",
+        "Cloud"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
       "env": [
@@ -12454,9 +12423,9 @@
       "id": 354,
       "categories": [
         "Tools",
+        "Other",
         "Productivity",
-        "Email",
-        "Other"
+        "Email"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -12945,9 +12914,9 @@
     {
       "id": 365,
       "categories": [
-        "Media Management",
         "Mediaappvideo",
-        "Downloaders"
+        "Downloaders",
+        "Media Management"
       ],
       "description": "[Radarr](https://github.com/Radarr/Radarr) - A fork of Sonarr to work with movies à la Couchpotato.",
       "env": [
@@ -13773,8 +13742,8 @@
       "id": 388,
       "categories": [
         "Logmanagement",
-        "Log Management",
-        "Monitoring"
+        "Monitoring",
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -13971,9 +13940,9 @@
     {
       "id": 395,
       "categories": [
-        "Media Management",
+        "Video",
         "Downloaders",
-        "Video"
+        "Media Management"
       ],
       "description": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
       "env": [
@@ -14321,9 +14290,9 @@
     {
       "id": 410,
       "categories": [
-        "Media Management",
         "Mediaappvideo",
-        "Downloaders"
+        "Downloaders",
+        "Media Management"
       ],
       "description": "[Sonarr](https://sonarr.tv/) (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
       "env": [
@@ -14750,10 +14719,10 @@
     {
       "id": 421,
       "categories": [
-        "Tools",
-        "Cloud",
         "Backup",
-        "Other"
+        "Tools",
+        "Other",
+        "Cloud"
       ],
       "description": "[Syncthing](https://syncthing.net) replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
       "env": [
@@ -14938,8 +14907,8 @@
       "id": 427,
       "categories": [
         "Tools",
-        "Media Tools",
-        "Other"
+        "Other",
+        "Media Tools"
       ],
       "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
       "env": [
@@ -15105,9 +15074,9 @@
     {
       "id": 432,
       "categories": [
-        "IRC",
         "Chat",
-        "Messenger"
+        "Messenger",
+        "IRC"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -15664,9 +15633,9 @@
     {
       "id": 448,
       "categories": [
-        "Media Tools",
+        "Video",
         "Other",
-        "Video"
+        "Media Tools"
       ],
       "description": "[Tvheadend](https://www.tvheadend.org/) works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
       "env": [
@@ -15752,8 +15721,8 @@
     {
       "id": 450,
       "categories": [
-        "Cloud",
-        "Books"
+        "Books",
+        "Cloud"
       ],
       "description": "[Ubooquity](https://vaemendis.net/ubooquity/) is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
       "env": [
@@ -16343,8 +16312,8 @@
       "id": 466,
       "categories": [
         "Tools",
-        "Maintenance",
-        "Other"
+        "Other",
+        "Maintenance"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -16388,8 +16357,8 @@
     {
       "id": 468,
       "categories": [
-        "Media Tools",
-        "Downloaders"
+        "Downloaders",
+        "Media Tools"
       ],
       "description": "[Webgrabplus](https://www.webgrabplus.com) is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
       "env": [
@@ -16556,8 +16525,8 @@
     {
       "id": 474,
       "categories": [
-        "Tools",
         "Content Management",
+        "Tools",
         "Other"
       ],
       "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
@@ -16923,8 +16892,8 @@
     {
       "id": 486,
       "categories": [
-        "IRC",
-        "Messenger"
+        "Messenger",
+        "IRC"
       ],
       "description": "[Znc](http://wiki.znc.in/ZNC) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
       "env": [
@@ -19569,6 +19538,55 @@
     {
       "id": 539,
       "categories": [
+        "Games"
+      ],
+      "description": "[Eden](https://eden-emu.dev/) is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/eden:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/eden-logo.png",
+      "name": "Eden",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Eden",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/eden/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/eden/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 540,
+      "categories": [
         "Network",
         "Security"
       ],
@@ -19694,7 +19712,7 @@
       ]
     },
     {
-      "id": 540,
+      "id": 541,
       "categories": [
         "Machine Learning"
       ],
@@ -19719,10 +19737,10 @@
           "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
         },
         {
-          "name": "WHISPER_MODEL",
-          "label": "WHISPER_MODEL",
-          "default": "tiny-int8",
-          "description": "Whisper model that will be used for transcription. From [here](https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L12-L31), all with `-int8` compressed variants"
+          "name": "DEBUG",
+          "label": "DEBUG",
+          "default": "",
+          "description": "If set to `true`, or any other value, the container will output debug logs. [OPTIONAL]"
         },
         {
           "name": "LOCAL_ONLY",
@@ -19739,8 +19757,14 @@
         {
           "name": "WHISPER_LANG",
           "label": "WHISPER_LANG",
-          "default": "en",
-          "description": "Language that you will speak to the add-on. [OPTIONAL]"
+          "default": "auto",
+          "description": "Two character code for the language that you will speak to the add-on. [OPTIONAL]"
+        },
+        {
+          "name": "WHISPER_MODEL",
+          "label": "WHISPER_MODEL",
+          "default": "auto",
+          "description": "Whisper model that will be used for transcription. From [here](https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L11-L31). [OPTIONAL]"
         }
       ],
       "image": "linuxserver/faster-whisper:latest",
@@ -19766,7 +19790,7 @@
       ]
     },
     {
-      "id": 541,
+      "id": 542,
       "categories": [
         "Chat",
         "Social"
@@ -19816,7 +19840,7 @@
       ]
     },
     {
-      "id": 542,
+      "id": 543,
       "categories": [
         "Media Tools"
       ],
@@ -19864,7 +19888,7 @@
       ]
     },
     {
-      "id": 543,
+      "id": 544,
       "categories": [
         "FTP"
       ],
@@ -19913,7 +19937,7 @@
       ]
     },
     {
-      "id": 544,
+      "id": 545,
       "categories": [
         "Web Browser"
       ],
@@ -19968,7 +19992,7 @@
       ]
     },
     {
-      "id": 545,
+      "id": 546,
       "categories": [
         "Downloaders"
       ],
@@ -20044,7 +20068,7 @@
       ]
     },
     {
-      "id": 546,
+      "id": 547,
       "categories": [
         "Games"
       ],
@@ -20093,7 +20117,7 @@
       ]
     },
     {
-      "id": 547,
+      "id": 548,
       "categories": [
         "Science"
       ],
@@ -20160,7 +20184,7 @@
       ]
     },
     {
-      "id": 548,
+      "id": 549,
       "categories": [
         "3D Modeling"
       ],
@@ -20209,7 +20233,7 @@
       ]
     },
     {
-      "id": 549,
+      "id": 550,
       "categories": [
         "Image Editor"
       ],
@@ -20258,7 +20282,7 @@
       ]
     },
     {
-      "id": 550,
+      "id": 551,
       "categories": [
         "Programming"
       ],
@@ -20307,7 +20331,7 @@
       ]
     },
     {
-      "id": 551,
+      "id": 552,
       "categories": [
         "Programming"
       ],
@@ -20356,7 +20380,7 @@
       ]
     },
     {
-      "id": 552,
+      "id": 553,
       "categories": [
         "Content Management"
       ],
@@ -20404,7 +20428,7 @@
       ]
     },
     {
-      "id": 553,
+      "id": 554,
       "categories": [
         "Games"
       ],
@@ -20453,7 +20477,7 @@
       ]
     },
     {
-      "id": 554,
+      "id": 555,
       "categories": [
         "Home Automation"
       ],
@@ -20508,7 +20532,7 @@
       ]
     },
     {
-      "id": 555,
+      "id": 556,
       "categories": [
         "Media Management"
       ],
@@ -20557,7 +20581,7 @@
       ]
     },
     {
-      "id": 556,
+      "id": 557,
       "categories": [
         "Monitoring"
       ],
@@ -20580,6 +20604,12 @@
           "label": "TZ",
           "default": "Etc/UTC",
           "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        },
+        {
+          "name": "SECRET_KEY",
+          "label": "SECRET_KEY",
+          "default": "",
+          "description": "A secret key used for cryptographic signing. Will generate a random value if one is not supplied and save it to `/config/local_settings.py`."
         },
         {
           "name": "SITE_ROOT",
@@ -20684,12 +20714,6 @@
           "description": "If using webauthn for 2FA set this to match your Healthchecks domain. Webauthn will only work over https. [OPTIONAL]"
         },
         {
-          "name": "SECRET_KEY",
-          "label": "SECRET_KEY",
-          "default": "",
-          "description": "A secret key used for cryptographic signing. Will generate a random value if one is not supplied and save it to `/config/local_settings.py`. [OPTIONAL]"
-        },
-        {
           "name": "SITE_LOGO_URL",
           "label": "SITE_LOGO_URL",
           "default": "",
@@ -20720,7 +20744,7 @@
       ]
     },
     {
-      "id": 557,
+      "id": 558,
       "categories": [
         "Content Management"
       ],
@@ -20834,7 +20858,7 @@
       ]
     },
     {
-      "id": 558,
+      "id": 559,
       "categories": [
         "Administration"
       ],
@@ -20894,7 +20918,7 @@
       ]
     },
     {
-      "id": 559,
+      "id": 560,
       "categories": [
         "Home Automation"
       ],
@@ -20942,7 +20966,7 @@
       ]
     },
     {
-      "id": 560,
+      "id": 561,
       "categories": [
         "3D Modeling"
       ],
@@ -20991,7 +21015,7 @@
       ]
     },
     {
-      "id": 561,
+      "id": 562,
       "categories": [
         "Programming"
       ],
@@ -21040,7 +21064,7 @@
       ]
     },
     {
-      "id": 562,
+      "id": 563,
       "categories": [
         "Content Management"
       ],
@@ -21089,7 +21113,7 @@
       ]
     },
     {
-      "id": 563,
+      "id": 564,
       "categories": [
         "Remote Desktop",
         "Security"
@@ -21139,7 +21163,7 @@
       ]
     },
     {
-      "id": 564,
+      "id": 565,
       "categories": [
         "Remote Desktop",
         "Business"
@@ -21208,7 +21232,7 @@
       ]
     },
     {
-      "id": 565,
+      "id": 566,
       "categories": [
         "Video Editor"
       ],
@@ -21257,7 +21281,7 @@
       ]
     },
     {
-      "id": 566,
+      "id": 567,
       "categories": [
         "Password Manager"
       ],
@@ -21306,7 +21330,7 @@
       ]
     },
     {
-      "id": 567,
+      "id": 568,
       "categories": [
         "3D Modeling"
       ],
@@ -21355,7 +21379,7 @@
       ]
     },
     {
-      "id": 568,
+      "id": 569,
       "categories": [
         "Finance",
         "Business"
@@ -21417,7 +21441,7 @@
       ]
     },
     {
-      "id": 569,
+      "id": 570,
       "categories": [
         "Media Management"
       ],
@@ -21495,7 +21519,7 @@
       ]
     },
     {
-      "id": 570,
+      "id": 571,
       "categories": [
         "Image Editor"
       ],
@@ -21544,7 +21568,7 @@
       ]
     },
     {
-      "id": 571,
+      "id": 572,
       "categories": [
         "Administration",
         "Security"
@@ -21612,7 +21636,7 @@
       ]
     },
     {
-      "id": 572,
+      "id": 573,
       "categories": [
         "Documents"
       ],
@@ -21661,7 +21685,7 @@
       ]
     },
     {
-      "id": 573,
+      "id": 574,
       "categories": [
         "Web Browser"
       ],
@@ -21716,7 +21740,7 @@
       ]
     },
     {
-      "id": 574,
+      "id": 575,
       "categories": [
         "IRC"
       ],
@@ -21764,7 +21788,7 @@
       ]
     },
     {
-      "id": 575,
+      "id": 576,
       "categories": [
         "Music"
       ],
@@ -21813,7 +21837,7 @@
       ]
     },
     {
-      "id": 576,
+      "id": 577,
       "categories": [
         "Games"
       ],
@@ -21867,7 +21891,7 @@
       ]
     },
     {
-      "id": 577,
+      "id": 578,
       "categories": [
         "Games"
       ],
@@ -21920,7 +21944,7 @@
       ]
     },
     {
-      "id": 578,
+      "id": 579,
       "categories": [
         "3D Printing"
       ],
@@ -21990,7 +22014,7 @@
       ]
     },
     {
-      "id": 579,
+      "id": 580,
       "categories": [
         "Social"
       ],
@@ -22268,7 +22292,7 @@
       ]
     },
     {
-      "id": 580,
+      "id": 581,
       "categories": [
         "Media Management"
       ],
@@ -22317,7 +22341,7 @@
       ]
     },
     {
-      "id": 581,
+      "id": 582,
       "categories": [
         "Games"
       ],
@@ -22366,7 +22390,7 @@
       ]
     },
     {
-      "id": 582,
+      "id": 583,
       "categories": [
         "Docker"
       ],
@@ -22414,7 +22438,7 @@
       ]
     },
     {
-      "id": 583,
+      "id": 584,
       "categories": [
         "Games"
       ],
@@ -22463,7 +22487,7 @@
       ]
     },
     {
-      "id": 584,
+      "id": 585,
       "categories": [
         "Content Management"
       ],
@@ -22566,7 +22590,7 @@
       ]
     },
     {
-      "id": 585,
+      "id": 586,
       "categories": [
         "Web Browser"
       ],
@@ -22621,7 +22645,7 @@
       ]
     },
     {
-      "id": 586,
+      "id": 587,
       "categories": [
         "Web Browser",
         "VPN"
@@ -22677,7 +22701,7 @@
       ]
     },
     {
-      "id": 587,
+      "id": 588,
       "categories": [
         "Books",
         "Media Management"
@@ -22734,7 +22758,7 @@
       ]
     },
     {
-      "id": 588,
+      "id": 589,
       "categories": [
         "Databases"
       ],
@@ -22783,7 +22807,7 @@
       ]
     },
     {
-      "id": 589,
+      "id": 590,
       "categories": [
         "Administration",
         "Business"
@@ -22824,7 +22848,7 @@
           "name": "ALLOWED_HOST",
           "label": "ALLOWED_HOST",
           "default": "",
-          "description": "The hostname you will use to access the app (i.e., netbox.example.com)"
+          "description": "The hostname you will use to access the app (e.g., netbox.example.com)"
         },
         {
           "name": "DB_NAME",
@@ -22869,6 +22893,12 @@
           "description": "Redis port number (default: 6379)"
         },
         {
+          "name": "REDIS_USERNAME",
+          "label": "REDIS_USERNAME",
+          "default": "",
+          "description": "Redis username (default: none)"
+        },
+        {
           "name": "REDIS_PASSWORD",
           "label": "REDIS_PASSWORD",
           "default": "",
@@ -22890,43 +22920,49 @@
           "name": "BASE_PATH",
           "label": "BASE_PATH",
           "default": "",
-          "description": "The path you will use to access the app (i.e., /netbox, optional, default: none) [OPTIONAL]"
+          "description": "The path you will use to access the app (i.e., /netbox, default: none) [OPTIONAL]"
+        },
+        {
+          "name": "CSRF_TRUSTED_ORIGINS",
+          "label": "CSRF_TRUSTED_ORIGINS",
+          "default": "",
+          "description": "List of comma-separated, single quoted, trusted origins. Must include protocol, and port if applicable (default: []) [OPTIONAL]"
         },
         {
           "name": "REMOTE_AUTH_ENABLED",
           "label": "REMOTE_AUTH_ENABLED",
           "default": "",
-          "description": "Enable remote authentication (optional, default: False) [OPTIONAL]"
+          "description": "Enable remote authentication (default: False) [OPTIONAL]"
         },
         {
           "name": "REMOTE_AUTH_BACKEND",
           "label": "REMOTE_AUTH_BACKEND",
           "default": "",
-          "description": "Python path to the custom Django authentication backend to use for external user authentication (optional, default: netbox.authentication.RemoteUserBackend) [OPTIONAL]"
+          "description": "Python path to the custom Django authentication backend to use for external user authentication (default: netbox.authentication.RemoteUserBackend) [OPTIONAL]"
         },
         {
           "name": "REMOTE_AUTH_HEADER",
           "label": "REMOTE_AUTH_HEADER",
           "default": "",
-          "description": "Name of the HTTP header which informs NetBox of the currently authenticated user. (optional, default: HTTP_REMOTE_USER) [OPTIONAL]"
+          "description": "Name of the HTTP header which informs NetBox of the currently authenticated user. (default: HTTP_REMOTE_USER) [OPTIONAL]"
         },
         {
           "name": "REMOTE_AUTH_AUTO_CREATE_USER",
           "label": "REMOTE_AUTH_AUTO_CREATE_USER",
           "default": "",
-          "description": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (optional, default: False) [OPTIONAL]"
+          "description": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (default: False) [OPTIONAL]"
         },
         {
           "name": "REMOTE_AUTH_DEFAULT_GROUPS",
           "label": "REMOTE_AUTH_DEFAULT_GROUPS",
           "default": "",
-          "description": "The list of groups to assign a new user account when created using remote authentication (optional, default: []) [OPTIONAL]"
+          "description": "The list of groups to assign a new user account when created using remote authentication (default: []) [OPTIONAL]"
         },
         {
           "name": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
           "label": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
           "default": "",
-          "description": "A mapping of permissions to assign a new user account when created using remote authentication (optional, default: {}) [OPTIONAL]"
+          "description": "A mapping of permissions to assign a new user account when created using remote authentication (default: {}) [OPTIONAL]"
         }
       ],
       "image": "linuxserver/netbox:latest",
@@ -22952,7 +22988,7 @@
       ]
     },
     {
-      "id": 590,
+      "id": 591,
       "categories": [
         "Cloud",
         "Documents"
@@ -23005,7 +23041,7 @@
       ]
     },
     {
-      "id": 591,
+      "id": 592,
       "categories": [
         "IRC"
       ],
@@ -23053,7 +23089,7 @@
       ]
     },
     {
-      "id": 592,
+      "id": 593,
       "categories": [
         "Content Management"
       ],
@@ -23102,7 +23138,7 @@
       ]
     },
     {
-      "id": 593,
+      "id": 594,
       "categories": [
         "Documents"
       ],
@@ -23151,7 +23187,7 @@
       ]
     },
     {
-      "id": 594,
+      "id": 595,
       "categories": [
         "Video Editor"
       ],
@@ -23200,7 +23236,7 @@
       ]
     },
     {
-      "id": 595,
+      "id": 596,
       "categories": [
         "Administration"
       ],
@@ -23308,7 +23344,7 @@
       ]
     },
     {
-      "id": 596,
+      "id": 597,
       "categories": [
         "Programming"
       ],
@@ -23380,7 +23416,7 @@
       ]
     },
     {
-      "id": 597,
+      "id": 598,
       "categories": [
         "Web Browser"
       ],
@@ -23435,7 +23471,7 @@
       ]
     },
     {
-      "id": 598,
+      "id": 599,
       "categories": [
         "3D Printing"
       ],
@@ -23484,7 +23520,7 @@
       ]
     },
     {
-      "id": 599,
+      "id": 600,
       "categories": [
         "File Sharing"
       ],
@@ -23556,7 +23592,7 @@
       ]
     },
     {
-      "id": 600,
+      "id": 601,
       "categories": [
         "Games"
       ],
@@ -23605,7 +23641,7 @@
       ]
     },
     {
-      "id": 601,
+      "id": 602,
       "categories": [
         "Databases"
       ],
@@ -23665,7 +23701,7 @@
       ]
     },
     {
-      "id": 602,
+      "id": 603,
       "categories": [
         "IRC",
         "Chat"
@@ -23715,7 +23751,7 @@
       ]
     },
     {
-      "id": 603,
+      "id": 604,
       "categories": [
         "Machine Learning"
       ],
@@ -23805,7 +23841,7 @@
       ]
     },
     {
-      "id": 604,
+      "id": 605,
       "categories": [
         "Content Management",
         "Business"
@@ -23875,8 +23911,14 @@
         {
           "name": "TRUST_PROXY",
           "label": "TRUST_PROXY",
-          "default": "0",
-          "description": "Set to `1` to trust upstream proxies if reverse proxying."
+          "default": "false",
+          "description": "Set to `true` to trust upstream proxies if reverse proxying."
+        },
+        {
+          "name": "DEFAULT_LANGUAGE",
+          "label": "DEFAULT_LANGUAGE",
+          "default": "en-US",
+          "description": "This sets the default language for sending notifications per user (if a user hasn't selected a language) and per board. [OPTIONAL]"
         }
       ],
       "image": "linuxserver/planka:latest",
@@ -23902,7 +23944,56 @@
       ]
     },
     {
-      "id": 605,
+      "id": 606,
+      "categories": [
+        "Games"
+      ],
+      "description": "[PPSSPP](https://www.ppsspp.org/) is a free and open-source PSP emulator for Windows, macOS, Linux, iOS, Android, Nintendo Wii U, Nintendo Switch, BlackBerry 10, MeeGo, Pandora, Xbox Series and Symbian with a focus on speed and portability.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/ppsspp:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ppsspp-logo.png",
+      "name": "Ppsspp",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Ppsspp",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/ppsspp/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/ppsspp/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 607,
       "categories": [
         "Indexers"
       ],
@@ -23950,7 +24041,7 @@
       ]
     },
     {
-      "id": 606,
+      "id": 608,
       "categories": [
         "File Sharing",
         "Security"
@@ -24005,7 +24096,7 @@
       ]
     },
     {
-      "id": 607,
+      "id": 609,
       "categories": [
         "Programming"
       ],
@@ -24054,7 +24145,7 @@
       ]
     },
     {
-      "id": 608,
+      "id": 610,
       "categories": [
         "File Sharing"
       ],
@@ -24114,7 +24205,7 @@
       ]
     },
     {
-      "id": 609,
+      "id": 611,
       "categories": [
         "Downloaders"
       ],
@@ -24167,7 +24258,7 @@
       ]
     },
     {
-      "id": 610,
+      "id": 612,
       "categories": [
         "Storage"
       ],
@@ -24220,7 +24311,7 @@
       ]
     },
     {
-      "id": 611,
+      "id": 613,
       "categories": [
         "Docker"
       ],
@@ -24268,7 +24359,7 @@
       ]
     },
     {
-      "id": 612,
+      "id": 614,
       "categories": [
         "Content Management"
       ],
@@ -24316,7 +24407,7 @@
       ]
     },
     {
-      "id": 613,
+      "id": 615,
       "categories": [
         "Image Editor"
       ],
@@ -24365,7 +24456,7 @@
       ]
     },
     {
-      "id": 614,
+      "id": 616,
       "categories": [
         "Remote Desktop"
       ],
@@ -24414,7 +24505,7 @@
       ]
     },
     {
-      "id": 615,
+      "id": 617,
       "categories": [
         "Backup"
       ],
@@ -24471,7 +24562,7 @@
       ]
     },
     {
-      "id": 616,
+      "id": 618,
       "categories": [
         "Games"
       ],
@@ -24520,7 +24611,7 @@
       ]
     },
     {
-      "id": 617,
+      "id": 619,
       "categories": [
         "Games"
       ],
@@ -24569,7 +24660,7 @@
       ]
     },
     {
-      "id": 618,
+      "id": 620,
       "categories": [
         "Backup"
       ],
@@ -24625,7 +24716,7 @@
       ]
     },
     {
-      "id": 619,
+      "id": 621,
       "categories": [
         "Remote Desktop"
       ],
@@ -24674,7 +24765,7 @@
       ]
     },
     {
-      "id": 620,
+      "id": 622,
       "categories": [
         "Games"
       ],
@@ -24723,7 +24814,7 @@
       ]
     },
     {
-      "id": 621,
+      "id": 623,
       "categories": [
         "Remote Desktop",
         "Business"
@@ -24747,14 +24838,20 @@
           "label": "TZ",
           "default": "Etc/UTC",
           "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        },
+        {
+          "name": "HOST_URL",
+          "label": "HOST_URL",
+          "default": "IP or subdomain.doman.com",
+          "description": "On initial setup this will be used to fill in the default admin configuration file in the `/config` directory, if unset the string HOST_URL will need to be replaced. [OPTIONAL]"
         }
       ],
       "image": "linuxserver/sealskin:latest",
       "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/selkies-logo.png",
       "name": "Sealskin",
       "ports": [
-        "8000:8000/tcp",
-        "8443:8443/tcp"
+        "8443:8443/tcp",
+        "8000:8000/tcp"
       ],
       "title": "Sealskin",
       "type": 1,
@@ -24781,7 +24878,56 @@
       ]
     },
     {
-      "id": 622,
+      "id": 624,
+      "categories": [
+        "Games"
+      ],
+      "description": "[shadPS4](https://shadps4.net/) is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/shadps4:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/shadps4-logo.png",
+      "name": "Shadps4",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Shadps4",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/shadps4/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/shadps4/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 625,
       "categories": [
         "Video Editor"
       ],
@@ -24830,7 +24976,7 @@
       ]
     },
     {
-      "id": 623,
+      "id": 626,
       "categories": [
         "Chat"
       ],
@@ -24879,7 +25025,7 @@
       ]
     },
     {
-      "id": 624,
+      "id": 627,
       "categories": [
         "Docker"
       ],
@@ -24927,7 +25073,7 @@
       ]
     },
     {
-      "id": 625,
+      "id": 628,
       "categories": [
         "Monitoring"
       ],
@@ -25047,7 +25193,7 @@
       ]
     },
     {
-      "id": 626,
+      "id": 629,
       "categories": [
         "Music"
       ],
@@ -25096,7 +25242,7 @@
       ]
     },
     {
-      "id": 627,
+      "id": 630,
       "categories": [
         "Databases"
       ],
@@ -25145,7 +25291,56 @@
       ]
     },
     {
-      "id": 628,
+      "id": 631,
+      "categories": [
+        "Games"
+      ],
+      "description": "[Steam](https://store.steampowered.com/) is the ultimate destination for playing, discussing, and creating games.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/steam:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/steam-logo.png",
+      "name": "Steam",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Steam",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/steam/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/steam/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 632,
       "categories": [
         "Reverse Proxy"
       ],
@@ -25197,7 +25392,7 @@
           "name": "DNSPLUGIN",
           "label": "DNSPLUGIN",
           "default": "cloudflare",
-          "description": "Required if `VALIDATION` is set to `dns`. Options are `acmedns`, `aliyun`, `azure`, `bunny`, `cloudflare`, `cpanel`, `desec`, `digitalocean`, `directadmin`, `dnsimple`, `dnsmadeeasy`, `dnspod`, `do`, `domeneshop`, `dreamhost`, `duckdns`, `dynu`, `freedns`, `gandi`, `gehirn`, `glesys`, `godaddy`, `google`, `he`, `hetzner`, `infomaniak`, `inwx`, `ionos`, `linode`, `loopia`, `luadns`, `namecheap`, `netcup`, `njalla`, `nsone`, `ovh`, `porkbun`, `rfc2136`, `route53`, `sakuracloud`, `standalone`, `transip`, and `vultr`. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under `/config/dns-conf`. [OPTIONAL]"
+          "description": "Required if `VALIDATION` is set to `dns`. Options are `acmedns`, `aliyun`, `azure`, `bunny`, `cloudflare`, `cpanel`, `desec`, `digitalocean`, `directadmin`, `dnsimple`, `dnsmadeeasy`, `dnspod`, `do`, `domeneshop`, `dreamhost`, `duckdns`, `dynu`, `freedns`, `gandi`, `gehirn`, `glesys`, `godaddy`, `google`, `he`, `hetzner`, `hetzner-cloud`, `infomaniak`, `inwx`, `ionos`, `linode`, `loopia`, `luadns`, `namecheap`, `netcup`, `njalla`, `nsone`, `ovh`, `porkbun`, `rfc2136`, `route53`, `sakuracloud`, `standalone`, `transip`, and `vultr`. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under `/config/dns-conf`. [OPTIONAL]"
         },
         {
           "name": "PROPAGATION",
@@ -25273,7 +25468,7 @@
       ]
     },
     {
-      "id": 629,
+      "id": 633,
       "categories": [
         "Media Tools"
       ],
@@ -25309,7 +25504,7 @@
       ]
     },
     {
-      "id": 630,
+      "id": 634,
       "categories": [
         "Monitoring"
       ],
@@ -25369,7 +25564,7 @@
       ]
     },
     {
-      "id": 631,
+      "id": 635,
       "categories": [
         "Chat"
       ],
@@ -25418,7 +25613,7 @@
       ]
     },
     {
-      "id": 632,
+      "id": 636,
       "categories": [
         "Email"
       ],
@@ -25467,7 +25662,7 @@
       ]
     },
     {
-      "id": 633,
+      "id": 637,
       "categories": [
         "Downloaders"
       ],
@@ -25561,7 +25756,7 @@
       ]
     },
     {
-      "id": 634,
+      "id": 638,
       "categories": [
         "Web Browser"
       ],
@@ -25616,7 +25811,7 @@
       ]
     },
     {
-      "id": 635,
+      "id": 639,
       "categories": [
         "Network"
       ],
@@ -25726,7 +25921,7 @@
       ]
     },
     {
-      "id": 636,
+      "id": 640,
       "categories": [
         "Web Browser"
       ],
@@ -25781,7 +25976,7 @@
       ]
     },
     {
-      "id": 637,
+      "id": 641,
       "categories": [
         "Media Management"
       ],
@@ -25836,7 +26031,7 @@
       ]
     },
     {
-      "id": 638,
+      "id": 642,
       "categories": [
         "Programming"
       ],
@@ -25885,7 +26080,85 @@
       ]
     },
     {
-      "id": 639,
+      "id": 643,
+      "categories": [
+        "Programming"
+      ],
+      "description": "[Vscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        },
+        {
+          "name": "CONNECTION_TOKEN",
+          "label": "CONNECTION_TOKEN",
+          "default": "",
+          "description": "Optional security token for accessing the Web UI (ie. `supersecrettoken`). [OPTIONAL]"
+        },
+        {
+          "name": "CONNECTION_TOKEN_FILE",
+          "label": "CONNECTION_TOKEN_FILE",
+          "default": "",
+          "description": "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. `/path/to/file`). Overrides `CONNECTION_TOKEN`. [OPTIONAL]"
+        },
+        {
+          "name": "SUDO_PASSWORD",
+          "label": "SUDO_PASSWORD",
+          "default": "password",
+          "description": "If this optional variable is set, user will have sudo access in the vscodium-web terminal with the specified password. [OPTIONAL]"
+        },
+        {
+          "name": "SUDO_PASSWORD_HASH",
+          "label": "SUDO_PASSWORD_HASH",
+          "default": "",
+          "description": "Optionally set sudo password via hash (takes priority over `SUDO_PASSWORD` var). Format is `$type$salt$hashed`. [OPTIONAL]"
+        },
+        {
+          "name": "CODE_ARGS",
+          "label": "CODE_ARGS",
+          "default": "",
+          "description": "Optionally add cli parameters to vscodium binary. [OPTIONAL]"
+        }
+      ],
+      "image": "linuxserver/vscodium-web:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+      "name": "Vscodium-web",
+      "ports": [
+        "8000:8000/tcp"
+      ],
+      "title": "Vscodium-web",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/vscodium-web/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/vscodium-web/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 644,
       "categories": [
         "Chat"
       ],
@@ -25934,7 +26207,56 @@
       ]
     },
     {
-      "id": 640,
+      "id": 645,
+      "categories": [
+        "Games"
+      ],
+      "description": "[Webstation](https://github.com/linuxserver/docker-webstation) is a web native emulation focused LXQt desktop based on Ubuntu.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/webstation:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webstation-logo.png",
+      "name": "Webstation",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Webstation",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/webstation/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/webstation/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 646,
       "categories": [
         "Remote Desktop"
       ],
@@ -25983,7 +26305,7 @@
       ]
     },
     {
-      "id": 641,
+      "id": 647,
       "categories": [
         "Chat"
       ],
@@ -26032,7 +26354,7 @@
       ]
     },
     {
-      "id": 642,
+      "id": 648,
       "categories": [
         "Network",
         "VPN"
@@ -26133,7 +26455,7 @@
       ]
     },
     {
-      "id": 643,
+      "id": 649,
       "categories": [
         "Network"
       ],
@@ -26183,7 +26505,7 @@
       ]
     },
     {
-      "id": 644,
+      "id": 650,
       "categories": [
         "Documents"
       ],
@@ -26232,7 +26554,7 @@
       ]
     },
     {
-      "id": 645,
+      "id": 651,
       "categories": [
         "File Sharing"
       ],
@@ -26281,7 +26603,7 @@
       ]
     },
     {
-      "id": 646,
+      "id": 652,
       "categories": [
         "Games"
       ],
@@ -26330,7 +26652,7 @@
       ]
     },
     {
-      "id": 647,
+      "id": 653,
       "categories": [
         "Programming"
       ],
@@ -26379,7 +26701,7 @@
       ]
     },
     {
-      "id": 648,
+      "id": 654,
       "categories": [
         "Music"
       ],
@@ -26458,7 +26780,7 @@
       ]
     },
     {
-      "id": 649,
+      "id": 655,
       "categories": [
         "Web Browser"
       ],
@@ -26507,7 +26829,7 @@
       ]
     },
     {
-      "id": 650,
+      "id": 656,
       "categories": [
         "Documents"
       ],
