@@ -680,8 +680,8 @@
       "id": 22,
       "categories": [
         "Authentication",
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -1502,9 +1502,9 @@
     {
       "id": 47,
       "categories": [
-        "Tools",
         "Photo",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -1887,8 +1887,8 @@
     {
       "id": 60,
       "categories": [
-        "Programming",
         "Development",
+        "Programming",
         "Tools",
         "Other"
       ],
@@ -2072,8 +2072,8 @@
     {
       "id": 65,
       "categories": [
-        "Books",
-        "Cloud"
+        "Cloud",
+        "Books"
       ],
       "description": "[Cops](https://github.com/mikespub-org/seblucas-cops) by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server. COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices. Changes in your Calibre library are reflected immediately in your COPS pages. See : [COPS's home](https://github.com/mikespub-org/seblucas-cops) for more details. Don't forget to check the [Wiki](https://github.com/mikespub-org/seblucas-cops/wiki). ## Why? (taken from the author's site) In my opinion Calibre is a marvelous tool but is too big and has too much dependencies to be used for its content server. That's the main reason why I coded this OPDS server. I needed a simple tool to be installed on a small server (Seagate Dockstar in my case). I initially thought of Calibre2OPDS but as it generate static file no search was possible. Later I added an simple HTML catalog that should be usable on my Kobo. So COPS's main advantages are : * No need for many dependencies. * No need for a lot of CPU or RAM. * Not much code. * Search is available. * With Dropbox / owncloud it's very easy to have an up to date OPDS server. * It was fun to code. If you want to use the OPDS feed don't forget to specify /feed at the end of your URL.",
       "env": [
@@ -2558,8 +2558,8 @@
       "id": 80,
       "categories": [
         "Other",
-        "Tools",
         "FTP",
+        "Tools",
         "Ftp"
       ],
       "description": "[Davos](https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
@@ -2708,10 +2708,10 @@
     {
       "id": 84,
       "categories": [
+        "Other",
         "VPN",
         "Vpn",
-        "Tools",
-        "Other"
+        "Tools"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -3241,10 +3241,10 @@
     {
       "id": 101,
       "categories": [
-        "Network",
-        "DNS",
         "Dns",
-        "Tools"
+        "Network",
+        "Tools",
+        "DNS"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -3334,11 +3334,11 @@
     {
       "id": 103,
       "categories": [
-        "Cloud",
+        "Other",
         "Backup",
+        "Cloud",
         "Tools",
-        "Productivity",
-        "Other"
+        "Productivity"
       ],
       "description": "[Duplicati](https://www.duplicati.com/) is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
       "env": [
@@ -3573,10 +3573,10 @@
       "id": 111,
       "categories": [
         "Music",
-        "Video",
-        "Media Servers",
+        "Photos",
         "Audiobooks",
-        "Photos"
+        "Video",
+        "Media Servers"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
       "env": [
@@ -5237,11 +5237,11 @@
     {
       "id": 166,
       "categories": [
-        "Networkweb",
         "Dashboard",
-        "Statusstable",
+        "Networkother",
+        "Networkweb",
         "Tools",
-        "Networkother"
+        "Statusstable"
       ],
       "description": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
       "env": [
@@ -6439,9 +6439,9 @@
     {
       "id": 195,
       "categories": [
+        "Indexers",
         "Downloaders",
-        "Tools",
-        "Indexers"
+        "Tools"
       ],
       "description": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
       "env": [
@@ -6544,10 +6544,10 @@
       "id": 197,
       "categories": [
         "Music",
-        "Video",
-        "Media Servers",
+        "Photos",
         "Audiobooks",
-        "Photos"
+        "Video",
+        "Media Servers"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
       "env": [
@@ -7520,9 +7520,9 @@
     {
       "id": 222,
       "categories": [
-        "Downloaders",
+        "Music",
         "Media Management",
-        "Music"
+        "Downloaders"
       ],
       "description": "[Lidarr](https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
       "env": [
@@ -7900,9 +7900,9 @@
       "id": 235,
       "categories": [
         "Web",
+        "Photos",
         "Cloud",
-        "Management",
-        "Photos"
+        "Management"
       ],
       "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
       "env": [
@@ -8427,8 +8427,8 @@
       "id": 252,
       "categories": [
         "Video",
-        "Downloaders",
-        "Media Management"
+        "Media Management",
+        "Downloaders"
       ],
       "description": "[Medusa](https://pymedusa.com/) is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
       "env": [
@@ -8751,8 +8751,8 @@
     {
       "id": 262,
       "categories": [
-        "Media Tools",
         "Video",
+        "Media Tools",
         "Tools",
         "Other"
       ],
@@ -8901,8 +8901,8 @@
     {
       "id": 267,
       "categories": [
-        "Media Servers",
         "Music",
+        "Media Servers",
         "Other"
       ],
       "description": "[Mstream](https://mstream.io/) is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.",
@@ -9595,9 +9595,9 @@
     {
       "id": 285,
       "categories": [
-        "Reverse Proxy",
         "Web",
-        "Proxy"
+        "Proxy",
+        "Reverse Proxy"
       ],
       "description": "Nginx is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache.",
       "env": [
@@ -10234,9 +10234,9 @@
     {
       "id": 301,
       "categories": [
+        "Indexers",
         "Downloaders",
         "Tools",
-        "Indexers",
         "Other"
       ],
       "description": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra). It provides easy access to a number of raw and newznab based indexers.",
@@ -10417,11 +10417,11 @@
     {
       "id": 305,
       "categories": [
-        "Downloaders",
         "Mediaappvideo",
-        "Tools",
         "Media Requesters",
-        "Networkother"
+        "Downloaders",
+        "Networkother",
+        "Tools"
       ],
       "description": "[Ombi](https://ombi.io) allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
       "env": [
@@ -12026,14 +12026,14 @@
     {
       "id": 342,
       "categories": [
-        "Audiobooks",
         "Photos",
+        "Mediaservervideo",
+        "Audiobooks",
+        "Media Servers",
         "Music",
         "Video",
-        "Mediaservervideo",
         "Mediaservermusic",
-        "Mediaserverphotos",
-        "Media Servers"
+        "Mediaserverphotos"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -12434,11 +12434,11 @@
     {
       "id": 355,
       "categories": [
-        "Productivity",
+        "Other",
         "Cloud",
         "File Sharing",
         "Tools",
-        "Other"
+        "Productivity"
       ],
       "description": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
       "env": [
@@ -12482,10 +12482,10 @@
     {
       "id": 356,
       "categories": [
-        "Email",
-        "Tools",
         "Productivity",
-        "Other"
+        "Other",
+        "Email",
+        "Tools"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -13009,9 +13009,9 @@
     {
       "id": 369,
       "categories": [
+        "Mediaappvideo",
         "Downloaders",
-        "Media Management",
-        "Mediaappvideo"
+        "Media Management"
       ],
       "description": "[Radarr](https://github.com/Radarr/Radarr) - A fork of Sonarr to work with movies à la Couchpotato.",
       "env": [
@@ -13836,9 +13836,9 @@
     {
       "id": 392,
       "categories": [
-        "Log Management",
         "Logmanagement",
-        "Monitoring"
+        "Monitoring",
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -14036,8 +14036,8 @@
       "id": 399,
       "categories": [
         "Video",
-        "Downloaders",
-        "Media Management"
+        "Media Management",
+        "Downloaders"
       ],
       "description": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.. For more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
       "env": [
@@ -14174,8 +14174,8 @@
     {
       "id": 403,
       "categories": [
-        "Management",
-        "Monitoring"
+        "Monitoring",
+        "Management"
       ],
       "description": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
       "env": [
@@ -14385,9 +14385,9 @@
     {
       "id": 414,
       "categories": [
+        "Mediaappvideo",
         "Downloaders",
-        "Media Management",
-        "Mediaappvideo"
+        "Media Management"
       ],
       "description": "[Sonarr](https://sonarr.tv/) (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
       "env": [
@@ -14814,10 +14814,10 @@
     {
       "id": 425,
       "categories": [
+        "Other",
         "Cloud",
         "Backup",
-        "Tools",
-        "Other"
+        "Tools"
       ],
       "description": "[Syncthing](https://syncthing.net) replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
       "env": [
@@ -15169,9 +15169,9 @@
     {
       "id": 436,
       "categories": [
-        "IRC",
+        "Chat",
         "Messenger",
-        "Chat"
+        "IRC"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -15816,8 +15816,8 @@
     {
       "id": 454,
       "categories": [
-        "Books",
-        "Cloud"
+        "Cloud",
+        "Books"
       ],
       "description": "[Ubooquity](https://vaemendis.net/ubooquity/) is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
       "env": [
@@ -15953,8 +15953,8 @@
     {
       "id": 458,
       "categories": [
-        "CCTV",
-        "Cctv"
+        "Cctv",
+        "CCTV"
       ],
       "description": "UniFi Video is a powerful and flexible, integrated IP video management surveillance system designed to work with Ubiquiti’s UniFi Video Camera product line. UniFi Video has an intuitive, configurable, and feature‑packed user interface with advanced features such as motion detection, auto‑discovery, user‑level security, storage management, reporting, and mobile device support.",
       "env": [
@@ -16406,9 +16406,9 @@
     {
       "id": 470,
       "categories": [
-        "Maintenance",
         "Tools",
-        "Other"
+        "Other",
+        "Maintenance"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -16620,8 +16620,8 @@
     {
       "id": 478,
       "categories": [
-        "Content Management",
         "Tools",
+        "Content Management",
         "Other"
       ],
       "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
