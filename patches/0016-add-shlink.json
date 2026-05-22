@@ -1,0 +1,119 @@
+{
+    "metadata": {
+        "version": "1",
+        "id": "0016-add-shlink",
+        "title": "Add Shlink URL Shortener",
+        "description": "Adds the Shlink application, a self-hosted PHP-based URL shortener with REST API and web client support.",
+        "author": "Paweł",
+        "date": "2026-05-22",
+        "priority": 10,
+        "source": "https://github.com/shlinkio/shlink",
+        "references": {
+            "github": "https://github.com/shlinkio/shlink",
+            "docker": "https://hub.docker.com/r/shlinkio/shlink",
+            "docs": "https://shlink.io/documentation/install-docker-image/"
+        }
+    },
+    "operations": [
+        {
+            "operation": "add",
+            "description": "Add Shlink URL shortener application",
+            "template": {
+                "id": 9017,
+                "type": 1,
+                "title": "Shlink",
+                "name": "shlink",
+                "image": "shlinkio/shlink:stable",
+                "description": "The definitive self-hosted URL shortener. Shlink is a PHP-based URL shortener that can be used to serve shortened URLs under your own domain, with a full REST API and optional web client.",
+                "categories": [
+                    "Tools",
+                    "Networking",
+                    "URL Shortener"
+                ],
+                "ports": [
+                    "8080:8080/tcp"
+                ],
+                "env": [
+                    {
+                        "name": "DEFAULT_DOMAIN",
+                        "label": "Default Domain",
+                        "description": "The custom short domain used for this Shlink instance (e.g. s.example.com)",
+                        "default": "localhost:8080"
+                    },
+                    {
+                        "name": "IS_HTTPS_ENABLED",
+                        "label": "HTTPS Enabled",
+                        "description": "Set to true if your domain uses HTTPS",
+                        "default": "false",
+                        "select": [
+                            {
+                                "text": "false",
+                                "value": "false",
+                                "default": true
+                            },
+                            {
+                                "text": "true",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "DB_DRIVER",
+                        "label": "Database Driver",
+                        "description": "Database backend to use. Use sqlite for a simple single-node setup.",
+                        "default": "sqlite",
+                        "select": [
+                            {
+                                "text": "sqlite",
+                                "value": "sqlite",
+                                "default": true
+                            },
+                            {
+                                "text": "mysql",
+                                "value": "mysql"
+                            },
+                            {
+                                "text": "maria",
+                                "value": "maria"
+                            },
+                            {
+                                "text": "postgres",
+                                "value": "postgres"
+                            },
+                            {
+                                "text": "mssql",
+                                "value": "mssql"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "INITIAL_API_KEY",
+                        "label": "Initial API Key",
+                        "description": "API key generated on first startup. Leave empty to create one manually via CLI.",
+                        "default": ""
+                    },
+                    {
+                        "name": "GEOLITE_LICENSE_KEY",
+                        "label": "GeoLite2 License Key",
+                        "description": "MaxMind GeoLite2 license key for visitor geolocation. Leave empty to skip geolocation.",
+                        "default": ""
+                    }
+                ],
+                "volumes": [
+                    {
+                        "container": "/etc/shlink/data",
+                        "bind": "/data/shlink"
+                    }
+                ],
+                "labels": [
+                    {
+                        "name": "com.docker.compose.restart-policy",
+                        "value": "unless-stopped"
+                    }
+                ],
+                "logo": "https://raw.githubusercontent.com/shlinkio/shlink.io/main/public/images/shlink-logo-blue.svg",
+                "note": "After starting, use <code>docker exec -it shlink bin/cli api-key:generate</code> to create an API key if INITIAL_API_KEY was not set. A web client is available at <a href='https://app.shlink.io' target='_blank'>https://app.shlink.io</a>."
+            }
+        }
+    ]
+}
