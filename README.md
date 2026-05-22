@@ -1,307 +1,308 @@
 # Portainer Templates Converter v2 → v3
 
-🔄 **Aplikacja Python do konwersji szablonów Portainer z formatu v2 na v3**
+🔄 **Python application for converting Portainer templates from v2 to v3 format**
 
-**🇵🇱 Wersja polska** | [🇬🇧 English version](README.en.md)
+**🇬🇧 English version** | [🇵🇱 Wersja polska / Polish version](README.pl.md)
 
 ---
 
-## Użyj gotowego pliku w Portainer → Settings → App Templates, wklej ten adres:
+## Use the prepared file in Portainer: Go to Settings → App Templates and paste this URL:
 ```bash
 https://raw.githubusercontent.com/bauerpawel/Portainer_templates_v3_converter/main/templates_v3_converted.json
  ```
-## Opis
 
-Ta aplikacja automatycznie konwertuje szablony aplikacji Portainer z formatu v2 na v3, który jest kompatybilny z najnowszymi wersjami Portainer.io.
+## Description
 
-### Główne różnice między formatami:
+This application automatically converts Portainer application templates from v2 to v3 format, which is compatible with the latest versions of Portainer.io.
 
-| Cecha             | Format v2             | Format v3         |
+### Main differences between formats:
+
+| Feature           | v2 Format             | v3 Format         |
 |-------------------|-----------------------|-------------------|
-| Wersja            | `"version": "2"`      | `"version": "3"`  |
-| ID szablonu       | ❌ Brak               | ✅ `"id": 123`    |
-| Labels            | ❌ Brak               | ✅ `"labels": []` |
-| Restart Policy    | ✅ `"restart_policy"` | ❌ Usunięte       |
-| Platform          | ✅ `"platform"`       | ❌ Usunięte       |
+| Version           | `"version": "2"`      | `"version": "3"`  |
+| Template ID       | ❌ None               | ✅ `"id": 123`    |
+| Labels            | ❌ None               | ✅ `"labels": []` |
+| Restart Policy    | ✅ `"restart_policy"` | ❌ Removed        |
+| Platform          | ✅ `"platform"`       | ❌ Removed        |
 
-## Wymagania
+## Requirements
 
 - Python 3.6+
-- Biblioteka `requests`
-- Biblioteka `jsonschema` (dla walidacji JSON Schema)
+- `requests` library
+- `jsonschema` library (for JSON Schema validation)
 
-## Instalacja
+## Installation
 
-1. **Sklonuj lub pobierz pliki:**
+1. **Clone or download files:**
    ```bash
-   # Opcja 1: Sklonuj repozytorium
+   # Option 1: Clone repository
    git clone https://github.com/bauerpawel/Portainer_templates_v3_converter.git
    cd Portainer_templates_v3_converter
 
-   # Opcja 2: Pobierz główny plik
+   # Option 2: Download main file
    wget https://raw.githubusercontent.com/bauerpawel/Portainer_templates_v3_converter/refs/heads/main/portainer_converter.py
 
-   # Opcja 3: Lub skopiuj kod do pliku portainer_converter.py
+   # Option 3: Or copy code to portainer_converter.py file
    ```
 
-2. **Zainstaluj wymagane biblioteki:**
+2. **Install required libraries:**
    ```bash
-   # Opcja 1: Z pliku requirements.txt (zalecane)
+   # Option 1: From requirements.txt (recommended)
    pip install -r requirements.txt
 
-   # Opcja 2: Manualnie
+   # Option 2: Manual installation
    pip install requests jsonschema
    ```
 
-## Dostępne źródła szablonów
+## Available Template Sources
 
-Aplikacja ma wbudowaną listę popularnych źródeł szablonów Portainer:
+The application has a built-in list of popular Portainer template sources:
 
-| Klucz | Nazwa | Opis |
-|-------|-------|------|
-| `lissy93` | Lissy93 Templates | Duża kolekcja ponad 470 szablonów aplikacji |
-| `portainer-official` | Portainer Official | Oficjalne szablony od zespołu Portainer |
-| `selfhosted` | SelfHosted.show | Szablony dla aplikacji self-hosted |
-| `technorabilia` | Technorabilia | Szablony bazujące na obrazach LinuxServer.io |
+| Key | Name | Description |
+|-----|------|-------------|
+| `lissy93` | Lissy93 Templates | Large collection of over 470 application templates |
+| `portainer-official` | Portainer Official | Official templates from Portainer team |
+| `selfhosted` | SelfHosted.show | Templates for self-hosted applications |
+| `technorabilia` | Technorabilia | Templates based on LinuxServer.io images |
 
-### Wyświetlanie dostępnych źródeł
+### Display Available Sources
 ```bash
 python portainer_converter.py --list-sources
 ```
 
-## Użycie
+## Usage
 
-### Podstawowa konwersja
+### Basic Conversion
 ```bash
 python portainer_converter.py
 ```
-Pobiera szablony z domyślnego źródła (Lissy93) i zapisuje jako `templates_v3_converted.json`
+Downloads templates from default source (Lissy93) and saves as `templates_v3_converted.json`
 
-### Własny URL źródłowy
+### Custom Source URL
 ```bash
 python portainer_converter.py --url "https://your-custom-url.com/templates.json"
 ```
 
-### Własny plik wyjściowy
+### Custom Output File
 ```bash
 python portainer_converter.py --output "my_templates_v3.json"
 ```
 
-### Scalanie wielu źródeł
+### Merging Multiple Sources
 ```bash
-# Scala dwa znane źródła (po kluczu)
+# Merge two known sources (by key)
 python portainer_converter.py --sources lissy93 portainer-official
 
-# Scala wszystkie znane źródła
+# Merge all known sources
 python portainer_converter.py --all-sources
 
-# Scala znane źródło z własnym URL
+# Merge known source with custom URL
 python portainer_converter.py --sources lissy93 "https://example.com/templates.json"
 ```
 
-### Pełna konfiguracja
+### Full Configuration
 ```bash
 python portainer_converter.py \
   --sources lissy93 selfhosted technorabilia \
   --output "merged_templates_v3.json"
 ```
 
-### Pomoc
+### Help
 ```bash
 python portainer_converter.py --help
 ```
 
-## Przykład działania
+## Example Output
 
 ```
 🚀 Portainer Templates Converter v2 -> v3
 ==================================================
 ⏰ Start: 2025-08-27 12:00:00
 
-📥 Pobieranie szablonu v2 z: https://raw.githubusercontent.com/...
-✅ Pobrano 472 szablonów
-🔄 Rozpoczynanie konwersji v2 -> v3...
-✅ Konwersja zakończona! Przekonwertowano 472 szablonów
-🔍 Walidacja formatu v3...
-🔍 Walidacja z JSON Schema...
-✅ Walidacja JSON Schema zakończona pomyślnie
-🔍 Dodatkowe sprawdzenia biznesowe...
-✅ Walidacja zakończona pomyślnie
-💾 Zapisywanie do pliku: templates_v3_converted.json
-✅ Plik zapisany pomyślnie: templates_v3_converted.json (1.2 MB)
+📥 Downloading v2 template from: https://raw.githubusercontent.com/...
+✅ Downloaded 472 templates
+🔄 Starting v2 -> v3 conversion...
+✅ Conversion completed! Converted 472 templates
+🔍 Validating v3 format...
+🔍 Validating with JSON Schema...
+✅ JSON Schema validation completed successfully
+🔍 Additional business checks...
+✅ Validation completed successfully
+💾 Saving to file: templates_v3_converted.json
+✅ File saved successfully: templates_v3_converted.json (1.2 MB)
 
-📊 Statystyki konwersji:
-   • Szablony źródłowe (v2): 472
-   • Szablony docelowe (v3): 472
-   • Typy szablonów:
-     - Kontenery: 450
-     - Stosy Swarm: 22
-   • Top 5 kategorii:
+📊 Conversion Statistics:
+   • Source templates (v2): 472
+   • Target templates (v3): 472
+   • Template types:
+     - Containers: 450
+     - Swarm Stacks: 22
+   • Top 5 categories:
      - Other: 89
      - Tools: 67
      - Video: 45
      - Music: 32
      - Books: 28
 
-📋 Podsumowanie:
-   • Źródło: https://raw.githubusercontent.com/Lissy93/portainer-templates/...
-   • Wersja źródłowa: v2
-   • Wersja docelowa: v3
-   • Liczba szablonów: 472
-   • Plik wyjściowy: templates_v3_converted.json
+📋 Summary:
+   • Source: https://raw.githubusercontent.com/Lissy93/portainer-templates/...
+   • Source version: v2
+   • Target version: v3
+   • Number of templates: 472
+   • Output file: templates_v3_converted.json
 
-🎉 Konwersja zakończona pomyślnie!
+🎉 Conversion completed successfully!
 
-💡 Jak używać:
-   1. Skopiuj plik 'templates_v3_converted.json' na serwer
-   2. W Portainer przejdź do Settings -> App Templates
-   3. Wklej URL do pliku lub użyj lokalnego pliku
-   4. Zapisz ustawienia i ciesz się szablonami v3!
+💡 How to use:
+   1. Copy 'templates_v3_converted.json' file to server
+   2. In Portainer go to Settings -> App Templates
+   3. Paste URL to file or use local file
+   4. Save settings and enjoy v3 templates!
 ```
 
-## Jak używać w Portainer
+## How to Use in Portainer
 
-1. **Uruchom konwersję:**
+1. **Run conversion:**
    ```bash
    python portainer_converter.py
    ```
 
-2. **Przenieś plik na serwer web (opcjonalnie):**
+2. **Transfer file to web server (optional):**
    ```bash
-   # Przykład - skopiuj na serwer Apache/Nginx
+   # Example - copy to Apache/Nginx server
    cp templates_v3_converted.json /var/www/html/
    ```
 
-3. **Skonfiguruj Portainer:**
-   - Otwórz interfejs Portainer
-   - Przejdź do **Settings** → **App Templates**
-   - W polu **URL** wklej ścieżkę do pliku:
+3. **Configure Portainer:**
+   - Open Portainer interface
+   - Go to **Settings** → **App Templates**
+   - In **URL** field paste path to file:
      ```
-     https://twoj-serwer.com/templates_v3_converted.json
+     https://your-server.com/templates_v3_converted.json
      ```
-   - Lub dla pliku lokalnego:
+   - Or for local file:
      ```
-     file:///ścieżka/do/templates_v3_converted.json
+     file:///path/to/templates_v3_converted.json
      ```
-   - Kliknij **Save settings**
+   - Click **Save settings**
 
-4. **Korzystaj z szablonów:**
-   - Przejdź do **App Templates**
-   - Szablony v3 powinny być teraz dostępne!
+4. **Use templates:**
+   - Go to **App Templates**
+   - v3 templates should now be available!
 
-## Szczegóły techniczne
+## Technical Details
 
-### Proces konwersji
+### Conversion Process
 
-1. **Pobieranie szablonów v2** z podanego URL (lub wielu źródeł)
-2. **Scalanie źródeł** (jeśli wybrano wiele):
-   - Pobieranie szablonów z wszystkich źródeł
-   - Wykrywanie duplikatów po kombinacji `(name, image)`
-   - Scalanie kategorii z duplikatów
-   - Wybieranie dłuższego opisu
-   - Usuwanie duplikatów
-3. **Konwersja każdego szablonu:**
-   - Dodanie unikalnego pola `id`
-   - Dodanie pola `labels` z migracją `restart_policy`
-   - Usunięcie pól `restart_policy` i `platform`
-   - Kopiowanie pozostałych pól
-4. **Walidacja** poprawności formatu v3:
-   - Walidacja z oficjalnym JSON Schema (plik `schema_v3.json`)
-   - Sprawdzenie wymaganych pól
-   - Sprawdzenie typów danych
-   - Dodatkowe sprawdzenia biznesowe (stare pola z v2, itp.)
-5. **Zapisanie** do pliku JSON z ładnym formatowaniem
+1. **Download v2 templates** from provided URL (or multiple sources)
+2. **Merge sources** (if multiple selected):
+   - Download templates from all sources
+   - Detect duplicates by combination of `(name, image)`
+   - Merge categories from duplicates
+   - Choose longer description
+   - Remove duplicates
+3. **Convert each template:**
+   - Add unique `id` field
+   - Add `labels` field with `restart_policy` migration
+   - Remove `restart_policy` and `platform` fields
+   - Copy remaining fields
+4. **Validate** v3 format correctness:
+   - Validation with official JSON Schema (`schema_v3.json` file)
+   - Check required fields
+   - Check data types
+   - Additional business checks (old v2 fields, etc.)
+5. **Save** to JSON file with pretty formatting
 
-### Scalanie wielu źródeł
+### Merging Multiple Sources
 
-Przy scalaniu szablonów z wielu źródeł:
+When merging templates from multiple sources:
 
-- **Wykrywanie duplikatów**: Szablony są porównywane po kombinacji pól `name` i `image` (bez rozróżniania wielkości liter)
-- **Scalanie danych**: Gdy znaleziono duplikat:
-  - Kategorie są łączone (unikalne wartości z obu źródeł)
-  - Wybierany jest dłuższy opis
-  - Zachowywane są inne pola z pierwszego wystąpienia
-- **Statystyki**: Po scaleniu wyświetlane są statystyki pokazujące liczbę usuniętych duplikatów
+- **Duplicate detection**: Templates are compared by combination of `name` and `image` fields (case-insensitive)
+- **Data merging**: When duplicate found:
+  - Categories are merged (unique values from both sources)
+  - Longer description is chosen
+  - Other fields from first occurrence are preserved
+- **Statistics**: After merging, statistics showing number of removed duplicates are displayed
 
-### Walidacja JSON Schema
+### JSON Schema Validation
 
-Aplikacja wykorzystuje oficjalne JSON Schema dla Portainer templates v3 (`schema_v3.json`), które zapewnia:
+The application uses official JSON Schema for Portainer templates v3 (`schema_v3.json`), which provides:
 
-- **Automatyczną walidację struktury** - sprawdza czy wszystkie wymagane pola są obecne
-- **Walidację typów danych** - weryfikuje czy pola mają poprawne typy (string, integer, array, itp.)
-- **Walidację formatów** - sprawdza poprawność URL-i, wzorców portów, itp.
-- **Szczegółowe komunikaty błędów** - dokładnie wskazuje co jest nieprawidłowe
+- **Automatic structure validation** - checks if all required fields are present
+- **Data type validation** - verifies if fields have correct types (string, integer, array, etc.)
+- **Format validation** - checks validity of URLs, port patterns, etc.
+- **Detailed error messages** - precisely indicates what is incorrect
 
-Jeśli plik `schema_v3.json` nie jest dostępny, walidacja JSON Schema zostanie pominięta, ale podstawowa walidacja nadal będzie wykonana.
+If `schema_v3.json` file is not available, JSON Schema validation will be skipped, but basic validation will still be performed.
 
-### Obsługiwane pola szablonów
+### Supported Template Fields
 
-#### Kopiowane bez zmian:
-- `categories` - kategorie aplikacji
-- `description` - opis aplikacji
-- `env` - zmienne środowiskowe
-- `image` - obraz Docker
-- `logo` - logo aplikacji
-- `maintainer` - opiekun szablonu
-- `name` - nazwa aplikacji
-- `ports` - porty do przekierowania
-- `title` - tytuł szablonu
-- `type` - typ szablonu (1=kontener, 2=stack)
-- `volumes` - wolumeny
-- `note` - dodatkowe informacje
-- `repository` - repozytorium Git
+#### Copied without changes:
+- `categories` - application categories
+- `description` - application description
+- `env` - environment variables
+- `image` - Docker image
+- `logo` - application logo
+- `maintainer` - template maintainer
+- `name` - application name
+- `ports` - ports to forward
+- `title` - template title
+- `type` - template type (1=container, 2=stack)
+- `volumes` - volumes
+- `note` - additional information
+- `repository` - Git repository
 
-#### Dodane w v3:
-- `id` - unikalny identyfikator (liczba)
-- `labels` - etykiety Docker (pusta lista)
+#### Added in v3:
+- `id` - unique identifier (number)
+- `labels` - Docker labels (empty list)
 
-#### Usunięte z v2:
-- `restart_policy` - polityka restartowania
-- `platform` - platforma (linux/windows)
+#### Removed from v2:
+- `restart_policy` - restart policy
+- `platform` - platform (linux/windows)
 
-## Rozwiązywanie problemów
+## Troubleshooting
 
-### Błąd pobierania pliku
+### File Download Error
 ```
-❌ Błąd pobierania pliku: HTTPSConnectionPool...
+❌ File download error: HTTPSConnectionPool...
 ```
-**Rozwiązanie:** Sprawdź połączenie internetowe i poprawność URL.
+**Solution:** Check internet connection and URL validity.
 
-### Błąd parsowania JSON
+### JSON Parsing Error
 ```
-❌ Błąd parsowania JSON: Expecting value...
+❌ JSON parsing error: Expecting value...
 ```
-**Rozwiązanie:** Upewnij się, że URL zawiera prawidłowy plik JSON.
+**Solution:** Ensure URL contains valid JSON file.
 
-### Błąd walidacji
+### Validation Error
 ```
-❌ Błędy walidacji: Brak pola 'id' w szablonie 1
+❌ Validation errors: Missing 'id' field in template 1
 ```
-**Rozwiązanie:** To oznacza błąd w kodzie konwertera - zgłoś problem.
+**Solution:** This indicates a bug in converter code - report issue.
 
-### Portainer nie widzi szablonów
-1. Sprawdź czy plik jest dostępny pod podanym URL
-2. Sprawdź czy Portainer ma dostęp do sieci/pliku
-3. Sprawdź logi Portainer w poszukiwaniu błędów
+### Portainer Doesn't See Templates
+1. Check if file is accessible at provided URL
+2. Check if Portainer has network/file access
+3. Check Portainer logs for errors
 
-## Wkład i rozwój
+## Contributing and Development
 
-Zgłaszaj błędy i sugestie poprzez Issues. Pull requesty są mile widziane!
+Report bugs and suggestions via Issues. Pull requests are welcome!
 
-### TODO / Planowane funkcje:
-- [ ] Obsługa szablonów Kubernetes
-- [x] Migracja etykiet z pola `restart_policy`
-- [x] Walidacja z oficjalnym schema JSON
-- [x] Obsługa dodatkowych źródeł szablonów (scalanie wielu źródeł, usuwanie duplikatów)
-- [ ] GUI (graficzny interfejs użytkownika)
+### TODO / Planned Features:
+- [ ] Kubernetes templates support
+- [x] Labels migration from `restart_policy` field
+- [x] Validation with official JSON schema
+- [x] Support for additional template sources (multiple source merging, duplicate removal)
+- [ ] GUI (graphical user interface)
 
-## Licencja
+## License
 
-Apache-2.0 license - zobacz szczegóły w pliku LICENSE.
+Apache-2.0 license - see LICENSE file for details.
 
-## Autor
+## Author
 
-Aplikacja stworzona dla konwersji szablonów Portainer v2 → v3.
+Application created for Portainer v2 → v3 template conversion.
 
 ---
-⭐ Jeśli aplikacja Ci pomogła, zostaw gwiazdkę!
+⭐ If this application helped you, leave a star!

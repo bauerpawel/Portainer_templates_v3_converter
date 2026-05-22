@@ -1,44 +1,47 @@
-# 📋 Patch Files - System Modyfikacji Szablonów
+# 📋 Patch Files - Template Modification System
 
-Sistem patch files pozwala na aplikowanie zmian do szablonów v3 bez konieczności modyfikacji kodu konwertera.
+**🇬🇧 English version** | [🇵🇱 Wersja polska / Polish version](README.pl.md)
 
-## 📖 Czym są Patch Files?
+The patch file system allows you to apply changes to v3 templates without modifying the converter code.
 
-Patch files to pliki JSON zawierające instrukcje modyfikacji szablonów:
-- **UPDATE** - zmiana istniejących szablonów
-- **ADD** - dodanie nowych szablonów
-- **REMOVE** - usunięcie szablonów
+## 📖 What Are Patch Files?
 
-## 🗂️ Struktura Katalogu
+Patch files are JSON files containing instructions to modify templates:
+- **UPDATE** - modify existing templates
+- **ADD** - add new templates
+- **REMOVE** - remove templates
+
+## 📂 Directory Structure
 
 ```
 patches/
-├── _patch_loader.py              # Loader patchy
+├── _patch_loader.py              # Patch loader
 ├── __init__.py                   # Package init
-├── README.md                     # Ta dokumentacja
-├── TEMPLATE.json                 # Wzór do kopiowania
-├── ARCHIVED.md                   # Zarchiwizowane patchy (opcjonalnie)
+├── README.md                     # English documentation (this file)
+├── README.pl.md                  # Polish documentation
+├── TEMPLATE.json                 # Template for copying
+├── ARCHIVED.md                   # Archived patches (optional)
 ├── 0001-update-trilium-docker-image.json
 ├── 0002-add-custom-apps.json
 └── ...
 ```
 
-## 🔍 Struktura Patch File'a
+## 🔍 Patch File Structure
 
-### Nazwa Pliku
+### File Naming
 
 ```
 XXXX-description.json
      ↑
-     Numeracja (0001, 0002, 0003...)
+     Numbering (0001, 0002, 0003...)
 ```
 
-**Reguły:**
-- Pliki są ładowane w kolejności numerycznej
-- Musi być 4 cyfry + myślnik
-- Rozszerzenie `.json`
+**Rules:**
+- Files are loaded in numerical order
+- Must have 4 digits + hyphen
+- Extension `.json`
 
-### Struktura JSON
+### JSON Structure
 
 ```json
 {
@@ -58,16 +61,16 @@ XXXX-description.json
 }
 ```
 
-## 📝 Typy Operacji
+## 📝 Operation Types
 
-### 1. UPDATE - Zmiana szablonu
+### 1. UPDATE - Modify Template
 
-Modyfikuje istniejący szablon spełniający kryteria filtrowania.
+Modifies an existing template matching the filter criteria.
 
 ```json
 {
   "operation": "update",
-  "description": "Co robimy",
+  "description": "What we're doing",
   "filter": {
     "name": "trilium",
     "title": "Trilium Notes"
@@ -79,20 +82,20 @@ Modyfikuje istniejący szablon spełniający kryteria filtrowania.
 }
 ```
 
-**Kryteria Filtrowania:**
-- `name` - dokładne dopasowanie
-- `image` - obsługuje wildcardy (`zadam/*`)
-- `id` - dokładne dopasowanie
+**Filter Criteria:**
+- `name` - exact match
+- `image` - supports wildcards (`zadam/*`)
+- `id` - exact match
 - `title` - case-insensitive
-- Każde inne pole z szablonu
+- Any other template field
 
-**Zmiana:**
-- Każde pole szablonu
-- Scalanie pól listy (env, volumes, labels)
+**Changes:**
+- Any template field
+- List fields (env, volumes, labels) are merged
 
-### 2. ADD - Dodanie nowego szablonu
+### 2. ADD - Add New Template
 
-Dodaje całkowicie nowy szablon.
+Adds a completely new template.
 
 ```json
 {
@@ -115,14 +118,14 @@ Dodaje całkowicie nowy szablon.
 }
 ```
 
-**Wymagane Pola:**
-- `id` (musi być unikalne, preferuj 5000+)
-- `type` (1=kontener, 2=stack)
+**Required Fields:**
+- `id` (must be unique, prefer 5000+)
+- `type` (1=container, 2=swarm stack)
 - `title`
 - `name`
 - `image`
 
-**Opcjonalne Pola:**
+**Optional Fields:**
 - `description`
 - `categories`
 - `ports`
@@ -133,9 +136,9 @@ Dodaje całkowicie nowy szablon.
 - `maintainer`
 - `repository`
 
-### 3. REMOVE - Usunięcie szablonu
+### 3. REMOVE - Remove Template
 
-Usuwa szablon spełniający kryteria.
+Removes a template matching the filter criteria.
 
 ```json
 {
@@ -148,11 +151,11 @@ Usuwa szablon spełniający kryteria.
 }
 ```
 
-## 🎯 Praktyczne Przykłady
+## 🎯 Practical Examples
 
-### Przykład 1: Aktualizacja Docker Image
+### Example 1: Update Docker Image
 
-**Plik:** `patches/0001-update-trilium-docker-image.json`
+**File:** `patches/0001-update-trilium-docker-image.json`
 
 ```json
 {
@@ -176,9 +179,9 @@ Usuwa szablon spełniający kryteria.
 }
 ```
 
-### Przykład 2: Dodanie Nowej Aplikacji
+### Example 2: Add New Application
 
-**Plik:** `patches/0003-add-custom-internal-apps.json`
+**File:** `patches/0003-add-custom-internal-apps.json`
 
 ```json
 {
@@ -236,9 +239,9 @@ Usuwa szablon spełniający kryteria.
 }
 ```
 
-### Przykład 3: Batch Update
+### Example 3: Batch Update
 
-**Plik:** `patches/0002-batch-update-deprecated-images.json`
+**File:** `patches/0002-batch-update-deprecated-images.json`
 
 ```json
 {
@@ -268,70 +271,70 @@ Usuwa szablon spełniający kryteria.
 }
 ```
 
-## 🚀 Jak Dodać Nowy Patch
+## 🚀 How to Add a New Patch
 
-1. **Skopiuj szablon**
+1. **Copy the template**
    ```bash
    cp patches/TEMPLATE.json patches/0004-my-description.json
    ```
 
-2. **Edytuj metadata**
+2. **Edit metadata**
    - `id`: `0004-my-description`
-   - `title`: Krótki tytuł
-   - `description`: Szczegółowy opis
-   - `author`: Twoja nazwa GitHub
-   - `date`: Data dzisiejsza (YYYY-MM-DD)
-   - `source`: Link do PR/Issue jeśli istnieje
+   - `title`: Short title
+   - `description`: Detailed description
+   - `author`: Your GitHub username
+   - `date`: Today's date (YYYY-MM-DD)
+   - `source`: Link to PR/Issue if exists
 
-3. **Zdefiniuj operacje**
-   - Dodaj UPDATE/ADD/REMOVE operacje
-   - Testuj lokalne kryteria filtrowania
+3. **Define operations**
+   - Add UPDATE/ADD/REMOVE operations
+   - Test filter criteria locally
 
-4. **Waliduj JSON**
+4. **Validate JSON**
    ```bash
    python -m json.tool patches/0004-my-description.json
    ```
 
-5. **Przetestuj lokalnie**
+5. **Test locally**
    ```bash
    python portainer_converter.py
    ```
 
-6. **Commit i Push**
+6. **Commit and Push**
    ```bash
    git add patches/0004-my-description.json
    git commit -m "Add patch: My description"
    git push
    ```
 
-7. **Utwórz Pull Request**
+7. **Create Pull Request**
 
-## 🔄 Workflow Patchy
+## 🔄 Patch Workflow
 
 ```
-Konwersja:
-  1. Pobierz szablony v2 z źródła
-  2. Konwertuj na v3
-  3. [NOWY KROK] Załaduj i aplikuj patchy
-  4. Waliduj wynik
-  5. Zapisz do templates_v3_final.json
+Conversion:
+  1. Download v2 templates from source
+  2. Convert to v3
+  3. [NEW STEP] Load and apply patches
+  4. Validate result
+  5. Save to templates_v3_final.json
 ```
 
-## 📋 Śledzenie Zmian
+## 📋 Change Tracking
 
-Każdy patch powinien zawierać:
-- ✅ Unikalny ID
-- ✅ Referencję do źródła (PR/Issue)
-- ✅ Autora
-- ✅ Datę
-- ✅ Opis co i dlaczego
+Each patch should contain:
+- ✅ Unique ID
+- ✅ Reference to source (PR/Issue)
+- ✅ Author
+- ✅ Date
+- ✅ Description of what and why
 
-## 🗂️ Archiwizacja
+## 📦 Archiving
 
-Gdy patch zostaje już zaaplikowany w źródłowych szablonach:
+When a patch is merged into the source templates:
 
-1. Przenieś do `patches/archived/`
-2. Udokumentuj w `patches/ARCHIVED.md`
+1. Move to `patches/archived/`
+2. Document in `patches/ARCHIVED.md`
 
 ```markdown
 # Archived Patches
@@ -342,9 +345,9 @@ Gdy patch zostaje już zaaplikowany w źródłowych szablonach:
 - **Commit**: abc123...
 ```
 
-## ⚙️ Integracja z Konwerterem
+## ⚙️ Integration with Converter
 
-PatchLoader jest automatycznie ładowany w konwerterze:
+PatchLoader is automatically loaded in the converter:
 
 ```python
 from patches._patch_loader import PatchLoader
@@ -354,39 +357,81 @@ patch_loader.load_patches()
 v3_data['templates'] = patch_loader.apply_patches(v3_data['templates'])
 ```
 
-## 📊 Statystyka
+## 📊 Statistics
 
-Po aplikowaniu patchy konwerter wyświetla:
+After applying patches, the converter displays:
 
 ```
-✅ Statystyka patchy:
-   • Załadowane patch files: 3
-   • Aplikowane operacje: 5
+✅ Patch Statistics:
+   • Loaded patch files: 3
+   • Applied operations: 5
      - UPDATE: 3
      - ADD: 2
      - REMOVE: 0
-   • Pominięte: 0
-   • Błędy: 0
+   • Skipped: 0
+   • Errors: 0
 ```
 
 ## ❓ FAQ
 
-**P: Co jeśli patch się nie aplikuje?**
-A: Sprawdź logi i:\n   - Kryteria filtrowania muszą być dokładne
-   - Szablony muszą istnieć
-   - JSON musi być poprawny
+**Q: What if a patch doesn't apply?**
+A: Check logs and:
+   - Filter criteria must be exact
+   - Templates must exist
+   - JSON must be valid
 
-**P: Czy mogę edytować patch po opublikowaniu?**
-A: Nie. Utwórz nowy patch. Edytowanie zmienia hash i utrudnia auditowanie.
+**Q: Can I edit a patch after publishing?**
+A: No. Create a new patch. Editing changes the hash and makes auditing difficult.
 
-**P: Ile patchy mogę mieć?**
-A: Nieograniczona ilość. System jest skaloowalny.
+**Q: How many patches can I have?**
+A: Unlimited. The system is scalable.
 
-**P: Czy patchye wpływają na bezpieczeństwo?**
-A: Nie. Patchy są tylko JSON files z walidacją w loadererze.
+**Q: Do patches affect security?**
+A: No. Patches are only JSON files with validation in the loader.
 
-## 🔗 Dodatkowe Zasoby
+**Q: Can I use wildcards in filter?**
+A: Yes, only for the `image` field: `"image": "zadam/*"`
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - Jak wkład do projektu
-- [portainer_converter.py](../portainer_converter.py) - Główny konwerter
-- [Lissy93/portainer-templates](https://github.com/Lissy93/portainer-templates) - Źródło szablonów
+**Q: What happens if two patches modify the same field?**
+A: They are applied sequentially in order (0001, 0002, etc.). Last one wins for non-list fields.
+
+## 🎯 Best Practices
+
+1. **One patch per change** - Keep patches focused and atomic
+2. **Clear description** - Explain what and why
+3. **Test before committing** - Validate JSON and test locally
+4. **Reference sources** - Link to PR/Issue when applicable
+5. **Document everything** - Use meaningful field names and comments
+6. **Use priorities** - Set priority for critical patches
+7. **Version your patches** - Use semantic versioning in metadata
+
+## 📝 Patch File Checklist
+
+Before committing a patch:
+
+- [ ] Filename follows `XXXX-description.json` pattern
+- [ ] `id` matches filename (without .json)
+- [ ] All metadata fields filled
+- [ ] Operations are valid (UPDATE/ADD/REMOVE)
+- [ ] Filter criteria are realistic
+- [ ] JSON validates with `python -m json.tool`
+- [ ] No TODO comments
+- [ ] Tested locally
+- [ ] Documented changes
+
+## 🚀 Getting Started
+
+1. Read this documentation
+2. Copy `TEMPLATE.json`
+3. Create your first patch
+4. Test locally
+5. Submit PR
+
+That's it! Welcome to the patch community! 🎉
+
+## 🔗 Additional Resources
+
+- [CONTRIBUTING.md](../CONTRIBUTING.md) - How to contribute
+- [portainer_converter.py](../portainer_converter.py) - Main converter
+- [Lissy93/portainer-templates](https://github.com/Lissy93/portainer-templates) - Templates source
+- [PatchLoader Source](./_patch_loader.py) - Implementation details
