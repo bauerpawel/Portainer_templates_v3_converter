@@ -160,8 +160,8 @@
     {
       "id": 6,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Adguardhome-sync](https://github.com/bakito/adguardhome-sync/) is a tool to synchronize AdGuardHome config to replica instances.",
       "env": [
@@ -1039,9 +1039,9 @@
     {
       "id": 29,
       "categories": [
-        "Tools",
         "Other",
-        "Authentication"
+        "Authentication",
+        "Tools"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -2611,8 +2611,8 @@
     {
       "id": 67,
       "categories": [
-        "Tools",
         "Other",
+        "Tools",
         "Photo"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
@@ -2712,8 +2712,8 @@
     {
       "id": 70,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Save recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -3995,8 +3995,8 @@
     {
       "id": 106,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Ddclient](https://github.com/ddclient/ddclient) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
       "env": [
@@ -4141,9 +4141,9 @@
     {
       "id": 109,
       "categories": [
+        "Other",
         "Tools",
-        "VPN",
-        "Other"
+        "VPN"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -4254,8 +4254,8 @@
     {
       "id": 111,
       "categories": [
-        "Storage",
-        "Monitoring"
+        "Monitoring",
+        "Storage"
       ],
       "description": "[Diskover](https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
       "env": [
@@ -5196,8 +5196,8 @@
     {
       "id": 134,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -5736,8 +5736,8 @@
     {
       "id": 146,
       "categories": [
-        "Network",
-        "Security"
+        "Security",
+        "Network"
       ],
       "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
       "env": [
@@ -6034,8 +6034,8 @@
     {
       "id": 152,
       "categories": [
-        "Chat",
-        "Social"
+        "Social",
+        "Chat"
       ],
       "description": "[Ferdium](https://ferdium.org/) is a desktop app that helps you organize how you use your favourite apps by combining them into one application.",
       "env": [
@@ -8313,8 +8313,8 @@
     {
       "id": 210,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -9472,8 +9472,8 @@
     {
       "id": 233,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "env": [
@@ -10894,8 +10894,8 @@
     {
       "id": 266,
       "categories": [
-        "Remote Desktop",
-        "Security"
+        "Security",
+        "Remote Desktop"
       ],
       "description": "[Kali-linux](https://github.com/linuxserver/docker-kali-linux) - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.",
       "env": [
@@ -10962,8 +10962,8 @@
     {
       "id": 268,
       "categories": [
-        "Remote Desktop",
-        "Business"
+        "Business",
+        "Remote Desktop"
       ],
       "description": "[Kasm](https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections. The rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).",
       "env": [
@@ -11270,8 +11270,8 @@
     {
       "id": 275,
       "categories": [
-        "Finance",
-        "Business"
+        "Business",
+        "Finance"
       ],
       "description": "[Kimai](https://kimai.org/) is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to: JSON API, invoicing, data exports, multi-timer and punch-in punch-out mode, tagging, multi-user - multi-timezones - multi-language ([over 30 translations existing](https://hosted.weblate.org/projects/kimai/)!), authentication via SAML/LDAP/Database, two-factor authentication (2FA) with TOTP, customizable role and team permissions, responsive design, user/customer/project specific rates, advanced search & filtering, money and time budgets, advanced reporting, support for [plugins](https://www.kimai.org/store/) and so much more.",
       "env": [
@@ -12300,8 +12300,8 @@
     {
       "id": 295,
       "categories": [
-        "Media Management",
-        "Music"
+        "Music",
+        "Media Management"
       ],
       "description": "[Lidarr](https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
       "env": [
@@ -12375,6 +12375,7 @@
     {
       "id": 297,
       "categories": [
+        "IRC",
         "Irc"
       ],
       "description": "[Limnoria](https://github.com/ProgVal/limnoria) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
@@ -12646,8 +12647,8 @@
     {
       "id": 307,
       "categories": [
-        "Remote Desktop",
-        "AI"
+        "AI",
+        "Remote Desktop"
       ],
       "description": "[LM Studio](https://lmstudio.ai/) can run local AI models like gpt-oss, Llama, Gemma, Qwen, and DeepSeek privately on your computer.",
       "env": [
@@ -15664,8 +15665,8 @@
     {
       "id": 373,
       "categories": [
-        "Cloud",
-        "Documents"
+        "Documents",
+        "Cloud"
       ],
       "description": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are. Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
       "env": [
@@ -16120,6 +16121,7 @@
     {
       "id": 383,
       "categories": [
+        "IRC",
         "Irc"
       ],
       "description": "[Ngircd](https://ngircd.barton.de/) is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.",
@@ -17470,8 +17472,8 @@
     {
       "id": 413,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
       "env": [
@@ -18566,8 +18568,8 @@
     {
       "id": 433,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -18759,8 +18761,9 @@
     {
       "id": 437,
       "categories": [
-        "Irc",
-        "Chat"
+        "Chat",
+        "IRC",
+        "Irc"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
       "env": [
@@ -19192,12 +19195,12 @@
     {
       "id": 447,
       "categories": [
-        "Mediaserver Photos",
-        "Media Servers",
         "Mediaserver Video",
-        "Music",
         "Mediaserver Music",
-        "Audiobooks"
+        "Music",
+        "Audiobooks",
+        "Media Servers",
+        "Mediaserver Photos"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19707,9 +19710,9 @@
     {
       "id": 461,
       "categories": [
-        "Tools",
-        "Email",
         "Other",
+        "Email",
+        "Tools",
         "Productivity"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
@@ -19954,8 +19957,8 @@
     {
       "id": 467,
       "categories": [
-        "File Sharing",
-        "Security"
+        "Security",
+        "File Sharing"
       ],
       "description": "[Pwndrop](https://github.com/kgretzky/pwndrop) is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
       "env": [
@@ -20751,8 +20754,8 @@
     {
       "id": 484,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -21686,8 +21689,8 @@
     {
       "id": 508,
       "categories": [
-        "Remote Desktop",
-        "Business"
+        "Business",
+        "Remote Desktop"
       ],
       "description": "[Sealskin](https://github.com/selkies-project/sealskin/) is a self-hosted, client-server platform that enables users to run powerful, containerized desktop applications streamed directly to a web browser. It uses a browser extension to intercept user actions—such as clicking a link or downloading a file and redirects them to a secure, isolated application environment running on a remote server.",
       "env": [
@@ -22358,8 +22361,8 @@
     {
       "id": 525,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Self-hosted snippet manager.",
       "image": "snowmean/snibox-sqlite:latest",
@@ -23987,8 +23990,9 @@
     {
       "id": 567,
       "categories": [
-        "Irc",
-        "Chat"
+        "Chat",
+        "IRC",
+        "Irc"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -25349,8 +25353,8 @@
     {
       "id": 600,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -25836,9 +25840,9 @@
     {
       "id": 610,
       "categories": [
-        "Tools",
         "Other",
-        "Maintenance"
+        "Maintenance",
+        "Tools"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -26186,8 +26190,8 @@
     {
       "id": 620,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -26305,8 +26309,8 @@
     {
       "id": 622,
       "categories": [
-        "Games",
-        "Business"
+        "Business",
+        "Games"
       ],
       "description": "[WineGUI](https://gitlab.melroy.org/melroy/winegui) is a user-interface friendly Wine manager that provides a graphical frontend for creating and managing Wine bottles.",
       "env": [
@@ -26356,8 +26360,8 @@
     {
       "id": 623,
       "categories": [
-        "Network",
-        "VPN"
+        "VPN",
+        "Network"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
       "env": [
@@ -26933,8 +26937,8 @@
     {
       "id": 636,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -27166,6 +27170,7 @@
     {
       "id": 641,
       "categories": [
+        "IRC",
         "Irc"
       ],
       "description": "[Znc](http://wiki.znc.in/ZNC) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
@@ -29708,6 +29713,191 @@
           "bind": "/srv/dev-disk-by-label-media/Files/AppData/Config/peppermint"
         }
       ],
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 704,
+      "categories": [
+        "Books"
+      ],
+      "description": "[Calibre-web](https://github.com/janeczku/calibre-web) is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself. This software is a fork of library and licensed under the GPL v3 License.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        },
+        {
+          "name": "DOCKER_MODS",
+          "label": "DOCKER_MODS",
+          "default": "linuxserver/mods:universal-calibre",
+          "description": "#optional & **x86-64 only** Adds the ability to perform ebook conversion [OPTIONAL]"
+        },
+        {
+          "name": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+          "label": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+          "default": "1",
+          "description": "Optionally set this to allow Google OAUTH to work [OPTIONAL]"
+        }
+      ],
+      "image": "linuxserver/calibre-web:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
+      "name": "Calibre-web",
+      "ports": [
+        "8083:8083/tcp"
+      ],
+      "title": "Calibre-web",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/calibre-web/config"
+        },
+        {
+          "container": "/books",
+          "bind": "/srv/lsio/calibre-web/books"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/calibre-web/config<br>mkdir -p /srv/lsio/calibre-web/books</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 705,
+      "categories": [
+        "File Sharing"
+      ],
+      "description": "[PairDrop](https://github.com/schlagmichdoch/PairDrop) is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        },
+        {
+          "name": "RATE_LIMIT",
+          "label": "RATE_LIMIT",
+          "default": "false",
+          "description": "Set to `true` to limit clients to 100 requests per 5 min [OPTIONAL]"
+        },
+        {
+          "name": "WS_FALLBACK",
+          "label": "WS_FALLBACK",
+          "default": "false",
+          "description": "Set to `true` to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes). [OPTIONAL]"
+        },
+        {
+          "name": "RTC_CONFIG",
+          "label": "RTC_CONFIG",
+          "default": "",
+          "description": "Path to a json file containing custom STUN/TURN config (see App Setup notes) [OPTIONAL]"
+        },
+        {
+          "name": "DEBUG_MODE",
+          "label": "DEBUG_MODE",
+          "default": "false",
+          "description": "Set to `true` to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. [See here for more info](https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md#debug-mode). Do not use in production! [OPTIONAL]"
+        }
+      ],
+      "image": "linuxserver/pairdrop:latest",
+      "logo": "https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png",
+      "name": "Pairdrop",
+      "ports": [
+        "3000:3000/tcp"
+      ],
+      "title": "Pairdrop",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/pairdrop/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/pairdrop/config</p>",
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 706,
+      "categories": [
+        "Remote Desktop"
+      ],
+      "description": "[RustDesk](https://rustdesk.com/) is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.",
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the UID to use here."
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "1000",
+          "description": "Run 'id [USER]' for the owner of the host volume directories to get the GID to use here."
+        },
+        {
+          "name": "TZ",
+          "label": "TZ",
+          "default": "Etc/UTC",
+          "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+        }
+      ],
+      "image": "linuxserver/rustdesk:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rustdesk-logo.png",
+      "name": "Rustdesk",
+      "ports": [
+        "3000:3000/tcp",
+        "3001:3001/tcp"
+      ],
+      "title": "Rustdesk",
+      "type": 1,
+      "volumes": [
+        {
+          "container": "/config",
+          "bind": "/srv/lsio/rustdesk/config"
+        }
+      ],
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/rustdesk/config</p>",
       "labels": [
         {
           "name": "com.docker.compose.restart-policy",
