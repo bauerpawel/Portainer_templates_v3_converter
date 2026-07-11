@@ -160,8 +160,8 @@
     {
       "id": 6,
       "categories": [
-        "DNS",
-        "Network"
+        "Network",
+        "DNS"
       ],
       "description": "[Adguardhome-sync](https://github.com/bakito/adguardhome-sync/) is a tool to synchronize AdGuardHome config to replica instances.",
       "env": [
@@ -1039,9 +1039,9 @@
     {
       "id": 29,
       "categories": [
-        "Authentication",
+        "Tools",
         "Other",
-        "Tools"
+        "Authentication"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -2515,8 +2515,8 @@
     {
       "id": 64,
       "categories": [
-        "Web Tools",
-        "Automation"
+        "Automation",
+        "Web Tools"
       ],
       "description": "[Changedetection.io](https://github.com/dgtlmoon/changedetection.io) provides free, open-source web page monitoring, notification and change detection.",
       "env": [
@@ -2611,9 +2611,9 @@
     {
       "id": 67,
       "categories": [
-        "Photo",
+        "Tools",
         "Other",
-        "Tools"
+        "Photo"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2712,8 +2712,8 @@
     {
       "id": 70,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Save recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -3146,8 +3146,8 @@
     {
       "id": 83,
       "categories": [
-        "Development",
-        "Programming"
+        "Programming",
+        "Development"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -4027,8 +4027,8 @@
     {
       "id": 107,
       "categories": [
-        "DNS",
-        "Network"
+        "Network",
+        "DNS"
       ],
       "description": "[Ddclient](https://github.com/ddclient/ddclient) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
       "env": [
@@ -4173,9 +4173,9 @@
     {
       "id": 110,
       "categories": [
-        "VPN",
+        "Tools",
         "Other",
-        "Tools"
+        "VPN"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -4286,8 +4286,8 @@
     {
       "id": 112,
       "categories": [
-        "Storage",
-        "Monitoring"
+        "Monitoring",
+        "Storage"
       ],
       "description": "[Diskover](https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
       "env": [
@@ -4795,7 +4795,7 @@
       "categories": [
         "Media Requesters"
       ],
-      "description": "[Doplarr](https://github.com/kiranshila/Doplarr) is an *arr request bot for Discord.'",
+      "description": "[Doplarr_rs](https://github.com/activexray/doplarr_rs) is a Discord bot for requesting media through *arr backends, written in Rust.",
       "env": [
         {
           "name": "PUID",
@@ -4814,132 +4814,24 @@
           "label": "TZ",
           "default": "Etc/UTC",
           "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
-        },
-        {
-          "name": "DISCORD__TOKEN",
-          "label": "DISCORD__TOKEN",
-          "default": "",
-          "description": "Specify your discord bot token."
-        },
-        {
-          "name": "OVERSEERR__API",
-          "label": "OVERSEERR__API",
-          "default": "",
-          "description": "Specify your Overseerr API key. Leave blank if using Radarr/Sonarr."
-        },
-        {
-          "name": "OVERSEERR__URL",
-          "label": "OVERSEERR__URL",
-          "default": "http://localhost:5055",
-          "description": "Specify your Overseerr URL. Leave blank if using Radarr/Sonarr."
-        },
-        {
-          "name": "RADARR__API",
-          "label": "RADARR__API",
-          "default": "",
-          "description": "Specify your Radarr API key. Leave blank if using Overseerr."
-        },
-        {
-          "name": "RADARR__URL",
-          "label": "RADARR__URL",
-          "default": "http://localhost:7878",
-          "description": "Specify your Radarr URL. Leave blank if using Overseerr."
-        },
-        {
-          "name": "SONARR__API",
-          "label": "SONARR__API",
-          "default": "",
-          "description": "Specify your Sonarr API key. Leave blank if using Overseerr."
-        },
-        {
-          "name": "SONARR__URL",
-          "label": "SONARR__URL",
-          "default": "http://localhost:8989",
-          "description": "Specify your Sonarr URL. Leave blank if using Overseerr."
-        },
-        {
-          "name": "DISCORD__MAX_RESULTS",
-          "label": "DISCORD__MAX_RESULTS",
-          "default": "25",
-          "description": "Sets the maximum size of the search results selection [OPTIONAL]"
-        },
-        {
-          "name": "DISCORD__REQUESTED_MSG_STYLE",
-          "label": "DISCORD__REQUESTED_MSG_STYLE",
-          "default": ":plain",
-          "description": "Sets the style of the request alert message. One of `:plain` `:embed` `:none` [OPTIONAL]"
-        },
-        {
-          "name": "SONARR__QUALITY_PROFILE",
-          "label": "SONARR__QUALITY_PROFILE",
-          "default": "",
-          "description": "The name of the quality profile to use by default for Sonarr [OPTIONAL]"
-        },
-        {
-          "name": "RADARR__QUALITY_PROFILE",
-          "label": "RADARR__QUALITY_PROFILE",
-          "default": "",
-          "description": "The name of the quality profile to use by default for Radarr [OPTIONAL]"
-        },
-        {
-          "name": "SONARR__ROOTFOLDER",
-          "label": "SONARR__ROOTFOLDER",
-          "default": "",
-          "description": "The root folder to use by default for Sonarr [OPTIONAL]"
-        },
-        {
-          "name": "RADARR__ROOTFOLDER",
-          "label": "RADARR__ROOTFOLDER",
-          "default": "",
-          "description": "The root folder to use by default for Radarr [OPTIONAL]"
-        },
-        {
-          "name": "SONARR__LANGUAGE_PROFILE",
-          "label": "SONARR__LANGUAGE_PROFILE",
-          "default": "",
-          "description": "The name of the language profile to use by default for Sonarr [OPTIONAL]"
-        },
-        {
-          "name": "OVERSEERR__DEFAULT_ID",
-          "label": "OVERSEERR__DEFAULT_ID",
-          "default": "",
-          "description": "The Overseerr user id to use by default if there is no associated discord account for the requester [OPTIONAL]"
-        },
-        {
-          "name": "PARTIAL_SEASONS",
-          "label": "PARTIAL_SEASONS",
-          "default": "true",
-          "description": "Sets whether users can request partial seasons. [OPTIONAL]"
-        },
-        {
-          "name": "LOG_LEVEL",
-          "label": "LOG_LEVEL",
-          "default": ":info",
-          "description": "The log level for the logging backend. This can be changed for debugging purposes. One of trace `:debug` `:info` `:warn` `:error` `:fatal` `:report` [OPTIONAL]"
-        },
-        {
-          "name": "JAVA_OPTS",
-          "label": "JAVA_OPTS",
-          "default": "",
-          "description": "For passing additional java options. [OPTIONAL]"
         }
       ],
-      "image": "linuxserver/doplarr:latest",
-      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doplarr-logo_title.png",
+      "image": "linuxserver/doplarr_rs:latest",
+      "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doplarr_rs-logo.png",
       "maintainer": "https://github.com/technorabilia/portainer-templates/",
-      "name": "Doplarr",
+      "name": "Doplarr_rs",
       "ports": [
         "80:80/tcp"
       ],
-      "title": "Doplarr",
+      "title": "Doplarr_rs",
       "type": 1,
       "volumes": [
         {
           "container": "/config",
-          "bind": "/srv/lsio/doplarr/config"
+          "bind": "/srv/lsio/doplarr_rs/config"
         }
       ],
-      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/doplarr/config</p>",
+      "note": "Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a>, based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Ensure to create the following volume directories on the host file system, or modify the paths in the volume mapping section under the advanced options below, as needed.</p><p>mkdir -p /srv/lsio/doplarr_rs/config</p>",
       "labels": [
         {
           "name": "com.docker.compose.restart-policy",
@@ -5228,8 +5120,8 @@
     {
       "id": 135,
       "categories": [
-        "DNS",
-        "Network"
+        "Network",
+        "DNS"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -5589,9 +5481,9 @@
     {
       "id": 142,
       "categories": [
+        "Music",
         "Audiobooks",
-        "Media Servers",
-        "Music"
+        "Media Servers"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
       "env": [
@@ -5768,8 +5660,8 @@
     {
       "id": 147,
       "categories": [
-        "Security",
-        "Network"
+        "Network",
+        "Security"
       ],
       "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
       "env": [
@@ -6066,8 +5958,8 @@
     {
       "id": 153,
       "categories": [
-        "Chat",
-        "Social"
+        "Social",
+        "Chat"
       ],
       "description": "[Ferdium](https://ferdium.org/) is a desktop app that helps you organize how you use your favourite apps by combining them into one application.",
       "env": [
@@ -8345,8 +8237,8 @@
     {
       "id": 211,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -9504,8 +9396,8 @@
     {
       "id": 234,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "env": [
@@ -10632,9 +10524,9 @@
     {
       "id": 259,
       "categories": [
+        "Music",
         "Audiobooks",
-        "Media Servers",
-        "Music"
+        "Media Servers"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
       "env": [
@@ -12419,8 +12311,8 @@
     {
       "id": 298,
       "categories": [
-        "Irc",
-        "IRC"
+        "IRC",
+        "Irc"
       ],
       "description": "[Limnoria](https://github.com/ProgVal/limnoria) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
       "env": [
@@ -14870,8 +14762,8 @@
     {
       "id": 358,
       "categories": [
-        "Web Browser",
-        "VPN"
+        "VPN",
+        "Web Browser"
       ],
       "description": "The [Mullvad Browser](https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
       "env": [
@@ -15709,8 +15601,8 @@
     {
       "id": 374,
       "categories": [
-        "Documents",
-        "Cloud"
+        "Cloud",
+        "Documents"
       ],
       "description": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are. Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
       "env": [
@@ -16165,8 +16057,8 @@
     {
       "id": 384,
       "categories": [
-        "Irc",
-        "IRC"
+        "IRC",
+        "Irc"
       ],
       "description": "[Ngircd](https://ngircd.barton.de/) is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.",
       "env": [
@@ -17516,8 +17408,8 @@
     {
       "id": 414,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
       "env": [
@@ -18612,8 +18504,8 @@
     {
       "id": 434,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -18805,9 +18697,9 @@
     {
       "id": 438,
       "categories": [
+        "IRC",
         "Irc",
-        "Chat",
-        "IRC"
+        "Chat"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
       "env": [
@@ -19094,8 +18986,8 @@
     {
       "id": 445,
       "categories": [
-        "Content Management",
-        "Business"
+        "Business",
+        "Content Management"
       ],
       "description": "[Planka](https://github.com/plankanban/planka/) is an elegant open source project tracking tool.",
       "env": [
@@ -19239,12 +19131,12 @@
     {
       "id": 448,
       "categories": [
-        "Mediaserver Music",
         "Mediaserver Video",
-        "Audiobooks",
-        "Media Servers",
         "Music",
-        "Mediaserver Photos"
+        "Mediaserver Music",
+        "Audiobooks",
+        "Mediaserver Photos",
+        "Media Servers"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19754,10 +19646,10 @@
     {
       "id": 462,
       "categories": [
-        "Productivity",
         "Other",
-        "Tools",
-        "Email"
+        "Email",
+        "Productivity",
+        "Tools"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -20798,8 +20690,8 @@
     {
       "id": 485,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -22405,8 +22297,8 @@
     {
       "id": 526,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted snippet manager.",
       "image": "snowmean/snibox-sqlite:latest",
@@ -23381,10 +23273,16 @@
           "description": "Optionally define the cert provider. Set to `zerossl` for ZeroSSL certs (requires existing [ZeroSSL account](https://app.zerossl.com/signup) and the e-mail address entered in `EMAIL` env var). Otherwise defaults to Let's Encrypt. [OPTIONAL]"
         },
         {
+          "name": "CERT_PROFILE",
+          "label": "CERT_PROFILE",
+          "default": "",
+          "description": "Optionally define a cert profile to use for cert generation. This is useful if you want to use a custom cert profile instead of the default one. Currently only supported for Let's Encrypt. See https://letsencrypt.org/docs/profiles/  [OPTIONAL]"
+        },
+        {
           "name": "DNSPLUGIN",
           "label": "DNSPLUGIN",
           "default": "cloudflare",
-          "description": "Required if `VALIDATION` is set to `dns`. Options are `acmedns`, `aliyun`, `azure`, `bunny`, `cloudflare`, `cpanel`, `desec`, `digitalocean`, `directadmin`, `dnsimple`, `dnsmadeeasy`, `dnspod`, `do`, `domeneshop`, `dreamhost`, `duckdns`, `dynu`, `freedns`, `gandi`, `gehirn`, `glesys`, `godaddy`, `google`, `he`, `hetzner`, `hetzner-cloud`, `infomaniak`, `inwx`, `ionos`, `linode`, `loopia`, `luadns`, `namecheap`, `netcup`, `njalla`, `nsone`, `ovh`, `porkbun`, `rfc2136`, `route53`, `sakuracloud`, `standalone`, `transip`, and `vultr`. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under `/config/dns-conf`. [OPTIONAL]"
+          "description": "Required if `VALIDATION` is set to `dns`. Options are `acmedns`, `aliyun`, `azure`, `bunny`, `cloudflare`, `cpanel`, `desec`, `digitalocean`, `directadmin`, `dnsimple`, `dnsmadeeasy`, `dnspod`, `do`, `domeneshop`, `dreamhost`, `duckdns`, `dynu`, `freedns`, `gandi`, `gehirn`, `glesys`, `godaddy`, `google`, `he`, `hetzner`, `hetzner-cloud`, `infomaniak`, `inwx`, `ionos`, `linode`, `loopia`, `luadns`, `mijn-host`, `namecheap`, `netcup`, `njalla`, `nsone`, `ovh`, `porkbun`, `rfc2136`, `route53`, `sakuracloud`, `standalone`, `transip`, and `vultr`. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under `/config/dns-conf`. [OPTIONAL]"
         },
         {
           "name": "PROPAGATION",
@@ -24034,9 +23932,9 @@
     {
       "id": 568,
       "categories": [
+        "IRC",
         "Irc",
-        "Chat",
-        "IRC"
+        "Chat"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -25397,8 +25295,8 @@
     {
       "id": 601,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -25884,9 +25782,9 @@
     {
       "id": 611,
       "categories": [
-        "Maintenance",
+        "Tools",
         "Other",
-        "Tools"
+        "Maintenance"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -26234,8 +26132,8 @@
     {
       "id": 621,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -26353,8 +26251,8 @@
     {
       "id": 623,
       "categories": [
-        "Business",
-        "Games"
+        "Games",
+        "Business"
       ],
       "description": "[WineGUI](https://gitlab.melroy.org/melroy/winegui) is a user-interface friendly Wine manager that provides a graphical frontend for creating and managing Wine bottles.",
       "env": [
@@ -26404,8 +26302,8 @@
     {
       "id": 624,
       "categories": [
-        "VPN",
-        "Network"
+        "Network",
+        "VPN"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
       "env": [
@@ -26981,8 +26879,8 @@
     {
       "id": 637,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -27118,8 +27016,8 @@
     {
       "id": 640,
       "categories": [
-        "Downloaders",
-        "Other"
+        "Other",
+        "Downloaders"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
@@ -27214,8 +27112,8 @@
     {
       "id": 642,
       "categories": [
-        "Irc",
-        "IRC"
+        "IRC",
+        "Irc"
       ],
       "description": "[Znc](http://wiki.znc.in/ZNC) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
       "env": [
