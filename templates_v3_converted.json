@@ -284,8 +284,8 @@
     {
       "id": 8,
       "categories": [
-        "Music",
-        "Media Servers"
+        "Media Servers",
+        "Music"
       ],
       "description": "[Airsonic-advanced](https://github.com/kagemomiji/airsonic-advanced) is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
       "env": [
@@ -1039,8 +1039,8 @@
     {
       "id": 29,
       "categories": [
-        "Authentication",
         "Other",
+        "Authentication",
         "Tools"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
@@ -3146,8 +3146,8 @@
     {
       "id": 83,
       "categories": [
-        "Development",
-        "Programming"
+        "Programming",
+        "Development"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -4077,8 +4077,8 @@
     {
       "id": 108,
       "categories": [
-        "Music",
-        "Other"
+        "Other",
+        "Music"
       ],
       "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
       "image": "registry.gitlab.com/bockiii/deemix-docker",
@@ -4173,8 +4173,8 @@
     {
       "id": 110,
       "categories": [
-        "VPN",
         "Other",
+        "VPN",
         "Tools"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
@@ -4892,8 +4892,8 @@
     {
       "id": 129,
       "categories": [
-        "Administration",
-        "Storage"
+        "Storage",
+        "Administration"
       ],
       "description": "[Double Commander](https://doublecmd.sourceforge.io/) is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features some new ideas.",
       "env": [
@@ -5660,8 +5660,8 @@
     {
       "id": 147,
       "categories": [
-        "Security",
-        "Network"
+        "Network",
+        "Security"
       ],
       "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
       "env": [
@@ -10886,8 +10886,8 @@
     {
       "id": 269,
       "categories": [
-        "Remote Desktop",
-        "Business"
+        "Business",
+        "Remote Desktop"
       ],
       "description": "[Kasm](https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections. The rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).",
       "env": [
@@ -12236,8 +12236,8 @@
     {
       "id": 296,
       "categories": [
-        "Music",
-        "Media Management"
+        "Media Management",
+        "Music"
       ],
       "description": "[Lidarr](https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
       "env": [
@@ -12583,8 +12583,8 @@
     {
       "id": 308,
       "categories": [
-        "Remote Desktop",
-        "AI"
+        "AI",
+        "Remote Desktop"
       ],
       "description": "[LM Studio](https://lmstudio.ai/) can run local AI models like gpt-oss, Llama, Gemma, Qwen, and DeepSeek privately on your computer.",
       "env": [
@@ -14708,8 +14708,8 @@
     {
       "id": 357,
       "categories": [
-        "Music",
-        "Media Servers"
+        "Media Servers",
+        "Music"
       ],
       "description": "[Mstream](https://mstream.io/) is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.",
       "env": [
@@ -14762,8 +14762,8 @@
     {
       "id": 358,
       "categories": [
-        "VPN",
-        "Web Browser"
+        "Web Browser",
+        "VPN"
       ],
       "description": "The [Mullvad Browser](https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
       "env": [
@@ -15031,8 +15031,8 @@
     {
       "id": 363,
       "categories": [
-        "Books",
-        "Media Management"
+        "Media Management",
+        "Books"
       ],
       "description": "[Mylar3](https://github.com/MylarComics/mylar3) is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.",
       "env": [
@@ -15353,8 +15353,8 @@
     {
       "id": 372,
       "categories": [
-        "Administration",
-        "Business"
+        "Business",
+        "Administration"
       ],
       "description": "[Netbox](https://github.com/netbox-community/netbox) is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.",
       "env": [
@@ -18697,9 +18697,9 @@
     {
       "id": 438,
       "categories": [
-        "Chat",
         "Irc",
-        "IRC"
+        "IRC",
+        "Chat"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
       "env": [
@@ -19131,12 +19131,12 @@
     {
       "id": 448,
       "categories": [
+        "Mediaserver Video",
         "Music",
         "Audiobooks",
+        "Media Servers",
         "Mediaserver Photos",
-        "Mediaserver Music",
-        "Mediaserver Video",
-        "Media Servers"
+        "Mediaserver Music"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19647,9 +19647,9 @@
       "id": 462,
       "categories": [
         "Productivity",
+        "Other",
         "Email",
-        "Tools",
-        "Other"
+        "Tools"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -21656,8 +21656,8 @@
     {
       "id": 510,
       "categories": [
-        "Remote Desktop",
-        "Business"
+        "Business",
+        "Remote Desktop"
       ],
       "description": "[Sealskin](https://github.com/selkies-project/sealskin/) is a self-hosted, client-server platform that enables users to run powerful, containerized desktop applications streamed directly to a web browser. It uses a browser extension to intercept user actions—such as clicking a link or downloading a file and redirects them to a secure, isolated application environment running on a remote server.",
       "env": [
@@ -23963,9 +23963,9 @@
     {
       "id": 569,
       "categories": [
-        "Chat",
         "Irc",
-        "IRC"
+        "IRC",
+        "Chat"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -25813,8 +25813,8 @@
     {
       "id": 612,
       "categories": [
-        "Maintenance",
         "Other",
+        "Maintenance",
         "Tools"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
@@ -26333,8 +26333,8 @@
     {
       "id": 625,
       "categories": [
-        "VPN",
-        "Network"
+        "Network",
+        "VPN"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
       "env": [
@@ -27047,8 +27047,8 @@
     {
       "id": 641,
       "categories": [
-        "Downloaders",
-        "Other"
+        "Other",
+        "Downloaders"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
