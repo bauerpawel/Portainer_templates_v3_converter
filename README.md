@@ -8,7 +8,7 @@
 
 ## Use the prepared file in Portainer: Go to Settings → App Templates and paste this URL:
 ```bash
-https://raw.githubusercontent.com/bauerpawel/Portainer_templates_v3_converter/main/templates_v3_converted.json
+https://cdn.jsdelivr.net/gh/bauerpawel/Portainer_templates_v3_converter@main/templates_v3_converted.json
  ```
 
 ## Description
