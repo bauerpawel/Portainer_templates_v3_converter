@@ -160,8 +160,8 @@
     {
       "id": 6,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Adguardhome-sync](https://github.com/bakito/adguardhome-sync/) is a tool to synchronize AdGuardHome config to replica instances.",
       "env": [
@@ -2643,9 +2643,9 @@
     {
       "id": 68,
       "categories": [
-        "Photo",
         "Tools",
-        "Other"
+        "Other",
+        "Photo"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2744,8 +2744,8 @@
     {
       "id": 71,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Save recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -4115,8 +4115,8 @@
     {
       "id": 109,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Ddclient](https://github.com/ddclient/ddclient) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
       "env": [
@@ -4261,8 +4261,8 @@
     {
       "id": 112,
       "categories": [
-        "VPN",
         "Tools",
+        "VPN",
         "Other"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
@@ -5227,8 +5227,8 @@
     {
       "id": 137,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -5767,8 +5767,8 @@
     {
       "id": 149,
       "categories": [
-        "Network",
-        "Security"
+        "Security",
+        "Network"
       ],
       "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
       "env": [
@@ -8401,8 +8401,8 @@
     {
       "id": 214,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -9579,8 +9579,8 @@
     {
       "id": 237,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "env": [
@@ -11001,8 +11001,8 @@
     {
       "id": 270,
       "categories": [
-        "Remote Desktop",
-        "Security"
+        "Security",
+        "Remote Desktop"
       ],
       "description": "[Kali-linux](https://github.com/linuxserver/docker-kali-linux) - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.",
       "env": [
@@ -11865,8 +11865,8 @@
     {
       "id": 290,
       "categories": [
-        "Administration",
-        "Security"
+        "Security",
+        "Administration"
       ],
       "description": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
       "env": [
@@ -14977,8 +14977,8 @@
     {
       "id": 361,
       "categories": [
-        "Web Browser",
-        "VPN"
+        "VPN",
+        "Web Browser"
       ],
       "description": "The [Mullvad Browser](https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
       "env": [
@@ -15816,8 +15816,8 @@
     {
       "id": 377,
       "categories": [
-        "Cloud",
-        "Documents"
+        "Documents",
+        "Cloud"
       ],
       "description": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are. Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
       "env": [
@@ -17561,8 +17561,8 @@
     {
       "id": 416,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
       "env": [
@@ -18565,8 +18565,8 @@
     {
       "id": 437,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -18758,8 +18758,8 @@
     {
       "id": 441,
       "categories": [
-        "Chat",
         "Irc",
+        "Chat",
         "IRC"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
@@ -19224,12 +19224,12 @@
     {
       "id": 451,
       "categories": [
-        "Music",
-        "Media Servers",
-        "Audiobooks",
-        "Mediaserver Video",
         "Mediaserver Photos",
-        "Mediaserver Music"
+        "Mediaserver Music",
+        "Mediaserver Video",
+        "Media Servers",
+        "Music",
+        "Audiobooks"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19804,10 +19804,10 @@
     {
       "id": 466,
       "categories": [
-        "Other",
+        "Tools",
         "Email",
         "Productivity",
-        "Tools"
+        "Other"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -20058,8 +20058,8 @@
     {
       "id": 472,
       "categories": [
-        "File Sharing",
-        "Security"
+        "Security",
+        "File Sharing"
       ],
       "description": "[Pwndrop](https://github.com/kgretzky/pwndrop) is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
       "env": [
@@ -20886,8 +20886,8 @@
     {
       "id": 490,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -21928,8 +21928,8 @@
     {
       "id": 516,
       "categories": [
-        "Log Management",
-        "Monitoring"
+        "Monitoring",
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -22493,8 +22493,8 @@
     {
       "id": 531,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Self-hosted snippet manager.",
       "image": "snowmean/snibox-sqlite:latest",
@@ -24203,8 +24203,8 @@
     {
       "id": 574,
       "categories": [
-        "Chat",
         "Irc",
+        "Chat",
         "IRC"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
@@ -25587,8 +25587,8 @@
     {
       "id": 607,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -26074,8 +26074,8 @@
     {
       "id": 617,
       "categories": [
-        "Maintenance",
         "Tools",
+        "Maintenance",
         "Other"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
@@ -26424,8 +26424,8 @@
     {
       "id": 627,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -26594,8 +26594,8 @@
     {
       "id": 630,
       "categories": [
-        "Network",
-        "VPN"
+        "VPN",
+        "Network"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
       "env": [
@@ -27191,8 +27191,8 @@
     {
       "id": 643,
       "categories": [
-        "Tools",
-        "Other"
+        "Other",
+        "Tools"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -27328,8 +27328,8 @@
     {
       "id": 646,
       "categories": [
-        "Downloaders",
-        "Other"
+        "Other",
+        "Downloaders"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
