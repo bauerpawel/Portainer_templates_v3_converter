@@ -284,8 +284,8 @@
     {
       "id": 8,
       "categories": [
-        "Music",
-        "Media Servers"
+        "Media Servers",
+        "Music"
       ],
       "description": "[Airsonic-advanced](https://github.com/kagemomiji/airsonic-advanced) is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
       "env": [
@@ -1022,6 +1022,150 @@
     {
       "id": 28,
       "categories": [
+        "Music",
+        "Media",
+        "AI"
+      ],
+      "description": "Automatic playlist generation for self-hosted music servers. Analyses your library locally to group tracks by how they sound. Works with Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex. GitHub: [NeptuneHub/AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI)",
+      "env": [
+        {
+          "default": "latest",
+          "description": "Standard needs a CPU with AVX2 (Intel 2015+ or ARM). Pick the no-AVX2 build for older CPUs, or when a hypervisor (Proxmox/QEMU) hides AVX2 from the guest.",
+          "label": "Image variant",
+          "name": "AUDIOMUSE_TAG",
+          "select": [
+            {
+              "text": "Standard (requires AVX2)",
+              "value": "latest",
+              "default": true
+            },
+            {
+              "text": "No AVX2 (older CPUs, experimental)",
+              "value": "latest-noavx2"
+            }
+          ]
+        },
+        {
+          "default": "8000",
+          "description": "Host port for the AudioMuse-AI web UI and API.",
+          "label": "Web UI port",
+          "name": "FRONTEND_PORT"
+        },
+        {
+          "default": "UTC",
+          "description": "Timezone for logs and scheduled tasks, e.g. Europe/London.",
+          "label": "Timezone",
+          "name": "TZ"
+        },
+        {
+          "default": "audiomuse",
+          "label": "Database user",
+          "name": "POSTGRES_USER"
+        },
+        {
+          "default": "audiomusepassword",
+          "description": "Change this before the first deploy - it is set when the database is initialised.",
+          "label": "Database password",
+          "name": "POSTGRES_PASSWORD"
+        }
+      ],
+      "logo": "https://raw.githubusercontent.com/NeptuneHub/AudioMuse-AI/main/native-build/linux/packaging/icons/audiomuse-ai_128.png",
+      "name": "audiomuse-ai",
+      "title": "AudioMuse-AI",
+      "type": 3,
+      "note": "Deploys the web app, an analysis worker, PostgreSQL 15 and Redis. Open <code>http://&lt;host&gt;:8000</code> and complete the <b>Setup Wizard</b> to connect your music server(s) - since v1.0.0 everything except the database, Redis and timezone is configured in the browser and stored in the database. Then run <b>Analysis and Clustering &rarr; Start Analysis</b> to scan your library before using the other features; a first analysis is CPU-heavy and can take hours on a large library. API docs are at <code>/apidocs/</code>. Needs 4+ CPU cores, 8GB RAM and SSD storage. PostgreSQL and Redis are internal to the stack and are not published on the host. For NVIDIA GPU acceleration, use the <i>AudioMuse-AI (NVIDIA GPU)</i> template instead.",
+      "repository": {
+        "stackfile": "sources/stacks/audiomuse-ai.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "categories": [
+        "Music",
+        "Media",
+        "AI"
+      ],
+      "description": "AudioMuse-AI with NVIDIA GPU acceleration for the analysis and clustering jobs. Needs the NVIDIA Container Toolkit on the host. GitHub: [NeptuneHub/AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI)",
+      "env": [
+        {
+          "default": "latest-nvidia",
+          "description": "GPU builds are published for linux/amd64 only. Use latest-nvidia to track releases, or pin one, e.g. 3.1.1-nvidia.",
+          "label": "Image tag",
+          "name": "AUDIOMUSE_TAG"
+        },
+        {
+          "default": "0",
+          "description": "Index of the GPU to pass through, as shown by nvidia-smi. Usually 0.",
+          "label": "GPU device ID",
+          "name": "NVIDIA_GPU_ID"
+        },
+        {
+          "default": "true",
+          "description": "Run KMeans/DBSCAN/PCA on the GPU via RAPIDS cuML, falling back to CPU on error. Analysis always uses the GPU on this image.",
+          "label": "GPU clustering",
+          "name": "USE_GPU_CLUSTERING",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "true",
+              "default": true
+            },
+            {
+              "text": "Disabled",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "default": "8000",
+          "description": "Host port for the AudioMuse-AI web UI and API.",
+          "label": "Web UI port",
+          "name": "FRONTEND_PORT"
+        },
+        {
+          "default": "UTC",
+          "description": "Timezone for logs and scheduled tasks, e.g. Europe/London.",
+          "label": "Timezone",
+          "name": "TZ"
+        },
+        {
+          "default": "audiomuse",
+          "label": "Database user",
+          "name": "POSTGRES_USER"
+        },
+        {
+          "default": "audiomusepassword",
+          "description": "Change this before the first deploy - it is set when the database is initialised.",
+          "label": "Database password",
+          "name": "POSTGRES_PASSWORD"
+        }
+      ],
+      "logo": "https://raw.githubusercontent.com/NeptuneHub/AudioMuse-AI/main/native-build/linux/packaging/icons/audiomuse-ai_128.png",
+      "name": "audiomuse-ai-nvidia",
+      "title": "AudioMuse-AI (NVIDIA GPU)",
+      "type": 3,
+      "note": "Same stack as <i>AudioMuse-AI</i>, with the GPU reserved for the app and worker containers. <b>Prerequisites:</b> an NVIDIA GPU on driver/CUDA 12.8.1 or later (8GB VRAM recommended), and the <a href=\"https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html\" target=\"_blank\">NVIDIA Container Toolkit</a> installed and wired into Docker on the host - without it the containers will not start. GPU support is marked experimental upstream. After deploying, open <code>http://&lt;host&gt;:8000</code> and complete the <b>Setup Wizard</b> to connect your music server(s), then run <b>Analysis and Clustering &rarr; Start Analysis</b>. PostgreSQL and Redis are internal to the stack and are not published on the host.",
+      "repository": {
+        "stackfile": "sources/stacks/audiomuse-ai-nvidia.yml",
+        "url": "https://github.com/lissy93/portainer-templates"
+      },
+      "labels": [
+        {
+          "name": "com.docker.compose.restart-policy",
+          "value": "unless-stopped"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "categories": [
         "Media"
       ],
       "description": "Streamlined Artist Request Manager for Lidarr. Search for artists using the MusicBrainz database and seamlessly add them to your Lidarr music library. Features personalized recommendations, genre analysis, and one-click requests.",
@@ -1037,11 +1181,11 @@
       "labels": []
     },
     {
-      "id": 29,
+      "id": 31,
       "categories": [
         "Authentication",
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -1074,7 +1218,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 32,
       "categories": [
         "Tools",
         "Authentication"
@@ -1108,7 +1252,7 @@
       "labels": []
     },
     {
-      "id": 31,
+      "id": 33,
       "categories": [
         "Downloaders",
         "Multimedia"
@@ -1126,7 +1270,7 @@
       "labels": []
     },
     {
-      "id": 32,
+      "id": 34,
       "categories": [
         "Games"
       ],
@@ -1176,7 +1320,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": 35,
       "categories": [
         "Family"
       ],
@@ -1231,7 +1375,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 36,
       "categories": [
         "Calendar",
         "Productivity"
@@ -1249,7 +1393,7 @@
       "labels": []
     },
     {
-      "id": 35,
+      "id": 37,
       "categories": [
         "3D Printing"
       ],
@@ -1305,7 +1449,7 @@
       ]
     },
     {
-      "id": 36,
+      "id": 38,
       "categories": [
         "Downloaders",
         "Tools"
@@ -1336,7 +1480,7 @@
       "labels": []
     },
     {
-      "id": 37,
+      "id": 39,
       "categories": [
         "Productivity",
         "Development",
@@ -1354,7 +1498,7 @@
       "labels": []
     },
     {
-      "id": 38,
+      "id": 40,
       "categories": [
         "Media Management"
       ],
@@ -1411,7 +1555,7 @@
       ]
     },
     {
-      "id": 39,
+      "id": 41,
       "categories": [
         "Video",
         "Music"
@@ -1463,7 +1607,7 @@
       ]
     },
     {
-      "id": 40,
+      "id": 42,
       "categories": [
         "Music"
       ],
@@ -1520,7 +1664,7 @@
       ]
     },
     {
-      "id": 41,
+      "id": 43,
       "categories": [
         "Monitoring"
       ],
@@ -1536,7 +1680,7 @@
       "labels": []
     },
     {
-      "id": 42,
+      "id": 44,
       "categories": [
         "Finance"
       ],
@@ -1587,7 +1731,7 @@
       ]
     },
     {
-      "id": 43,
+      "id": 45,
       "categories": [
         "Other",
         "Tools"
@@ -1617,7 +1761,7 @@
       ]
     },
     {
-      "id": 44,
+      "id": 46,
       "categories": [
         "Games"
       ],
@@ -1667,7 +1811,7 @@
       ]
     },
     {
-      "id": 45,
+      "id": 47,
       "categories": [
         "3D Modeling"
       ],
@@ -1717,7 +1861,7 @@
       ]
     },
     {
-      "id": 46,
+      "id": 48,
       "categories": [
         "Productivity"
       ],
@@ -1734,7 +1878,7 @@
       "labels": []
     },
     {
-      "id": 47,
+      "id": 49,
       "categories": [
         "Science"
       ],
@@ -1790,7 +1934,7 @@
       ]
     },
     {
-      "id": 48,
+      "id": 50,
       "categories": [
         "Books",
         "Other"
@@ -1844,7 +1988,7 @@
       ]
     },
     {
-      "id": 49,
+      "id": 51,
       "categories": [
         "Content Management"
       ],
@@ -1941,7 +2085,7 @@
       ]
     },
     {
-      "id": 50,
+      "id": 52,
       "categories": [
         "Wiki"
       ],
@@ -1987,7 +2131,7 @@
       "name": "bookstack-(stack)"
     },
     {
-      "id": 51,
+      "id": 53,
       "categories": [
         "Wiki"
       ],
@@ -2033,7 +2177,7 @@
       "name": "bookstack-(swarm)"
     },
     {
-      "id": 52,
+      "id": 54,
       "categories": [
         "Web Browser"
       ],
@@ -2083,7 +2227,7 @@
       ]
     },
     {
-      "id": 53,
+      "id": 55,
       "categories": [
         "Smart Home"
       ],
@@ -2100,7 +2244,7 @@
       "labels": []
     },
     {
-      "id": 54,
+      "id": 56,
       "categories": [
         "Finance"
       ],
@@ -2149,7 +2293,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": 57,
       "categories": [
         "Productivity",
         "Development",
@@ -2169,7 +2313,7 @@
       "labels": []
     },
     {
-      "id": 56,
+      "id": 58,
       "categories": [
         "Tools",
         "Web",
@@ -2210,7 +2354,7 @@
       ]
     },
     {
-      "id": 57,
+      "id": 59,
       "categories": [
         "Dashboard",
         "Web"
@@ -2239,7 +2383,7 @@
       ]
     },
     {
-      "id": 58,
+      "id": 60,
       "categories": [
         "Books"
       ],
@@ -2302,7 +2446,7 @@
       ]
     },
     {
-      "id": 59,
+      "id": 61,
       "categories": [
         "Books"
       ],
@@ -2367,7 +2511,7 @@
       ]
     },
     {
-      "id": 60,
+      "id": 62,
       "categories": [
         "Documents"
       ],
@@ -2417,7 +2561,7 @@
       ]
     },
     {
-      "id": 61,
+      "id": 63,
       "categories": [
         "Downloaders"
       ],
@@ -2457,7 +2601,7 @@
       ]
     },
     {
-      "id": 62,
+      "id": 64,
       "categories": [
         "Tools",
         "Monitoring"
@@ -2502,7 +2646,7 @@
       ]
     },
     {
-      "id": 63,
+      "id": 65,
       "categories": [
         "Podcast"
       ],
@@ -2519,7 +2663,7 @@
       "labels": []
     },
     {
-      "id": 64,
+      "id": 66,
       "categories": [
         "Documents",
         "Network Other",
@@ -2545,10 +2689,10 @@
       "labels": []
     },
     {
-      "id": 65,
+      "id": 67,
       "categories": [
-        "Web Tools",
-        "Automation"
+        "Automation",
+        "Web Tools"
       ],
       "description": "[Changedetection.io](https://github.com/dgtlmoon/changedetection.io) provides free, open-source web page monitoring, notification and change detection.",
       "env": [
@@ -2607,7 +2751,7 @@
       ]
     },
     {
-      "id": 66,
+      "id": 68,
       "categories": [
         "Monitoring"
       ],
@@ -2624,7 +2768,7 @@
       "labels": []
     },
     {
-      "id": 67,
+      "id": 69,
       "categories": [
         "Network"
       ],
@@ -2641,11 +2785,11 @@
       "labels": []
     },
     {
-      "id": 68,
+      "id": 70,
       "categories": [
         "Photo",
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2708,7 +2852,7 @@
       ]
     },
     {
-      "id": 69,
+      "id": 71,
       "categories": [
         "File Browsers"
       ],
@@ -2725,7 +2869,7 @@
       "labels": []
     },
     {
-      "id": 70,
+      "id": 72,
       "categories": [
         "Employee"
       ],
@@ -2742,10 +2886,10 @@
       "labels": []
     },
     {
-      "id": 71,
+      "id": 73,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Save recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -2771,7 +2915,7 @@
       ]
     },
     {
-      "id": 72,
+      "id": 74,
       "categories": [
         "Web Browser"
       ],
@@ -2827,7 +2971,7 @@
       ]
     },
     {
-      "id": 73,
+      "id": 75,
       "categories": [
         "Web Browser"
       ],
@@ -2883,7 +3027,7 @@
       ]
     },
     {
-      "id": 74,
+      "id": 76,
       "categories": [
         "Other",
         "Tools"
@@ -2920,7 +3064,7 @@
       ]
     },
     {
-      "id": 75,
+      "id": 77,
       "categories": [
         "Other",
         "Anitvirus"
@@ -2962,7 +3106,7 @@
       ]
     },
     {
-      "id": 76,
+      "id": 78,
       "categories": [
         "Documents",
         "Network Other",
@@ -2996,7 +3140,7 @@
       "labels": []
     },
     {
-      "id": 77,
+      "id": 79,
       "categories": [
         "Database",
         "Tools"
@@ -3024,7 +3168,7 @@
       ]
     },
     {
-      "id": 78,
+      "id": 80,
       "categories": [
         "DNS",
         "Tools"
@@ -3062,7 +3206,7 @@
       ]
     },
     {
-      "id": 79,
+      "id": 81,
       "categories": [
         "Networking",
         "Tools"
@@ -3104,7 +3248,7 @@
       ]
     },
     {
-      "id": 80,
+      "id": 82,
       "categories": [
         "CMS"
       ],
@@ -3127,7 +3271,7 @@
       ]
     },
     {
-      "id": 81,
+      "id": 83,
       "categories": [
         "Database"
       ],
@@ -3151,7 +3295,7 @@
       "name": "cockroachdb-(container)"
     },
     {
-      "id": 82,
+      "id": 84,
       "categories": [
         "edge"
       ],
@@ -3168,7 +3312,7 @@
       "name": "cockroachdb-(stack)"
     },
     {
-      "id": 83,
+      "id": 85,
       "categories": [
         "Database"
       ],
@@ -3186,10 +3330,10 @@
       "name": "cockroachdb-(swarm)"
     },
     {
-      "id": 84,
+      "id": 86,
       "categories": [
-        "Programming",
-        "Development"
+        "Development",
+        "Programming"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -3278,7 +3422,7 @@
       ]
     },
     {
-      "id": 85,
+      "id": 87,
       "categories": [
         "Ebooks"
       ],
@@ -3295,7 +3439,7 @@
       "labels": []
     },
     {
-      "id": 86,
+      "id": 88,
       "categories": [
         "Productivity"
       ],
@@ -3335,7 +3479,7 @@
       ]
     },
     {
-      "id": 87,
+      "id": 89,
       "categories": [
         "Development"
       ],
@@ -3360,7 +3504,7 @@
       "name": "commandbox"
     },
     {
-      "id": 88,
+      "id": 90,
       "categories": [
         "CMS"
       ],
@@ -3403,7 +3547,7 @@
       "name": "contentbox"
     },
     {
-      "id": 89,
+      "id": 91,
       "categories": [
         "Books"
       ],
@@ -3457,7 +3601,7 @@
       ]
     },
     {
-      "id": 90,
+      "id": 92,
       "categories": [
         "Downloaders",
         "Mediaapp Video"
@@ -3512,7 +3656,7 @@
       "labels": []
     },
     {
-      "id": 91,
+      "id": 93,
       "categories": [
         "Database"
       ],
@@ -3535,7 +3679,7 @@
       "name": "cratedb"
     },
     {
-      "id": 92,
+      "id": 94,
       "categories": [
         "Cyber Security"
       ],
@@ -3552,7 +3696,7 @@
       "labels": []
     },
     {
-      "id": 93,
+      "id": 95,
       "categories": [
         "Dashboard",
         "Crypto",
@@ -3576,7 +3720,7 @@
       ]
     },
     {
-      "id": 94,
+      "id": 96,
       "categories": [
         "Productivity",
         "Cloud"
@@ -3606,7 +3750,7 @@
       "labels": []
     },
     {
-      "id": 95,
+      "id": 97,
       "categories": [
         "3D Printing"
       ],
@@ -3656,7 +3800,7 @@
       ]
     },
     {
-      "id": 96,
+      "id": 98,
       "categories": [
         "Music"
       ],
@@ -3697,7 +3841,7 @@
       ]
     },
     {
-      "id": 97,
+      "id": 99,
       "categories": [
         "Automation",
         "Tools"
@@ -3725,7 +3869,7 @@
       ]
     },
     {
-      "id": 98,
+      "id": 100,
       "categories": [
         "Photos"
       ],
@@ -3775,7 +3919,7 @@
       ]
     },
     {
-      "id": 99,
+      "id": 101,
       "categories": [
         "System"
       ],
@@ -3792,7 +3936,7 @@
       "labels": []
     },
     {
-      "id": 100,
+      "id": 102,
       "categories": [
         "Other",
         "Tools"
@@ -3822,7 +3966,7 @@
       ]
     },
     {
-      "id": 101,
+      "id": 103,
       "categories": [
         "Dashboard",
         "Tools"
@@ -3863,7 +4007,7 @@
       ]
     },
     {
-      "id": 102,
+      "id": 104,
       "categories": [
         "Tools",
         "Dashboard"
@@ -3897,7 +4041,7 @@
       "labels": []
     },
     {
-      "id": 103,
+      "id": 105,
       "categories": [
         "Messaging",
         "Social"
@@ -3922,7 +4066,7 @@
       "labels": []
     },
     {
-      "id": 104,
+      "id": 106,
       "categories": [
         "Monitoring"
       ],
@@ -3959,7 +4103,7 @@
       "name": "datadog-agent-(container)"
     },
     {
-      "id": 105,
+      "id": 107,
       "categories": [
         "Monitoring"
       ],
@@ -3982,7 +4126,7 @@
       "name": "datadog-agent-(swarm)"
     },
     {
-      "id": 106,
+      "id": 108,
       "categories": [
         "Tool"
       ],
@@ -4043,7 +4187,7 @@
       ]
     },
     {
-      "id": 107,
+      "id": 109,
       "categories": [
         "FTP"
       ],
@@ -4096,7 +4240,7 @@
       ]
     },
     {
-      "id": 108,
+      "id": 110,
       "categories": [
         "Location Tracking"
       ],
@@ -4113,7 +4257,7 @@
       "labels": []
     },
     {
-      "id": 109,
+      "id": 111,
       "categories": [
         "Network",
         "DNS"
@@ -4163,10 +4307,10 @@
       ]
     },
     {
-      "id": 110,
+      "id": 112,
       "categories": [
-        "Other",
-        "Music"
+        "Music",
+        "Other"
       ],
       "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
       "image": "registry.gitlab.com/bockiii/deemix-docker",
@@ -4197,7 +4341,7 @@
       ]
     },
     {
-      "id": 111,
+      "id": 113,
       "categories": [
         "Downloaders"
       ],
@@ -4259,11 +4403,11 @@
       ]
     },
     {
-      "id": 112,
+      "id": 114,
       "categories": [
-        "VPN",
         "Other",
-        "Tools"
+        "Tools",
+        "VPN"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -4322,7 +4466,7 @@
       ]
     },
     {
-      "id": 113,
+      "id": 115,
       "categories": [
         "Photos"
       ],
@@ -4372,10 +4516,10 @@
       ]
     },
     {
-      "id": 114,
+      "id": 116,
       "categories": [
-        "Storage",
-        "Monitoring"
+        "Monitoring",
+        "Storage"
       ],
       "description": "[Diskover](https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
       "env": [
@@ -4438,7 +4582,7 @@
       ]
     },
     {
-      "id": 115,
+      "id": 117,
       "categories": [
         "Files"
       ],
@@ -4455,7 +4599,7 @@
       "labels": []
     },
     {
-      "id": 116,
+      "id": 118,
       "categories": [
         "Tools"
       ],
@@ -4472,7 +4616,7 @@
       "labels": []
     },
     {
-      "id": 117,
+      "id": 119,
       "categories": [
         "Docker"
       ],
@@ -4489,7 +4633,7 @@
       "labels": []
     },
     {
-      "id": 118,
+      "id": 120,
       "categories": [
         "Management"
       ],
@@ -4506,7 +4650,7 @@
       "labels": []
     },
     {
-      "id": 119,
+      "id": 121,
       "categories": [
         "Documentation",
         "Productivity"
@@ -4536,7 +4680,7 @@
       "labels": []
     },
     {
-      "id": 120,
+      "id": 122,
       "categories": [
         "Wiki",
         "Knowledge Base"
@@ -4553,7 +4697,7 @@
       "labels": []
     },
     {
-      "id": 121,
+      "id": 123,
       "categories": [
         "Documents",
         "Productivity"
@@ -4588,7 +4732,7 @@
       ]
     },
     {
-      "id": 122,
+      "id": 124,
       "categories": [
         "Games"
       ],
@@ -4638,7 +4782,7 @@
       ]
     },
     {
-      "id": 123,
+      "id": 125,
       "categories": [
         "Management"
       ],
@@ -4655,7 +4799,7 @@
       "labels": []
     },
     {
-      "id": 124,
+      "id": 126,
       "categories": [
         "Paas"
       ],
@@ -4696,7 +4840,7 @@
       "name": "dokku-(container)"
     },
     {
-      "id": 125,
+      "id": 127,
       "categories": [
         "Paas"
       ],
@@ -4755,7 +4899,7 @@
       "name": "dokku-(stack)"
     },
     {
-      "id": 126,
+      "id": 128,
       "categories": [
         "Content Management"
       ],
@@ -4805,7 +4949,7 @@
       ]
     },
     {
-      "id": 127,
+      "id": 129,
       "categories": [
         "Games"
       ],
@@ -4855,7 +4999,7 @@
       ]
     },
     {
-      "id": 128,
+      "id": 130,
       "categories": [
         "Homeautomation",
         "Management"
@@ -4898,7 +5042,7 @@
       ]
     },
     {
-      "id": 129,
+      "id": 131,
       "categories": [
         "Media Requesters"
       ],
@@ -4947,7 +5091,7 @@
       ]
     },
     {
-      "id": 130,
+      "id": 132,
       "categories": [
         "Games"
       ],
@@ -4997,7 +5141,7 @@
       ]
     },
     {
-      "id": 131,
+      "id": 133,
       "categories": [
         "Storage",
         "Administration"
@@ -5052,7 +5196,7 @@
       ]
     },
     {
-      "id": 132,
+      "id": 134,
       "categories": [
         "Tools"
       ],
@@ -5079,7 +5223,7 @@
       "labels": []
     },
     {
-      "id": 133,
+      "id": 135,
       "categories": [
         "Security"
       ],
@@ -5101,7 +5245,7 @@
       ]
     },
     {
-      "id": 134,
+      "id": 136,
       "categories": [
         "Productivity",
         "Drawing"
@@ -5119,7 +5263,7 @@
       "labels": []
     },
     {
-      "id": 135,
+      "id": 137,
       "categories": [
         "Tools",
         "Network Web",
@@ -5203,7 +5347,7 @@
       "labels": []
     },
     {
-      "id": 136,
+      "id": 138,
       "categories": [
         "CMS"
       ],
@@ -5225,7 +5369,7 @@
       "name": "drupal"
     },
     {
-      "id": 137,
+      "id": 139,
       "categories": [
         "Network",
         "DNS"
@@ -5303,7 +5447,7 @@
       ]
     },
     {
-      "id": 138,
+      "id": 140,
       "categories": [
         "Games"
       ],
@@ -5353,7 +5497,7 @@
       ]
     },
     {
-      "id": 139,
+      "id": 141,
       "categories": [
         "Utility Backup"
       ],
@@ -5399,7 +5543,7 @@
       "labels": []
     },
     {
-      "id": 140,
+      "id": 142,
       "categories": [
         "Backup"
       ],
@@ -5474,7 +5618,7 @@
       ]
     },
     {
-      "id": 141,
+      "id": 143,
       "categories": [
         "Other",
         "Tools"
@@ -5513,7 +5657,7 @@
       ]
     },
     {
-      "id": 142,
+      "id": 144,
       "categories": [
         "Games"
       ],
@@ -5563,7 +5707,7 @@
       ]
     },
     {
-      "id": 143,
+      "id": 145,
       "categories": [
         "Database"
       ],
@@ -5586,10 +5730,10 @@
       "name": "elasticsearch"
     },
     {
-      "id": 144,
+      "id": 146,
       "categories": [
-        "Music",
         "Media Servers",
+        "Music",
         "Audiobooks"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
@@ -5650,7 +5794,7 @@
       ]
     },
     {
-      "id": 145,
+      "id": 147,
       "categories": [
         "Other",
         "Tools"
@@ -5680,7 +5824,7 @@
       ]
     },
     {
-      "id": 146,
+      "id": 148,
       "categories": [
         "edge"
       ],
@@ -5707,7 +5851,7 @@
       "name": "emqx-open-source-mqtt-broker"
     },
     {
-      "id": 147,
+      "id": 149,
       "categories": [
         "Tools"
       ],
@@ -5747,7 +5891,7 @@
       ]
     },
     {
-      "id": 148,
+      "id": 150,
       "categories": [
         "Productivity",
         "Drawing"
@@ -5765,10 +5909,10 @@
       "labels": []
     },
     {
-      "id": 149,
+      "id": 151,
       "categories": [
-        "Network",
-        "Security"
+        "Security",
+        "Network"
       ],
       "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
       "env": [
@@ -5893,7 +6037,7 @@
       ]
     },
     {
-      "id": 150,
+      "id": 152,
       "categories": [
         "Machine Learning"
       ],
@@ -5971,7 +6115,7 @@
       ]
     },
     {
-      "id": 151,
+      "id": 153,
       "categories": [],
       "description": "FDO",
       "env": [
@@ -5996,7 +6140,7 @@
       "name": "fdo"
     },
     {
-      "id": 152,
+      "id": 154,
       "categories": [
         "News"
       ],
@@ -6012,7 +6156,7 @@
       "labels": []
     },
     {
-      "id": 153,
+      "id": 155,
       "categories": [
         "Tools",
         "Dashboard"
@@ -6046,7 +6190,7 @@
       "labels": []
     },
     {
-      "id": 154,
+      "id": 156,
       "categories": [
         "Messenger"
       ],
@@ -6063,10 +6207,10 @@
       "labels": []
     },
     {
-      "id": 155,
+      "id": 157,
       "categories": [
-        "Social",
-        "Chat"
+        "Chat",
+        "Social"
       ],
       "description": "[Ferdium](https://ferdium.org/) is a desktop app that helps you organize how you use your favourite apps by combining them into one application.",
       "env": [
@@ -6114,7 +6258,7 @@
       ]
     },
     {
-      "id": 156,
+      "id": 158,
       "categories": [
         "Messenger"
       ],
@@ -6131,7 +6275,7 @@
       "labels": []
     },
     {
-      "id": 157,
+      "id": 159,
       "categories": [
         "System"
       ],
@@ -6148,7 +6292,7 @@
       "labels": []
     },
     {
-      "id": 158,
+      "id": 160,
       "categories": [
         "Media Tools"
       ],
@@ -6197,7 +6341,7 @@
       ]
     },
     {
-      "id": 159,
+      "id": 161,
       "categories": [
         "Tools",
         "Network Web",
@@ -6270,7 +6414,7 @@
       "labels": []
     },
     {
-      "id": 160,
+      "id": 162,
       "categories": [
         "Other",
         "Tools"
@@ -6308,7 +6452,7 @@
       ]
     },
     {
-      "id": 161,
+      "id": 163,
       "categories": [
         "Files"
       ],
@@ -6325,7 +6469,7 @@
       "labels": []
     },
     {
-      "id": 162,
+      "id": 164,
       "categories": [
         "Downloaders"
       ],
@@ -6342,7 +6486,7 @@
       "labels": []
     },
     {
-      "id": 163,
+      "id": 165,
       "categories": [
         "Documents",
         "Network Other",
@@ -6362,7 +6506,7 @@
       "labels": []
     },
     {
-      "id": 164,
+      "id": 166,
       "categories": [
         "Files"
       ],
@@ -6379,7 +6523,7 @@
       "labels": []
     },
     {
-      "id": 165,
+      "id": 167,
       "categories": [
         "FTP"
       ],
@@ -6429,7 +6573,7 @@
       ]
     },
     {
-      "id": 166,
+      "id": 168,
       "categories": [
         "Web Browser"
       ],
@@ -6485,7 +6629,7 @@
       ]
     },
     {
-      "id": 167,
+      "id": 169,
       "categories": [
         "Browsers"
       ],
@@ -6502,7 +6646,7 @@
       "labels": []
     },
     {
-      "id": 168,
+      "id": 170,
       "categories": [
         "Multimedia"
       ],
@@ -6519,7 +6663,7 @@
       "labels": []
     },
     {
-      "id": 169,
+      "id": 171,
       "categories": [
         "Other",
         "Tools"
@@ -6560,7 +6704,7 @@
       ]
     },
     {
-      "id": 170,
+      "id": 172,
       "categories": [
         "Tools",
         "Dashboard"
@@ -6589,7 +6733,7 @@
       ]
     },
     {
-      "id": 171,
+      "id": 173,
       "categories": [
         "Other",
         "Tools"
@@ -6635,7 +6779,7 @@
       ]
     },
     {
-      "id": 172,
+      "id": 174,
       "categories": [
         "Downloaders"
       ],
@@ -6712,7 +6856,7 @@
       ]
     },
     {
-      "id": 173,
+      "id": 175,
       "categories": [
         "edge"
       ],
@@ -6735,7 +6879,7 @@
       "name": "floating-license-server"
     },
     {
-      "id": 174,
+      "id": 176,
       "categories": [
         "Downloaders"
       ],
@@ -6752,7 +6896,7 @@
       "labels": []
     },
     {
-      "id": 175,
+      "id": 177,
       "categories": [
         "AI",
         "LLM"
@@ -6770,7 +6914,7 @@
       "labels": []
     },
     {
-      "id": 176,
+      "id": 178,
       "categories": [
         "Downloaders",
         "Tools"
@@ -6809,7 +6953,7 @@
       ]
     },
     {
-      "id": 177,
+      "id": 179,
       "categories": [
         "Games"
       ],
@@ -6859,7 +7003,7 @@
       ]
     },
     {
-      "id": 178,
+      "id": 180,
       "categories": [
         "Science"
       ],
@@ -6927,7 +7071,7 @@
       ]
     },
     {
-      "id": 179,
+      "id": 181,
       "categories": [
         "Development",
         "Version Control"
@@ -6967,7 +7111,7 @@
       ]
     },
     {
-      "id": 180,
+      "id": 182,
       "categories": [
         "Other",
         "Games"
@@ -7019,7 +7163,7 @@
       ]
     },
     {
-      "id": 181,
+      "id": 183,
       "categories": [
         "Dashboard",
         "IOT"
@@ -7045,7 +7189,7 @@
       ]
     },
     {
-      "id": 182,
+      "id": 184,
       "categories": [
         "3D Modeling"
       ],
@@ -7095,7 +7239,7 @@
       ]
     },
     {
-      "id": 183,
+      "id": 185,
       "categories": [
         "Helpdesk"
       ],
@@ -7112,7 +7256,7 @@
       "labels": []
     },
     {
-      "id": 184,
+      "id": 186,
       "categories": [
         "RSS"
       ],
@@ -7161,7 +7305,7 @@
       ]
     },
     {
-      "id": 185,
+      "id": 187,
       "categories": [
         "Video",
         "AI"
@@ -7179,7 +7323,7 @@
       "labels": []
     },
     {
-      "id": 186,
+      "id": 188,
       "categories": [
         "Audio",
         "Multimedia"
@@ -7197,7 +7341,7 @@
       "labels": []
     },
     {
-      "id": 187,
+      "id": 189,
       "categories": [
         "RSS"
       ],
@@ -7213,7 +7357,7 @@
       "labels": []
     },
     {
-      "id": 188,
+      "id": 190,
       "categories": [
         "Ops",
         "Mes",
@@ -7307,7 +7451,7 @@
       "name": "fuuz-device-gateway"
     },
     {
-      "id": 189,
+      "id": 191,
       "categories": [
         "Ops",
         "Mes",
@@ -7532,7 +7676,7 @@
       "name": "fuuz-in-house-trial"
     },
     {
-      "id": 190,
+      "id": 192,
       "categories": [
         "Tools",
         "Network Web",
@@ -7559,7 +7703,7 @@
       "labels": []
     },
     {
-      "id": 191,
+      "id": 193,
       "categories": [
         "Social",
         "Events"
@@ -7577,7 +7721,7 @@
       "labels": []
     },
     {
-      "id": 192,
+      "id": 194,
       "categories": [
         "Monitoring",
         "Networking"
@@ -7606,7 +7750,7 @@
       ]
     },
     {
-      "id": 193,
+      "id": 195,
       "categories": [
         "Web",
         "Books",
@@ -7650,7 +7794,7 @@
       "name": "gazee"
     },
     {
-      "id": 194,
+      "id": 196,
       "categories": [
         "Other",
         "Tools"
@@ -7692,7 +7836,7 @@
       ]
     },
     {
-      "id": 195,
+      "id": 197,
       "categories": [
         "Other"
       ],
@@ -7747,7 +7891,7 @@
       ]
     },
     {
-      "id": 196,
+      "id": 198,
       "categories": [
         "Image Editor"
       ],
@@ -7797,7 +7941,7 @@
       ]
     },
     {
-      "id": 197,
+      "id": 199,
       "categories": [
         "Web",
         "Tools"
@@ -7848,7 +7992,7 @@
       ]
     },
     {
-      "id": 198,
+      "id": 200,
       "categories": [
         "Programming"
       ],
@@ -7898,7 +8042,7 @@
       ]
     },
     {
-      "id": 199,
+      "id": 201,
       "categories": [
         "Development",
         "Project Management"
@@ -7930,7 +8074,7 @@
       "name": "gitlab-ce"
     },
     {
-      "id": 200,
+      "id": 202,
       "categories": [
         "Programming"
       ],
@@ -7980,7 +8124,7 @@
       ]
     },
     {
-      "id": 201,
+      "id": 203,
       "categories": [
         "Dashboard",
         "Monitoring"
@@ -8009,7 +8153,7 @@
       ]
     },
     {
-      "id": 202,
+      "id": 204,
       "categories": [
         "Monitoring"
       ],
@@ -8026,7 +8170,7 @@
       "labels": []
     },
     {
-      "id": 203,
+      "id": 205,
       "categories": [
         "Proxy"
       ],
@@ -8049,7 +8193,7 @@
       ]
     },
     {
-      "id": 204,
+      "id": 206,
       "categories": [
         "Personal Finance"
       ],
@@ -8065,7 +8209,7 @@
       "labels": []
     },
     {
-      "id": 205,
+      "id": 207,
       "categories": [
         "Cloud"
       ],
@@ -8082,7 +8226,7 @@
       "labels": []
     },
     {
-      "id": 206,
+      "id": 208,
       "categories": [
         "Tools",
         "Documents"
@@ -8105,7 +8249,7 @@
       ]
     },
     {
-      "id": 207,
+      "id": 209,
       "categories": [
         "Other",
         "Tools"
@@ -8152,7 +8296,7 @@
       ]
     },
     {
-      "id": 208,
+      "id": 210,
       "categories": [
         "Social",
         "Fediverse"
@@ -8202,7 +8346,7 @@
       ]
     },
     {
-      "id": 209,
+      "id": 211,
       "categories": [
         "Monitor",
         "Tools"
@@ -8229,7 +8373,7 @@
       ]
     },
     {
-      "id": 210,
+      "id": 212,
       "categories": [
         "edge"
       ],
@@ -8256,7 +8400,7 @@
       "name": "grafana-dashboard"
     },
     {
-      "id": 211,
+      "id": 213,
       "categories": [
         "Content Management"
       ],
@@ -8305,7 +8449,7 @@
       ]
     },
     {
-      "id": 212,
+      "id": 214,
       "categories": [
         "Recipes"
       ],
@@ -8354,7 +8498,7 @@
       ]
     },
     {
-      "id": 213,
+      "id": 215,
       "categories": [
         "Other",
         "Tools",
@@ -8399,10 +8543,10 @@
       ]
     },
     {
-      "id": 214,
+      "id": 216,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -8429,7 +8573,7 @@
       ]
     },
     {
-      "id": 215,
+      "id": 217,
       "categories": [
         "Games"
       ],
@@ -8479,7 +8623,7 @@
       ]
     },
     {
-      "id": 216,
+      "id": 218,
       "categories": [
         "Home Automation"
       ],
@@ -8535,7 +8679,7 @@
       ]
     },
     {
-      "id": 217,
+      "id": 219,
       "categories": [
         "Media Management"
       ],
@@ -8585,7 +8729,7 @@
       ]
     },
     {
-      "id": 218,
+      "id": 220,
       "categories": [
         "Productivity"
       ],
@@ -8601,7 +8745,7 @@
       "labels": []
     },
     {
-      "id": 219,
+      "id": 221,
       "categories": [
         "Tracking"
       ],
@@ -8618,7 +8762,7 @@
       "labels": []
     },
     {
-      "id": 220,
+      "id": 222,
       "categories": [
         "Music"
       ],
@@ -8666,7 +8810,7 @@
       ]
     },
     {
-      "id": 221,
+      "id": 223,
       "categories": [
         "Monitoring"
       ],
@@ -8830,7 +8974,7 @@
       ]
     },
     {
-      "id": 222,
+      "id": 224,
       "categories": [
         "Content Management"
       ],
@@ -8945,7 +9089,7 @@
       ]
     },
     {
-      "id": 223,
+      "id": 225,
       "categories": [
         "Dashboard"
       ],
@@ -9001,7 +9145,7 @@
       ]
     },
     {
-      "id": 224,
+      "id": 226,
       "categories": [
         "Web Browser"
       ],
@@ -9057,7 +9201,7 @@
       ]
     },
     {
-      "id": 225,
+      "id": 227,
       "categories": [
         "Administration"
       ],
@@ -9118,7 +9262,7 @@
       ]
     },
     {
-      "id": 226,
+      "id": 228,
       "categories": [
         "AI",
         "Productivity",
@@ -9160,7 +9304,7 @@
       ]
     },
     {
-      "id": 227,
+      "id": 229,
       "categories": [
         "Bookmarks"
       ],
@@ -9177,7 +9321,7 @@
       "labels": []
     },
     {
-      "id": 228,
+      "id": 230,
       "categories": [
         "Tools",
         "Web",
@@ -9228,7 +9372,7 @@
       ]
     },
     {
-      "id": 229,
+      "id": 231,
       "categories": [
         "Tools",
         "Web",
@@ -9275,7 +9419,7 @@
       ]
     },
     {
-      "id": 230,
+      "id": 232,
       "categories": [
         "Home Automation"
       ],
@@ -9324,7 +9468,7 @@
       ]
     },
     {
-      "id": 231,
+      "id": 233,
       "categories": [
         "Inventory",
         "Productivity"
@@ -9358,7 +9502,7 @@
       ]
     },
     {
-      "id": 232,
+      "id": 234,
       "categories": [
         "Homeautomation"
       ],
@@ -9412,7 +9556,7 @@
       ]
     },
     {
-      "id": 233,
+      "id": 235,
       "categories": [
         "Homeautomation"
       ],
@@ -9466,7 +9610,7 @@
       ]
     },
     {
-      "id": 234,
+      "id": 236,
       "categories": [
         "Tools"
       ],
@@ -9483,7 +9627,7 @@
       "labels": []
     },
     {
-      "id": 235,
+      "id": 237,
       "categories": [
         "Monitoring",
         "Homelab"
@@ -9527,7 +9671,7 @@
       ]
     },
     {
-      "id": 236,
+      "id": 238,
       "categories": [
         "Tools",
         "Network Web",
@@ -9577,10 +9721,10 @@
       "labels": []
     },
     {
-      "id": 237,
+      "id": 239,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "env": [
@@ -9623,7 +9767,7 @@
       ]
     },
     {
-      "id": 238,
+      "id": 240,
       "categories": [
         "Media Tools"
       ],
@@ -9672,7 +9816,7 @@
       ]
     },
     {
-      "id": 239,
+      "id": 241,
       "categories": [
         "Webserver"
       ],
@@ -9694,7 +9838,7 @@
       "name": "httpd"
     },
     {
-      "id": 240,
+      "id": 242,
       "categories": [
         "Other",
         "Tools"
@@ -9724,7 +9868,7 @@
       ]
     },
     {
-      "id": 241,
+      "id": 243,
       "categories": [
         "Downloaders",
         "Other",
@@ -9771,7 +9915,7 @@
       "name": "hydra2"
     },
     {
-      "id": 242,
+      "id": 244,
       "categories": [
         "Finance"
       ],
@@ -9787,7 +9931,7 @@
       "labels": []
     },
     {
-      "id": 243,
+      "id": 245,
       "categories": [
         "Photos",
         "Backup"
@@ -9863,7 +10007,7 @@
       "labels": []
     },
     {
-      "id": 244,
+      "id": 246,
       "categories": [
         "edge"
       ],
@@ -9925,7 +10069,7 @@
       "name": "inductive-automation---ignition-gateway"
     },
     {
-      "id": 245,
+      "id": 247,
       "categories": [
         "Secrets",
         "Management"
@@ -10167,7 +10311,7 @@
       ]
     },
     {
-      "id": 246,
+      "id": 248,
       "categories": [
         "Database"
       ],
@@ -10184,7 +10328,7 @@
       "labels": []
     },
     {
-      "id": 247,
+      "id": 249,
       "categories": [
         "Database",
         "Metrics"
@@ -10202,7 +10346,7 @@
       "labels": []
     },
     {
-      "id": 248,
+      "id": 250,
       "categories": [
         "Other",
         "Tools"
@@ -10237,7 +10381,7 @@
       ]
     },
     {
-      "id": 249,
+      "id": 251,
       "categories": [
         "edge"
       ],
@@ -10273,7 +10417,7 @@
       "name": "influxdb-for-edge"
     },
     {
-      "id": 250,
+      "id": 252,
       "categories": [
         "3D Modeling"
       ],
@@ -10323,7 +10467,7 @@
       ]
     },
     {
-      "id": 251,
+      "id": 253,
       "categories": [
         "Programming"
       ],
@@ -10373,7 +10517,7 @@
       ]
     },
     {
-      "id": 252,
+      "id": 254,
       "categories": [
         "Multimedia"
       ],
@@ -10390,7 +10534,7 @@
       "labels": []
     },
     {
-      "id": 253,
+      "id": 255,
       "categories": [
         "Cloud",
         "Productivity",
@@ -10439,7 +10583,7 @@
       "labels": []
     },
     {
-      "id": 254,
+      "id": 256,
       "categories": [
         "Homeautomation"
       ],
@@ -10480,7 +10624,7 @@
       ]
     },
     {
-      "id": 255,
+      "id": 257,
       "categories": [
         "Network"
       ],
@@ -10496,7 +10640,7 @@
       "labels": []
     },
     {
-      "id": 256,
+      "id": 258,
       "categories": [
         "Serverless"
       ],
@@ -10514,7 +10658,7 @@
       "name": "ironfunctions"
     },
     {
-      "id": 257,
+      "id": 259,
       "categories": [
         "Serverless"
       ],
@@ -10537,7 +10681,7 @@
       "name": "ironfunctions-api"
     },
     {
-      "id": 258,
+      "id": 260,
       "categories": [
         "Serverless"
       ],
@@ -10566,7 +10710,7 @@
       "name": "ironfunctions-ui"
     },
     {
-      "id": 259,
+      "id": 261,
       "categories": [
         "Tools",
         "Productivity"
@@ -10589,7 +10733,7 @@
       ]
     },
     {
-      "id": 260,
+      "id": 262,
       "categories": [
         "Indexers"
       ],
@@ -10654,7 +10798,7 @@
       ]
     },
     {
-      "id": 261,
+      "id": 263,
       "categories": [
         "Downloaders",
         "Tools"
@@ -10705,10 +10849,10 @@
       ]
     },
     {
-      "id": 262,
+      "id": 264,
       "categories": [
-        "Music",
         "Media Servers",
+        "Music",
         "Audiobooks"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
@@ -10773,7 +10917,7 @@
       ]
     },
     {
-      "id": 263,
+      "id": 265,
       "categories": [
         "Video",
         "Music",
@@ -10814,7 +10958,7 @@
       ]
     },
     {
-      "id": 264,
+      "id": 266,
       "categories": [
         "Entertainment"
       ],
@@ -10831,7 +10975,7 @@
       "labels": []
     },
     {
-      "id": 265,
+      "id": 267,
       "categories": [
         "Other",
         "Tools"
@@ -10872,7 +11016,7 @@
       ]
     },
     {
-      "id": 266,
+      "id": 268,
       "categories": [
         "Continuous Integration"
       ],
@@ -10901,7 +11045,7 @@
       "name": "jenkins"
     },
     {
-      "id": 267,
+      "id": 269,
       "categories": [
         "CMS"
       ],
@@ -10933,7 +11077,7 @@
       "name": "joomla"
     },
     {
-      "id": 268,
+      "id": 270,
       "categories": [
         "Content Management"
       ],
@@ -10983,7 +11127,7 @@
       ]
     },
     {
-      "id": 269,
+      "id": 271,
       "categories": [
         "Dashboard"
       ],
@@ -10999,10 +11143,10 @@
       "labels": []
     },
     {
-      "id": 270,
+      "id": 272,
       "categories": [
-        "Remote Desktop",
-        "Security"
+        "Security",
+        "Remote Desktop"
       ],
       "description": "[Kali-linux](https://github.com/linuxserver/docker-kali-linux) - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.",
       "env": [
@@ -11050,7 +11194,7 @@
       ]
     },
     {
-      "id": 271,
+      "id": 273,
       "categories": [
         "Ebooks",
         "Comics"
@@ -11067,7 +11211,7 @@
       "labels": []
     },
     {
-      "id": 272,
+      "id": 274,
       "categories": [
         "Business",
         "Remote Desktop"
@@ -11137,7 +11281,7 @@
       ]
     },
     {
-      "id": 273,
+      "id": 275,
       "categories": [
         "Productivity"
       ],
@@ -11154,7 +11298,7 @@
       "labels": []
     },
     {
-      "id": 274,
+      "id": 276,
       "categories": [
         "Books"
       ],
@@ -11207,7 +11351,7 @@
       ]
     },
     {
-      "id": 275,
+      "id": 277,
       "categories": [
         "Video Editor"
       ],
@@ -11257,7 +11401,7 @@
       ]
     },
     {
-      "id": 276,
+      "id": 278,
       "categories": [
         "Password Manager"
       ],
@@ -11307,7 +11451,7 @@
       ]
     },
     {
-      "id": 277,
+      "id": 279,
       "categories": [
         "Automation",
         "Orchestration"
@@ -11325,7 +11469,7 @@
       "labels": []
     },
     {
-      "id": 278,
+      "id": 280,
       "categories": [
         "3D Modeling"
       ],
@@ -11375,10 +11519,10 @@
       ]
     },
     {
-      "id": 279,
+      "id": 281,
       "categories": [
-        "Finance",
-        "Business"
+        "Business",
+        "Finance"
       ],
       "description": "[Kimai](https://kimai.org/) is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to: JSON API, invoicing, data exports, multi-timer and punch-in punch-out mode, tagging, multi-user - multi-timezones - multi-language ([over 30 translations existing](https://hosted.weblate.org/projects/kimai/)!), authentication via SAML/LDAP/Database, two-factor authentication (2FA) with TOTP, customizable role and team permissions, responsive design, user/customer/project specific rates, advanced search & filtering, money and time budgets, advanced reporting, support for [plugins](https://www.kimai.org/store/) and so much more.",
       "env": [
@@ -11450,7 +11594,7 @@
       ]
     },
     {
-      "id": 280,
+      "id": 282,
       "categories": [
         "Offline"
       ],
@@ -11467,7 +11611,7 @@
       "labels": []
     },
     {
-      "id": 281,
+      "id": 283,
       "categories": [
         "Documents",
         "Network Other",
@@ -11508,7 +11652,7 @@
       "labels": []
     },
     {
-      "id": 282,
+      "id": 284,
       "categories": [
         "Other",
         "3D Printers",
@@ -11540,7 +11684,7 @@
       ]
     },
     {
-      "id": 283,
+      "id": 285,
       "categories": [
         "Video"
       ],
@@ -11583,7 +11727,7 @@
       ]
     },
     {
-      "id": 284,
+      "id": 286,
       "categories": [
         "Tools"
       ],
@@ -11616,7 +11760,7 @@
       "labels": []
     },
     {
-      "id": 285,
+      "id": 287,
       "categories": [
         "Media Management"
       ],
@@ -11695,7 +11839,7 @@
       ]
     },
     {
-      "id": 286,
+      "id": 288,
       "categories": [
         "Books",
         "Tools"
@@ -11734,7 +11878,7 @@
       ]
     },
     {
-      "id": 287,
+      "id": 289,
       "categories": [
         "Image Editor"
       ],
@@ -11784,7 +11928,7 @@
       ]
     },
     {
-      "id": 288,
+      "id": 290,
       "categories": [
         "Books"
       ],
@@ -11847,7 +11991,7 @@
       ]
     },
     {
-      "id": 289,
+      "id": 291,
       "categories": [
         "Docker"
       ],
@@ -11863,7 +12007,7 @@
       "labels": []
     },
     {
-      "id": 290,
+      "id": 292,
       "categories": [
         "Security",
         "Administration"
@@ -11932,7 +12076,7 @@
       ]
     },
     {
-      "id": 291,
+      "id": 293,
       "categories": [
         "Productivity"
       ],
@@ -11949,7 +12093,7 @@
       "labels": []
     },
     {
-      "id": 292,
+      "id": 294,
       "categories": [
         "Tools",
         "Web"
@@ -12033,7 +12177,7 @@
       ]
     },
     {
-      "id": 293,
+      "id": 295,
       "categories": [
         "Tools",
         "Web"
@@ -12118,7 +12262,7 @@
       ]
     },
     {
-      "id": 294,
+      "id": 296,
       "categories": [
         "Other",
         "Tools"
@@ -12148,7 +12292,7 @@
       ]
     },
     {
-      "id": 295,
+      "id": 297,
       "categories": [
         "Documents"
       ],
@@ -12198,7 +12342,7 @@
       ]
     },
     {
-      "id": 296,
+      "id": 298,
       "categories": [
         "Music"
       ],
@@ -12258,7 +12402,7 @@
       "name": "libresonic"
     },
     {
-      "id": 297,
+      "id": 299,
       "categories": [
         "Monitoring"
       ],
@@ -12361,7 +12505,7 @@
       ]
     },
     {
-      "id": 298,
+      "id": 300,
       "categories": [
         "Web Browser"
       ],
@@ -12417,7 +12561,7 @@
       ]
     },
     {
-      "id": 299,
+      "id": 301,
       "categories": [
         "Media Management",
         "Music"
@@ -12475,7 +12619,7 @@
       ]
     },
     {
-      "id": 300,
+      "id": 302,
       "categories": [
         "Media"
       ],
@@ -12492,7 +12636,7 @@
       "labels": []
     },
     {
-      "id": 301,
+      "id": 303,
       "categories": [
         "Irc",
         "IRC"
@@ -12542,7 +12686,7 @@
       ]
     },
     {
-      "id": 302,
+      "id": 304,
       "categories": [
         "Bookmarks",
         "Productivity"
@@ -12586,7 +12730,7 @@
       ]
     },
     {
-      "id": 303,
+      "id": 305,
       "categories": [
         "Social"
       ],
@@ -12603,7 +12747,7 @@
       "labels": []
     },
     {
-      "id": 304,
+      "id": 306,
       "categories": [
         "Email",
         "Marketing"
@@ -12632,7 +12776,7 @@
       "labels": []
     },
     {
-      "id": 305,
+      "id": 307,
       "categories": [
         "edge"
       ],
@@ -12649,7 +12793,7 @@
       "name": "litmus-edge"
     },
     {
-      "id": 306,
+      "id": 308,
       "categories": [
         "edge"
       ],
@@ -12666,7 +12810,7 @@
       "name": "litmus-edge-digital-factory-demo"
     },
     {
-      "id": 307,
+      "id": 309,
       "categories": [
         "Social"
       ],
@@ -12686,7 +12830,7 @@
       "labels": []
     },
     {
-      "id": 308,
+      "id": 310,
       "categories": [
         "Media"
       ],
@@ -12709,7 +12853,7 @@
       "name": "liveswitch-(stack)"
     },
     {
-      "id": 309,
+      "id": 311,
       "categories": [
         "Media"
       ],
@@ -12732,7 +12876,7 @@
       "name": "liveswitch-(swarm)"
     },
     {
-      "id": 310,
+      "id": 312,
       "categories": [
         "Tools",
         "Productivity"
@@ -12780,10 +12924,10 @@
       ]
     },
     {
-      "id": 311,
+      "id": 313,
       "categories": [
-        "Remote Desktop",
-        "AI"
+        "AI",
+        "Remote Desktop"
       ],
       "description": "[LM Studio](https://lmstudio.ai/) can run local AI models like gpt-oss, Llama, Gemma, Qwen, and DeepSeek privately on your computer.",
       "env": [
@@ -12831,7 +12975,7 @@
       ]
     },
     {
-      "id": 312,
+      "id": 314,
       "categories": [
         "Monitoring",
         "Logs"
@@ -12849,7 +12993,7 @@
       "labels": []
     },
     {
-      "id": 313,
+      "id": 315,
       "categories": [
         "Tools"
       ],
@@ -12888,7 +13032,7 @@
       "labels": []
     },
     {
-      "id": 314,
+      "id": 316,
       "categories": [
         "Tools"
       ],
@@ -12938,7 +13082,7 @@
       "labels": []
     },
     {
-      "id": 315,
+      "id": 317,
       "categories": [
         "Music"
       ],
@@ -12988,7 +13132,7 @@
       ]
     },
     {
-      "id": 316,
+      "id": 318,
       "categories": [
         "Games"
       ],
@@ -13043,7 +13187,7 @@
       ]
     },
     {
-      "id": 317,
+      "id": 319,
       "categories": [
         "Analytics"
       ],
@@ -13060,7 +13204,7 @@
       "labels": []
     },
     {
-      "id": 318,
+      "id": 320,
       "categories": [
         "Photos"
       ],
@@ -13167,7 +13311,7 @@
       ]
     },
     {
-      "id": 319,
+      "id": 321,
       "categories": [
         "Development",
         "Productivity"
@@ -13201,7 +13345,7 @@
       "labels": []
     },
     {
-      "id": 320,
+      "id": 322,
       "categories": [
         "edge"
       ],
@@ -13219,7 +13363,7 @@
       "name": "maestrohub"
     },
     {
-      "id": 321,
+      "id": 323,
       "categories": [
         "CMS"
       ],
@@ -13243,7 +13387,7 @@
       "name": "magento-2"
     },
     {
-      "id": 322,
+      "id": 324,
       "categories": [
         "Email"
       ],
@@ -13260,7 +13404,7 @@
       "labels": []
     },
     {
-      "id": 323,
+      "id": 325,
       "categories": [
         "Music"
       ],
@@ -13301,7 +13445,7 @@
       ]
     },
     {
-      "id": 324,
+      "id": 326,
       "categories": [
         "Games"
       ],
@@ -13355,7 +13499,7 @@
       ]
     },
     {
-      "id": 325,
+      "id": 327,
       "categories": [
         "edge"
       ],
@@ -13389,7 +13533,7 @@
       "name": "manubes-edge-node"
     },
     {
-      "id": 326,
+      "id": 328,
       "categories": [
         "3D Printing"
       ],
@@ -13460,7 +13604,7 @@
       ]
     },
     {
-      "id": 327,
+      "id": 329,
       "categories": [
         "Databases"
       ],
@@ -13545,7 +13689,7 @@
       ]
     },
     {
-      "id": 328,
+      "id": 330,
       "categories": [
         "Notes"
       ],
@@ -13561,7 +13705,7 @@
       "labels": []
     },
     {
-      "id": 329,
+      "id": 331,
       "categories": [
         "News"
       ],
@@ -13577,7 +13721,7 @@
       "labels": []
     },
     {
-      "id": 330,
+      "id": 332,
       "categories": [
         "Social"
       ],
@@ -13856,7 +14000,7 @@
       ]
     },
     {
-      "id": 331,
+      "id": 333,
       "categories": [
         "Social"
       ],
@@ -13873,7 +14017,7 @@
       "labels": []
     },
     {
-      "id": 332,
+      "id": 334,
       "categories": [
         "Analytics"
       ],
@@ -13893,7 +14037,7 @@
       "labels": []
     },
     {
-      "id": 333,
+      "id": 335,
       "categories": [
         "Marketing"
       ],
@@ -13925,7 +14069,7 @@
       "name": "mautic-(container)"
     },
     {
-      "id": 334,
+      "id": 336,
       "categories": [
         "marketing"
       ],
@@ -13957,7 +14101,7 @@
       "name": "mautic"
     },
     {
-      "id": 335,
+      "id": 337,
       "categories": [
         "Documents",
         "Tools"
@@ -13975,7 +14119,7 @@
       "labels": []
     },
     {
-      "id": 336,
+      "id": 338,
       "categories": [
         "Other"
       ],
@@ -14015,7 +14159,7 @@
       ]
     },
     {
-      "id": 337,
+      "id": 339,
       "categories": [
         "Other",
         "Tools"
@@ -14102,7 +14246,7 @@
       ]
     },
     {
-      "id": 338,
+      "id": 340,
       "categories": [
         "Analytics"
       ],
@@ -14119,7 +14263,7 @@
       "labels": []
     },
     {
-      "id": 339,
+      "id": 341,
       "categories": [
         "Media Management"
       ],
@@ -14169,7 +14313,7 @@
       ]
     },
     {
-      "id": 340,
+      "id": 342,
       "categories": [
         "Media Management"
       ],
@@ -14226,7 +14370,7 @@
       ]
     },
     {
-      "id": 341,
+      "id": 343,
       "categories": [
         "Downloaders",
         "Video"
@@ -14274,7 +14418,7 @@
       ]
     },
     {
-      "id": 342,
+      "id": 344,
       "categories": [
         "Search"
       ],
@@ -14291,7 +14435,7 @@
       "labels": []
     },
     {
-      "id": 343,
+      "id": 345,
       "categories": [
         "Games"
       ],
@@ -14341,7 +14485,7 @@
       ]
     },
     {
-      "id": 344,
+      "id": 346,
       "categories": [
         "Remote Control"
       ],
@@ -14358,7 +14502,7 @@
       "labels": []
     },
     {
-      "id": 345,
+      "id": 347,
       "categories": [
         "Downloader"
       ],
@@ -14399,7 +14543,7 @@
       ]
     },
     {
-      "id": 346,
+      "id": 348,
       "categories": [
         "Ops"
       ],
@@ -14428,7 +14572,7 @@
       "name": "microsoft-oms-agent"
     },
     {
-      "id": 347,
+      "id": 349,
       "categories": [
         "Multimedia"
       ],
@@ -14445,7 +14589,7 @@
       "labels": []
     },
     {
-      "id": 348,
+      "id": 350,
       "categories": [
         "Other",
         "Tools",
@@ -14483,7 +14627,7 @@
       ]
     },
     {
-      "id": 349,
+      "id": 351,
       "categories": [
         "Other"
       ],
@@ -14522,7 +14666,7 @@
       ]
     },
     {
-      "id": 350,
+      "id": 352,
       "categories": [
         "Feed Reader"
       ],
@@ -14538,7 +14682,7 @@
       "labels": []
     },
     {
-      "id": 351,
+      "id": 353,
       "categories": [
         "Other",
         "Tools"
@@ -14598,7 +14742,7 @@
       ]
     },
     {
-      "id": 352,
+      "id": 354,
       "categories": [
         "Media Tools"
       ],
@@ -14655,7 +14799,7 @@
       ]
     },
     {
-      "id": 353,
+      "id": 355,
       "categories": [
         "Docker"
       ],
@@ -14704,7 +14848,7 @@
       ]
     },
     {
-      "id": 354,
+      "id": 356,
       "categories": [
         "Games"
       ],
@@ -14754,7 +14898,7 @@
       ]
     },
     {
-      "id": 355,
+      "id": 357,
       "categories": [
         "Database"
       ],
@@ -14776,7 +14920,7 @@
       "name": "mongo"
     },
     {
-      "id": 356,
+      "id": 358,
       "categories": [
         "Social"
       ],
@@ -14793,7 +14937,7 @@
       "labels": []
     },
     {
-      "id": 357,
+      "id": 359,
       "categories": [
         "Learning"
       ],
@@ -14810,7 +14954,7 @@
       "labels": []
     },
     {
-      "id": 358,
+      "id": 360,
       "categories": [
         "Tools"
       ],
@@ -14865,7 +15009,7 @@
       "labels": []
     },
     {
-      "id": 359,
+      "id": 361,
       "categories": [
         "Web Browser"
       ],
@@ -14921,10 +15065,10 @@
       ]
     },
     {
-      "id": 360,
+      "id": 362,
       "categories": [
-        "Music",
-        "Media Servers"
+        "Media Servers",
+        "Music"
       ],
       "description": "[Mstream](https://mstream.io/) is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.",
       "env": [
@@ -14975,7 +15119,7 @@
       ]
     },
     {
-      "id": 361,
+      "id": 363,
       "categories": [
         "Web Browser",
         "VPN"
@@ -15032,7 +15176,7 @@
       ]
     },
     {
-      "id": 362,
+      "id": 364,
       "categories": [
         "Other",
         "Voice",
@@ -15093,7 +15237,7 @@
       ]
     },
     {
-      "id": 363,
+      "id": 365,
       "categories": [
         "Music",
         "Other",
@@ -15152,7 +15296,7 @@
       "name": "musicbrainz"
     },
     {
-      "id": 364,
+      "id": 366,
       "categories": [
         "Web",
         "Proxy",
@@ -15195,7 +15339,7 @@
       ]
     },
     {
-      "id": 365,
+      "id": 367,
       "categories": [
         "Downloaders",
         "Books"
@@ -15244,7 +15388,7 @@
       ]
     },
     {
-      "id": 366,
+      "id": 368,
       "categories": [
         "Media Management",
         "Books"
@@ -15302,7 +15446,7 @@
       ]
     },
     {
-      "id": 367,
+      "id": 369,
       "categories": [
         "Database"
       ],
@@ -15335,7 +15479,7 @@
       "name": "mysql"
     },
     {
-      "id": 368,
+      "id": 370,
       "categories": [
         "Databases"
       ],
@@ -15385,7 +15529,7 @@
       ]
     },
     {
-      "id": 369,
+      "id": 371,
       "categories": [
         "Other",
         "Tools"
@@ -15432,7 +15576,7 @@
       ]
     },
     {
-      "id": 370,
+      "id": 372,
       "categories": [
         "Multimedia",
         "Music"
@@ -15466,7 +15610,7 @@
       "labels": []
     },
     {
-      "id": 371,
+      "id": 373,
       "categories": [
         "Other"
       ],
@@ -15483,7 +15627,7 @@
       "labels": []
     },
     {
-      "id": 372,
+      "id": 374,
       "categories": [
         "Network"
       ],
@@ -15500,7 +15644,7 @@
       "labels": []
     },
     {
-      "id": 373,
+      "id": 375,
       "categories": [
         "Downloaders",
         "Network Other",
@@ -15549,7 +15693,7 @@
       "labels": []
     },
     {
-      "id": 374,
+      "id": 376,
       "categories": [
         "Development"
       ],
@@ -15566,7 +15710,7 @@
       "labels": []
     },
     {
-      "id": 375,
+      "id": 377,
       "categories": [
         "Business",
         "Administration"
@@ -15748,7 +15892,7 @@
       ]
     },
     {
-      "id": 376,
+      "id": 378,
       "categories": [
         "Other",
         "Tools"
@@ -15814,10 +15958,10 @@
       ]
     },
     {
-      "id": 377,
+      "id": 379,
       "categories": [
-        "Documents",
-        "Cloud"
+        "Cloud",
+        "Documents"
       ],
       "description": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are. Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
       "env": [
@@ -15868,7 +16012,7 @@
       ]
     },
     {
-      "id": 378,
+      "id": 380,
       "categories": [
         "Cloud",
         "Productivity",
@@ -15918,7 +16062,7 @@
       "labels": []
     },
     {
-      "id": 379,
+      "id": 381,
       "categories": [
         "Cloud"
       ],
@@ -15948,7 +16092,7 @@
       "name": "nextcloudstack-(swarm)"
     },
     {
-      "id": 380,
+      "id": 382,
       "categories": [
         "Remote Control"
       ],
@@ -15965,7 +16109,7 @@
       "labels": []
     },
     {
-      "id": 381,
+      "id": 383,
       "categories": [
         "Reverse Proxy"
       ],
@@ -16027,7 +16171,7 @@
       ]
     },
     {
-      "id": 382,
+      "id": 384,
       "categories": [
         "Proxy",
         "Tools"
@@ -16069,7 +16213,7 @@
       ]
     },
     {
-      "id": 383,
+      "id": 385,
       "categories": [
         "Proxy",
         "Tools",
@@ -16097,7 +16241,7 @@
       ]
     },
     {
-      "id": 384,
+      "id": 386,
       "categories": [
         "Proxy",
         "Tools"
@@ -16168,7 +16312,7 @@
       ]
     },
     {
-      "id": 385,
+      "id": 387,
       "categories": [
         "Proxy",
         "Tools"
@@ -16221,7 +16365,7 @@
       ]
     },
     {
-      "id": 386,
+      "id": 388,
       "categories": [
         "Proxy",
         "Tools"
@@ -16270,7 +16414,7 @@
       ]
     },
     {
-      "id": 387,
+      "id": 389,
       "categories": [
         "Irc",
         "IRC"
@@ -16320,7 +16464,7 @@
       ]
     },
     {
-      "id": 388,
+      "id": 390,
       "categories": [
         "Other",
         "Tools",
@@ -16345,7 +16489,7 @@
       ]
     },
     {
-      "id": 389,
+      "id": 391,
       "categories": [
         "Productivity",
         "Development",
@@ -16364,7 +16508,7 @@
       "labels": []
     },
     {
-      "id": 390,
+      "id": 392,
       "categories": [
         "Other",
         "Web",
@@ -16404,7 +16548,7 @@
       ]
     },
     {
-      "id": 391,
+      "id": 393,
       "categories": [
         "Development"
       ],
@@ -16420,7 +16564,7 @@
       "name": "nodejs"
     },
     {
-      "id": 392,
+      "id": 394,
       "categories": [
         "Other"
       ],
@@ -16491,7 +16635,7 @@
       ]
     },
     {
-      "id": 393,
+      "id": 395,
       "categories": [
         "Notifications",
         "Messaging"
@@ -16534,7 +16678,7 @@
       ]
     },
     {
-      "id": 394,
+      "id": 396,
       "categories": [
         "Other",
         "Tools"
@@ -16595,7 +16739,7 @@
       ]
     },
     {
-      "id": 395,
+      "id": 397,
       "categories": [
         "Metrics"
       ],
@@ -16612,7 +16756,7 @@
       "labels": []
     },
     {
-      "id": 396,
+      "id": 398,
       "categories": [
         "Network"
       ],
@@ -16639,7 +16783,7 @@
       ]
     },
     {
-      "id": 397,
+      "id": 399,
       "categories": [
         "Downloaders"
       ],
@@ -16704,7 +16848,7 @@
       ]
     },
     {
-      "id": 398,
+      "id": 400,
       "categories": [
         "Indexers"
       ],
@@ -16757,7 +16901,7 @@
       ]
     },
     {
-      "id": 399,
+      "id": 401,
       "categories": [
         "Content Management"
       ],
@@ -16807,7 +16951,7 @@
       ]
     },
     {
-      "id": 400,
+      "id": 402,
       "categories": [
         "Other",
         "Tools"
@@ -16854,7 +16998,7 @@
       ]
     },
     {
-      "id": 401,
+      "id": 403,
       "categories": [
         "Project Management"
       ],
@@ -16893,7 +17037,7 @@
       "name": "odoo"
     },
     {
-      "id": 402,
+      "id": 404,
       "categories": [
         "Management",
         "Tools"
@@ -16942,7 +17086,7 @@
       ]
     },
     {
-      "id": 403,
+      "id": 405,
       "categories": [
         "Media Requesters"
       ],
@@ -16997,7 +17141,7 @@
       ]
     },
     {
-      "id": 404,
+      "id": 406,
       "categories": [
         "Downloaders",
         "Other",
@@ -17039,7 +17183,7 @@
       ]
     },
     {
-      "id": 405,
+      "id": 407,
       "categories": [
         "Documents"
       ],
@@ -17089,7 +17233,7 @@
       ]
     },
     {
-      "id": 406,
+      "id": 408,
       "categories": [
         "edge"
       ],
@@ -17140,7 +17284,7 @@
       "name": "opc-router"
     },
     {
-      "id": 407,
+      "id": 409,
       "categories": [
         "Cloud"
       ],
@@ -17191,7 +17335,7 @@
       "name": "openamt"
     },
     {
-      "id": 408,
+      "id": 410,
       "categories": [
         "Finance"
       ],
@@ -17208,7 +17352,7 @@
       "labels": []
     },
     {
-      "id": 409,
+      "id": 411,
       "categories": [
         "Serverless"
       ],
@@ -17226,7 +17370,7 @@
       "labels": []
     },
     {
-      "id": 410,
+      "id": 412,
       "categories": [
         "Video Editor"
       ],
@@ -17276,7 +17420,7 @@
       ]
     },
     {
-      "id": 411,
+      "id": 413,
       "categories": [
         "Administration"
       ],
@@ -17385,7 +17529,7 @@
       ]
     },
     {
-      "id": 412,
+      "id": 414,
       "categories": [
         "Other"
       ],
@@ -17435,7 +17579,7 @@
       "name": "openvpn-as"
     },
     {
-      "id": 413,
+      "id": 415,
       "categories": [
         "Web Browser"
       ],
@@ -17491,7 +17635,7 @@
       ]
     },
     {
-      "id": 414,
+      "id": 416,
       "categories": [
         "Productivity",
         "Low Code"
@@ -17509,7 +17653,7 @@
       "labels": []
     },
     {
-      "id": 415,
+      "id": 417,
       "categories": [
         "3D Printing"
       ],
@@ -17559,10 +17703,10 @@
       ]
     },
     {
-      "id": 416,
+      "id": 418,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
       "env": [
@@ -17600,7 +17744,7 @@
       ]
     },
     {
-      "id": 417,
+      "id": 419,
       "categories": [
         "Identity Management",
         "Security"
@@ -17618,7 +17762,7 @@
       "labels": []
     },
     {
-      "id": 418,
+      "id": 420,
       "categories": [
         "Identity Management",
         "Access Proxy"
@@ -17636,7 +17780,7 @@
       "labels": []
     },
     {
-      "id": 419,
+      "id": 421,
       "categories": [
         "Media Tools"
       ],
@@ -17685,7 +17829,7 @@
       ]
     },
     {
-      "id": 420,
+      "id": 422,
       "categories": [
         "Productivity",
         "Social"
@@ -17748,7 +17892,7 @@
       ]
     },
     {
-      "id": 421,
+      "id": 423,
       "categories": [
         "Downloaders",
         "Network Other",
@@ -17798,7 +17942,7 @@
       "labels": []
     },
     {
-      "id": 422,
+      "id": 424,
       "categories": [
         "Tools"
       ],
@@ -17815,7 +17959,7 @@
       "labels": []
     },
     {
-      "id": 423,
+      "id": 425,
       "categories": [
         "Cloud",
         "Productivity",
@@ -17873,7 +18017,7 @@
       "labels": []
     },
     {
-      "id": 424,
+      "id": 426,
       "categories": [
         "File Sharing",
         "Networking"
@@ -17912,7 +18056,7 @@
       ]
     },
     {
-      "id": 425,
+      "id": 427,
       "categories": [
         "Cloud",
         "Management",
@@ -17987,7 +18131,7 @@
       ]
     },
     {
-      "id": 426,
+      "id": 428,
       "categories": [
         "Other",
         "Tools"
@@ -18109,7 +18253,7 @@
       ]
     },
     {
-      "id": 427,
+      "id": 429,
       "categories": [
         "Other",
         "Tools"
@@ -18132,7 +18276,7 @@
       ]
     },
     {
-      "id": 428,
+      "id": 430,
       "categories": [
         "Other",
         "Tools"
@@ -18173,7 +18317,7 @@
       ]
     },
     {
-      "id": 429,
+      "id": 431,
       "categories": [
         "Games"
       ],
@@ -18223,10 +18367,10 @@
       ]
     },
     {
-      "id": 430,
+      "id": 432,
       "categories": [
-        "Remote Desktop",
-        "AI"
+        "AI",
+        "Remote Desktop"
       ],
       "description": "[Pelorus](https://github.com/linuxserver/pelorus) is an AI navigator for Selkies-powered Linux desktops. Pelorus runs a FastAPI server that gives an LLM agent (Ollama, OpenAI-compatible, or Gemini) control over mouse, keyboard, screenshot, and window management via the [Pixelflux computer-use backend](https://github.com/linuxserver/pixelflux#computer-use-interface-wayland), a Linux accessibility tree (AT-SPI), and optional KWin D-Bus integration.",
       "env": [
@@ -18273,7 +18417,7 @@
       ]
     },
     {
-      "id": 431,
+      "id": 433,
       "categories": [
         "Graphic Design"
       ],
@@ -18341,7 +18485,7 @@
       "labels": []
     },
     {
-      "id": 432,
+      "id": 434,
       "categories": [
         "Other",
         "Tools"
@@ -18379,7 +18523,7 @@
       "labels": []
     },
     {
-      "id": 433,
+      "id": 435,
       "categories": [
         "Other",
         "Tools"
@@ -18436,7 +18580,7 @@
       ]
     },
     {
-      "id": 434,
+      "id": 436,
       "categories": [
         "Photos",
         "AI"
@@ -18454,7 +18598,7 @@
       "labels": []
     },
     {
-      "id": 435,
+      "id": 437,
       "categories": [
         "Photos"
       ],
@@ -18502,7 +18646,7 @@
       ]
     },
     {
-      "id": 436,
+      "id": 438,
       "categories": [
         "Databases"
       ],
@@ -18563,10 +18707,10 @@
       ]
     },
     {
-      "id": 437,
+      "id": 439,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -18601,7 +18745,7 @@
       ]
     },
     {
-      "id": 438,
+      "id": 440,
       "categories": [
         "Other",
         "Tools"
@@ -18639,7 +18783,7 @@
       ]
     },
     {
-      "id": 439,
+      "id": 441,
       "categories": [
         "Other",
         "Tools"
@@ -18716,7 +18860,7 @@
       ]
     },
     {
-      "id": 440,
+      "id": 442,
       "categories": [
         "Network"
       ],
@@ -18756,10 +18900,10 @@
       ]
     },
     {
-      "id": 441,
+      "id": 443,
       "categories": [
-        "IRC",
         "Irc",
+        "IRC",
         "Chat"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
@@ -18808,7 +18952,7 @@
       ]
     },
     {
-      "id": 442,
+      "id": 444,
       "categories": [
         "Multimedia"
       ],
@@ -18825,7 +18969,7 @@
       "labels": []
     },
     {
-      "id": 443,
+      "id": 445,
       "categories": [
         "File Browsers"
       ],
@@ -18842,7 +18986,7 @@
       "labels": []
     },
     {
-      "id": 444,
+      "id": 446,
       "categories": [
         "Machine Learning"
       ],
@@ -18933,7 +19077,7 @@
       ]
     },
     {
-      "id": 445,
+      "id": 447,
       "categories": [
         "Photos"
       ],
@@ -18986,7 +19130,7 @@
       ]
     },
     {
-      "id": 446,
+      "id": 448,
       "categories": [
         "Other"
       ],
@@ -19027,7 +19171,7 @@
       ]
     },
     {
-      "id": 447,
+      "id": 449,
       "categories": [
         "Project Management",
         "Productivity"
@@ -19045,10 +19189,10 @@
       "labels": []
     },
     {
-      "id": 448,
+      "id": 450,
       "categories": [
-        "Business",
-        "Content Management"
+        "Content Management",
+        "Business"
       ],
       "description": "[Planka](https://github.com/plankanban/planka/) is an elegant open source project tracking tool.",
       "env": [
@@ -19149,7 +19293,7 @@
       ]
     },
     {
-      "id": 449,
+      "id": 451,
       "categories": [
         "Productivity",
         "Project Management"
@@ -19199,7 +19343,7 @@
       "labels": []
     },
     {
-      "id": 450,
+      "id": 452,
       "categories": [
         "CMS"
       ],
@@ -19222,14 +19366,14 @@
       "name": "plesk"
     },
     {
-      "id": 451,
+      "id": 453,
       "categories": [
-        "Mediaserver Music",
-        "Media Servers",
-        "Audiobooks",
-        "Music",
         "Mediaserver Photos",
-        "Mediaserver Video"
+        "Music",
+        "Audiobooks",
+        "Mediaserver Music",
+        "Mediaserver Video",
+        "Media Servers"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19296,7 +19440,7 @@
       ]
     },
     {
-      "id": 452,
+      "id": 454,
       "categories": [
         "Downloaders",
         "Other",
@@ -19345,7 +19489,7 @@
       ]
     },
     {
-      "id": 453,
+      "id": 455,
       "categories": [
         "Documents",
         "Tools"
@@ -19363,7 +19507,7 @@
       "labels": []
     },
     {
-      "id": 454,
+      "id": 456,
       "categories": [
         "CMS"
       ],
@@ -19386,7 +19530,7 @@
       "name": "plone"
     },
     {
-      "id": 455,
+      "id": 457,
       "categories": [
         "Media",
         "Downloaders"
@@ -19451,7 +19595,7 @@
       ]
     },
     {
-      "id": 456,
+      "id": 458,
       "categories": [
         "Portainer"
       ],
@@ -19469,7 +19613,7 @@
       "name": "portainer-agent"
     },
     {
-      "id": 457,
+      "id": 459,
       "categories": [
         "Mail"
       ],
@@ -19485,7 +19629,7 @@
       "labels": []
     },
     {
-      "id": 458,
+      "id": 460,
       "categories": [
         "Other",
         "Tools"
@@ -19537,7 +19681,7 @@
       ]
     },
     {
-      "id": 459,
+      "id": 461,
       "categories": [
         "Social"
       ],
@@ -19554,7 +19698,7 @@
       "labels": []
     },
     {
-      "id": 460,
+      "id": 462,
       "categories": [
         "Games"
       ],
@@ -19604,7 +19748,7 @@
       ]
     },
     {
-      "id": 461,
+      "id": 463,
       "categories": [
         "Shopping"
       ],
@@ -19621,7 +19765,7 @@
       "labels": []
     },
     {
-      "id": 462,
+      "id": 464,
       "categories": [
         "VPN",
         "Tools",
@@ -19663,7 +19807,7 @@
       "labels": []
     },
     {
-      "id": 463,
+      "id": 465,
       "categories": [
         "Cloud",
         "Productivity",
@@ -19712,7 +19856,7 @@
       ]
     },
     {
-      "id": 464,
+      "id": 466,
       "categories": [
         "edge"
       ],
@@ -19749,7 +19893,7 @@
       "name": "pro-mosquitto-with-management-center"
     },
     {
-      "id": 465,
+      "id": 467,
       "categories": [
         "File Sharing"
       ],
@@ -19802,12 +19946,12 @@
       ]
     },
     {
-      "id": 466,
+      "id": 468,
       "categories": [
         "Email",
-        "Other",
         "Tools",
-        "Productivity"
+        "Productivity",
+        "Other"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -19835,7 +19979,7 @@
       ]
     },
     {
-      "id": 467,
+      "id": 469,
       "categories": [
         "Indexers"
       ],
@@ -19884,7 +20028,7 @@
       ]
     },
     {
-      "id": 468,
+      "id": 470,
       "categories": [
         "Social"
       ],
@@ -19900,7 +20044,7 @@
       "labels": []
     },
     {
-      "id": 469,
+      "id": 471,
       "categories": [
         "Tools",
         "Networking"
@@ -19925,7 +20069,7 @@
       "labels": []
     },
     {
-      "id": 470,
+      "id": 472,
       "categories": [
         "Network Other",
         "Utilities"
@@ -20040,7 +20184,7 @@
       "labels": []
     },
     {
-      "id": 471,
+      "id": 473,
       "categories": [
         "Metrics"
       ],
@@ -20056,7 +20200,7 @@
       "labels": []
     },
     {
-      "id": 472,
+      "id": 474,
       "categories": [
         "File Sharing",
         "Security"
@@ -20112,7 +20256,7 @@
       ]
     },
     {
-      "id": 473,
+      "id": 475,
       "categories": [
         "Programming"
       ],
@@ -20162,7 +20306,7 @@
       ]
     },
     {
-      "id": 474,
+      "id": 476,
       "categories": [
         "Cloud",
         "Other"
@@ -20207,7 +20351,7 @@
       ]
     },
     {
-      "id": 475,
+      "id": 477,
       "categories": [
         "File Sharing"
       ],
@@ -20268,7 +20412,7 @@
       ]
     },
     {
-      "id": 476,
+      "id": 478,
       "categories": [
         "Downloaders"
       ],
@@ -20322,7 +20466,7 @@
       ]
     },
     {
-      "id": 477,
+      "id": 479,
       "categories": [
         "Downloaders"
       ],
@@ -20389,7 +20533,7 @@
       ]
     },
     {
-      "id": 478,
+      "id": 480,
       "categories": [
         "Storage"
       ],
@@ -20443,7 +20587,7 @@
       ]
     },
     {
-      "id": 479,
+      "id": 481,
       "categories": [
         "Docker"
       ],
@@ -20492,7 +20636,7 @@
       ]
     },
     {
-      "id": 480,
+      "id": 482,
       "categories": [
         "Downloaders"
       ],
@@ -20553,7 +20697,7 @@
       ]
     },
     {
-      "id": 481,
+      "id": 483,
       "categories": [
         "Messenger"
       ],
@@ -20595,7 +20739,7 @@
       "name": "quassel-core"
     },
     {
-      "id": 482,
+      "id": 484,
       "categories": [
         "Messaging"
       ],
@@ -20618,7 +20762,7 @@
       "name": "rabbitmq"
     },
     {
-      "id": 483,
+      "id": 485,
       "categories": [
         "Network"
       ],
@@ -20635,7 +20779,7 @@
       "labels": []
     },
     {
-      "id": 484,
+      "id": 486,
       "categories": [
         "Media Management"
       ],
@@ -20692,7 +20836,7 @@
       ]
     },
     {
-      "id": 485,
+      "id": 487,
       "categories": [
         "Content Management"
       ],
@@ -20741,7 +20885,7 @@
       ]
     },
     {
-      "id": 486,
+      "id": 488,
       "categories": [
         "Monitor",
         "Tools"
@@ -20775,7 +20919,7 @@
       ]
     },
     {
-      "id": 487,
+      "id": 489,
       "categories": [
         "Image Editor"
       ],
@@ -20825,7 +20969,7 @@
       ]
     },
     {
-      "id": 488,
+      "id": 490,
       "categories": [
         "Backup",
         "Cloud",
@@ -20853,7 +20997,7 @@
       "labels": []
     },
     {
-      "id": 489,
+      "id": 491,
       "categories": [
         "Web",
         "Tools"
@@ -20884,10 +21028,10 @@
       ]
     },
     {
-      "id": 490,
+      "id": 492,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -20913,7 +21057,7 @@
       ]
     },
     {
-      "id": 491,
+      "id": 493,
       "categories": [
         "Downloaders",
         "Mediaapp Books"
@@ -20973,7 +21117,7 @@
       "labels": []
     },
     {
-      "id": 492,
+      "id": 494,
       "categories": [
         "Database"
       ],
@@ -20995,7 +21139,7 @@
       "name": "redis"
     },
     {
-      "id": 493,
+      "id": 495,
       "categories": [
         "Database"
       ],
@@ -21018,7 +21162,7 @@
       "name": "redis-cluster"
     },
     {
-      "id": 494,
+      "id": 496,
       "categories": [
         "Project Management"
       ],
@@ -21041,7 +21185,7 @@
       "name": "redmine"
     },
     {
-      "id": 495,
+      "id": 497,
       "categories": [
         "Docker"
       ],
@@ -21063,7 +21207,7 @@
       "name": "registry"
     },
     {
-      "id": 496,
+      "id": 498,
       "categories": [
         "Docker"
       ],
@@ -21092,7 +21236,7 @@
       "name": "registry-(cache)"
     },
     {
-      "id": 497,
+      "id": 499,
       "categories": [
         "Remote Desktop"
       ],
@@ -21142,7 +21286,7 @@
       ]
     },
     {
-      "id": 498,
+      "id": 500,
       "categories": [
         "Remote Control"
       ],
@@ -21158,7 +21302,7 @@
       "labels": []
     },
     {
-      "id": 499,
+      "id": 501,
       "categories": [
         "Backup"
       ],
@@ -21216,7 +21360,7 @@
       ]
     },
     {
-      "id": 500,
+      "id": 502,
       "categories": [
         "Games"
       ],
@@ -21266,7 +21410,7 @@
       ]
     },
     {
-      "id": 501,
+      "id": 503,
       "categories": [
         "Presentation"
       ],
@@ -21298,7 +21442,7 @@
       ]
     },
     {
-      "id": 502,
+      "id": 504,
       "categories": [
         "Entertainment"
       ],
@@ -21315,7 +21459,7 @@
       "labels": []
     },
     {
-      "id": 503,
+      "id": 505,
       "categories": [
         "Games"
       ],
@@ -21365,7 +21509,7 @@
       ]
     },
     {
-      "id": 504,
+      "id": 506,
       "categories": [
         "Remote Control"
       ],
@@ -21382,7 +21526,7 @@
       "labels": []
     },
     {
-      "id": 505,
+      "id": 507,
       "categories": [
         "Backup"
       ],
@@ -21439,7 +21583,7 @@
       ]
     },
     {
-      "id": 506,
+      "id": 508,
       "categories": [
         "Remote Control"
       ],
@@ -21456,7 +21600,7 @@
       "labels": []
     },
     {
-      "id": 507,
+      "id": 509,
       "categories": [
         "Other",
         "Tools"
@@ -21505,7 +21649,7 @@
       ]
     },
     {
-      "id": 508,
+      "id": 510,
       "categories": [
         "Downloaders"
       ],
@@ -21578,7 +21722,7 @@
       ]
     },
     {
-      "id": 509,
+      "id": 511,
       "categories": [
         "Downloaders"
       ],
@@ -21635,7 +21779,7 @@
       ]
     },
     {
-      "id": 510,
+      "id": 512,
       "categories": [
         "Other",
         "Tools"
@@ -21705,7 +21849,7 @@
       ]
     },
     {
-      "id": 511,
+      "id": 513,
       "categories": [
         "Storage"
       ],
@@ -21740,7 +21884,7 @@
       "name": "scality-s3"
     },
     {
-      "id": 512,
+      "id": 514,
       "categories": [
         "Monitoring"
       ],
@@ -21769,7 +21913,7 @@
       "labels": []
     },
     {
-      "id": 513,
+      "id": 515,
       "categories": [
         "Games"
       ],
@@ -21819,7 +21963,7 @@
       ]
     },
     {
-      "id": 514,
+      "id": 516,
       "categories": [
         "Business",
         "Remote Desktop"
@@ -21884,7 +22028,7 @@
       ]
     },
     {
-      "id": 515,
+      "id": 517,
       "categories": [
         "Other",
         "Tools"
@@ -21926,10 +22070,10 @@
       ]
     },
     {
-      "id": 516,
+      "id": 518,
       "categories": [
-        "Log Management",
-        "Monitoring"
+        "Monitoring",
+        "Log Management"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -21958,7 +22102,7 @@
       "labels": []
     },
     {
-      "id": 517,
+      "id": 519,
       "categories": [
         "Log Management",
         "Monitoring"
@@ -21986,7 +22130,7 @@
       "name": "sematext-docker-agent-(swarm)"
     },
     {
-      "id": 518,
+      "id": 520,
       "categories": [
         "Tools"
       ],
@@ -22011,7 +22155,7 @@
       ]
     },
     {
-      "id": 519,
+      "id": 521,
       "categories": [
         "Link Sharing"
       ],
@@ -22028,7 +22172,7 @@
       "labels": []
     },
     {
-      "id": 520,
+      "id": 522,
       "categories": [
         "OSINT"
       ],
@@ -22045,7 +22189,7 @@
       "labels": []
     },
     {
-      "id": 521,
+      "id": 523,
       "categories": [
         "Games"
       ],
@@ -22095,7 +22239,7 @@
       ]
     },
     {
-      "id": 522,
+      "id": 524,
       "categories": [
         "Other",
         "Tools"
@@ -22125,7 +22269,7 @@
       ]
     },
     {
-      "id": 523,
+      "id": 525,
       "categories": [
         "Video Editor"
       ],
@@ -22175,7 +22319,7 @@
       ]
     },
     {
-      "id": 524,
+      "id": 526,
       "categories": [
         "Downloaders",
         "Video"
@@ -22224,7 +22368,7 @@
       ]
     },
     {
-      "id": 525,
+      "id": 527,
       "categories": [
         "Media Management"
       ],
@@ -22281,7 +22425,7 @@
       ]
     },
     {
-      "id": 526,
+      "id": 528,
       "categories": [
         "Downloaders",
         "Mediaapp Video"
@@ -22336,7 +22480,7 @@
       "labels": []
     },
     {
-      "id": 527,
+      "id": 529,
       "categories": [
         "Chat"
       ],
@@ -22386,7 +22530,7 @@
       ]
     },
     {
-      "id": 528,
+      "id": 530,
       "categories": [
         "Messaging"
       ],
@@ -22403,7 +22547,7 @@
       "labels": []
     },
     {
-      "id": 529,
+      "id": 531,
       "categories": [
         "CMS"
       ],
@@ -22420,7 +22564,7 @@
       "labels": []
     },
     {
-      "id": 530,
+      "id": 532,
       "categories": [
         "Monitoring"
       ],
@@ -22491,10 +22635,10 @@
       ]
     },
     {
-      "id": 531,
+      "id": 533,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted snippet manager.",
       "image": "snowmean/snibox-sqlite:latest",
@@ -22521,7 +22665,7 @@
       ]
     },
     {
-      "id": 532,
+      "id": 534,
       "categories": [
         "Other"
       ],
@@ -22537,7 +22681,7 @@
       "labels": []
     },
     {
-      "id": 533,
+      "id": 535,
       "categories": [
         "Other",
         "Tools"
@@ -22567,7 +22711,7 @@
       ]
     },
     {
-      "id": 534,
+      "id": 536,
       "categories": [
         "Docker"
       ],
@@ -22616,7 +22760,7 @@
       ]
     },
     {
-      "id": 535,
+      "id": 537,
       "categories": [
         "edge"
       ],
@@ -22633,7 +22777,7 @@
       "name": "softing-edgeconnector-840d"
     },
     {
-      "id": 536,
+      "id": 538,
       "categories": [
         "edge"
       ],
@@ -22656,7 +22800,7 @@
       "name": "softing-edgeconnector-aggregator"
     },
     {
-      "id": 537,
+      "id": 539,
       "categories": [
         "edge"
       ],
@@ -22679,7 +22823,7 @@
       "name": "softing-edgeconnector-fanuc-cnc"
     },
     {
-      "id": 538,
+      "id": 540,
       "categories": [
         "edge"
       ],
@@ -22697,7 +22841,7 @@
       "name": "softing-edgeconnector-modbus"
     },
     {
-      "id": 539,
+      "id": 541,
       "categories": [
         "edge"
       ],
@@ -22714,7 +22858,7 @@
       "name": "softing-edgeconnector-siemens"
     },
     {
-      "id": 540,
+      "id": 542,
       "categories": [
         "Time Management"
       ],
@@ -22731,7 +22875,7 @@
       "labels": []
     },
     {
-      "id": 541,
+      "id": 543,
       "categories": [
         "Search Engine"
       ],
@@ -22753,7 +22897,7 @@
       "name": "solr"
     },
     {
-      "id": 542,
+      "id": 544,
       "categories": [
         "Media Management"
       ],
@@ -22810,7 +22954,7 @@
       ]
     },
     {
-      "id": 543,
+      "id": 545,
       "categories": [
         "edge"
       ],
@@ -22827,7 +22971,7 @@
       "name": "sorba-sde"
     },
     {
-      "id": 544,
+      "id": 546,
       "categories": [
         "Network"
       ],
@@ -22844,7 +22988,7 @@
       "labels": []
     },
     {
-      "id": 545,
+      "id": 547,
       "categories": [
         "Monitoring"
       ],
@@ -22965,7 +23109,7 @@
       ]
     },
     {
-      "id": 546,
+      "id": 548,
       "categories": [
         "Music"
       ],
@@ -23015,7 +23159,7 @@
       ]
     },
     {
-      "id": 547,
+      "id": 549,
       "categories": [
         "Database"
       ],
@@ -23049,7 +23193,7 @@
       "name": "sql-server"
     },
     {
-      "id": 548,
+      "id": 550,
       "categories": [
         "Database"
       ],
@@ -23083,7 +23227,7 @@
       "name": "sql-server-express"
     },
     {
-      "id": 549,
+      "id": 551,
       "categories": [
         "Databases"
       ],
@@ -23133,7 +23277,7 @@
       ]
     },
     {
-      "id": 550,
+      "id": 552,
       "categories": [
         "Tools",
         "Web"
@@ -23157,7 +23301,7 @@
       ]
     },
     {
-      "id": 551,
+      "id": 553,
       "categories": [
         "Email",
         "Networking"
@@ -23201,7 +23345,7 @@
       ]
     },
     {
-      "id": 552,
+      "id": 554,
       "categories": [
         "Network"
       ],
@@ -23229,7 +23373,7 @@
       ]
     },
     {
-      "id": 553,
+      "id": 555,
       "categories": [
         "Games"
       ],
@@ -23279,7 +23423,7 @@
       ]
     },
     {
-      "id": 554,
+      "id": 556,
       "categories": [
         "Tools",
         "PDF"
@@ -23341,7 +23485,7 @@
       ]
     },
     {
-      "id": 555,
+      "id": 557,
       "categories": [
         "Media",
         "Books"
@@ -23388,7 +23532,7 @@
       ]
     },
     {
-      "id": 556,
+      "id": 558,
       "categories": [
         "Other",
         "Tool"
@@ -23430,7 +23574,7 @@
       ]
     },
     {
-      "id": 557,
+      "id": 559,
       "categories": [
         "Reverse Proxy"
       ],
@@ -23565,7 +23709,7 @@
       ]
     },
     {
-      "id": 558,
+      "id": 560,
       "categories": [
         "Monitoring"
       ],
@@ -23594,7 +23738,7 @@
       "name": "swarm-monitoring"
     },
     {
-      "id": 559,
+      "id": 561,
       "categories": [
         "Media Tools"
       ],
@@ -23631,7 +23775,7 @@
       ]
     },
     {
-      "id": 560,
+      "id": 562,
       "categories": [
         "Backup"
       ],
@@ -23691,7 +23835,7 @@
       ]
     },
     {
-      "id": 561,
+      "id": 563,
       "categories": [
         "Monitoring"
       ],
@@ -23752,7 +23896,7 @@
       ]
     },
     {
-      "id": 562,
+      "id": 564,
       "categories": [
         "Monitor",
         "Other"
@@ -23796,7 +23940,7 @@
       ]
     },
     {
-      "id": 563,
+      "id": 565,
       "categories": [
         "AI",
         "Tools"
@@ -23856,7 +24000,7 @@
       ]
     },
     {
-      "id": 564,
+      "id": 566,
       "categories": [
         "Productivity",
         "Devtools"
@@ -23874,7 +24018,7 @@
       "labels": []
     },
     {
-      "id": 565,
+      "id": 567,
       "categories": [
         "Other",
         "VPN"
@@ -23914,7 +24058,7 @@
       ]
     },
     {
-      "id": 566,
+      "id": 568,
       "categories": [
         "Tools"
       ],
@@ -23931,7 +24075,7 @@
       "labels": []
     },
     {
-      "id": 567,
+      "id": 569,
       "categories": [
         "Media Tools"
       ],
@@ -23980,7 +24124,7 @@
       ]
     },
     {
-      "id": 568,
+      "id": 570,
       "categories": [
         "Multimedia"
       ],
@@ -23997,7 +24141,7 @@
       "labels": []
     },
     {
-      "id": 569,
+      "id": 571,
       "categories": [
         "DNS",
         "Networking"
@@ -24038,7 +24182,7 @@
       ]
     },
     {
-      "id": 570,
+      "id": 572,
       "categories": [
         "Productivity",
         "Documentation"
@@ -24083,7 +24227,7 @@
       ]
     },
     {
-      "id": 571,
+      "id": 573,
       "categories": [
         "Chat"
       ],
@@ -24133,7 +24277,7 @@
       ]
     },
     {
-      "id": 572,
+      "id": 574,
       "categories": [
         "Tools"
       ],
@@ -24155,7 +24299,7 @@
       ]
     },
     {
-      "id": 573,
+      "id": 575,
       "categories": [
         "Games"
       ],
@@ -24201,10 +24345,10 @@
       ]
     },
     {
-      "id": 574,
+      "id": 576,
       "categories": [
-        "IRC",
         "Irc",
+        "IRC",
         "Chat"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
@@ -24252,7 +24396,7 @@
       ]
     },
     {
-      "id": 575,
+      "id": 577,
       "categories": [
         "Email"
       ],
@@ -24302,7 +24446,7 @@
       ]
     },
     {
-      "id": 576,
+      "id": 578,
       "categories": [
         "Other",
         "Tools"
@@ -24332,7 +24476,7 @@
       ]
     },
     {
-      "id": 577,
+      "id": 579,
       "categories": [
         "edge"
       ],
@@ -24355,7 +24499,7 @@
       "name": "timescale-db"
     },
     {
-      "id": 578,
+      "id": 580,
       "categories": [
         "Productivity",
         "Time Related"
@@ -24373,7 +24517,7 @@
       "labels": []
     },
     {
-      "id": 579,
+      "id": 581,
       "categories": [
         "Other"
       ],
@@ -24413,7 +24557,7 @@
       ]
     },
     {
-      "id": 580,
+      "id": 582,
       "categories": [
         "Multimedia"
       ],
@@ -24430,7 +24574,7 @@
       "labels": []
     },
     {
-      "id": 581,
+      "id": 583,
       "categories": [
         "Development",
         "Low Code",
@@ -24449,7 +24593,7 @@
       "labels": []
     },
     {
-      "id": 582,
+      "id": 584,
       "categories": [
         "edge"
       ],
@@ -24472,7 +24616,7 @@
       "name": "tosibox-lock-for-container"
     },
     {
-      "id": 583,
+      "id": 585,
       "categories": [
         "Proxy",
         "Security",
@@ -24517,7 +24661,7 @@
       ]
     },
     {
-      "id": 584,
+      "id": 586,
       "categories": [
         "Time Tracking"
       ],
@@ -24534,7 +24678,7 @@
       "labels": []
     },
     {
-      "id": 585,
+      "id": 587,
       "categories": [
         "Downloaders"
       ],
@@ -24629,7 +24773,7 @@
       ]
     },
     {
-      "id": 586,
+      "id": 588,
       "categories": [
         "Other",
         "VPN",
@@ -24713,7 +24857,7 @@
       ]
     },
     {
-      "id": 587,
+      "id": 589,
       "categories": [
         "Other",
         "VPN",
@@ -24797,7 +24941,7 @@
       ]
     },
     {
-      "id": 588,
+      "id": 590,
       "categories": [
         "Productivity"
       ],
@@ -24836,7 +24980,7 @@
       ]
     },
     {
-      "id": 589,
+      "id": 591,
       "categories": [
         "Productivity"
       ],
@@ -24853,7 +24997,7 @@
       "labels": []
     },
     {
-      "id": 590,
+      "id": 592,
       "categories": [
         "Productivity"
       ],
@@ -24870,7 +25014,7 @@
       "labels": []
     },
     {
-      "id": 591,
+      "id": 593,
       "categories": [
         "Multimedia"
       ],
@@ -24887,7 +25031,7 @@
       "labels": []
     },
     {
-      "id": 592,
+      "id": 594,
       "categories": [
         "Media Tools"
       ],
@@ -24947,7 +25091,7 @@
       ]
     },
     {
-      "id": 593,
+      "id": 595,
       "categories": [
         "Tools",
         "Other"
@@ -24989,7 +25133,7 @@
       ]
     },
     {
-      "id": 594,
+      "id": 596,
       "categories": [
         "Books"
       ],
@@ -25057,7 +25201,7 @@
       ]
     },
     {
-      "id": 595,
+      "id": 597,
       "categories": [
         "Operating System"
       ],
@@ -25073,7 +25217,7 @@
       "name": "ubuntu"
     },
     {
-      "id": 596,
+      "id": 598,
       "categories": [
         "Analytics"
       ],
@@ -25093,7 +25237,7 @@
       "labels": []
     },
     {
-      "id": 597,
+      "id": 599,
       "categories": [
         "Web Browser"
       ],
@@ -25149,7 +25293,7 @@
       ]
     },
     {
-      "id": 598,
+      "id": 600,
       "categories": [
         "Management",
         "Tools"
@@ -25197,7 +25341,7 @@
       ]
     },
     {
-      "id": 599,
+      "id": 601,
       "categories": [
         "CCTV"
       ],
@@ -25260,7 +25404,7 @@
       ]
     },
     {
-      "id": 600,
+      "id": 602,
       "categories": [
         "Network"
       ],
@@ -25371,7 +25515,7 @@
       ]
     },
     {
-      "id": 601,
+      "id": 603,
       "categories": [
         "Tools"
       ],
@@ -25420,7 +25564,7 @@
       ]
     },
     {
-      "id": 602,
+      "id": 604,
       "categories": [
         "Network"
       ],
@@ -25437,7 +25581,7 @@
       "labels": []
     },
     {
-      "id": 603,
+      "id": 605,
       "categories": [
         "Other",
         "Tools"
@@ -25471,7 +25615,7 @@
       }
     },
     {
-      "id": 604,
+      "id": 606,
       "categories": [
         "Backup"
       ],
@@ -25517,7 +25661,7 @@
       ]
     },
     {
-      "id": 605,
+      "id": 607,
       "categories": [
         "Tools"
       ],
@@ -25546,7 +25690,7 @@
       "labels": []
     },
     {
-      "id": 606,
+      "id": 608,
       "categories": [
         "Games",
         "Other"
@@ -25585,10 +25729,10 @@
       "labels": []
     },
     {
-      "id": 607,
+      "id": 609,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -25616,7 +25760,7 @@
       ]
     },
     {
-      "id": 608,
+      "id": 610,
       "categories": [
         "Tools",
         "Productivity"
@@ -25650,7 +25794,7 @@
       "labels": []
     },
     {
-      "id": 609,
+      "id": 611,
       "categories": [
         "Web Browser"
       ],
@@ -25706,7 +25850,7 @@
       ]
     },
     {
-      "id": 610,
+      "id": 612,
       "categories": [
         "Media Management"
       ],
@@ -25762,7 +25906,7 @@
       ]
     },
     {
-      "id": 611,
+      "id": 613,
       "categories": [
         "Other",
         "Tools"
@@ -25786,7 +25930,7 @@
       ]
     },
     {
-      "id": 612,
+      "id": 614,
       "categories": [
         "Programming"
       ],
@@ -25836,7 +25980,7 @@
       ]
     },
     {
-      "id": 613,
+      "id": 615,
       "categories": [
         "Programming"
       ],
@@ -25886,7 +26030,7 @@
       ]
     },
     {
-      "id": 614,
+      "id": 616,
       "categories": [
         "Programming"
       ],
@@ -25965,7 +26109,7 @@
       ]
     },
     {
-      "id": 615,
+      "id": 617,
       "categories": [
         "Network Other",
         "Utilities"
@@ -26047,7 +26191,7 @@
       "labels": []
     },
     {
-      "id": 616,
+      "id": 618,
       "categories": [
         "Tools"
       ],
@@ -26072,11 +26216,11 @@
       ]
     },
     {
-      "id": 617,
+      "id": 619,
       "categories": [
+        "Tools",
         "Maintenance",
-        "Other",
-        "Tools"
+        "Other"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -26101,7 +26245,7 @@
       ]
     },
     {
-      "id": 618,
+      "id": 620,
       "categories": [
         "Tools"
       ],
@@ -26118,7 +26262,7 @@
       "labels": []
     },
     {
-      "id": 619,
+      "id": 621,
       "categories": [
         "Chat"
       ],
@@ -26168,7 +26312,7 @@
       ]
     },
     {
-      "id": 620,
+      "id": 622,
       "categories": [
         "Media Tools"
       ],
@@ -26221,7 +26365,7 @@
       ]
     },
     {
-      "id": 621,
+      "id": 623,
       "categories": [
         "Games"
       ],
@@ -26271,7 +26415,7 @@
       ]
     },
     {
-      "id": 622,
+      "id": 624,
       "categories": [
         "Remote Desktop"
       ],
@@ -26321,7 +26465,7 @@
       ]
     },
     {
-      "id": 623,
+      "id": 625,
       "categories": [
         "Social"
       ],
@@ -26338,7 +26482,7 @@
       "labels": []
     },
     {
-      "id": 624,
+      "id": 626,
       "categories": [
         "Chat"
       ],
@@ -26388,7 +26532,7 @@
       ]
     },
     {
-      "id": 625,
+      "id": 627,
       "categories": [
         "Fitness"
       ],
@@ -26405,7 +26549,7 @@
       "labels": []
     },
     {
-      "id": 626,
+      "id": 628,
       "categories": [
         "Adult"
       ],
@@ -26422,10 +26566,10 @@
       "labels": []
     },
     {
-      "id": 627,
+      "id": 629,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -26452,7 +26596,7 @@
       ]
     },
     {
-      "id": 628,
+      "id": 630,
       "categories": [
         "Content Management"
       ],
@@ -26541,7 +26685,7 @@
       ]
     },
     {
-      "id": 629,
+      "id": 631,
       "categories": [
         "Business",
         "Games"
@@ -26592,7 +26736,7 @@
       ]
     },
     {
-      "id": 630,
+      "id": 632,
       "categories": [
         "Network",
         "VPN"
@@ -26694,7 +26838,7 @@
       ]
     },
     {
-      "id": 631,
+      "id": 633,
       "categories": [
         "Other",
         "VPN"
@@ -26747,7 +26891,7 @@
       "labels": []
     },
     {
-      "id": 632,
+      "id": 634,
       "categories": [
         "Network"
       ],
@@ -26798,7 +26942,7 @@
       ]
     },
     {
-      "id": 633,
+      "id": 635,
       "categories": [
         "Tools"
       ],
@@ -26833,7 +26977,7 @@
       "labels": []
     },
     {
-      "id": 634,
+      "id": 636,
       "categories": [
         "CI CD",
         "Development"
@@ -26871,7 +27015,7 @@
       "labels": []
     },
     {
-      "id": 635,
+      "id": 637,
       "categories": [
         "Wordpress",
         "Web"
@@ -26910,7 +27054,7 @@
       "name": "wordpress-(stack)"
     },
     {
-      "id": 636,
+      "id": 638,
       "categories": [
         "CMS"
       ],
@@ -26935,7 +27079,7 @@
       "name": "wordpress-(swarm)"
     },
     {
-      "id": 637,
+      "id": 639,
       "categories": [
         "Streaming"
       ],
@@ -26972,7 +27116,7 @@
       "name": "wowza"
     },
     {
-      "id": 638,
+      "id": 640,
       "categories": [
         "Documents"
       ],
@@ -27022,7 +27166,7 @@
       ]
     },
     {
-      "id": 639,
+      "id": 641,
       "categories": [
         "File Sharing"
       ],
@@ -27072,7 +27216,7 @@
       ]
     },
     {
-      "id": 640,
+      "id": 642,
       "categories": [
         "Games"
       ],
@@ -27122,7 +27266,7 @@
       ]
     },
     {
-      "id": 641,
+      "id": 643,
       "categories": [
         "Wiki"
       ],
@@ -27139,7 +27283,7 @@
       "labels": []
     },
     {
-      "id": 642,
+      "id": 644,
       "categories": [
         "Programming"
       ],
@@ -27189,10 +27333,10 @@
       ]
     },
     {
-      "id": 643,
+      "id": 645,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
@@ -27223,7 +27367,7 @@
       ]
     },
     {
-      "id": 644,
+      "id": 646,
       "categories": [
         "Music"
       ],
@@ -27309,7 +27453,7 @@
       ]
     },
     {
-      "id": 645,
+      "id": 647,
       "categories": [
         "Music",
         "Monitoring"
@@ -27326,10 +27470,10 @@
       "labels": []
     },
     {
-      "id": 646,
+      "id": 648,
       "categories": [
-        "Other",
-        "Downloaders"
+        "Downloaders",
+        "Other"
       ],
       "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
       "image": "tzahi12345/youtubedl-material:latest",
@@ -27372,7 +27516,7 @@
       ]
     },
     {
-      "id": 647,
+      "id": 649,
       "categories": [
         "Web Browser"
       ],
@@ -27422,7 +27566,7 @@
       ]
     },
     {
-      "id": 648,
+      "id": 650,
       "categories": [
         "Irc",
         "IRC"
@@ -27472,7 +27616,7 @@
       ]
     },
     {
-      "id": 649,
+      "id": 651,
       "categories": [
         "Documents"
       ],
@@ -27522,7 +27666,7 @@
       ]
     },
     {
-      "id": 650,
+      "id": 652,
       "categories": [
         "Networking",
         "VPN"
@@ -27551,7 +27695,7 @@
       "labels": []
     },
     {
-      "id": 651,
+      "id": 653,
       "categories": [
         "Social",
         "Forum"
@@ -27592,7 +27736,7 @@
       ]
     },
     {
-      "id": 652,
+      "id": 654,
       "categories": [
         "Web",
         "Proxy"
@@ -27633,7 +27777,7 @@
       ]
     },
     {
-      "id": 653,
+      "id": 655,
       "categories": [
         "Other",
         "Tools"
@@ -27678,7 +27822,7 @@
       ]
     },
     {
-      "id": 654,
+      "id": 656,
       "categories": [
         "Monitoring"
       ],
@@ -27714,7 +27858,7 @@
       "name": "datadog-agent"
     },
     {
-      "id": 655,
+      "id": 657,
       "categories": [
         "filesystem",
         "storage"
@@ -27741,7 +27885,7 @@
       "name": "file-browser"
     },
     {
-      "id": 656,
+      "id": 658,
       "categories": [
         "PaaS"
       ],
@@ -27782,7 +27926,7 @@
       "name": "dokku"
     },
     {
-      "id": 657,
+      "id": 659,
       "categories": [
         "edge"
       ],
@@ -27800,7 +27944,7 @@
       "name": "edgeconnector-modbus"
     },
     {
-      "id": 658,
+      "id": 660,
       "categories": [
         "edge"
       ],
@@ -27818,7 +27962,7 @@
       "name": "edgeconnector-840d"
     },
     {
-      "id": 659,
+      "id": 661,
       "categories": [
         "edge"
       ],
@@ -27836,7 +27980,7 @@
       "name": "edgeconnector-siemens"
     },
     {
-      "id": 660,
+      "id": 662,
       "categories": [
         "edge"
       ],
@@ -27868,7 +28012,7 @@
       "name": "edgeconnector-fanuc-cnc"
     },
     {
-      "id": 661,
+      "id": 663,
       "categories": [
         "edge"
       ],
@@ -27900,7 +28044,7 @@
       "name": "edgeconnector-aggregator"
     },
     {
-      "id": 662,
+      "id": 664,
       "categories": [
         "database"
       ],
@@ -27917,7 +28061,7 @@
       "name": "cockroachdb"
     },
     {
-      "id": 663,
+      "id": 665,
       "categories": [
         "CMS"
       ],
@@ -27941,7 +28085,7 @@
       "name": "wordpress"
     },
     {
-      "id": 664,
+      "id": 666,
       "categories": [
         "Log Management",
         "Monitoring"
@@ -27968,7 +28112,7 @@
       "name": "sematext-docker-agent"
     },
     {
-      "id": 665,
+      "id": 667,
       "categories": [
         "media"
       ],
@@ -27990,7 +28134,7 @@
       "name": "liveswitch"
     },
     {
-      "id": 666,
+      "id": 668,
       "categories": [
         "Music"
       ],
@@ -28037,7 +28181,7 @@
       ]
     },
     {
-      "id": 667,
+      "id": 669,
       "categories": [
         "Other",
         "Tools"
@@ -28066,7 +28210,7 @@
       ]
     },
     {
-      "id": 668,
+      "id": 670,
       "categories": [
         "Tools",
         "Web",
@@ -28108,7 +28252,7 @@
       ]
     },
     {
-      "id": 669,
+      "id": 671,
       "categories": [
         "Downloaders",
         "Tools"
@@ -28152,7 +28296,7 @@
       ]
     },
     {
-      "id": 670,
+      "id": 672,
       "categories": [
         "Video",
         "Music",
@@ -28206,7 +28350,7 @@
       ]
     },
     {
-      "id": 671,
+      "id": 673,
       "categories": [
         "Books"
       ],
@@ -28250,7 +28394,7 @@
       ]
     },
     {
-      "id": 672,
+      "id": 674,
       "categories": [
         "Other",
         "Tools"
@@ -28278,7 +28422,7 @@
       ]
     },
     {
-      "id": 673,
+      "id": 675,
       "categories": [
         "Cloud",
         "Web",
@@ -28324,7 +28468,7 @@
       ]
     },
     {
-      "id": 674,
+      "id": 676,
       "categories": [
         "Video",
         "Other",
@@ -28361,7 +28505,7 @@
       ]
     },
     {
-      "id": 675,
+      "id": 677,
       "categories": [
         "Other",
         "Music"
@@ -28393,7 +28537,7 @@
       ]
     },
     {
-      "id": 676,
+      "id": 678,
       "categories": [
         "Downloaders"
       ],
@@ -28436,7 +28580,7 @@
       ]
     },
     {
-      "id": 677,
+      "id": 679,
       "categories": [
         "Downloaders",
         "Other",
@@ -28481,7 +28625,7 @@
       ]
     },
     {
-      "id": 678,
+      "id": 680,
       "categories": [
         "Other"
       ],
@@ -28521,7 +28665,7 @@
       ]
     },
     {
-      "id": 679,
+      "id": 681,
       "categories": [
         "Wiki"
       ],
@@ -28566,7 +28710,7 @@
       "name": "bookstack"
     },
     {
-      "id": 680,
+      "id": 682,
       "categories": [
         "Cloud",
         "Books"
@@ -28610,7 +28754,7 @@
       ]
     },
     {
-      "id": 681,
+      "id": 683,
       "categories": [
         "Other",
         "Tools"
@@ -28667,7 +28811,7 @@
       ]
     },
     {
-      "id": 682,
+      "id": 684,
       "categories": [
         "Cloud",
         "Books"
@@ -28711,7 +28855,7 @@
       ]
     },
     {
-      "id": 683,
+      "id": 685,
       "categories": [
         "FTP",
         "Other",
@@ -28756,7 +28900,7 @@
       ]
     },
     {
-      "id": 684,
+      "id": 686,
       "categories": [
         "Downloaders"
       ],
@@ -28801,7 +28945,7 @@
       "name": "deluge"
     },
     {
-      "id": 685,
+      "id": 687,
       "categories": [
         "DNS",
         "Tools"
@@ -28842,7 +28986,7 @@
       ]
     },
     {
-      "id": 686,
+      "id": 688,
       "categories": [
         "Backup",
         "Cloud",
@@ -28894,7 +29038,7 @@
       ]
     },
     {
-      "id": 687,
+      "id": 689,
       "categories": [
         "Video",
         "Music",
@@ -28948,7 +29092,7 @@
       ]
     },
     {
-      "id": 688,
+      "id": 690,
       "categories": [
         "Other"
       ],
@@ -28987,7 +29131,7 @@
       ]
     },
     {
-      "id": 689,
+      "id": 691,
       "categories": [
         "Video",
         "Music",
@@ -29028,7 +29172,7 @@
       ]
     },
     {
-      "id": 690,
+      "id": 692,
       "categories": [
         "Downloaders",
         "Music"
@@ -29076,7 +29220,7 @@
       ]
     },
     {
-      "id": 691,
+      "id": 693,
       "categories": [
         "Photos"
       ],
@@ -29115,7 +29259,7 @@
       ]
     },
     {
-      "id": 692,
+      "id": 694,
       "categories": [
         "Video",
         "Music",
@@ -29166,7 +29310,7 @@
       ]
     },
     {
-      "id": 693,
+      "id": 695,
       "categories": [
         "Cloud",
         "Productivity",
@@ -29212,7 +29356,7 @@
       ]
     },
     {
-      "id": 694,
+      "id": 696,
       "categories": [
         "Downloaders"
       ],
@@ -29257,7 +29401,7 @@
       ]
     },
     {
-      "id": 695,
+      "id": 697,
       "categories": [
         "Downloaders",
         "Video"
@@ -29305,7 +29449,7 @@
       ]
     },
     {
-      "id": 696,
+      "id": 698,
       "categories": [
         "Backup",
         "Cloud",
@@ -29351,7 +29495,7 @@
       ]
     },
     {
-      "id": 697,
+      "id": 699,
       "categories": [
         "Downloaders"
       ],
@@ -29399,7 +29543,7 @@
       ]
     },
     {
-      "id": 698,
+      "id": 700,
       "categories": [
         "Downloaders",
         "Video"
@@ -29447,7 +29591,7 @@
       ]
     },
     {
-      "id": 699,
+      "id": 701,
       "categories": [
         "Management"
       ],
@@ -29490,7 +29634,7 @@
       ]
     },
     {
-      "id": 700,
+      "id": 702,
       "categories": [
         "Downloaders",
         "Video"
@@ -29542,7 +29686,7 @@
       ]
     },
     {
-      "id": 701,
+      "id": 703,
       "categories": [
         "Backup",
         "Cloud",
@@ -29589,7 +29733,7 @@
       ]
     },
     {
-      "id": 702,
+      "id": 704,
       "categories": [
         "Other",
         "Tools"
@@ -29633,7 +29777,7 @@
       ]
     },
     {
-      "id": 703,
+      "id": 705,
       "categories": [
         "Messenger"
       ],
@@ -29672,7 +29816,7 @@
       ]
     },
     {
-      "id": 704,
+      "id": 706,
       "categories": [
         "Downloaders"
       ],
@@ -29719,7 +29863,7 @@
       ]
     },
     {
-      "id": 705,
+      "id": 707,
       "categories": [
         "Video",
         "Other"
@@ -29763,7 +29907,7 @@
       ]
     },
     {
-      "id": 706,
+      "id": 708,
       "categories": [
         "Cloud",
         "Books"
@@ -29814,7 +29958,7 @@
       ]
     },
     {
-      "id": 707,
+      "id": 709,
       "categories": [
         "Downloaders"
       ],
@@ -29854,7 +29998,7 @@
       ]
     },
     {
-      "id": 708,
+      "id": 710,
       "categories": [
         "Other",
         "Tools"
@@ -29886,7 +30030,7 @@
       ]
     },
     {
-      "id": 709,
+      "id": 711,
       "categories": [
         "Messenger"
       ],
@@ -29925,7 +30069,7 @@
       ]
     },
     {
-      "id": 710,
+      "id": 712,
       "categories": [
         "Other",
         "Tools",
@@ -29986,7 +30130,7 @@
       ]
     },
     {
-      "id": 711,
+      "id": 713,
       "categories": [
         "Books"
       ],
@@ -30050,7 +30194,7 @@
       ]
     },
     {
-      "id": 712,
+      "id": 714,
       "categories": [
         "File Sharing"
       ],
@@ -30122,7 +30266,7 @@
       ]
     },
     {
-      "id": 713,
+      "id": 715,
       "categories": [
         "Remote Desktop"
       ],
