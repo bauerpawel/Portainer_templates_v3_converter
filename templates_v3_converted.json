@@ -160,8 +160,8 @@
     {
       "id": 6,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Adguardhome-sync](https://github.com/bakito/adguardhome-sync/) is a tool to synchronize AdGuardHome config to replica instances.",
       "env": [
@@ -1183,9 +1183,9 @@
     {
       "id": 31,
       "categories": [
+        "Tools",
         "Other",
-        "Authentication",
-        "Tools"
+        "Authentication"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -2787,9 +2787,9 @@
     {
       "id": 70,
       "categories": [
-        "Other",
+        "Photo",
         "Tools",
-        "Photo"
+        "Other"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -2888,8 +2888,8 @@
     {
       "id": 73,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Save recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
       "image": "gregyankovoy/chowdown:latest",
@@ -3332,8 +3332,8 @@
     {
       "id": 86,
       "categories": [
-        "Programming",
-        "Development"
+        "Development",
+        "Programming"
       ],
       "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
       "env": [
@@ -4259,8 +4259,8 @@
     {
       "id": 111,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Ddclient](https://github.com/ddclient/ddclient) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
       "env": [
@@ -4406,8 +4406,8 @@
       "id": 114,
       "categories": [
         "VPN",
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -4518,8 +4518,8 @@
     {
       "id": 116,
       "categories": [
-        "Monitoring",
-        "Storage"
+        "Storage",
+        "Monitoring"
       ],
       "description": "[Diskover](https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
       "env": [
@@ -5371,8 +5371,8 @@
     {
       "id": 139,
       "categories": [
-        "Network",
-        "DNS"
+        "DNS",
+        "Network"
       ],
       "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
       "env": [
@@ -5732,9 +5732,9 @@
     {
       "id": 146,
       "categories": [
+        "Music",
         "Media Servers",
-        "Audiobooks",
-        "Music"
+        "Audiobooks"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
       "env": [
@@ -6209,8 +6209,8 @@
     {
       "id": 157,
       "categories": [
-        "Chat",
-        "Social"
+        "Social",
+        "Chat"
       ],
       "description": "[Ferdium](https://ferdium.org/) is a desktop app that helps you organize how you use your favourite apps by combining them into one application.",
       "env": [
@@ -8545,8 +8545,8 @@
     {
       "id": 216,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A clientless remote desktop gateway.",
       "image": "oznu/guacamole:latest",
@@ -9723,8 +9723,8 @@
     {
       "id": 239,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
       "env": [
@@ -10851,9 +10851,9 @@
     {
       "id": 264,
       "categories": [
+        "Music",
         "Media Servers",
-        "Audiobooks",
-        "Music"
+        "Audiobooks"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
       "env": [
@@ -12009,8 +12009,8 @@
     {
       "id": 292,
       "categories": [
-        "Security",
-        "Administration"
+        "Administration",
+        "Security"
       ],
       "description": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
       "env": [
@@ -15390,8 +15390,8 @@
     {
       "id": 368,
       "categories": [
-        "Media Management",
-        "Books"
+        "Books",
+        "Media Management"
       ],
       "description": "[Mylar3](https://github.com/MylarComics/mylar3) is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.",
       "env": [
@@ -15712,8 +15712,8 @@
     {
       "id": 377,
       "categories": [
-        "Business",
-        "Administration"
+        "Administration",
+        "Business"
       ],
       "description": "[Netbox](https://github.com/netbox-community/netbox) is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.",
       "env": [
@@ -15960,8 +15960,8 @@
     {
       "id": 379,
       "categories": [
-        "Documents",
-        "Cloud"
+        "Cloud",
+        "Documents"
       ],
       "description": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are. Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
       "env": [
@@ -17705,8 +17705,8 @@
     {
       "id": 418,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
       "env": [
@@ -18709,8 +18709,8 @@
     {
       "id": 439,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
       "image": "pihole/pihole:latest",
@@ -18903,8 +18903,8 @@
       "id": 443,
       "categories": [
         "Irc",
-        "IRC",
-        "Chat"
+        "Chat",
+        "IRC"
       ],
       "description": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
       "env": [
@@ -19191,8 +19191,8 @@
     {
       "id": 450,
       "categories": [
-        "Business",
-        "Content Management"
+        "Content Management",
+        "Business"
       ],
       "description": "[Planka](https://github.com/plankanban/planka/) is an elegant open source project tracking tool.",
       "env": [
@@ -19368,12 +19368,12 @@
     {
       "id": 453,
       "categories": [
-        "Music",
+        "Mediaserver Video",
         "Mediaserver Photos",
-        "Media Servers",
-        "Audiobooks",
         "Mediaserver Music",
-        "Mediaserver Video"
+        "Music",
+        "Media Servers",
+        "Audiobooks"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19950,8 +19950,8 @@
       "categories": [
         "Productivity",
         "Email",
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -21030,8 +21030,8 @@
     {
       "id": 492,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
       "image": "amruthpillai/reactive-resume:latest",
@@ -22637,8 +22637,8 @@
     {
       "id": 533,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted snippet manager.",
       "image": "snowmean/snibox-sqlite:latest",
@@ -24348,8 +24348,8 @@
       "id": 576,
       "categories": [
         "Irc",
-        "IRC",
-        "Chat"
+        "Chat",
+        "IRC"
       ],
       "description": "[Thelounge](https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.",
       "env": [
@@ -25731,8 +25731,8 @@
     {
       "id": 609,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
       "image": "vaultwarden/server:latest",
@@ -26218,9 +26218,9 @@
     {
       "id": 619,
       "categories": [
+        "Tools",
         "Maintenance",
-        "Other",
-        "Tools"
+        "Other"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -26568,8 +26568,8 @@
     {
       "id": 629,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
       "image": "benbusby/whoogle-search:latest",
@@ -27335,8 +27335,8 @@
     {
       "id": 645,
       "categories": [
-        "Other",
-        "Tools"
+        "Tools",
+        "Other"
       ],
       "description": "A web interface for managing docker containers with an emphasis on templating to provide 1 click deployments. Think of it like a decentralized app store for servers that anyone can make packages for.",
       "image": "selfhostedpro/yacht:latest",
