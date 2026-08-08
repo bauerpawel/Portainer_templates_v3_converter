@@ -1183,9 +1183,9 @@
     {
       "id": 31,
       "categories": [
-        "Tools",
         "Other",
-        "Authentication"
+        "Authentication",
+        "Tools"
       ],
       "description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
       "env": [
@@ -2787,9 +2787,9 @@
     {
       "id": 70,
       "categories": [
+        "Other",
         "Tools",
-        "Photo",
-        "Other"
+        "Photo"
       ],
       "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
       "env": [
@@ -4405,9 +4405,9 @@
     {
       "id": 114,
       "categories": [
-        "Tools",
         "Other",
-        "VPN"
+        "VPN",
+        "Tools"
       ],
       "description": "This container contains OpenVPN and Deluge with a configuration where Deluge is running only when OpenVPN has an active tunnel. It bundles configuration files for many popular VPN providers to make the setup easier.",
       "env": [
@@ -4518,8 +4518,8 @@
     {
       "id": 116,
       "categories": [
-        "Monitoring",
-        "Storage"
+        "Storage",
+        "Monitoring"
       ],
       "description": "[Diskover](https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
       "env": [
@@ -5143,8 +5143,8 @@
     {
       "id": 133,
       "categories": [
-        "Storage",
-        "Administration"
+        "Administration",
+        "Storage"
       ],
       "description": "[Double Commander](https://doublecmd.sourceforge.io/) is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features some new ideas.",
       "env": [
@@ -5733,8 +5733,8 @@
       "id": 146,
       "categories": [
         "Media Servers",
-        "Audiobooks",
-        "Music"
+        "Music",
+        "Audiobooks"
       ],
       "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
       "env": [
@@ -10852,8 +10852,8 @@
       "id": 264,
       "categories": [
         "Media Servers",
-        "Audiobooks",
-        "Music"
+        "Music",
+        "Audiobooks"
       ],
       "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
       "env": [
@@ -11213,8 +11213,8 @@
     {
       "id": 274,
       "categories": [
-        "Remote Desktop",
-        "Business"
+        "Business",
+        "Remote Desktop"
       ],
       "description": "[Kasm](https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections. The rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).",
       "env": [
@@ -11521,8 +11521,8 @@
     {
       "id": 281,
       "categories": [
-        "Finance",
-        "Business"
+        "Business",
+        "Finance"
       ],
       "description": "[Kimai](https://kimai.org/) is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to: JSON API, invoicing, data exports, multi-timer and punch-in punch-out mode, tagging, multi-user - multi-timezones - multi-language ([over 30 translations existing](https://hosted.weblate.org/projects/kimai/)!), authentication via SAML/LDAP/Database, two-factor authentication (2FA) with TOTP, customizable role and team permissions, responsive design, user/customer/project specific rates, advanced search & filtering, money and time budgets, advanced reporting, support for [plugins](https://www.kimai.org/store/) and so much more.",
       "env": [
@@ -15121,8 +15121,8 @@
     {
       "id": 363,
       "categories": [
-        "VPN",
-        "Web Browser"
+        "Web Browser",
+        "VPN"
       ],
       "description": "The [Mullvad Browser](https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
       "env": [
@@ -15712,8 +15712,8 @@
     {
       "id": 377,
       "categories": [
-        "Administration",
-        "Business"
+        "Business",
+        "Administration"
       ],
       "description": "[Netbox](https://github.com/netbox-community/netbox) is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.",
       "env": [
@@ -15960,8 +15960,8 @@
     {
       "id": 379,
       "categories": [
-        "Cloud",
-        "Documents"
+        "Documents",
+        "Cloud"
       ],
       "description": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are. Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
       "env": [
@@ -19191,8 +19191,8 @@
     {
       "id": 450,
       "categories": [
-        "Content Management",
-        "Business"
+        "Business",
+        "Content Management"
       ],
       "description": "[Planka](https://github.com/plankanban/planka/) is an elegant open source project tracking tool.",
       "env": [
@@ -19368,12 +19368,12 @@
     {
       "id": 453,
       "categories": [
+        "Mediaserver Music",
+        "Mediaserver Photos",
         "Mediaserver Video",
         "Music",
-        "Media Servers",
-        "Mediaserver Music",
         "Audiobooks",
-        "Mediaserver Photos"
+        "Media Servers"
       ],
       "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
       "env": [
@@ -19948,10 +19948,10 @@
     {
       "id": 468,
       "categories": [
-        "Tools",
         "Email",
         "Other",
-        "Productivity"
+        "Productivity",
+        "Tools"
       ],
       "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
       "image": "shenxn/protonmail-bridge:latest",
@@ -20202,8 +20202,8 @@
     {
       "id": 474,
       "categories": [
-        "File Sharing",
-        "Security"
+        "Security",
+        "File Sharing"
       ],
       "description": "[Pwndrop](https://github.com/kgretzky/pwndrop) is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
       "env": [
@@ -21965,8 +21965,8 @@
     {
       "id": 516,
       "categories": [
-        "Remote Desktop",
-        "Business"
+        "Business",
+        "Remote Desktop"
       ],
       "description": "[Sealskin](https://github.com/selkies-project/sealskin/) is a self-hosted, client-server platform that enables users to run powerful, containerized desktop applications streamed directly to a web browser. It uses a browser extension to intercept user actions—such as clicking a link or downloading a file and redirects them to a secure, isolated application environment running on a remote server.",
       "env": [
@@ -22072,8 +22072,8 @@
     {
       "id": 518,
       "categories": [
-        "Monitoring",
-        "Log Management"
+        "Log Management",
+        "Monitoring"
       ],
       "description": "Collect logs, metrics and docker events",
       "env": [
@@ -26218,9 +26218,9 @@
     {
       "id": 619,
       "categories": [
+        "Other",
         "Maintenance",
-        "Tools",
-        "Other"
+        "Tools"
       ],
       "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
       "image": "containrrr/watchtower:latest",
@@ -26687,8 +26687,8 @@
     {
       "id": 631,
       "categories": [
-        "Games",
-        "Business"
+        "Business",
+        "Games"
       ],
       "description": "[WineGUI](https://gitlab.melroy.org/melroy/winegui) is a user-interface friendly Wine manager that provides a graphical frontend for creating and managing Wine bottles.",
       "env": [
@@ -26738,8 +26738,8 @@
     {
       "id": 632,
       "categories": [
-        "VPN",
-        "Network"
+        "Network",
+        "VPN"
       ],
       "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
       "env": [
