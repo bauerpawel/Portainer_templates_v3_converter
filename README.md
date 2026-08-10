@@ -1,3 +1,7 @@
+> **⚠️ Archived — this repository is no longer maintained.**
+> Its templates and website have moved to **[bauerpawel/DOCKYARD](https://github.com/bauerpawel/DOCKYARD)**, which is actively maintained (612 Portainer v3 app templates, a browsable website, and automatic updates via GitHub Actions).
+> Use the new feed URL in Portainer: `https://cdn.jsdelivr.net/gh/bauerpawel/DOCKYARD@main/templates.json`
+
 # Portainer Templates Converter v2 → v3
 
 🔄 **Python application for converting Portainer templates from v2 to v3 format**
