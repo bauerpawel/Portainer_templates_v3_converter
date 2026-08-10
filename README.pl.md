@@ -1,3 +1,7 @@
+> **⚠️ Repozytorium archiwalne — nie jest już rozwijane.**
+> Szablony i strona przeniosły się do **[bauerpawel/DOCKYARD](https://github.com/bauerpawel/DOCKYARD)**, które jest aktywnie rozwijane (612 szablonów aplikacji Portainer v3, przeglądarkowa strona i automatyczne aktualizacje przez GitHub Actions).
+> Użyj nowego adresu feedu w Portainerze: `https://cdn.jsdelivr.net/gh/bauerpawel/DOCKYARD@main/templates.json`
+
 # Portainer Templates Converter v2 → v3
 
 🔄 **Aplikacja Python do konwersji szablonów Portainer z formatu v2 na v3**
